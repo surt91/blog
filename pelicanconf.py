@@ -5,10 +5,19 @@ from __future__ import unicode_literals
 AUTHOR = 'Hendrik Schawe'
 SITENAME = 'möchtegerngeek'
 SITEURL = ''
-THEME = 'bootlex'
 
 TYPOGRIFY = True
+
+#THEME = 'bootlex'
+
+PLUGIN_PATHS = ['plugins']
 PLUGINS = ["render_math"]
+MATH_JAX = {"source": "'//blog.schawe.me/mathjax/MathJax.js'"}
+
+STATIC_PATHS = ['extra/favicon.ico']
+EXTRA_PATH_METADATA = {
+    'extra/favicon.ico': {'path': 'favicon.ico'}
+}
 
 PATH = 'content'
 
