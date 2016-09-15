@@ -1,0 +1,6 @@
+[submodule "themes/pelican-simplegrey"]
+	path = themes/pelican-simplegrey
+	url = git@github.com:surt91/pelican-simplegrey.git
+[submodule "plugins/render_math"]
+	path = plugins/render_math
+	url = git@github.com:barrysteyn/pelican_plugin-render_math.git

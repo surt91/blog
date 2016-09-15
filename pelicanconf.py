@@ -8,7 +8,7 @@ SITEURL = ''
 
 TYPOGRIFY = True
 
-#THEME = 'bootlex'
+THEME = 'themes/pelican-simplegrey'
 
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ["render_math"]
@@ -33,10 +33,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (('Ich', 'https://hendrik.schawe.me'),)
 
 # Social widget
 SOCIAL = (('github', 'http://github.com/surt91'),)
