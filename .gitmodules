@@ -4,3 +4,10 @@
 [submodule "plugins/render_math"]
 	path = plugins/render_math
 	url = git@github.com:barrysteyn/pelican_plugin-render_math.git
+[submodule "plugins/better_code_samples"]
+	path = plugins/better_code_samples
+	url = git@github.com:classner/better_code_samples.git
+[submodule "themes/pelican-elegant"]
+	path = themes/pelican-elegant
+	url = git@github.com:surt91/pelican-elegant.git
+
