@@ -8,6 +8,12 @@ SITEURL = ''
 
 TYPOGRIFY = True
 
+DEFAULT_LANG = 'de'
+
+DATE_FORMATS = {
+    'de': '%d.%m.%Y',
+}
+
 #THEME = 'themes/pelican-simplegrey'
 THEME = 'themes/pelican-elegant'
 
@@ -25,13 +31,8 @@ STATIC_PATHS = ['extra/favicon.ico',
                 'extra/bootstrap.min.js',
                 'extra/bootstrap-combined.min.css',
                 'theme/images', 
-                'images',
-                '2009',
-                '2010',
-                '2011',
-                '2012',
-                '2013',
-                '2014',
+                'img',
+                'vid',
 ]
 EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},
