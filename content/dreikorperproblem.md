@@ -2,13 +2,13 @@ Title: Dreikörperproblem
 Date: 2012-06-03 16:21
 Author: surt91
 Category: Physik
-Tags: Physik, Video
+Tags: Physik, Video, Chaos
 Slug: dreikorperproblem
 Status: published
 
-Nein, ich habe keine Analytische Lösung dafür gefunden. (Soweit ich mich
-erinnere hat Poincaré bewiesen, dass es nicht lösbar ist.)  
-Aber ich habe eine Numerische Lösung mit dem vorher vorgestellten
+Nein, ich habe keine analytische Lösung dafür gefunden. (Soweit ich mich
+erinnere, hat Poincaré bewiesen, dass es nicht lösbar ist.)  
+Aber ich habe eine numerische Lösung mit dem vorher vorgestellten
 [Runge-Kutta Löser]({filename}/schmetterlingseffekt.md)
 erstellt. Und ich habe einen hübschen Film daraus gemacht.
 
@@ -19,7 +19,7 @@ erstellt. Und ich habe einen hübschen Film daraus gemacht.
 
 Als Standbild ist es nicht ganz so ästhetisch, wie der
 [Lorenz-Attraktor]({filename}/schmetterlingseffekt.md),
-aber animiert ist es (meiner Meinung nach) einfach wunderbar anzusehen.
+aber animiert ist es -- meiner Meinung nach -- wunderbar anzusehen.
 
 Und hier die Startwerte: (bei einer Gravitationskonstanten von 1)  
 Blau: $M=5, x_0=0, y_0=0, v_x0=0, v_y0=0$  

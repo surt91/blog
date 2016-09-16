@@ -2,17 +2,14 @@ Title: Rule 90
 Date: 2013-12-01 15:11
 Author: surt91
 Category: Code
-Tags: C
+Tags: C, Bild, GitHub
 Slug: rule-90
 Status: published
 
-Vor kurzem habe ich angefangen "[Think
-Complexity](http://www.greenteapress.com/complexity/index.html)" zu
+Vor kurzem habe ich angefangen "[Think Complexity](http://www.greenteapress.com/complexity/index.html)" zu
 lesen -- ein leicht verständliches, interessantes Buch, in dem unter
-anderem [Zelluläre
-Automaten](http://de.wikipedia.org/wiki/Zellul%C3%A4rer_Automat)
-angesprochen werden. Und zwar die [von Stephen
-Wolfram](http://www.stephenwolfram.com/publications/academic/?cat=cellular-automata)
+anderem [Zelluläre Automaten](http://de.wikipedia.org/wiki/Zellul%C3%A4rer_Automat)
+angesprochen werden. Und zwar die [von Stephen Wolfram](http://www.stephenwolfram.com/publications/academic/?cat=cellular-automata)
 -- ja der Stephen Wolfram, der
 [Mathematica](http://www.wolfram.com/mathematica/) und
 [Wolfram|Alpha](http://www.wolframalpha.com/) entwickelt hat (vermutlich
@@ -36,17 +33,18 @@ passenderweise Wolfram|Alpha.
 
 Und damit ich auch etwas sage, das tiefsinnig erscheint: Die Dreieckige
 Form entspricht übrigens
-dem [Vorwärtslichtkegel](http://de.wikipedia.org/wiki/Lichtkegel) des
-Startwertes in der ersten Zeile. Die y-Achse entspricht hier schließlich
+dem [Vorwärtslichtkegel](http://de.wikipedia.org/wiki/Lichtkegel) des
+Startwertes in der ersten Zeile. Die $y$-Achse entspricht hier schließlich
 einer Zeit und die "Lichtgeschwindigkeit", mit der Beeinflussungen
-propagieren können ist 1 Pixel pro Iteration.
+propagieren können, ist 1 Pixel pro Iteration.
 
-Meinen [Quellcode gibt es natürlich bei
-Github](https://github.com/surt91/-bungen-in-C/blob/master/numeric/cellular_automata.c).
+Den Quellcode gibt es natürlich bei
+[GitHub](https://github.com/surt91/-bungen-in-C/blob/master/numeric/cellular_automata.c).
 Wenn auch nur in einem "kleine Fingerübungen in C"-Repo.
 
-Für Liebhaber, hier noch eins im original 1982 Retro Look.
+Für Liebhaber, hier noch eins im original 1982 Retro-Look.
 
 ![Wolframs Rule 150](img/wolfram150.png)
 
 Passend zur Jahreszeit, wie ich finde.
+

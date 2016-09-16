@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>TicTacToe</title>
+		<meta name="author" content="Hendrik Schawe">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+		<link rel="icon" href="ttt.png" type="image/png">
+		<link rel="stylesheet" type="text/css" href="TicTacToe.css">
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<!--<script src="http://www.google.com/jsapi"></script>
+		<script>google.load("jquery","1.4.2");</script>-->
+		<script type="text/javascript">
+		
+			$(document).ready(function(){
+				var player=0;
+				var zuege=0;
+				var xFelder = new Array(9);
+				var oFelder = new Array(9);
+				var reload = 0;
+				var xWins = 0;
+				var oWins = 0;
+				var remis = 0;
+				var ki_zug = 0;
+				var ot = 0;
+				var xt = 0;
+
+				function ki_zuege(oPositions,xPositions){
+					for(i=1;i<=3;i++){
+						var re = new RegExp("z"+i+"\\d\\w*"+"z"+i+"\\d");
+						if(re.test(oPositions))
+							for(n=1;n<=3;n++){
+								var re2 = new RegExp("z"+i+n);
+								if(!re2.test(oPositions))
+									if(!re2.test(xPositions)){
+										var ergebnis = "z"+i+n;
+										return ergebnis.slice(1, 3);
+									}
+							}
+					}
+					for(i=1;i<=3;i++){
+						var re = new RegExp("z"+"\\d"+i+"\\w*"+"z"+"\\d"+i);
+						if(re.test(oPositions))
+							for(n=1;n<=3;n++){
+								var re2 = new RegExp("z"+n+i);
+								if(!re2.test(oPositions))
+									if(!re2.test(xPositions)){
+										var ergebnis = "z"+n+i;
+										return ergebnis.slice(1, 3);
+									}
+							}
+					}
+					if (ki_slash(oPositions)==2){
+						if (!(oPositions.match(/13/)))
+							if(!(xPositions.match(/z13/)))
+								return 13;
+						if (!(oPositions.match(/22/)))
+							if(!(xPositions.match(/z22/)))
+								return 22;
+						if (!(oPositions.match(/31/)))
+							if(!(xPositions.match(/z31/)))
+								return 31;
+					}
+					if (ki_backslash(oPositions)==2){
+						if (!(oPositions.match(/11/)))
+							if(!(xPositions.match(/z11/)))
+								return 11;
+						if (!(oPositions.match(/22/)))
+							if(!(xPositions.match(/z22/)))
+								return 22;
+						if (!(oPositions.match(/33/)))
+							if(!(xPositions.match(/z33/)))
+								return 33;
+					}
+					return 0;
+				}
+				
+				function ki(oPositions,xPositions){
+					if(xPositions)
+						if(ki_zuege(xPositions,oPositions))
+							return ki_zuege(xPositions,oPositions);
+						
+					if(xPositions)
+						if(ki_zuege(oPositions,xPositions))
+							return ki_zuege(oPositions,xPositions);
+					
+					do {
+						var xP = GetRandom(1,3);
+						var oP = GetRandom(1,3);
+						var zahl = "z" + xP + oP;
+					} while(!(ki_random(zahl,oPositions,xPositions)))
+					return zahl.slice(1, 3);
+				}
+				
+				function ki_random(zahl,oPositions,xPositions){
+					var pattern = zahl;
+					var re = new RegExp(pattern);
+					var ergebnis = re.test(oPositions);
+					if(!ergebnis){
+						var ergebnis2 = re.test(xPositions);
+						if(!ergebnis2)
+							return 1;
+					}
+					return 0;
+				}
+				
+				function ki_slash(oPositions){
+					var n=0;
+					if (oPositions.match(/13/))
+						n++;
+					if (oPositions.match(/22/))
+						n++;
+					if (oPositions.match(/31/))
+						n++;
+					return n;
+				}
+				
+				function ki_backslash(oPositions){
+					var n=0;
+					if (oPositions.match(/11/))
+						n++;
+					if (oPositions.match(/22/))
+						n++;
+					if (oPositions.match(/33/))
+						n++;
+					return n;
+				}
+				
+				function GetRandom( min, max ) {
+					if( min > max ) {
+						return( -1 );
+					}
+					if( min == max ) {
+						return( min );
+					} 
+					return( min + parseInt( Math.random() * ( max-min+1 ) ) );
+				}
+								
+				function winCheck(positions) {
+					if (!positions)
+						return 0;
+					else if (positions.match(/z1\d(\w)*z1\d(\w)*z1\d/))
+						return 1;
+					else if (positions.match(/z2\d(\w)*z2\d(\w)*z2\d/))
+						return 1;
+					else if (positions.match(/z3\d(\w)*z3\d(\w)*z3\d/))
+						return 1;
+					else if (positions.match(/z\d1(\w)*z\d1(\w)*z\d1/))
+						return 1;
+					else if (positions.match(/z\d2(\w)*z\d2(\w)*z\d2/))
+						return 1;
+					else if (positions.match(/z\d3(\w)*z\d3(\w)*z\d3/))
+						return 1;
+					else if ((positions.match(/13/)) && (positions.match(/22/)) && (positions.match(/31/)))
+						return 1;
+					else if ((positions.match(/11/)) && (positions.match(/22/)) && (positions.match(/33/)))
+						return 1;
+					else
+						return 0;
+				}
+			
+				$("#xWins").text("x: "+xWins);
+				$("#oWins").text("o: "+oWins);
+				$("#remis").text("-: "+remis);
+				game();
+				
+				function game(){
+					if(player==1){
+						$("#status").text("x ist am Zug");
+						$("#debug").text("klicke hier zum Start");
+					}
+					else if(player==0){
+						$("#status").text("o ist am Zug");
+					}
+
+					$('.feld').bind('click', function() {
+						$("#debug").text(" ");
+						if(player==0){
+							$(this).text("o");
+							$(this).unbind('click');
+							zuege++;
+							oFelder.push($(this).attr("id").slice(1, 3));
+							player=1;
+							ot = "z"+oFelder.join("z")+"z";
+							$("#status").text("x ist am Zug");
+						}
+						if(zuege<9 && !winCheck(ot)){
+							if(player==1){
+								ki_zug = ki(ot,xt);
+								xFelder.push(ki_zug);
+								$("#z"+ki_zug).text("x");
+								player=0;
+								zuege++;
+								$("#z"+ki_zug).unbind('click');
+								xt = "z"+xFelder.join("z")+"z";
+								$("#status").text("o ist am Zug");
+							}
+						}
+
+						if(winCheck(ot)){
+							$("#status").text("o Gewinnt");
+							player = 1;
+							oWins++;
+							reload = 1;
+							$('.feld').unbind('click');
+						}
+						else if(winCheck(xt)){
+							$("#status").text("x Gewinnt");
+							player = 0;
+							xWins++;
+							reload = 1;
+							$('.feld').unbind('click');
+						}
+						else if(!(zuege<9)){
+							$("#status").text("Unentschieden");
+							remis++;
+							reload = 1;
+							$('.feld').unbind('click');
+						}
+						else if(player==1){
+							$("#status").text("x ist am Zug");
+						}
+						else if(player==0){
+							$("#status").text("o ist am Zug");
+						}
+						
+						$("#xWins").text("x: "+xWins);
+						$("#oWins").text("o: "+oWins);
+						$("#remis").text("-: "+remis);
+					});
+				}
+				
+				$('.result').bind('click', function() {
+					if (reload == 1){
+						//location.reload();
+						zuege = 0;
+						$(".feld").text(" ");
+						for (var i = 0; i < oFelder.length; ++i)
+							oFelder[i] = 0;
+						for (var i = 0; i < xFelder.length; ++i)
+							xFelder[i] = 0;
+						ot = 0;
+						xt = 0;
+						reload = 0;
+						game();
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="ttt">
+			<div id="z11" class="feld"> </div> 	<div id="z21" class="feld"> </div> 	<div id="z31" class="feld"> </div>
+			<div id="z12" class="feld"> </div> 	<div id="z22" class="feld"> </div> 	<div id="z32" class="feld"> </div>
+			<div id="z13" class="feld"> </div> 	<div id="z23" class="feld"> </div> 	<div id="z33" class="feld"> </div>
+		</div>
+		<div class="result" id="status" title="klick zum reload, sobald das Spiel zuende ist"></div>
+		<div class="wins" id="xWins"></div>
+		<div class="wins" id="oWins"></div>
+		<div class="wins" id="remis"></div>
+		<div class="debug" id="debug"></div>
+	</body>
+</html>

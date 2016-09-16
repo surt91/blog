@@ -26,6 +26,7 @@ PLUGINS = ["render_math",
 ]
 MATH_JAX = {"source": "'//blog.schawe.me/mathjax/MathJax.js'"}
 
+READERS = {"html": None}
 STATIC_PATHS = ['extra/favicon.ico', 
                 'extra/jquery.min.js',
                 'extra/bootstrap.min.js',
@@ -33,6 +34,7 @@ STATIC_PATHS = ['extra/favicon.ico',
                 'theme/images', 
                 'img',
                 'vid',
+                'js',
 ]
 EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},

@@ -2,7 +2,7 @@ Title: Bootstrapping
 Date: 2013-09-26 19:13
 Author: surt91
 Category: Code
-Tags: Python, Statistik
+Tags: Python, Statistik, Code
 Slug: bootstrapping
 Status: published
 

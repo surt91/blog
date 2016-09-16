@@ -1,7 +1,7 @@
 Title: Blogumzug
 Date: 2016-09-14 21:12
 Category: Tech
-Tags: Python, Meta
+Tags: Python, Meta, Code, Formel
 Status: published
 
 Soeben habe ich mein Blog von Blogger auf einen kleinen Raspberry Pi 2 in meiner
@@ -10,7 +10,8 @@ ein statischer Blog Generator in Python, der mir auf den ersten Blick sehr gefä
 
 Nicht nur, dass ich alle Einträge jetzt in [Markdown](https://de.wikipedia.org/wiki/Markdown)
 schreiben kann, was es ermöglicht das ganze Blog per [git](https://de.wikipedia.org/wiki/Git)
-zu verwalten, sondern es steht mit [Pygments](http://pygments.org/) ein sehr 
+zu verwalten (dementsprechend gibt es den Quellcode auf [GitHub](https://github.com/surt91/blog)),
+sondern es steht mit [Pygments](http://pygments.org/) ein sehr 
 hübsches Syntax Highlighting zur Verfügung.
 
     #!C

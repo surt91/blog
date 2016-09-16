@@ -1,34 +1,45 @@
-Title: seltsamer Attraktor
+Title: Seltsamer Attraktor
 Date: 2012-10-11 00:24
 Author: surt91
 Category: Code
-Tags: C, Video, Physik
+Tags: C, Video, Physik, Chaos
 Slug: seltsamer-attraktor
 Status: published
 
-Ich hab ja schon mal kurz eine [Trajektorie zum
-Schmetterlingseffekt]({filename}/schmetterlingseffekt.md)
-gezeigt.
-
-Ich habe da mal was gebastelt: Die Projektion in die y-z-Ebene, wie 13
-Teilchen den Attraktor durchlaufen.
+Zuvor habe ich bereits den [Schmetterlingseffekt]({filename}/schmetterlingseffekt.md)
+erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes 
+Video von der Projektion in die y-z-Ebene von 13
+Teilchen, die den Attraktor durchlaufen.
 
 <video controls="controls" height="624" width="624">
-<source src="https://dl.dropbox.com/u/963344/blog/lorenz13yz.m4v" />
-<source src="https://dl.dropbox.com/u/963344/blog/lorenz13yz.mp4" type="video/mp4" />
-<source src="https://dl.dropbox.com/u/963344/blog/lorenz13yz.webm" type="video/webm" />
+<source src="vid/lorenz13yz.m4v" />
+<source src="vid/lorenz13yz.mp4" type="video/mp4" />
+<source src="vid/lorenz13yz.webm" type="video/webm" />
 </video>
 
-(mit C gerechnet mit Cairo gezeichnet und mit ffmpeg bewegt)
+Alle Teilchen starten auf fast dem selben Punkt, aber nehmen sehr
+verschiedene Wege. Nach kurzer Zeit kann man den einzelnen Teilchen nicht mehr
+ansehen, dass sie fast die gleichen Anfangsbedingungen hatten.
 
-Sie starten alle fast auf dem selben Punkt, aber nehmen sehr
-verschiedene Wege. Dennoch sieht es irgendwie  geordnet aus.
-[Seltsam.](http://de.wikipedia.org/wiki/Chaosforschung#Der_seltsame_Attraktor)  
-Hier sieht es so aus, als ob sich die Trajektorien schneiden, was
-natürlich nicht der Fall ist. Aber abgesehen davon, dass eine 2D
-Projektion einfacher durchzuführen ist, haben diese Quadrate in meinen
-Augen etwas Ästhetisches, was in drei Dimensionen verloren ginge.  
-Es ist minimalistisch und elegant.
+Lorenz war Meteorologe und sein Differentialgleichungssystem
+\begin{align}
+    \dot{X} &= a(Y - X) \\
+    \dot{Y} &= X(b - Z) - Y \\
+    \dot{Z} &= XY - cZ, \\
+\end{align}
+das dieses chaotische Verhalten zeigt, sollte die Atmosphäre modellieren.
 
-Sobald ich das in 3D in Cairo umgesetzt habe, ändere ich meine Meinung
-vielleicht ;)
+Jetzt kann man verstehen, was es mit dem Schmetterling aus *Jurassic Park* 
+auf sich hat.
+
+> Er bewegt in Peking die Flügel, und
+> im Central Park gibt's Regen statt Sonne. 
+> -- <cite>Dr. Ian Malcolm</cite> (1993)
+
+Sein Flügelschlag ändert den Zustand eines chaotischen
+Systems, dem Wetter, ein wenig und nach einiger Zeit hat das System einen
+grundlegend anderen Weg eingeschlagen, als ohne diesen Flügelschlag.
+
+Dennoch sieht das Video irgendwie geordnet aus. Fast schon vorhersagbar.
+[Seltsam.](http://de.wikipedia.org/wiki/Chaosforschung#Der_seltsame_Attraktor)
+

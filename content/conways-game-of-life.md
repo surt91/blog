@@ -2,16 +2,16 @@ Title: Conway's Game of Life
 Date: 2011-09-27 13:57
 Author: surt91
 Category: Code
-Tags: Code, C
+Tags: GitHub, C, Video
 Slug: conways-game-of-life
 Status: published
 
-Damit man mental nicht ganz einrostet, habe ich gestern Abend [Conway's
-Game of Life](http://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens) in
-C geschrieben ([GitHub](https://github.com/surt91/conway)). Mit
-[cairo](http://cairographics.org/) (deren Logo eine stabile)
-Konfiguration von Conway's Game of Life ist) werden die einzelnen Runden dann als .png
-gespeichert. Und wenn ihr selber ein paar Startkonfigurartionen
+Damit man mental nicht ganz einrostet, habe ich gestern Abend
+[Conway's Game of Life](http://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens)
+in C geschrieben ([GitHub](https://github.com/surt91/conway)). Mit
+[cairo](http://cairographics.org/) (deren Logo eine stabile
+Konfiguration von Conway's Game of Life ist) werden die einzelnen Runden dann als
+`.png` gespeichert. Und wenn ihr selber ein paar Startkonfigurartionen
 schreiben wollt, sollte der Quellcode nicht allzu undurchschaubar sein.
 
 Hier ein paar Ergebnisse mit imagemagick animiert:

@@ -2,7 +2,7 @@ Title: Lissajous Figuren in Gnuplot
 Date: 2013-10-09 13:17
 Author: surt91
 Category: Code
-Tags: Gnuplot
+Tags: Gnuplot, Code, Video
 Slug: lissajous-figuren-in-gnuplot
 Status: published
 
