@@ -14,8 +14,8 @@ Da ich ein Snake-Fan bin, habe ich [noch eine]({filename}/snake.md)
 Version geschrieben.
 
 <video controls loop height="384" width="432">
-<source src="vid/pySnake.webm" type="video/webm"></source>
-<source src="vid/pySnake.mp4" type="video/mp4"></source>
+<source src="{filename}/vid/pySnake.webm" type="video/webm"></source>
+<source src="{filename}/vid/pySnake.mp4" type="video/mp4"></source>
 </video>
 
 Ich würde euch zwar gerne erzählen, dass ich die Schlange da so

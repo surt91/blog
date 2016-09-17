@@ -12,9 +12,9 @@ Video von der Projektion in die y-z-Ebene von 13
 Teilchen, die den Attraktor durchlaufen.
 
 <video controls="controls" height="624" width="624">
-<source src="vid/lorenz13yz.m4v" />
-<source src="vid/lorenz13yz.mp4" type="video/mp4" />
-<source src="vid/lorenz13yz.webm" type="video/webm" />
+<source src="{filename}/vid/lorenz13yz.m4v" />
+<source src="{filename}/vid/lorenz13yz.mp4" type="video/mp4" />
+<source src="{filename}/vid/lorenz13yz.webm" type="video/webm" />
 </video>
 
 Alle Teilchen starten auf fast dem selben Punkt, aber nehmen sehr
@@ -33,7 +33,8 @@ Jetzt kann man verstehen, was es mit dem Schmetterling aus *Jurassic Park*
 auf sich hat.
 
 > Er bewegt in Peking die Flügel, und
-> im Central Park gibt's Regen statt Sonne. 
+> im Central Park gibt's Regen statt Sonne.
+>
 > -- <cite>Dr. Ian Malcolm</cite> (1993)
 
 Sein Flügelschlag ändert den Zustand eines chaotischen

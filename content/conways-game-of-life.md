@@ -17,10 +17,10 @@ schreiben wollt, sollte der Quellcode nicht allzu undurchschaubar sein.
 Hier ein paar Ergebnisse mit imagemagick animiert:
 `convert -delay 20 ./*png ./out2.gif`
 
-![HWSS](img/conway1.gif){width="600" height="60"}
+![HWSS]({filename}/img/conway1.gif){width="600" height="60"}
 
-![Pulsator](img/conway2.gif){width="300" height="300"}
+![Pulsator]({filename}/img/conway2.gif){width="300" height="300"}
 
-![Oktagon](img/conway3.gif){width="285" height="285"}
+![Oktagon]({filename}/img/conway3.gif){width="285" height="285"}
 
 

@@ -35,7 +35,7 @@ Dabei bedeutet $\left< i,j \right>$, dass man über alle Nachbarn von $i$ summie
 Von diesem Modell kann man dann per [Simulated Annealing]({filename}/simulatedsort.md) 
 den Grundzustand suchen oder man macht es sich einfach equilibriert bei $T=0$.
 
-![Ising-Modell](img/standaloneIsing.svg){width="100%"}
+![Ising-Modell]({filename}/img/standaloneIsing.svg){width="100%"}
 
 Das Schema dazu wurde bereits in
 [diesem Post](http://moechtegerngeek.blogspot.com/2013/12/oberflachenkachelung-mit-tikz.html)
@@ -47,7 +47,7 @@ Genug der Theorie. Es wird Zeit für pixelige Bilder. Leider hatte ich
 kein verrauschtes Bild, also habe ich ein beliebiges Bild gemalt und 10%
 aller Pixel invertiert.
 
-![Vorher-Nachher Vergleich](img/vorhernachher.png)
+![Vorher-Nachher Vergleich]({filename}/img/vorhernachher.png)
 
 Links das verrauschte Bild und rechts das entrauschte. Ja, nicht
 perfekt. Und in dem zitierten Buch wird auf der gleichen Seite noch eine

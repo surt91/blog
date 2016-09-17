@@ -45,6 +45,6 @@ Stark angelehnt an diesen
 [Blogeintrag](http://gnuplot-surprising.blogspot.de/2011/09/creating-gif-animation-using-gnuplot.html).
 Das Ergenis sieht dann so aus.
 
-![Lissajous Figur](img/lissajous.gif)
+![Lissajous Figur]({filename}/img/lissajous.gif)
 
 

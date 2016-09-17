@@ -6,6 +6,6 @@ Tags: Bild
 Slug: der-grune-punkt
 Status: published
 
-![Der Grüne Punkt](img/grunerPunkt.jpg)
+![Der Grüne Punkt]({filename}/img/grunerPunkt.jpg)
 
 Das Yin und Yang der Moderne.

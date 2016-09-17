@@ -19,7 +19,7 @@ erstellen, wie der
 [Conways-Game-of-Life-Post]({filename}/conways-game-of-life.md)
 beweist. Daher, lasse ich erstmal ein Bild sprechen.  
 
-![Wolframs Rule 90](img/wolfram090.png)
+![Wolframs Rule 90]({filename}/img/wolfram090.png)
 
 Die Idee ist, dass man mit einem eindimensionalen Zustand startet, und
 einen neuen Zustand daraus mit lokalen Regeln, die je einen rechten und
@@ -44,7 +44,7 @@ Wenn auch nur in einem "kleine Fingerübungen in C"-Repo.
 
 Für Liebhaber, hier noch eins im original 1982 Retro-Look.
 
-![Wolframs Rule 150](img/wolfram150.png)
+![Wolframs Rule 150]({filename}/img/wolfram150.png)
 
 Passend zur Jahreszeit, wie ich finde.
 

@@ -8,5 +8,5 @@ Status: published
 
 Man sollte alles nach Wellenlänge zu sortieren!
 
-![Stifte sortiert nach Wellenlänge](img/regenbogen.jpg)
+![Stifte sortiert nach Wellenlänge]({filename}/img/regenbogen.jpg)
 

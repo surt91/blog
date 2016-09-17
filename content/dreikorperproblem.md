@@ -13,8 +13,8 @@ Aber ich habe eine numerische Lösung mit dem vorher vorgestellten
 erstellt. Und ich habe einen hübschen Film daraus gemacht.
 
 <video controls="controls" height="600" width="600">
-<source src="vid/dreiKorper.mp4" type="video/mp4"></source>
-<source src="vid/dreiKorper.webm" type="video/webm"></source>
+<source src="{filename}/vid/dreiKorper.mp4" type="video/mp4"></source>
+<source src="{filename}/vid/dreiKorper.webm" type="video/webm"></source>
 </video>
 
 Als Standbild ist es nicht ganz so ästhetisch, wie der

@@ -7,8 +7,8 @@ Slug: dglshow
 Status: published
 
 <video controls width="100%">
-<source src="vid/doppelpendel.mp4" type="video/mp4"></source>
-![Doppelpendel](img/doublePendulum.png)
+<source src="{filename}/vid/doppelpendel.mp4" type="video/mp4"></source>
+![Doppelpendel]({filename}/img/doublePendulum.png)
 </video>
 
 Das ist ein Doppelpendel. Ein Doppelpendel ist neben dem Dreikörperproblem und
@@ -49,7 +49,7 @@ entschieden.
 Da man das 3-Körperproblem trivial auf ein $N$-Körperproblem erweitern kann,
 habe ich hier ein "Sonnensystem" bzw. Bohrsches "Atom"-modell simuliert.
 
-![Sonnensystem](img/planets.png)
+![Sonnensystem]({filename}/img/planets.png)
 
 Auch wenn der Code nicht sehr aufgeräumt ist und Startwerte im Quellcode
 angepasst werden müssen, sind die Quellen auf GitHub:

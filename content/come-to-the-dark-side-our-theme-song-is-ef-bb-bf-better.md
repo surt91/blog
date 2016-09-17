@@ -10,8 +10,8 @@ Der Imperiale Marsch, gespielt auf einem Telefonlautsprecher von einem
 AVR ATMEGA8.
 
 <video controls="controls" height="240" type="video/webm" width="320">
-<source src="vid/IM2.webm"></source>
-<source src="vid/IM2.ogv"></source>
+<source src="{filename}/vid/IM2.webm"></source>
+<source src="{filename}/vid/IM2.ogv"></source>
 </video>
 
 Der Code für den Microcontroller ist als [Gist auf GitHub](https://gist.github.com/surt91/91e65a50b5a0d3a59f5eacb967bea039).

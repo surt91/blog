@@ -10,7 +10,7 @@ Und wenn ich Snake sage, meine ich das Beste, was Nokia Handys zu bieten
 haben. Jedenfalls vor 10 Jahren -- vermutlich immer noch. Aber weil ich
 kein Nokia Handy habe, habe ich mir Snake schnell selbst geschrieben -- in C.
 
-![Snake](img/snake_scr.png)
+![Snake]({filename}/img/snake_scr.png)
 
 Jetzt gibt es eine neue Version, die auf
 [ncurses](http://de.wikipedia.org/wiki/Ncurses) aufsetzt. Neben der

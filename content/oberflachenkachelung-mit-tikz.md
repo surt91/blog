@@ -58,7 +58,7 @@ Als Bonus kann man noch mit den Parametern spielen, um einen möglichst
         \end{tikzpicture}
     \end{document}
 
-![Isingmodell mit Kopplung](img/standaloneIsing.svg){width="100%"}
+![Isingmodell mit Kopplung]({filename}/img/standaloneIsing.svg){width="100%"}
 
 Und damit wäre wiedereinmal die Vorliebe dieses Blogs für [schwarz-weiße
 Bilder]({filename}/conways-game-of-life.md),
