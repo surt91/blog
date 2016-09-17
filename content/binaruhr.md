@@ -2,7 +2,7 @@ Title: Binär Uhr
 Date: 2009-11-13 18:46
 Author: surt91
 Category: Tech
-Tags: Tech, Binäruhr
+Tags: Binäruhr, JavaScript
 Slug: binar-uhr
 Status: published
 
