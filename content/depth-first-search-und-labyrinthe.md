@@ -6,20 +6,23 @@ Tags: Python, Video, NetworkX, GitHub
 Slug: depth-first-search-und-labyrinthe
 Status: published
 
-Wenn man alle Knoten eines Graphen besuchen möchte, sind eine Breitensuche oder 
-eine Tiefensuche die offensichtlichen Algorithmen dafür.
+Ein Algorithmus, von dem jeder schoneinmal gehört haben sollte, ist die 
+Tiefensuche (Depth First Search). Wenn man Zusammenhangskomponenten in einem
+Graphen finden will oder nach einem bestimmten Knoten in einem Graphen sucht,
+ist die Tiefensuche meist der einfachste und oft ein geeigneter Algorithmus
+mit einer Zeitkomplexität $\mathcal{O}(N+M)$, die linear in der Anzahl der
+Knoten und der Kanten ist. Da man gefühlt alle Graphalgorithmen am besten
+rekursiv beschreiben kann, folgt hier eine (nichtrigorose) Beschreibung.
 
-1.  Man starte an einem Knoten.
-2.  Man schiebe die noch nicht besuchten Nachbarn auf einen Stack (für
-    die Tiefensuche) oder eine Queue (für die Breitensuche).
-3.  Man entnehme einen Knoten vom Stack/Queue und fahre bei 2. fort, bis
-    der Stack/Queue leer ist.
+1.  Man startet die Tiefensuche an einem beliebigen Knoten.
+2.  Bei jedem noch nicht besuchten Nachbarn startet man wieder eine Tiefensuche.
 
-Der beste Anwendungsfall für die Tiefensuche, wenn man ein bisschen Zufall in 
-den Algorithmus mischt, ein Labyrinth zu bauen und davon ein Video zu erstellen!
+Aber was macht man im Alltag mit einer Tiefensuche?
+Meine Antwort darauf ist: Labyrinthe bauen.
 
-<video controls width="100%>
-<source src="vid/DFSLabyrinth.mp4" type="video/mp4"></source>
+<video controls width="100%" poster="{filename}/img/maze.png">
+<source src="{filename}/vid/maze60.mp4" type="video/mp4"></source>
+Your browser does not support the video tag.
 </video>
 
 Bei dieser Gelegenheit muss `NetworkX` erwähnt werden. Ein Python
