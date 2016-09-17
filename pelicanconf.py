@@ -14,6 +14,10 @@ DATE_FORMATS = {
     'de': '%d.%m.%Y',
 }
 
+DEFAULT_METADATA = {
+    'status': 'draft',
+}
+
 #THEME = 'themes/pelican-simplegrey'
 THEME = 'themes/pelican-elegant'
 
