@@ -88,9 +88,11 @@ LINKS = (('Ich', 'https://hendrik.schawe.me'),
          ('Source','https://github.com/surt91/blog'),)
 
 # Social widget
-SOCIAL = (('github', 'https://github.com/surt91'),
-          ('twitter', 'https://twitter.com/surt91'),
-          ('youtube', 'https://www.youtube.com/surt91'))
+SOCIAL = (('GitHub', 'https://github.com/surt91'),
+          ('Email', 'mailto:hendrik.schawe+blog@gmail.com'),
+          ('Twitter', 'https://twitter.com/surt91'),
+          ('YouTube', 'https://www.youtube.com/surt91'),
+         )
 
 DEFAULT_PAGINATION = 10
 
