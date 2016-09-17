@@ -20,9 +20,9 @@ Die einfachsten dieser Heuristiken habe ich in einem kleinen Programm TSPview
 implementiert, mitsamt Visualisierung. Der Quellcode ist auf 
 [GitHub](https://github.com/surt91/TSPview) zu finden.
 
-<!--<video controls loop height="438" width="800">-->
 <video controls loop width="100%">
 <source src="{filename}/vid/tspview2.mp4" type="video/mp4"></source>
+Your browser does not support the video tag.
 </video>
 
 ## Algorithmen

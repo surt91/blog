@@ -16,6 +16,7 @@ Version geschrieben.
 <video controls loop height="384" width="432">
 <source src="{filename}/vid/pySnake.webm" type="video/webm"></source>
 <source src="{filename}/vid/pySnake.mp4" type="video/mp4"></source>
+Your browser does not support the video tag.
 </video>
 
 Ich würde euch zwar gerne erzählen, dass ich die Schlange da so

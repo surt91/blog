@@ -15,6 +15,7 @@ Teilchen, die den Attraktor durchlaufen.
 <source src="{filename}/vid/lorenz13yz.m4v" />
 <source src="{filename}/vid/lorenz13yz.mp4" type="video/mp4" />
 <source src="{filename}/vid/lorenz13yz.webm" type="video/webm" />
+Your browser does not support the video tag.
 </video>
 
 Alle Teilchen starten auf fast dem selben Punkt, aber nehmen sehr

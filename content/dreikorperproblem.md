@@ -15,6 +15,7 @@ erstellt. Und ich habe einen hübschen Film daraus gemacht.
 <video controls="controls" height="600" width="600">
 <source src="{filename}/vid/dreiKorper.mp4" type="video/mp4"></source>
 <source src="{filename}/vid/dreiKorper.webm" type="video/webm"></source>
+Your browser does not support the video tag.
 </video>
 
 Als Standbild ist es nicht ganz so ästhetisch, wie der
