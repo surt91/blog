@@ -1,7 +1,7 @@
 Title: Depth First Search und Labyrinthe
 Date: 2013-12-15 12:30
 Author: surt91
-Category: code
+Category: Code
 Tags: Python, Video, NetworkX, GitHub
 Slug: depth-first-search-und-labyrinthe
 Status: published

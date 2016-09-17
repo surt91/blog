@@ -1,7 +1,7 @@
 Title: Dreikörperproblem
 Date: 2012-06-03 16:21
 Author: surt91
-Category: Physik
+Category: Code
 Tags: Physik, Video, Chaos
 Slug: dreikorperproblem
 Status: published
