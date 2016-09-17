@@ -18,8 +18,8 @@ eine Tiefensuche die offensichtlichen Algorithmen dafür.
 Der beste Anwendungsfall für die Tiefensuche, wenn man ein bisschen Zufall in 
 den Algorithmus mischt, ein Labyrinth zu bauen und davon ein Video zu erstellen!
 
-<video controls="controls" height="450" type="video/webm" width="800">
-<source src="vid/DFSLabyrinth.mp4"></source>
+<video controls width="100%>
+<source src="vid/DFSLabyrinth.mp4" type="video/mp4"></source>
 </video>
 
 Bei dieser Gelegenheit muss `NetworkX` erwähnt werden. Ein Python

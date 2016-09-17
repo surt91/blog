@@ -6,7 +6,7 @@ Tags: C++, Physik, Video, Bild, GitHub, Formel, Chaos
 Slug: dglshow
 Status: published
 
-<video controls="controls" height="576" width="592">
+<video controls width="100%">
 <source src="vid/doppelpendel.mp4" type="video/mp4"></source>
 ![Doppelpendel](img/doublePendulum.png)
 </video>
