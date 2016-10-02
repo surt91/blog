@@ -21,7 +21,7 @@ Aber was macht man im Alltag mit einer Tiefensuche?
 Meine Antwort darauf ist: Labyrinthe bauen.
 
 <video controls width="100%" poster="{filename}/img/maze.png">
-<source src="{filename}/vid/maze60.mp4" type="video/mp4"></source>
+<source src="{filename}/vid/maze.mp4" type="video/mp4"></source>
 Your browser does not support the video tag.
 </video>
 
