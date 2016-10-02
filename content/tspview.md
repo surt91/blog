@@ -6,7 +6,7 @@ Tags: C++, Python, GitHub, Code, Video, Bild
 Slug: tspview
 Status: published
 
-Das Problem des Handlungsreisenden ist es die kürzeste Rundtour zu planen,
+Das Problem des Handlungsreisenden ist es, die kürzeste Rundtour zu planen,
 sodass man alle Städte besucht. Es ist eines der berühmtesten 
 Optimierungsprobleme und gehört zur Klasse [NP-hard](https://de.wikipedia.org/wiki/NP-Schwere).
 
@@ -30,7 +30,7 @@ Hier folgt eine kurze Beschreibung der verwendeten Algorithmen und jeweils ein
 Bild, welche Lösung die Methode auf einer berühmten Instanz des TSP findet.
 
 ![42 Hauptstädte in Amerika]({filename}/img/tsp.png){width="100%" height="auto"}
-Das sind 42 Hauptstädte der Staaten in Amerika und Washington, DC (Hawaii und
+Das sind 42 Hauptstädte der Vereinigten Staaten von Amerika und Washington, DC (Hawaii und
 Alaska, sowie einige Staaten an der Ostküste, die das Problem nicht schwieriger
 machen, fehlen). Dieses Problem war das erste größere, das 1956 beweisbar 
 optimal gelöst wurde.
@@ -38,7 +38,7 @@ optimal gelöst wurde.
 ### Nearest Neighbor
 ![Nearest Neighbor]({filename}/img/tsp_nearestNeighbor.png){width="100%" height="auto"}
 Die Nearest Neighbor Heuristik ($\mathcal{O}(N^2)$) startet bei einer zufälligen Stadt und wählt
-als nächste immer die Stadt, die am nächsten an der aktuellen Stadt ist und
+als nächste Stadt immer die Stadt, die am nächsten an der aktuellen Stadt ist und
 noch nicht besucht wurde.
 
 ### Greedy
@@ -51,16 +51,16 @@ hinzu, wenn sie in der Tour noch erlaubt ist.
 ![Farthest Insertion]({filename}/img/tsp_farIn.png){width="100%" height="auto"}
 Farthest Insertion ($\mathcal{O}(N^3)$) startet bei einer zufälligen Stadt und fügt dann die Stadt, 
 die am weitesten von der aktuellen Tour entfernt ist an der Stelle in die Tour,
-die dafür sorgt, dass die tour möglichst kurz bleibt.
+die dafür sorgt, dass die Tour möglichst kurz bleibt.
 
 ### Two-Opt
 ![Two-Opt]({filename}/img/tsp_twoOpt.png){width="100%" height="auto"}
 Two-Opt beginnt mit einer beliebigen Tour, die bspw. durch eine der obigen
 Heuristken erstellt wurde und verbessert sie, indem sie zwei Verbindungen nimmt
-und die Endpunkte über Kreuz austauscht wenn die Tour dadurch verbunden bleibt 
+und die Endpunkte über Kreuz austauscht, wenn die Tour dadurch verbunden bleibt 
 und kürzer wird.
 
-### Linear Programming mit Subtour Elimination Cuts
+### Lineare Programmierung mit "Subtour Elimination Cuts"
 ![Linear Programming]({filename}/img/tsp_LP.png){width="100%" height="auto"}
 Lineare Programmierung (LP) zu erklären, würde diesen Artikel sprengen. Aber diese Methode liefert
 untere Schranken für die Tourlänge und kann somit benutzt werden, um die
@@ -74,9 +74,9 @@ von mir verweisen.
 ### Concorde
 ![Optimale Tour]({filename}/img/tsp_opt.png){width="100%" height="auto"}
 [Concorde](http://www.math.uwaterloo.ca/tsp/concorde.html)
-ist der "State of the Art" solver für das Problem des Handlungsreisenden
+ist der "State of the Art" Solver für das Problem des Handlungsreisenden
 und löst problemlos Instanzen mit mehr als 1000 Städten.
-Intern benutzt es zwar eine Menge Heuristken, allerdings auch lineare
+Intern benutzt es zwar eine Menge Heuristiken, allerdings auch lineare
 Programmierung, um nachzuweisen, dass die gefundene Lösung optimal ist.
 
 ## Technische Details
@@ -93,7 +93,7 @@ mit [boost::python](http://www.boost.org/doc/libs/1_61_0/libs/python/doc/html/in
 eine Möglichkeit C++ Klassen in Python als Python-Klassen zu benutzen.
 
 Um beispielsweise die C++ Klasse `MyClass`, deren Konstruktor einen Integer und
-eine Python-Liste entgegen nehmen soll, in Python benutzen, und `myMethod` 
+eine Python-Liste entgegen nehmen soll, in Python benutzen und `myMethod` 
 aufrufen zu können, reicht folgender Code:
 
     #!C++
