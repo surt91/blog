@@ -38,7 +38,7 @@ den Grundzustand suchen oder man macht es sich einfach equilibriert bei $T=0$.
 ![Ising-Modell]({filename}/img/standaloneIsing.svg){width="100%"}
 
 Das Schema dazu wurde bereits in
-[diesem Post](http://moechtegerngeek.blogspot.com/2013/12/oberflachenkachelung-mit-tikz.html)
+[diesem Post]({filename}/oberflachenkachelung-mit-tikz.md)
 gezeigt. Graue Knoten entsprechen den Pixeln des verrauschten Bilds $y_i$ und weiße
 Knoten den Ising-Spins $x_i$, die am Ende als Pixel des entrauschten Bilds
 interpretiert werden.
