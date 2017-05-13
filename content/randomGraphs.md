@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Physik, Bild, Python, Code
 Slug: randomGraphs
-FeaturedImage: img/agraphaday.png
+LargeFeaturedImage: img/agraphaday.png
 Status: published
 
 Vor einiger Zeit habe ich @randomGraphs geschrieben, ein Twitterbot,
