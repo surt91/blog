@@ -14,7 +14,9 @@ der einen Zufallsgraphen pro Tag tweetet.
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Die meisten Graphtypen, die er darstellen kann stammen aus der NetworkX
-Bibliothek oder sind reale Netzwerke. Die Darstellung übernimmt Cytoscape oder
+Bibliothek oder sind reale Netzwerke. Ein paar [Proximity]({filename}/proximity-graphs.md)
+[Graphs]({filename}/relative-neighborhood-graph.md) habe ich selbst geschrieben.
+Die Darstellung und gegebenenfalls das Layout übernimmt Cytoscape oder
 [graph-tool](https://graph-tool.skewed.de/) (dessen Autor diesem Bot folgt).
 
 Bei diesem Projekt habe ich exzessiv Gebrauch von Pythons `Decorator` und
@@ -56,10 +58,11 @@ per `@synonym` registrierten Worte auftaucht, antwortet er mit einem Bild des
 entsprechenden Graphen. Dank `fuzzywuzzy` ist es sogar resistent gegen
 Tippfehler.
 
-Da Twitter leider keine Vektorgrafiken unterstützt und alles, was keine
-transparenten Pixel enthält in stark komprimierte `.jpg` wandelt, was gerade
-bei diesen Graphen zu störenden Artefakten führt, füge ich einen Rand aus
-transparenten Pixeln hinzu. Somit ergeben sich ansehnliche `.png`.
+Twitter unterstützt leider keine Vektorgrafiken und wandelt Bilder gerne in
+stark komprimierte `.jpg`, was gerade bei diesen Graphen zu störenden
+Artefakten führt. Dagegen hilft es, wenn ich einen Rand aus transparenten
+Pixeln dem Bild hinzufüge. Das führt dazu, dass Twitter `.jpg` nicht als
+geeignetes Format ansieht und die Bilder in ansehnliche `.png` behält.
 
 ![Graph]({filename}/img/agraphaday.png)
 
