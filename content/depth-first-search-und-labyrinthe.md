@@ -4,9 +4,10 @@ Author: surt91
 Category: Code
 Tags: Python, Video, NetworkX, GitHub
 Slug: depth-first-search-und-labyrinthe
+LargeFeaturedImage: img/maze.png
 Status: published
 
-Ein Algorithmus, von dem jeder schoneinmal gehört haben sollte, ist die 
+Ein Algorithmus, von dem jeder schoneinmal gehört haben sollte, ist die
 Tiefensuche (Depth First Search). Wenn man Zusammenhangskomponenten in einem
 Graphen finden will oder nach einem bestimmten Knoten in einem Graphen sucht,
 ist die Tiefensuche meist der einfachste und oft ein geeigneter Algorithmus

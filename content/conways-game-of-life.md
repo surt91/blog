@@ -4,6 +4,7 @@ Author: surt91
 Category: Code
 Tags: GitHub, C, Video
 Slug: conways-game-of-life
+FeaturedImage: img/conway3.gif
 Status: published
 
 Damit man mental nicht ganz einrostet, habe ich gestern Abend
@@ -22,5 +23,3 @@ Hier ein paar Ergebnisse mit imagemagick animiert:
 ![Pulsator]({filename}/img/conway2.gif){width="300" height="300"}
 
 ![Oktagon]({filename}/img/conway3.gif){width="285" height="285"}
-
-

@@ -4,6 +4,7 @@ Author: surt91
 Category: Code
 Tags: C, Bild, GitHub
 Slug: rule-90
+FeaturedImage: img/wolfram090.png
 Status: published
 
 Vor kurzem habe ich angefangen "[Think Complexity](http://www.greenteapress.com/complexity/index.html)" zu
@@ -47,4 +48,3 @@ Für Liebhaber, hier noch eins im original 1982 Retro-Look.
 ![Wolframs Rule 150]({filename}/img/wolfram150.png)
 
 Passend zur Jahreszeit, wie ich finde.
-

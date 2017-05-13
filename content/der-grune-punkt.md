@@ -4,6 +4,7 @@ Author: surt91
 Category: Misc
 Tags: Bild
 Slug: der-grune-punkt
+FeaturedImage: img/grunerPunkt.jpg
 Status: published
 
 ![Der Grüne Punkt]({filename}/img/grunerPunkt.jpg)

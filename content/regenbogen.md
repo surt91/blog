@@ -4,9 +4,9 @@ Author: surt91
 Category: misc
 Tag: Bild
 Slug: regenbogen
+LargeFeaturedImage: img/regenbogen.jpg
 Status: published
 
 Man sollte alles nach Wellenlänge zu sortieren!
 
 ![Stifte sortiert nach Wellenlänge]({filename}/img/regenbogen.jpg)
-
