@@ -7,24 +7,24 @@ Slug: randomGraphs
 LargeFeaturedImage: img/agraphaday.png
 Status: published
 
-Vor einiger Zeit habe ich @randomGraphs geschrieben, ein Twitterbot,
-der Zufallsgraphen tweetet -- einen pro Tag.
+Vor einiger Zeit habe ich @randomGraphs geschrieben: Ein Twitterbot,
+der einen Zufallsgraphen pro Tag tweetet.
 
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">Relaxed Caveman Graph (36 nodes) <a href="https://t.co/L4vNBbvSQ5">pic.twitter.com/L4vNBbvSQ5</a></p>&mdash; A Graph A Day (@randomGraphs) <a href="https://twitter.com/randomGraphs/status/848499540361703428">2. April 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Die meisten Graphtypen, die er darstellen kann stammen aus der NetworkX
-Bibliothek und die Darstellung übernimmt Cytoscape oder
+Bibliothek oder sind reale Netzwerke. Die Darstellung übernimmt Cytoscape oder
 [graph-tool](https://graph-tool.skewed.de/) (dessen Autor diesem Bot folgt).
 
 Bei diesem Projekt habe ich exzessiv Gebrauch von Pythons `Decorator` und
-`Introspection` gemacht, sodass man, um einen neuen Typ Graph einzuführen
-nur eine Methode schreiben muss, die eine Graph Datenstruktur zurück gibt,
+`Introspection` gemacht, sodass man, um einen neuen Graphtyp einzuführen
+nur eine Methode schreiben muss, die eine Graph-Datenstruktur zurück gibt.
 Einstellungen, welche Darstellungen erlaubt sind, werden per `decorator`
-getätigt und alle Methoden werden automatisch zum Pool hinzugefügt aus dem,
-der Zufallsgenerator zieht.
+getätigt und alle Methoden werden per Introspection automatisch zum Pool
+hinzugefügt, aus dem der Zufallsgenerator zieht.
 
-Eine typische Methode sieht also so aus.
+Eine typische Methode sieht etwa so aus.
 
 ```python
     @synonym("Barabasi Albert")
@@ -42,18 +42,25 @@ Eine typische Methode sieht also so aus.
         return G, details
 ```
 
+Und liefert für :math:`N=226, m=1` und das `radial_tree` Layout beispielsweise
+diesen Graph. Die Größe der Knoten wird hier von der
+[Betweenness Centrality](https://en.wikipedia.org/wiki/Betweenness_centrality)
+bestimmt.
+
+![Graph]({filename}/img/barabasi.png)
+
 Die `@synonym` Decorators ermöglichen die zweite Funktion des Bots, denn
 er tweetet nicht nur einmal am Tag einen zufälligen Graphen, sondern reagiert
-auch auf Mentions. Falls in der Mention der Name der Mehtode oder eines der
+auch auf Mentions. Falls in der Mention der Name der Methode oder eines der
 per `@synonym` registrierten Worte auftaucht, antwortet er mit einem Bild des
-entsprechenden Graphen. Dank des `fuzzywuzzy` Pakets ist es sogar resistent
-gegen Tippfehler.
-
-![Graph]({filename}/img/agraphaday.svg)
+entsprechenden Graphen. Dank `fuzzywuzzy` ist es sogar resistent gegen
+Tippfehler.
 
 Da Twitter leider keine Vektorgrafiken unterstützt und alles, was keine
 transparenten Pixel enthält in stark komprimierte `.jpg` wandelt, was gerade
 bei diesen Graphen zu störenden Artefakten führt, füge ich einen Rand aus
 transparenten Pixeln hinzu. Somit ergeben sich ansehnliche `.png`.
+
+![Graph]({filename}/img/agraphaday.png)
 
 Der komplette Quellcode ist auf [Github](https://github.com/surt91/AGraphADay).
