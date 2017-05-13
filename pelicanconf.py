@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Hendrik Schawe'
 SITENAME = 'möchtegerngeek'
-SITEURL = ''
+SITEURL = 'https://blog.schawe.me'
 
 TYPOGRIFY = True
 
@@ -57,6 +57,8 @@ TAG_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 CATEGORY_SAVE_AS = ''
 USE_SHORTCUT_ICONS = True
+SITE_DESCRIPTION = 'Dinge, die ich für hübsch, praktisch oder interessant halte.'
+FEATURED_IMAGE = 'https://blog.schawe.me/img/logo.png'
 
 SITEMAP = {
     'format': 'xml',
