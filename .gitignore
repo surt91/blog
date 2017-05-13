@@ -5,3 +5,8 @@ output/
 
 archiv/
 content/code/
+
+plugins/
+themes/
+
+*.bak
