@@ -44,7 +44,7 @@ Eine typische Methode sieht etwa so aus.
         return G, details
 ```
 
-Und liefert für :math:`N=226, m=1` und das `radial_tree` Layout beispielsweise
+Und liefert für $N=226, m=1$ und das `radial_tree` Layout beispielsweise
 diesen Graph. Die Größe der Knoten wird hier von der
 [Betweenness Centrality](https://en.wikipedia.org/wiki/Betweenness_centrality)
 bestimmt.
