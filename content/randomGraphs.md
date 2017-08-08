@@ -64,6 +64,10 @@ Artefakten führt. Dagegen hilft es, wenn ich einen Rand aus transparenten
 Pixeln dem Bild hinzufüge. Das führt dazu, dass Twitter `.jpg` nicht als
 geeignetes Format ansieht und die Bilder in ansehnliche `.png` behält.
 
+```bash
+    convert -alpha on -channel RGBA -bordercolor "rgba(0,0,0,0)" -border "1x1" input.png output.png
+```
+
 ![Graph]({filename}/img/agraphaday.png)
 
 Der komplette Quellcode ist auf [Github](https://github.com/surt91/AGraphADay).
