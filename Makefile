@@ -63,6 +63,7 @@ help:
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	echo "blog.schawe.me" > $(OUTPUTDIR)/CNAME
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)

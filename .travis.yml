@@ -1,0 +1,37 @@
+language: python
+python:
+  - "3.5"
+
+install: "pip install -r requirements.txt"
+
+dist: trusty
+
+addons:
+  apt:
+    packages:
+      - imagemagick
+      - libjpeg-progs
+      - optipng
+
+script:
+  - make html
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: output
+  on:
+    branch: master
+  after_success:
+    - bash invalidateCloudflareCache.sh
+
+
+# https://stackoverflow.com/a/24600210/1698412
+# Handle git submodules yourself
+git:
+    submodules: false
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
+before_install:
+    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+    - git submodule update --init --recursive
