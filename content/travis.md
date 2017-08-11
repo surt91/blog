@@ -5,7 +5,7 @@ Category: Tech
 Tags: Meta
 Slug: push-to-publish
 LargeFeaturedImage: img/octocat.png
-Status: draft
+Status: published
 
 
 Seit Anfang August wird dieses Blog nicht mehr
@@ -67,10 +67,10 @@ script:
 
 # deploy to github pages
 deploy:
-  provider: pages  # github pages
+  provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: output  # directory of the built html
+  local_dir: output
   on:
     branch: master
 ```
