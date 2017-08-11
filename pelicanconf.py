@@ -32,6 +32,7 @@ PLUGINS = [
 
 READERS = {"html": None}
 STATIC_PATHS = [
+    'extra/custom.css',
     'extra/favicon.ico',
     'extra/jquery.min.js',
     'extra/bootstrap.min.js',
@@ -43,7 +44,9 @@ STATIC_PATHS = [
     'vid',
     'js',
 ]
+
 EXTRA_PATH_METADATA = {
+    'extra/custom.css': {'path': 'theme/css/custom.css'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/googlee1eadb2ddedaa639.html': {'path': 'googlee1eadb2ddedaa639.html'},
     'extra/jquery.min.js': {'path': 'jquery.min.js'},
