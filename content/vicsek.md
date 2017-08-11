@@ -29,7 +29,7 @@ dieses scheint es ideal geeignet. Es ist so schnell wie C, aber man muss sich
 keinerlei Gedanken um den Speicher machen und einige andere Fehlerklassen, die
 der Compiler direkt verhindert. Rayon macht Parallelisierung so einfach wie
 OpenMP -- mit dem Vorteil, dass der Compiler einen Fehler ausgibt, falls es
-eine Variable gibt aus der parallel gelesen oder geschrieben wird.
+eine Variable gibt, aus der parallel gelesen oder geschrieben wird.
 
 Als Beispiel, warum ich Rust als sehr leserlich und elegant empfinde, möchte
 ich folgendes (unvollständige) Beispiel ansehen.
@@ -58,8 +58,8 @@ Die Methode `update()` passt die Richtung an, in die ihr Argument im nächsten
 Zeitschritt fliegen soll. In meiner Simulation gibt es zwei Möglichkeiten:
 entweder orientiert man sich an seinen `n` nächsten Nachbarn oder an allen
 Vögeln innerhalb eines Radius von `r`. Der Datentyp `Proximity` kann eines von
-beiden beinhalten -- welches vorhanden ist kann elegant per Pattern-Matching
+beiden beinhalten -- welches vorhanden ist, kann elegant per Pattern-Matching
 ermittelt werden.
 
-Brauche ich länger um Rust zu schreiben als C oder C++? Vermutlich, aber ich
+Brauche ich länger, um Rust zu schreiben als C oder C++? Vermutlich, aber ich
 verbringe weniger Zeit mit dem Debuggen. Netto also mehr Spaß.
