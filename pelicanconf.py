@@ -28,7 +28,6 @@ PLUGINS = ["render_math",
            "neighbors",
            "sitemap"
 ]
-MATH_JAX = {"source": "'//blog.schawe.me/mathjax/MathJax.js'"}
 
 READERS = {"html": None}
 STATIC_PATHS = ['extra/favicon.ico',
