@@ -22,8 +22,8 @@ DEFAULT_METADATA = {
 THEME = 'themes/pelican-elegant'
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ["render_math", 
-           "better_code_samples", 
+PLUGINS = ["render_math",
+           "better_code_samples",
            "tipue_search",
            "neighbors",
            "sitemap"
@@ -31,11 +31,11 @@ PLUGINS = ["render_math",
 MATH_JAX = {"source": "'//blog.schawe.me/mathjax/MathJax.js'"}
 
 READERS = {"html": None}
-STATIC_PATHS = ['extra/favicon.ico', 
+STATIC_PATHS = ['extra/favicon.ico',
                 'extra/jquery.min.js',
                 'extra/bootstrap.min.js',
                 'extra/bootstrap-combined.min.css',
-                'theme/images', 
+                'theme/images',
                 'extra/googlee1eadb2ddedaa639.html',
                 'img',
                 'vid',
@@ -99,6 +99,7 @@ SOCIAL = (('GitHub', 'https://github.com/surt91'),
          )
 
 DEFAULT_PAGINATION = 10
+LOAD_CONTENT_CACHE = False
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
