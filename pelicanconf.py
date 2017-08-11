@@ -34,6 +34,7 @@ STATIC_PATHS = ['extra/favicon.ico',
                 'extra/jquery.min.js',
                 'extra/bootstrap.min.js',
                 'extra/bootstrap-combined.min.css',
+                'extra/CNAME',
                 'theme/images',
                 'extra/googlee1eadb2ddedaa639.html',
                 'img',
@@ -48,6 +49,7 @@ EXTRA_PATH_METADATA = {
     'extra/bootstrap.min.js': {'path': 'bootstrap.min.js'},
     'extra/bootstrap-combined.min.css': {'path': 'bootstrap-combined.min.css'},
     'extra/glyphicons-halflings-regular.woff2': {'path': 'glyphicons-halflings-regular.woff2'},
+    'extra/CNAME': {'path': 'CNAME'},
 }
 
 # Elegant theme
