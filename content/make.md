@@ -72,7 +72,7 @@ werden und sobald das geschehen ist, das Dokument kompiliert wird.
     # gnuplot generates texfiles from the .gp files
     # make sure to regenerate all tex files, if the style
     # or the data changes
-    %.tex: %.gp plots/style.gps data
+    %.tex: %.gp plots/style.gps | data
     	cd $(<D) && gnuplot $(<F) > /dev/null 2>&1
     
     # use this rule to convert .svg to pdf
