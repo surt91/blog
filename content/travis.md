@@ -5,7 +5,7 @@ Category: Tech
 Tags: Meta
 Slug: push-to-publish
 LargeFeaturedImage: img/octocat.png
-Status: published
+Status: draft
 
 
 Seit Anfang August wird dieses Blog nicht mehr
@@ -13,9 +13,7 @@ Seit Anfang August wird dieses Blog nicht mehr
 sondern von GitHub pages. Da die Quellen dieses Blogs bereits [auf GitHub](https://github.com/surt91/blog)
 sind, ist dies ein konsequenter Schritt.
 
-## Hosting auf GitHub Pages
-
-[![GitHub Logo]({filename}/img/octocat.png)](https://github.com/)
+## Hosting auf GitHub Pages [![GitHub Logo]({filename}/img/octocat.png)](https://github.com/)
 
 GitHub bietet hosting von statischen Seiten an, was perfekt zu diesem Pelican
 Blog passt. Die Verwaltung ist denkbar einfach: Für jedes Repository ist der
@@ -36,9 +34,7 @@ Branch vorhält. Dies lässt sich einfach vermeiden, indem man eine Datei
 `.nojekyll` im root anlegt.
 
 
-## Automatische Erstellung durch Travis CI
-
-[![Travis CI Logo]({filename}/img/travis.png)](https://travis-ci.org/)
+## Automatische Erstellung durch Travis CI [![Travis CI Logo]({filename}/img/travis.png)](https://travis-ci.org/)
 
 Natürlich könnte man das statische HTML auf einem lokalen Computer erstellen
 und per Hand in den `gh-pages` Branch pushen. Aber man kann das auch einem
