@@ -2,7 +2,7 @@ Title: PySnake
 Date: 2011-12-27 11:37
 Author: surt91
 Category: Code
-Tags: Python, Video, GitHub, Game
+Tags: Python, Video, GitHub, Game, Snake
 Slug: pysnake
 Status: published
 

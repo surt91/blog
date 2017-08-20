@@ -2,7 +2,7 @@ Title: Snake
 Date: 2011-10-03 14:16
 Author: surt91
 Category: Code
-Tags: C, Game, GitHub
+Tags: C, Game, GitHub, Snake
 Slug: snake
 Status: published
 
@@ -18,4 +18,3 @@ verbesserten "Grafik" kann man jetzt auch die Pfeiltasten zur Steuerung
 benutzen. Außerdem wirkt es sehr viel eleganter.
 
 Der Code ist auf [GitHub](https://github.com/surt91/snake).
-
