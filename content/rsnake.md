@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Rust, Game, GitHub, Snake
 Slug: rsnake
-Status: published
+Status: draft
 
 In meinem letzten Eintrag ist bereits angeklungen, dass ich Rust mag. Und wie
 die Erfahrung [[1]({filename}/snake.md), [2]({filename}/pysnake.md), [3]({filename}/msnake.md)]
