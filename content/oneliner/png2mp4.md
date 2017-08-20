@@ -3,7 +3,7 @@ Date: 2016-09-17 18:48
 Category: Oneliner
 Status: published
 
-Konvertiere einen Ordner mit passened nummerierten `.png` 
+Konvertiere einen Ordner mit passend nummerierten `.png` 
 in ein `x264` Video im `.mp4` Format mit gegebener Framerate.
 
     #!bash
