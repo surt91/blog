@@ -7,7 +7,6 @@
 [submodule "plugins/better_code_samples"]
 	path = plugins/better_code_samples
 	url = git@github.com:classner/better_code_samples.git
-[submodule "themes/pelican-elegant"]
-	path = themes/pelican-elegant
-	url = git@github.com:surt91/pelican-elegant.git
-
+[submodule "themes/purepelican"]
+	path = themes/purepelican
+	url = git@github.com:surt91/purepelican.git

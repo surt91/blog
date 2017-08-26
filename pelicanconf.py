@@ -3,7 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Hendrik Schawe'
-SITENAME = 'möchtegerngeek'
+SITENAME = 'möchte&shy;gern&shy;geek'
+# SITESUBTITLE = 'lorem ipsum dolor sit amet'
 SITEURL = 'https://blog.schawe.me'
 
 TYPOGRIFY = True
@@ -18,11 +19,12 @@ DEFAULT_METADATA = {
     'status': 'draft',
 }
 
-# THEME = 'themes/pelican-simplegrey'
-THEME = 'themes/pelican-elegant'
+THEME = 'themes/purepelican'
+from themes.purepelican.settings import *
 
 PLUGIN_PATHS = ['plugins']
 PLUGINS = [
+    "assets",
     "render_math",
     "better_code_samples",
     "tipue_search",
@@ -35,9 +37,6 @@ STATIC_PATHS = [
     'extra/_headers',
     'extra/custom.css',
     'extra/favicon.ico',
-    'extra/jquery.min.js',
-    'extra/bootstrap.min.js',
-    'extra/bootstrap-combined.min.css',
     'extra/CNAME',
     'theme/images',
     'extra/googlee1eadb2ddedaa639.html',
@@ -47,23 +46,14 @@ STATIC_PATHS = [
 ]
 
 EXTRA_PATH_METADATA = {
-    'extra/custom.css': {'path': 'theme/css/custom.css'},
     'extra/_headers': {'path': '_headers'},
+    'extra/custom.css': {'path': 'custom.css'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/googlee1eadb2ddedaa639.html': {'path': 'googlee1eadb2ddedaa639.html'},
-    'extra/jquery.min.js': {'path': 'jquery.min.js'},
-    'extra/bootstrap.min.js': {'path': 'bootstrap.min.js'},
-    'extra/bootstrap-combined.min.css': {'path': 'bootstrap-combined.min.css'},
-    'extra/glyphicons-halflings-regular.woff2': {'path': 'glyphicons-halflings-regular.woff2'},
     'extra/CNAME': {'path': 'CNAME'},
 }
 
-# Elegant theme
-DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search', '404'))
-TAG_SAVE_AS = ''
-AUTHOR_SAVE_AS = ''
-CATEGORY_SAVE_AS = ''
-USE_SHORTCUT_ICONS = True
+PINNED_POST = "vicsek"
 SITE_DESCRIPTION = 'Dinge, die ich für hübsch, praktisch oder interessant halte.'
 FEATURED_IMAGE = 'https://blog.schawe.me/img/logo.png'
 
@@ -94,21 +84,17 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (
-    ('Ich', 'https://hendrik.schawe.me'),
-    ('Source', 'https://github.com/surt91/blog'),
-)
-
 # Social widget
+# (linktext, link, [font awesome symbol])
 SOCIAL = (
+    ('Ich', 'https://hendrik.schawe.me', 'user'),
     ('GitHub', 'https://github.com/surt91'),
-    ('Email', 'mailto:hendrik.schawe+blog@gmail.com'),
+    ('Email', 'mailto:hendrik.schawe+blog@gmail.com', 'envelope'),
     ('Twitter', 'https://twitter.com/surt91'),
     ('YouTube', 'https://www.youtube.com/surt91'),
 )
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 3
 LOAD_CONTENT_CACHE = False
 
 # Uncomment following line if you want document-relative URLs when developing
