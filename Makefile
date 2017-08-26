@@ -24,6 +24,8 @@ help:
 	@echo 'Usage:                                                                    '
 	@echo '   make html                           (re)generate the web site          '
 	@echo '   make clean                          remove the generated files         '
+	@echo '   make devserver [PORT=8000]          start/restart develop_server.sh    '
+	@echo '   make stopserver                     stop local server                  '
 	@echo '   make regenerate                     regenerate files upon modification '
 	@echo '   make publish                        generate using production settings '
 	@echo '                                                                          '
@@ -42,5 +44,17 @@ clean:
 
 regenerate:
 	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+
+devserver:
+ifdef PORT
+	$(BASEDIR)/develop_server.sh restart $(PORT)
+else
+	$(BASEDIR)/develop_server.sh restart
+endif
+
+stopserver:
+	$(BASEDIR)/develop_server.sh stop
+	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
+
 
 .PHONY: html help clean regenerate publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
