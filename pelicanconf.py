@@ -26,7 +26,6 @@ PLUGIN_PATHS = ['plugins']
 PLUGINS = [
     "assets",
     "render_math",
-    "better_code_samples",
     "tipue_search",
     "neighbors",
     "sitemap"
