@@ -7,17 +7,17 @@ Slug: tspview
 Status: published
 
 Das Problem des Handlungsreisenden ist es, die kürzeste Rundtour zu planen,
-sodass man alle Städte besucht. Es ist eines der berühmtesten 
+sodass man alle Städte besucht. Es ist eines der berühmtesten
 Optimierungsprobleme und gehört zur Klasse [NP-hard](https://de.wikipedia.org/wiki/NP-Schwere).
 
-Es gibt also ([bis jetzt](https://de.wikipedia.org/wiki/P-NP-Problem)) 
-keine effiziente Möglichkeit zur Lösung. Allerdings gibt es 
+Es gibt also ([bis jetzt](https://de.wikipedia.org/wiki/P-NP-Problem))
+keine effiziente Möglichkeit zur Lösung. Allerdings gibt es
 [Näherungen](https://scholar.google.fr/scholar?q=euclidean+tsp+ptas&hl=de),
-[untere Schranken](https://scholar.google.fr/scholar?q=tsp+linear+programming) 
+[untere Schranken](https://scholar.google.fr/scholar?q=tsp+linear+programming)
 und unzählige Heuristiken.
 
 Die einfachsten dieser Heuristiken habe ich in einem kleinen Programm TSPview
-implementiert, mitsamt Visualisierung. Der Quellcode ist auf 
+implementiert, mitsamt Visualisierung. Der Quellcode ist auf
 [GitHub](https://github.com/surt91/TSPview) zu finden.
 
 <video controls loop width="100%">
@@ -32,7 +32,7 @@ Bild, welche Lösung die Methode auf einer berühmten Instanz des TSP findet.
 ![42 Hauptstädte in Amerika]({filename}/img/tsp.png){width="100%" height="auto"}
 Das sind 42 Hauptstädte der Vereinigten Staaten von Amerika und Washington, DC (Hawaii und
 Alaska, sowie einige Staaten an der Ostküste, die das Problem nicht schwieriger
-machen, fehlen). Dieses Problem war das erste größere, das 1956 beweisbar 
+machen, fehlen). Dieses Problem war das erste größere, das 1956 beweisbar
 optimal gelöst wurde.
 
 ### Nearest Neighbor
@@ -49,7 +49,7 @@ hinzu, wenn sie in der Tour noch erlaubt ist.
 
 ### Farthest Insertion
 ![Farthest Insertion]({filename}/img/tsp_farIn.png){width="100%" height="auto"}
-Farthest Insertion ($\mathcal{O}(N^3)$) startet bei einer zufälligen Stadt und fügt dann die Stadt, 
+Farthest Insertion ($\mathcal{O}(N^3)$) startet bei einer zufälligen Stadt und fügt dann die Stadt,
 die am weitesten von der aktuellen Tour entfernt ist an der Stelle in die Tour,
 die dafür sorgt, dass die Tour möglichst kurz bleibt.
 
@@ -57,7 +57,7 @@ die dafür sorgt, dass die Tour möglichst kurz bleibt.
 ![Two-Opt]({filename}/img/tsp_twoOpt.png){width="100%" height="auto"}
 Two-Opt beginnt mit einer beliebigen Tour, die bspw. durch eine der obigen
 Heuristken erstellt wurde und verbessert sie, indem sie zwei Verbindungen nimmt
-und die Endpunkte über Kreuz austauscht, wenn die Tour dadurch verbunden bleibt 
+und die Endpunkte über Kreuz austauscht, wenn die Tour dadurch verbunden bleibt
 und kürzer wird.
 
 ### Lineare Programmierung mit "Subtour Elimination Cuts"
@@ -80,7 +80,7 @@ Intern benutzt es zwar eine Menge Heuristiken, allerdings auch lineare
 Programmierung, um nachzuweisen, dass die gefundene Lösung optimal ist.
 
 ## Technische Details
-TSPview ist ein Python3 Programm, das zur Darstellung PyQt5 benutzt, das sich 
+TSPview ist ein Python3 Programm, das zur Darstellung PyQt5 benutzt, das sich
 per `pip3 install PyQt5` einfach installieren lässt.
 
 Darüber hinaus enthält es eine optionale Abhängigkeit zu CPLEX, einem
@@ -89,23 +89,23 @@ kommerziellen LP solver.
 ### boost::python
 Da das Hauptprogramm in Python geschrieben ist, aber der LP-Teil in C++
 braucht man eine Möglichkeit der Kommunikation. Glücklicherweise gibt es
-mit [boost::python](http://www.boost.org/doc/libs/1_61_0/libs/python/doc/html/index.html) 
+mit [boost::python](http://www.boost.org/doc/libs/1_61_0/libs/python/doc/html/index.html)
 eine Möglichkeit C++ Klassen in Python als Python-Klassen zu benutzen.
 
 Um beispielsweise die C++ Klasse `MyClass`, deren Konstruktor einen Integer und
-eine Python-Liste entgegen nehmen soll, in Python benutzen und `myMethod` 
+eine Python-Liste entgegen nehmen soll, in Python benutzen und `myMethod`
 aufrufen zu können, reicht folgender Code:
 
-    #!C++
-    #include <boost/python.hpp>
-    namespace py = boost::python;
+```C++
+#include <boost/python.hpp>
+namespace py = boost::python;
 
-    // implement MyClass
+// implement MyClass
 
-    BOOST_PYTHON_MODULE(MyClass)
-    {
-        py::class_<MyClass>("MyClass", py::init<int, py::list>())
-            .def("myMethod", &MyClass::myMethod)
-        ;
-    }
-
+BOOST_PYTHON_MODULE(MyClass)
+{
+    py::class_<MyClass>("MyClass", py::init<int, py::list>())
+        .def("myMethod", &MyClass::myMethod)
+    ;
+}
+```

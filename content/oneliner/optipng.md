@@ -5,5 +5,6 @@ Status: published
 
 Optimiere .png Bilder. Kleinere Größe, kein Qualitätsverlust.
 
-    #!bash
-    optipng -o7 *.png
+```bash
+optipng -o7 *.png
+```

@@ -21,8 +21,9 @@ Da die Quellen auf [GitHub](https://github.com/surt91/rsnake) liegen, ist
 es nur vier Zeilen entfernt -- weniger, wenn der Rustcompiler bereits installiert
 ist.
 
-    #!bash
+```bash
     # curl https://sh.rustup.rs -sSf | sh  # never copy `| sh` in your terminal
     git clone https://github.com/surt91/rsnake
     cd rsnake
     cargo run --release
+```

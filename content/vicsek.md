@@ -34,7 +34,7 @@ eine Variable gibt, aus der parallel gelesen oder geschrieben wird.
 Als Beispiel, warum ich Rust als sehr leserlich und elegant empfinde, möchte
 ich folgendes (unvollständige) Beispiel ansehen.
 
-``` Rust
+```Rust
 pub enum Proximity {
     Neighbors(usize),
     Radius(f64)

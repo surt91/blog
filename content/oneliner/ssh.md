@@ -7,5 +7,6 @@ Status: published
 
 Um das Passwort des ssh-rsa-Schlüssels zu ändern.
 
-    #!bash
-    ssh-keygen -f id_rsa -p
+```bash
+ssh-keygen -f id_rsa -p
+```

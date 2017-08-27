@@ -26,19 +26,19 @@ hinzugefügt, aus dem der Zufallsgenerator zieht.
 Eine typische Methode sieht etwa so aus.
 
 ```python
-    @synonym("Barabasi Albert")
-    @synonym("preferential attachment")
-    @style(styles_all)
-    @layout(["kamada-kawai", "force-directed", "sfdp", "fruchterman_reingold", "arf", "radial_tree"])
-    def generateBarabasiAlbert(self, N=None, m=None, **kwargs):
-        if N is None: N = random.randint(4, 400)
-        if m is None: m = random.randint(1, 5)
+@synonym("Barabasi Albert")
+@synonym("preferential attachment")
+@style(styles_all)
+@layout(["kamada-kawai", "force-directed", "sfdp", "fruchterman_reingold", "arf", "radial_tree"])
+def generateBarabasiAlbert(self, N=None, m=None, **kwargs):
+    if N is None: N = random.randint(4, 400)
+    if m is None: m = random.randint(1, 5)
 
-        G = gen.barabasi_albert_graph(N, m)  # gen is networkx Generator
-        details = dict(name="Barabási-Albert Graph", N=N, m=m, seed=self.seed,
-                       template="{name}, N = {N}, m = {m}")
+    G = gen.barabasi_albert_graph(N, m)  # gen is networkx Generator
+    details = dict(name="Barabási-Albert Graph", N=N, m=m, seed=self.seed,
+                   template="{name}, N = {N}, m = {m}")
 
-        return G, details
+    return G, details
 ```
 
 Und liefert für $N=226, m=1$ und das `radial_tree` Layout beispielsweise
@@ -62,7 +62,7 @@ Pixeln dem Bild hinzufüge. Das führt dazu, dass Twitter `.jpg` nicht als
 geeignetes Format ansieht und die Bilder in ansehnliche `.png` behält.
 
 ```bash
-    convert -alpha on -channel RGBA -bordercolor "rgba(0,0,0,0)" -border "1x1" input.png output.png
+convert -alpha on -channel RGBA -bordercolor "rgba(0,0,0,0)" -border "1x1" input.png output.png
 ```
 
 ![Graph]({filename}/img/agraphaday.png)

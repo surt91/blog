@@ -14,23 +14,24 @@ zu verwalten (dementsprechend gibt es den Quellcode auf [GitHub](https://github.
 sondern es steht mit [Pygments](http://pygments.org/) ein sehr
 hübsches Syntax Highlighting zur Verfügung.
 
-    #!C
-    float Q_rsqrt( float number )
-    {
-        long i;
-        float x2, y;
-        const float threehalfs = 1.5F;
+```C
+float Q_rsqrt( float number )
+{
+    long i;
+    float x2, y;
+    const float threehalfs = 1.5F;
 
-        x2 = number * 0.5F;
-        y  = number;
-        i  = * ( long * ) &y;                       // evil floating point bit level hacking
-        i  = 0x5f3759df - ( i >> 1 );               // what the fuck?
-        y  = * ( float * ) &i;
-        y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
-        // y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+    x2 = number * 0.5F;
+    y  = number;
+    i  = * ( long * ) &y;                       // evil floating point bit level hacking
+    i  = 0x5f3759df - ( i >> 1 );               // what the fuck?
+    y  = * ( float * ) &i;
+    y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+    // y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
 
-        return y;
-    }
+    return y;
+}
+```
 
 Außerdem Formeln in $\LaTeX$ Notation dank [MathJax](https://www.mathjax.org/)
 

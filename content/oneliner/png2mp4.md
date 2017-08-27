@@ -6,5 +6,6 @@ Status: published
 Konvertiere einen Ordner mit passend nummerierten `.png`
 in ein `x264` Video im `.mp4` Format mit gegebener Framerate.
 
-    #!bash
-    ffmpeg -f image2 -pattern_type glob -framerate 60 -i "img*.png" -vcodec libx264 vid.mp4
+```bash
+ffmpeg -f image2 -pattern_type glob -framerate 60 -i "img*.png" -vcodec libx264 vid.mp4
+```

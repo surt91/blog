@@ -11,20 +11,22 @@ seine Daten per [Bootstrap Resampling](http://en.wikipedia.org/wiki/Bootstrappin
 auszuwerten und stellt fest, dass das Konstrukt zur Bildung des "Samples
 mit Ersetzungen"
 
-    #!python3
+```python
     import random
     x = [1,2,3]
 
     bootstrapSample = [random.choice(x) for _ in x]
+```
 
 einfach nicht schnell genug ist.  
 Aber glücklicherweise gibt es [numpy](http://www.numpy.org/)!
 
-    #!python3
+```python
     import numpy
     x = [1,2,3]
 
     bootstrapSample = list(numpy.random.choice(x, len(x)))
+```
 
 Das ist -- zumindest in meinem Anwendungsfall -- spürbar schneller. Ich
 werde in Zukunft also immer optimale Fehlerbalken erzeugen.

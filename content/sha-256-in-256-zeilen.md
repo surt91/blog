@@ -23,6 +23,6 @@ er in seinen 256 Zeilen ansonsten den Lesefluss stören würde.
 
 In Python ist es übrigens etwas kürzer.
 
-    #!Python3
-    print(hashlib.sha256(b"Hallo Welt!").hexdigest())
-
+```python
+print(hashlib.sha256(b"Hallo Welt!").hexdigest())
+```

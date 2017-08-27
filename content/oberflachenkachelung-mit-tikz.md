@@ -22,41 +22,42 @@ dass es genau passend für die Präsentation ist.
 Als Bonus kann man noch mit den Parametern spielen, um einen möglichst
 überzeugenden pseudo 3D-Effekt zu erzielen.
 
-    #!latex
-    \documentclass{standalone}
+```latex
+\documentclass{standalone}
 
-    \usepackage{tikz}
+\usepackage{tikz}
 
-    \begin{document}
-        \begin{tikzpicture}
-            \newcommand*{\shear}{0.2}
-            \newcommand*{\height}{1.0}
-            \newcommand*{\radius}{0.1}
-            \newcommand*{\xspacing}{1}
-            \newcommand*{\yspacing}{0.5}
+\begin{document}
+    \begin{tikzpicture}
+        \newcommand*{\shear}{0.2}
+        \newcommand*{\height}{1.0}
+        \newcommand*{\radius}{0.1}
+        \newcommand*{\xspacing}{1}
+        \newcommand*{\yspacing}{0.5}
 
-            % two-dimensional lattice, with three dimensional basis
-            % decreasing counter, otherwise there will be lines through the circles
-            \foreach \x in {4,...,0}{
-                \foreach \y/\dx in {3,...,0}{
-                    % primitive vectors
-                    \draw (\x+\y*\shear-\xspacing/2 , \y*\yspacing            )
-                        -- (\x+\y*\shear+\xspacing/2, \y*\yspacing            );
-                    \draw (\x+\y*\shear-\shear/2    , \y*\yspacing-\yspacing/2)
-                        -- (\x+\y*\shear+\shear/2   , \y*\yspacing+\yspacing/2);
-                    \draw (\x+\y*\shear             , \y*\yspacing            )
-                        -- (\x+\y*\shear            , \y*\yspacing+\height    );
+        % two-dimensional lattice, with three dimensional basis
+        % decreasing counter, otherwise there will be lines through the circles
+        \foreach \x in {4,...,0}{
+            \foreach \y/\dx in {3,...,0}{
+                % primitive vectors
+                \draw (\x+\y*\shear-\xspacing/2 , \y*\yspacing            )
+                    -- (\x+\y*\shear+\xspacing/2, \y*\yspacing            );
+                \draw (\x+\y*\shear-\shear/2    , \y*\yspacing-\yspacing/2)
+                    -- (\x+\y*\shear+\shear/2   , \y*\yspacing+\yspacing/2);
+                \draw (\x+\y*\shear             , \y*\yspacing            )
+                    -- (\x+\y*\shear            , \y*\yspacing+\height    );
 
-                    % base
-                    \fill[white] (\x+\y*\shear, \y*\yspacing        ) circle(\radius);
-                    \draw        (\x+\y*\shear, \y*\yspacing        ) circle(\radius);
+                % base
+                \fill[white] (\x+\y*\shear, \y*\yspacing        ) circle(\radius);
+                \draw        (\x+\y*\shear, \y*\yspacing        ) circle(\radius);
 
-                    \fill[gray]  (\x+\y*\shear, \y*\yspacing+\height) circle(\radius);
-                    \draw        (\x+\y*\shear, \y*\yspacing+\height) circle(\radius);
-                }
+                \fill[gray]  (\x+\y*\shear, \y*\yspacing+\height) circle(\radius);
+                \draw        (\x+\y*\shear, \y*\yspacing+\height) circle(\radius);
             }
-        \end{tikzpicture}
-    \end{document}
+        }
+    \end{tikzpicture}
+\end{document}
+```
 
 ![Isingmodell mit Kopplung]({filename}/img/standaloneIsing.svg){width="100%"}
 
