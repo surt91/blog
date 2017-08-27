@@ -5,3 +5,13 @@
   Content-Security-Policy: default-src https:
   Referrer-Policy: no-referrer-when-downgrade
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/
+  Link: </theme/js/ga.js>; rel=preload; as=script
+  Link: </theme/js/functions.js>; rel=preload; as=script
+
+/tags.html
+  Link: </theme/js/tag_search.min.js>; rel=preload; as=script
+
+/search.html
+  Link: </theme/tipuesearch/tipuesearch.packed.min.js>; rel=preload; as=script
