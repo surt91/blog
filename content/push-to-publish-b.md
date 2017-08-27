@@ -1,7 +1,7 @@
 Title: Push to Publish 2
 Date: 2017-08-27 13:36
-Category: Tech
-Tags: Meta
+Category: Meta
+Tags: Hosting
 Slug: push-to-publish-b
 FeaturedImage: img/netlify.png
 Status: published

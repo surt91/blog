@@ -1,10 +1,10 @@
 Title: Push to Publish
 Date: 2017-08-11 17:00
 Author: surt91
-Category: Tech
-Tags: Meta
+Category: Meta
+Tags: Hosting
 Slug: push-to-publish
-LargeFeaturedImage: img/octocat.png
+FeaturedImage: img/octocat.png
 Status: published
 
 
