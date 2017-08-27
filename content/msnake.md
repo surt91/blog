@@ -9,7 +9,7 @@ Status: published
 Da ich gerade in der Uni mit Matlab zu tun habe, präsentiere ich "stolz"
 `mSnake`. ([Quellen bei Github](https://github.com/surt91/mSnake))
 
-[![]({filename}/img/msnake.png){width="320" height="286"}]({filename}/img/msnake.png)
+[![mSnake]({filename}/img/msnake.png){width="320" height="286"}]({filename}/img/msnake.png)
 
 Da ich so etwas schon [in C]({filename}/snake.md) und
 [in Python]({filename}/pysnake.md)
