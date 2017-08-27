@@ -7,11 +7,8 @@ Slug: randomGraphs
 LargeFeaturedImage: img/agraphaday.png
 Status: published
 
-Vor einiger Zeit habe ich @randomGraphs geschrieben: Ein Twitterbot,
-der einen Zufallsgraphen pro Tag tweetet.
-
-<blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">Relaxed Caveman Graph (36 nodes) <a href="https://t.co/L4vNBbvSQ5">pic.twitter.com/L4vNBbvSQ5</a></p>&mdash; A Graph A Day (@randomGraphs) <a href="https://twitter.com/randomGraphs/status/848499540361703428">2. April 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+Vor einiger Zeit habe ich [@randomGraphs](https://twitter.com/randomGraphs)
+geschrieben: Ein Twitterbot, der einen Zufallsgraphen pro Tag tweetet.
 
 Die meisten Graphtypen, die er darstellen kann stammen aus der NetworkX
 Bibliothek oder sind reale Netzwerke. Ein paar [Proximity]({filename}/proximity-graphs.md)
