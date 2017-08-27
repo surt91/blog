@@ -19,7 +19,7 @@ und einem weiteren Knopfdruck ist die Seite mit einem SSL Zertifikat von
 *Let's Encrypt* ausgestattet und erreichbar.
 Also Bonus kann man selbst HTTP-Header bestimmen über eine `_headers` Datei:
 
-```HTTP
+```
 /*
     Strict-Transport-Security: max-age=31536000; includeSubDomains
 ```
