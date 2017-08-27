@@ -15,8 +15,8 @@ Störeinflüsse nicht zu groß sind, bilden sich Schwärme. Videos von solchen
 Schwärmen werden auf allen größeren Konferenzen der Statistischen Physik
 gezeigt -- und jetzt auch hier.
 
-<video controls loop autoplay width="100%" poster="{filename}/img/vicsek.png">
-<source src="{filename}/vid/vicsek.mp4" type="video/mp4"></source>
+<video controls loop autoplay poster="{filename}/img/vicsek.png">
+<source src="{filename}/vid/vicsek.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 

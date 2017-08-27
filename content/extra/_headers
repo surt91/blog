@@ -6,8 +6,5 @@
   Referrer-Policy: no-referrer-when-downgrade
   Strict-Transport-Security: max-age=31536000; includeSubDomains
 
-/
-  Link: </theme/js/validate_form.js>; rel=preload; as=script
-
 /tags.html
   Link: </theme/js/tag_search.js>; rel=preload; as=script
