@@ -1,6 +1,6 @@
 Title: png2vp9
 Date: 2017-08-26 11:05
-Category: Oneliner
+Category: Snip
 Status: published
 
 Konvertiere einen Ordner voller `.png` in ein zur Web-Wiedergabe geeignetes

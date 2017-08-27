@@ -1,6 +1,6 @@
 Title: svg2png
 Date: 2016-09-17 18:46
-Category: Oneliner
+Category: Snip
 Status: published
 
 Konvertiere `.svg` in `.png` mit weißem Hintergrund.
