@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Visit it at [blog.schawe.me](https://blog.schawe.me)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surt91/blog.git"
+  },
+  "author": "",
+  "license": "CC-BY-SA",
+  "bugs": {
+    "url": "https://github.com/surt91/blog/issues"
+  },
+  "homepage": "https://github.com/surt91/blog#readme",
+  "dependencies": {
+    "sw-precache-webpack-plugin": "^0.11.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sw-precache": "sw-precache --config sw-config.js"
+  }
+}

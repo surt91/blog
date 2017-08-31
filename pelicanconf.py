@@ -33,10 +33,13 @@ PLUGINS = [
 
 READERS = {"html": None}
 STATIC_PATHS = [
+    'extra/manifest.json',
+    'extra/service-worker.js',
+    'extra/service-worker-registration.js',
     'extra/_headers',
     'extra/custom.css',
     'extra/favicon.ico',
-    'extra/CNAME',
+    'extra/icons',
     'theme/images',
     'extra/googlee1eadb2ddedaa639.html',
     'img',
@@ -45,11 +48,13 @@ STATIC_PATHS = [
 ]
 
 EXTRA_PATH_METADATA = {
+    'extra/manifest.json': {'path': 'manifest.json'},
+    'extra/service-worker.js': {'path': 'service-worker.js'},
+    'extra/service-worker-registration.js': {'path': 'service-worker-registration.js'},
     'extra/_headers': {'path': '_headers'},
     'extra/custom.css': {'path': 'custom.css'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/googlee1eadb2ddedaa639.html': {'path': 'googlee1eadb2ddedaa639.html'},
-    # 'extra/CNAME': {'path': 'CNAME'},
 }
 
 PINNED_POST = "vicsek"
