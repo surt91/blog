@@ -39,7 +39,7 @@ html:
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	npm run sw-precache
-	mv service-worker.js content/extra
+	mv service-worker.js output
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
