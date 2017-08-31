@@ -2,3 +2,7 @@
   command = "make publish"
   publish = "output"
   branch = "master"
+
+[context.gh-pages]
+  command = "echo"
+  publish = "."
