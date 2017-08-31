@@ -26,9 +26,9 @@ deploy:
   on:
     branch: master
 
-after_success:
-  - bash triggerNetlify.sh
-#  - bash invalidateCloudflareCache.sh
+# after_success:
+  # - bash triggerNetlify.sh
+  # - bash invalidateCloudflareCache.sh
 
 # https://stackoverflow.com/a/24600210/1698412
 # Handle git submodules yourself
