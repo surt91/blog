@@ -35,6 +35,7 @@ READERS = {"html": None}
 STATIC_PATHS = [
     'extra/manifest.json',
     'extra/service-worker-registration.js',
+    'extra/service-worker-registration.min.js',
     'extra/_headers',
     'extra/custom.css',
     'extra/favicon.ico',
@@ -49,6 +50,7 @@ STATIC_PATHS = [
 EXTRA_PATH_METADATA = {
     'extra/manifest.json': {'path': 'manifest.json'},
     'extra/service-worker-registration.js': {'path': 'service-worker-registration.js'},
+    'extra/service-worker-registration.min.js': {'path': 'service-worker-registration.min.js'},
     'extra/_headers': {'path': '_headers'},
     'extra/custom.css': {'path': 'custom.css'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
