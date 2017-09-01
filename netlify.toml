@@ -3,6 +3,6 @@
   publish = "output"
   branch = "master"
 
-[context.gh-pages]
+[context.branch-deploy]
   command = "echo"
   publish = "."
