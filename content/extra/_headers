@@ -5,6 +5,3 @@
   Content-Security-Policy: default-src https: data: 'unsafe-inline' 'unsafe-eval'
   Referrer-Policy: no-referrer-when-downgrade
   Strict-Transport-Security: max-age=31536000; includeSubDomains
-
-/tags.html
-  Link: </theme/js/tag_search.js>; rel=preload; as=script
