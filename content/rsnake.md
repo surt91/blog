@@ -7,7 +7,7 @@ Slug: rsnake
 Status: draft
 
 In meinem letzten Einträgen ist bereits angeklungen, dass ich Rust mag. Und wie
-die Erfahrung [[1]]({filename}/snake.md), [[2]]({filename}/pysnake.md), [[3]]({filename}/msnake.md)]
+die Erfahrung [[1]({filename}/snake.md), [2]({filename}/pysnake.md), [3]({filename}/msnake.md)]
 zeigt, dauert es nie lange bis ich eine Snake-Abwandlung programmiere.
 
 Dieses Mal verfolgt der Autopilot die Strategie des [smart kinetic walk](https://doi.org/10.1103/PhysRevB.31.2993),
