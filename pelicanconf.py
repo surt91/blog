@@ -7,6 +7,8 @@ SITENAME = 'möchte&shy;gern&shy;geek'
 # SITESUBTITLE = 'lorem ipsum dolor sit amet'
 SITEURL = 'https://blog.schawe.me'
 
+PINNED_POST = "rsnake"
+
 TYPOGRIFY = True
 
 DEFAULT_LANG = 'de'
@@ -57,7 +59,6 @@ EXTRA_PATH_METADATA = {
     'extra/googlee1eadb2ddedaa639.html': {'path': 'googlee1eadb2ddedaa639.html'},
 }
 
-PINNED_POST = "vicsek"
 SITE_DESCRIPTION = 'Dinge, die ich für hübsch, praktisch oder interessant halte.'
 FEATURED_IMAGE = 'https://blog.schawe.me/img/logo.png'
 
