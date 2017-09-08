@@ -17,6 +17,7 @@ addons:
 
 script:
   - make publish
+  - cp netlify.toml output
 
 deploy:
   provider: pages
