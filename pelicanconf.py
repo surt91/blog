@@ -7,7 +7,7 @@ SITENAME = 'möchte&shy;gern&shy;geek'
 # SITESUBTITLE = 'lorem ipsum dolor sit amet'
 SITEURL = 'https://blog.schawe.me'
 
-PINNED_POST = "rsnake"
+PINNED_POST = "jsnake"
 
 TYPOGRIFY = True
 

@@ -1,9 +1,9 @@
 Title: jsnake
-Date: 2017-09-24 15:50
+Date: 2017-11-02 17:30
 Category: Code
 Tags: JavaScript, Game, Snake
 Slug: jsnake
-Status: draft
+Status: published
 
 Bisher habe ich immer nur kurze Fragmente in JavaScript geschrieben, die
 meist nur Gimmicks bezweckten oder Bibliotheken aufrufen. JavaScript ist im
@@ -25,22 +25,25 @@ anderes ist als gewöhnliche periodische Ränder. Außerdem hat es den Vorteil,
 dass man keinen Pause-Modus braucht, weil diese Randbedingungen dafür sorgen,
 dass die Schlange sich nicht beißt, wenn man sie einfach geradeaus laufen lässt.
 
-Ich habe versucht möglichst moderne Features zu nutzen. Tatsächlich scheint mir
+Ich habe gehört, dass JavaScript sich in den letzten Jahren stark
+weiterentwickelt hat. Tatsächlich scheint mir
 diese Sprache einige interessante Sprachelemente erhalten zu haben, wie *arrow
 functions* `x => x*x` für lambdas oder den *spread operator* `...` den ich am
 ehesten mit Pythons *splat* `*` vergleichen möchte.
-Insgesamt werden dadurch solche Monster wie das folgende kartesische Produkt
-möglich:
+Ich will nicht behaupten, dass das folgende kartesische Produkt der beste Code
+oder leserlich wäre, aber interessant allemal:
 
 ```JavaScript
-var SIZE = 3;
-[].concat(
-    ...[...Array(SIZE).keys()].map(
-        x => [...Array(SIZE).keys()].map(
+let SIZE = 3;
+let numbers = [...Array(SIZE).keys()];
+let a = [].concat(
+    ...numbers.map(
+        x => numbers.map(
             y => [x, y]
         )
     )
 );
+console.log(a);
 ```
 
 Anscheinend gibt es mit der nächsten geplanten Version (ES6) noch mehr nette
