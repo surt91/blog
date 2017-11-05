@@ -30,7 +30,8 @@ PLUGINS = [
     "render_math",
     "tipue_search",
     "neighbors",
-    "sitemap"
+    "sitemap",
+    "preload_thumbnail"
 ]
 
 READERS = {"html": None}
