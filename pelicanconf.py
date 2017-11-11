@@ -97,7 +97,6 @@ SOCIAL = (
     ('GitHub', 'https://github.com/surt91'),
     ('Email', 'mailto:hendrik.schawe+blog@gmail.com', 'envelope'),
     ('Twitter', 'https://twitter.com/surt91'),
-    ('YouTube', 'https://www.youtube.com/surt91'),
 )
 
 DEFAULT_PAGINATION = 3
