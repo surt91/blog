@@ -344,52 +344,6 @@ ist es relativ einfach über die [Korrelations-Dimension](https://en.wikipedia.o
 Dazu misst man die paarweisen Abstände von Punkten und misst den Exponenten ihrer
 kumulativen Verteilungsfunktion.
 
-```rust
-extern crate rand;
-use rand::Rng;
-
-/// Calculates the correlation dimension.
-///
-/// # Arguments
-///
-/// * `vals` - slice of a sample of points visited by the IFS
-/// * `span` - total size of the attractor
-///
-/// # Remarks
-///
-/// The correlation dimension is an estimate for the fractal dimension.
-/// Fractals with a dimension larger than one are subjectively more pleasing.
-/// See also <http://sprott.physics.wisc.edu/pubs/paper210.pdf>
-fn correlation_dimension(vals: &[[f64; 2]], span: f64) -> f64 {
-    let mut n1 = 0.;
-    let mut n2 = 0.;
-
-    // define the two points to measure the probability function
-    // at 1% of maximum length and 10% maximum distance
-    let r1 = span/100.;
-    let r2 = 10.*r1;
-
-    let mut rng = rand::weak_rng();
-
-    // sample some distances
-    for (n, i) in vals.iter().enumerate().skip(20) {
-        let j = vals[rng.gen_range(0, n)];
-        let r = ((i[0] - j[0]).powi(2) + (i[1] - j[1]).powi(2)).sqrt();
-
-        // and fill the probability function accordingly
-        if r < r1 {
-            n1 += 1.;
-        }
-        if r < r2 {
-            n2 += 1.;
-        }
-    }
-
-    // estimate the exponent by a simple 2-point approximation
-    (n2/n1).ln() / (r2/r1).ln()
-}
-```
-
 Kombiniert mit einigen Heuristiken, die zu langgestreckte Fraktale verhindert,
 sind die Ergebnisse meist ansprechend
 
