@@ -32,7 +32,7 @@ dieser Satz bedeutet, lässt sich am besten an einem Beispiel erklären.
 
 Das vermutlich bekannteste Fraktal ist das Apfelmännchen, das die
 Mandelbrotmenge visualisiert. Das ist die Menge der komplexen Zahlen
-$c = x + iy$, die nicht konvergieren, wenn die Funktion $f_c(z) = z^2 + c$
+$c = x + iy,$ die nicht konvergieren, wenn die Funktion $f_c(z) = z^2 + c$
 wiederholt angewendet wird. Also wenn die Folge
 $$f_c(0), f_c(f_c(0)), f_c(f_c(f_c(0))), ...$$
 gegen einen endlichen Wert strebt.
@@ -55,12 +55,12 @@ berechnen. Eine naive Implementierung könnte wie folgt aussehen.
 use itertools::Itertools;
 
 extern crate rayon;
-use self::rayon::prelude::*;
+use rayon::prelude::*;
 
 extern crate num;
-use self::num::complex::Complex;
+use num::complex::Complex;
 
-fn raster(&self, resolution: (u32, u32)) -> Vec<u64> {
+fn raster(resolution: (u32, u32)) -> Vec<u64> {
     let (x, y) = resolution;
 
     // generate the points, we want to raster
@@ -72,7 +72,7 @@ fn raster(&self, resolution: (u32, u32)) -> Vec<u64> {
               // ... mapping every point ...
               let z = map_to_cplx_plane(i, j);
               // to the number of iterations needed to diverge
-              self.time_to_diverge(z)
+              time_to_diverge(z)
           })
           .collect()
 }
@@ -84,7 +84,7 @@ fn map_to_cplx_plane(x: u32, y u32) -> Complex<f64> {
     Complex<f64> {re: x, im: y}
 }
 
-fn time_to_diverge(&self, mut state: Complex<f64>) -> u64 {
+fn time_to_diverge(mut state: Complex<f64>) -> u64 {
     // threshold is 2^2, since we compare to the square of the norm
     // as soon as the norm is >= 2 it is sure to diverge
     let threshold = 4.;
@@ -141,14 +141,14 @@ Ergebnis für $f(x) = z^4 + 5^{z+i} + 15$ so aus.
 Eine große Klasse von Fraktalen lässt sich mit dem Chaos Game erzeugen. Man
 benutzt dazu mindestens zwei Abbildungen $f_1(z)$ und $f_2(z)$, die jeweils einen
 Punkt $z$ auf einen anderen Punkt abbilden. Man wählt einen Punkt zum Starten,
-bildet ihn mit einer zufälligen der beiden Abbildungen ab, zeichnet den
+bildet ihn mit einer Zufälligen der beiden Abbildungen ab, zeichnet den
 resultierenden Punkt ein und wiederholt dies sehr oft.
 
 Dieser Algorithmus ist inherent sequenziell, allerdings kann man parallel an
 vielen verschiedenen Punkten starten und die Ergebnisse dieser unabhängigen
 Markovketten in einem Bild zusammenführen.
 
-In Rust könnte das so aussehen:
+In Rust könnte der entsprechende Codeschnipsel so aussehen:
 
 ```rust
 use std::thread;
@@ -161,6 +161,7 @@ for _ in 0..num_cpus {
     let tx = tx.clone();
 
     // generator yielding the points from the chaos game
+    // using a random seed
     let sampler = get_sampler();
 
     // we need some histogram implementation
@@ -190,7 +191,7 @@ erzeugen.
 ![Sierpinski-Dreieck]({filename}/img/sierpinski.png)
 
 Dazu benötigt man die drei affinen Transformationen, die man alle mit gleicher
-Wahrschienlichkeit auswählt:
+Wahrscheinlichkeit auswählt:
 $$\begin{align}
 f_1(\vec z) &=\begin{pmatrix}
             -1/4         & \sqrt 3 / 4 \\
@@ -238,8 +239,8 @@ f_3(\vec z) &=\begin{pmatrix}
 
 Ein anderes berühmtes Beispiel ist der Bernsley-Farn. Um ihn zu erzeugen benutzt
 man die folgenden vier affine Abbildungen, die man mit den Wahrscheinlichkeiten
-$p_1 = 0.01, p_2 = 0.85, p_3 = 0.07, p_4 = 0.07$
-verwendent:
+$$p_1 = 0.01, p_2 = 0.85, p_3 = 0.07, p_4 = 0.07$$
+verwendet:
 $$\begin{align}
 f_1(z) &=\begin{pmatrix}
                 0.16\\
@@ -299,8 +300,8 @@ Als Ergebnis erhält man diesen Farn.
 [Fractal Flame](http://flam3.com/flame_draves.pdf) ist der Name einer Klasse
 von Zufallsfraktalen, die nach dem gleichen Muster wie oben aus einer Reihe
 affiner Transformationen $A_i$ bestehen. Zusätzlich können die affinen
-Transformationen mit einer nichtlinearen *Variantion* $V_j$ erweitert werden,
-sodass $f_i(\vec z) = V_j(A_i(\vec z))$ (oder Linearkombinationen dieser Variantionen).
+Transformationen mit einer nichtlinearen *Variation* $V_j$ erweitert werden,
+sodass $f_i(\vec z) = V_j(A_i(\vec z))$ (oder Linearkombinationen dieser Variationen).
 Zur Visualisierung werden die Punkte nicht direkt gezeichnet, sondern in ein
 Histogramm eingetragen, aus dem die Farbintensitäten typischerweise
 logarithmisch berechnet werden.
@@ -310,6 +311,10 @@ logarithmisch berechnet werden.
 Hier wird jedem $f_i$ ein Farbton zugeordnet. Die Farbe eines Punktes ist eine
 Mischung dieser Farben, die widerspiegelt, wie oft eine Abbildung genutzt wurde,
 um an diesen Punkt zu gelangen.
+
+Interessanterweise sind diese Systeme anscheinend sehr anfällig für schlechte
+Zufallszahlen, was sich in "Löchern" in den ansonsten glatten Flächen bemerkbar
+macht.
 
 
 #### Möbius Flame
@@ -325,17 +330,65 @@ $$f_i(z) = \frac{a_i z + b_i}{c_i z + d_i}$$
 
 #### Wie findet man "gute" Parameter?
 
-Offenbar hat dieser Typ von Fraktal sehr viele freie Parameter, die angepasst
-werden müssen für hübsche Resultate. Tatsächlich gibt es mit [electric sheep](https://electricsheep.org/)
-(ich hoffe stark, dass es eine Blade Runner Referenz ist) ein Crowdsourcing-Projekt,
+Offenbar hat dieser Typ von Fraktal sehr viele freie Parameter. Um hübsche
+Resultate zu generieren, müssen sie angepasst werden. Tatsächlich gibt es mit
+[electric sheep](https://electricsheep.org/) (ich hoffe stark, dass es eine
+[Blade Runner](https://de.wikipedia.org/wiki/Tr%C3%A4umen_Androiden_von_elektrischen_Schafen%3F)
+Referenz ist) ein Crowdsourcing-Projekt,
 das mithilfe von evolutionären Algorithmen und dem Feedback von Menschen
-besonders ansehnlich Fraktale erzeugt.
+besonders ansehnliche Fraktale erzeugt.
 
 Für mein Programm habe ich eine simplere Methode genutzt. Damit man ein Fraktal
 gut sehen kann, sollte seine fraktale Dimension größer als 1 sein. Abschätzbar
 ist es relativ einfach über die [Korrelations-Dimension](https://en.wikipedia.org/wiki/Correlation_dimension).
 Dazu misst man die paarweisen Abstände von Punkten und misst den Exponenten ihrer
 kumulativen Verteilungsfunktion.
+
+```rust
+extern crate rand;
+use rand::Rng;
+
+/// Calculates the correlation dimension.
+///
+/// # Arguments
+///
+/// * `vals` - slice of a sample of points visited by the IFS
+/// * `span` - total size of the attractor
+///
+/// # Remarks
+///
+/// The correlation dimension is an estimate for the fractal dimension.
+/// Fractals with a dimension larger than one are subjectively more pleasing.
+/// See also <http://sprott.physics.wisc.edu/pubs/paper210.pdf>
+fn correlation_dimension(vals: &[[f64; 2]], span: f64) -> f64 {
+    let mut n1 = 0.;
+    let mut n2 = 0.;
+
+    // define the two points to measure the probability function
+    // at 1% of maximum length and 10% maximum distance
+    let r1 = span/100.;
+    let r2 = 10.*r1;
+
+    let mut rng = rand::weak_rng();
+
+    // sample some distances
+    for (n, i) in vals.iter().enumerate().skip(20) {
+        let j = vals[rng.gen_range(0, n)];
+        let r = ((i[0] - j[0]).powi(2) + (i[1] - j[1]).powi(2)).sqrt();
+
+        // and fill the probability function accordingly
+        if r < r1 {
+            n1 += 1.;
+        }
+        if r < r2 {
+            n2 += 1.;
+        }
+    }
+
+    // estimate the exponent by a simple 2-point approximation
+    (n2/n1).ln() / (r2/r1).ln()
+}
+```
 
 Kombiniert mit einigen Heuristiken, die zu langgestreckte Fraktale verhindert,
 sind die Ergebnisse meist ansprechend
