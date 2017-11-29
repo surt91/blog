@@ -1,11 +1,11 @@
 Title: A Fractal A Day
-Date: 2017-12-13 17:36
+Date: 2017-11-13 10:47
 Author: surt91
 Category: Code
 Tags: Physik, Bild, Rust, Code
 Slug: randomFractals
 LargeFeaturedImage: img/mandelbrot.png
-Status: draft
+Status: published
 
 Vor einiger Zeit habe ich ein Programm geschrieben, das verschiedene Typen von
 Fraktalen generiert. Da viele Methoden Fraktale zu generieren relativ einfach
@@ -51,12 +51,15 @@ Es einfach möglich dieses Fraktal zu rastern und dabei jeden Pixel parallel zu
 berechnen. Eine naive Implementierung könnte wie folgt aussehen.
 
 ```rust
+// convenient iterators
 #[macro_use] extern crate itertools;
 use itertools::Itertools;
 
+// parallelism
 extern crate rayon;
 use rayon::prelude::*;
 
+// complex numbers
 extern crate num;
 use num::complex::Complex;
 
@@ -71,7 +74,7 @@ fn raster(resolution: (u32, u32)) -> Vec<u64> {
           .map(|&(j, i)| {
               // ... mapping every point ...
               let z = map_to_cplx_plane(i, j);
-              // to the number of iterations needed to diverge
+              // ... to the number of iterations needed to diverge
               time_to_diverge(z)
           })
           .collect()
@@ -151,12 +154,15 @@ Markovketten in einem Bild zusammenführen.
 In Rust könnte der entsprechende Codeschnipsel so aussehen:
 
 ```rust
+extern crate num_cpus;
 use std::thread;
 use std::sync::mpsc::channel;
 
-// create a transmitter, reciever pair
+let cpus = num_cpus::get();
+
+// create a transmitter, receiver pair
 let (tx, rx) = channel();
-for _ in 0..num_cpus {
+for _ in 0..cpus {
     // clone a transmitter for each thread
     let tx = tx.clone();
 
@@ -237,8 +243,8 @@ f_3(\vec z) &=\begin{pmatrix}
         \end{pmatrix}
 \end{align}$$
 
-Ein anderes berühmtes Beispiel ist der Bernsley-Farn. Um ihn zu erzeugen benutzt
-man die folgenden vier affine Abbildungen, die man mit den Wahrscheinlichkeiten
+Ein anderes berühmtes Beispiel ist der Bernsley-Farn. Um ihn zu erzeugen, benutzt
+man die folgenden vier affinen Abbildungen, die man mit den Wahrscheinlichkeiten
 $$p_1 = 0.01, p_2 = 0.85, p_3 = 0.07, p_4 = 0.07$$
 verwendet:
 $$\begin{align}
