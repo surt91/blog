@@ -1,10 +1,10 @@
 Title: Platzhalterbilder
-Date: 2017-12-13 17:36
+Date: 2017-11-29 10:21
 Author: surt91
 Category: Meta
 Tags: Bild, JavaScript, Python
 Slug: image-preview
-Status: draft
+Status: published
 
 Große Bilder können die Ladezeit von Webseiten dramatisch verschlechtern.
 Schlimmer als weiße Flächen ist das sprungartige Verschieben des Textes, wenn
@@ -38,13 +38,16 @@ with open("file.html") as f:
     soup = BeautifulSoup(f, "html.parser")
 
     for img in soup.find_all("img"):
-        # find source and create thumbnail
+        thumbnail = create_thumbnail(img)
         b64 = base64.b64encode(open(thumbnail, "rb").read()).decode("utf-8")
         data_uri = f"data:image/jpeg;base64,{b64}"
-        # replace img source by the data-uri
+        # TODO: replace img source by the data-uri
 ```
 
 Nachdem alles vorbereitet ist, ist die clientseitige Logik mit ein paar Zeilen
 [JavaScript](https://github.com/surt91/purepelican/blob/master/static/js/img.js)
 und [CSS](https://github.com/surt91/purepelican/blob/master/static/sass/_images.scss)
 recht simpel.
+
+Die Idee ist, dynamisch die voll aufgelösten Bilder per javaScript zu laden und
+mit dem `onLoad` Event sichtbar zu machen.
