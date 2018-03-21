@@ -1,0 +1,12 @@
+Title: relay ssh
+Date: 2018-03-21 10:38
+Author: surt91
+Category: Snip
+Slug: relay-ssh
+Status: published
+
+Um sich per Server `relay` mit `target` zu verbinden.
+
+```bash
+ssh -J user1@relay user2@target
+```
