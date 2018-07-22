@@ -34,9 +34,21 @@ help:
 	@echo '                                                                          '
 
 html:
+	# the following line avoids an issue of the assest and i18n_subsites plugins
+	mkdir -p output/theme/
+	cp -r themes/purepelican/static/* output/theme/
+	(cd output/theme/; python -c "import sass; sass.compile(dirname=('sass', 'css'), output_style='compressed')")
+	# remove as soon as fixed
+
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 publish:
+	# the following line avoids an issue of the assest and i18n_subsites plugins
+	mkdir -p output/theme/
+	cp -r themes/purepelican/static/* output/theme/
+	(cd output/theme/; python -c "import sass; sass.compile(dirname=('sass', 'css'), output_style='compressed')")
+	# remove as soon as fixed
+
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	npm run sw-precache
 	mv service-worker.js output

@@ -6,6 +6,7 @@ Tags: Physik, Bild, Rust, Code
 Slug: randomFractals
 LargeFeaturedImage: img/mandelbrot.png
 Status: published
+Lang: de
 
 Vor einiger Zeit habe ich ein Programm geschrieben, das verschiedene Typen von
 Fraktalen generiert. Da viele Methoden Fraktale zu generieren relativ einfach

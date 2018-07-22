@@ -5,6 +5,7 @@ Category: Code
 Tags: Physik, Video, Chaos
 Slug: dreikorperproblem
 Status: published
+Lang: de
 
 Nein, ich habe keine analytische Lösung dafür gefunden. (Soweit ich mich
 erinnere, hat Poincaré bewiesen, dass es nicht lösbar ist.)  

@@ -6,6 +6,7 @@ Tags: Physik, Bild, Python, Code
 Slug: randomGraphs
 LargeFeaturedImage: img/agraphaday.png
 Status: published
+Lang: de
 
 Vor einiger Zeit habe ich [@randomGraphs](https://twitter.com/randomGraphs)
 geschrieben: Ein Twitterbot, der einen Zufallsgraphen pro Tag tweetet.

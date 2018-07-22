@@ -1,7 +1,9 @@
 Title: png2vp9
 Date: 2017-08-26 11:05
 Category: Snip
+Slug: png2vp9
 Status: published
+Lang: de
 
 Konvertiere einen Ordner voller `.png` in ein zur Web-Wiedergabe geeignetes
 `VP9`, das von allen [wichtigen Browsern unterstützt](http://caniuse.com/webm/embed)

@@ -5,6 +5,7 @@ Tags: Hosting
 Slug: push-to-publish-b
 FeaturedImage: img/netlify.png
 Status: published
+Lang: de
 
 Nachdem ich vor Kurzem einen [euphorischen Eintrag]({filename}/push-to-publish.md)
 über mein automatisiertes Update dieses Blogs via Travis-CI und GitHub pages

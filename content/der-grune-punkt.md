@@ -6,6 +6,7 @@ Tags: Bild
 Slug: der-grune-punkt
 FeaturedImage: img/grunerPunkt.jpg
 Status: published
+Lang: de
 
 ![Der Grüne Punkt]({filename}/img/grunerPunkt.jpg)
 

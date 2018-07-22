@@ -5,6 +5,7 @@ Category: Code
 Tags: C, Python, GitHub
 Slug: sha-256-in-256-zeilen
 Status: published
+Lang: de
 
 Programmiersprachen muss man üben, um sie zu lernen und um sie nicht
 wieder zu vergessen. Ich habe also meine Zeit damit vertrieben einen

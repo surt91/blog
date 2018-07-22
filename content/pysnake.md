@@ -5,6 +5,7 @@ Category: Code
 Tags: Python, Video, GitHub, Game, Snake
 Slug: pysnake
 Status: published
+Lang: de
 
 Weihnachten. Auch wenn man sein Studium sehr mag, ist es doch
 schön, wenn man mal zwei Wochen frei hat (...als ob ich das

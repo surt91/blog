@@ -6,6 +6,7 @@ Tags: Python, Video, NetworkX, GitHub
 Slug: depth-first-search-und-labyrinthe
 LargeFeaturedImage: img/maze.png
 Status: published
+Lang: de
 
 Ein Algorithmus, von dem jeder schoneinmal gehört haben sollte, ist die
 Tiefensuche (Depth First Search). Wenn man Zusammenhangskomponenten in einem

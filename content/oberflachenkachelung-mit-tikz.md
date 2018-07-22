@@ -5,6 +5,7 @@ Category: Code
 Tags: LaTeX, TikZ, Bild, Code
 Slug: oberflachenkachelung-mit-tikz
 Status: published
+Lang: de
 
 Man arbeitet an einem Seminarvortrag und will ein Modell auf einem
 periodischen Gitter erklären. Natürlich kann man sich nicht entscheiden,

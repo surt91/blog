@@ -6,6 +6,7 @@ Tags: GitHub, C, Video
 Slug: conways-game-of-life
 FeaturedImage: img/conway3.gif
 Status: published
+Lang: de
 
 Damit man mental nicht ganz einrostet, habe ich gestern Abend
 [Conway's Game of Life](http://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens)

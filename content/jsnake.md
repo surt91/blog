@@ -4,6 +4,7 @@ Category: Code
 Tags: JavaScript, Game, Snake
 Slug: jsnake
 Status: published
+Lang: de
 
 Bisher habe ich immer nur kurze Fragmente in JavaScript geschrieben, die
 meist nur Gimmicks bezweckten oder Bibliotheken aufrufen. JavaScript ist im

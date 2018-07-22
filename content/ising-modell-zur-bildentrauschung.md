@@ -5,6 +5,7 @@ Category: Code
 Tags: Python, Physik, GitHub, Bild
 Slug: ising-modell-zur-bildentrauschung
 Status: published
+Lang: de
 
 Eines der bekanntesten Modelle der statistischen Physik ist das [Ising-Modell](http://de.wikipedia.org/wiki/Ising-Modell). Es besteht aus
 (klassischen) Spins auf einem Gitter im Wärmebad und soll magnetische

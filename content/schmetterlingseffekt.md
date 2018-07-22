@@ -5,6 +5,7 @@ Category: Code
 Tags: Physik, C, Bild, Python, GitHub, Chaos
 Slug: schmetterlingseffekt
 Status: published
+Lang: de
 
 Differentialgleichungen numerisch zu lösen macht mehr Spaß, als man
 erwarten würde, wenn man es hört. Und sobald man den ersten

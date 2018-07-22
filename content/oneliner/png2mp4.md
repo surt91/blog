@@ -1,7 +1,9 @@
 Title: png2mp4
 Date: 2016-09-17 18:48
 Category: Snip
+Slug: png2mp4
 Status: published
+Lang: de
 
 Konvertiere einen Ordner mit passend nummerierten `.png`
 in ein `x264` Video im `.mp4` Format mit gegebener Framerate.

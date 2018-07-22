@@ -6,6 +6,7 @@ Tags: Physik, Bild, Rust, Code
 Slug: vicsek
 LargeFeaturedImage: img/vicsek.png
 Status: published
+Lang: de
 
 Das [Vicsek-Modell](https://doi.org/10.1103/PhysRevLett.75.1226) wurde 1995
 vorgeschlagen, um das Schwarmverhalten von Vögeln oder Fischen zu modellieren.

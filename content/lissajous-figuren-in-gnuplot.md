@@ -5,6 +5,7 @@ Category: Code
 Tags: Gnuplot, Code, Video
 Slug: lissajous-figuren-in-gnuplot
 Status: published
+Lang: de
 
 Da nicht jeder das nötige Kleingeld für ein Oszilloskop und
 Funktionsgenerator hat, aber jeder gerne eine

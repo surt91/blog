@@ -5,6 +5,7 @@ Category: Code
 Tags: C++, Physik, Video, Bild, GitHub, Formel, Chaos
 Slug: dglshow
 Status: published
+Lang: de
 
 <video controls width="100%" poster="{filename}/img/doublePendulum.png">
 <source src="{filename}/vid/doppelpendel.mp4" type="video/mp4"></source>

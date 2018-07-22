@@ -1,7 +1,9 @@
 Title: png2gif
 Date: 2017-10-31 11:46
 Category: Snip
+Slug: png2gif
 Status: published
+Lang: de
 
 Konvertiere einen Ordner voller `.png` in ein animiertes `.gif`
 

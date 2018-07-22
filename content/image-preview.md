@@ -5,6 +5,7 @@ Category: Meta
 Tags: Bild, JavaScript, Python
 Slug: image-preview
 Status: published
+Lang: de
 
 Große Bilder können die Ladezeit von Webseiten dramatisch verschlechtern.
 Schlimmer als weiße Flächen ist das sprungartige Verschieben des Textes, wenn

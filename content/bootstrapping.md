@@ -5,6 +5,7 @@ Category: Code
 Tags: Python, Statistik, Code
 Slug: bootstrapping
 Status: published
+Lang: de
 
 Wer kennt das nicht: Man hat sich ein Python Skript geschrieben, um
 seine Daten per [Bootstrap Resampling](http://en.wikipedia.org/wiki/Bootstrapping_(statistics))

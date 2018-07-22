@@ -6,6 +6,7 @@ Tags: Hosting
 Slug: push-to-publish
 FeaturedImage: img/octocat.png
 Status: published
+Lang: de
 
 
 Seit Anfang August wird dieses Blog nicht mehr

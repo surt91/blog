@@ -4,6 +4,7 @@ Author: surt91
 Category: Code
 Tags: Python, Video, NetworkX
 Status: published
+Lang: de
 
 <video controls loop autoplay width="100%">
 <source src="{filename}/vid/rng.mp4" type="video/mp4"></source>

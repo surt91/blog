@@ -4,6 +4,7 @@ Author: surt91
 Category: Snip
 Slug: relay-ssh
 Status: published
+Lang: de
 
 Um sich per Server `relay` mit `target` zu verbinden.
 

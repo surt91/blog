@@ -11,10 +11,9 @@ PINNED_POST = "randomFractals"
 
 TYPOGRIFY = True
 
-DEFAULT_LANG = 'de'
-
 DATE_FORMATS = {
     'de': '%d.%m.%Y',
+    'en': '%m/%d/%Y',
 }
 
 DEFAULT_METADATA = {
@@ -31,8 +30,20 @@ PLUGINS = [
     "tipue_search",
     "neighbors",
     "sitemap",
-    "preload_thumbnail"
+    "preload_thumbnail",
+    "i18n_subsites",
 ]
+
+DEFAULT_LANG = "de"
+I18N_SUBSITES = {
+    # 'de': {
+    #     'SITE_DESCRIPTION': 'Dinge, die ich für hübsch, praktisch oder interessant halte.',
+    # }
+    'en': {
+        'SITE_DESCRIPTION': 'Things I consider pretty, practical or interesting.',
+    }
+}
+JINJA_EXTENSIONS = ['jinja2.ext.i18n']
 
 READERS = {"html": None}
 STATIC_PATHS = [
@@ -80,8 +91,6 @@ SITEMAP = {
 PATH = 'content'
 
 TIMEZONE = 'Europe/Berlin'
-
-DEFAULT_LANG = 'de'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

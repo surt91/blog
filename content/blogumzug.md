@@ -3,6 +3,7 @@ Date: 2016-09-14 21:12
 Category: Meta
 Tags: Python, Code, Formel, Hosting
 Status: published
+Lang: de
 
 Soeben habe ich mein Blog von Blogger auf einen kleinen Raspberry Pi 2 in meiner
 Wohnung verschoben. Als Engine benutze ich [Pelican](http://blog.getpelican.com/),

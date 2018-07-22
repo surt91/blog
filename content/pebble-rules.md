@@ -6,6 +6,7 @@ Tags: Bild, C, Code, GitHub, Tech
 Slug: pebble-rules
 LargeFeaturedImage: img/pebble-rules.jpg
 Status: published
+Lang: de
 
 Im letzten Monat habe ich jemanden getroffen, auf dessen [Armbanduhr eine MCMC Simulation von Hamilton-Pfaden](http://clisby.net/projects/pebble_app/)
 auf einem quadratischen Gitter liefen. Ich war derartig begeistert, dass ich

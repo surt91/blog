@@ -5,6 +5,7 @@ Category: Code
 Tags: C, Video, Physik, Chaos
 Slug: seltsamer-attraktor
 Status: published
+Lang: de
 
 Zuvor habe ich bereits den [Schmetterlingseffekt]({filename}/schmetterlingseffekt.md)
 erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes 

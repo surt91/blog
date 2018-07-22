@@ -6,6 +6,7 @@ Tags: C, Bild, GitHub
 Slug: rule-90
 FeaturedImage: img/wolfram090.png
 Status: published
+Lang: de
 
 Vor kurzem habe ich angefangen "[Think Complexity](http://www.greenteapress.com/complexity/index.html)" zu
 lesen -- ein leicht verständliches, interessantes Buch, in dem unter

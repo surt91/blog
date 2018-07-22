@@ -4,6 +4,7 @@ Author: surt91
 Category: Code
 Tags: Python, Video, NetworkX, GitHub
 Status: published
+Lang: de
 
 Der wohl berühmteste zelluläre Automat ist vermutlich [Conway's Game of Life]({filename}/conways-game-of-life.md).
 Er und nahe Verwandte sind geradezu lächerlich gut untersucht. [Das LifeWiki](http://www.conwaylife.com/)

@@ -5,6 +5,7 @@ Category: Code
 Tags: Matlab, Game, GitHub, Snake
 Slug: msnake
 Status: published
+Lang: de
 
 Da ich gerade in der Uni mit Matlab zu tun habe, präsentiere ich "stolz"
 `mSnake`. ([Quellen bei Github](https://github.com/surt91/mSnake))

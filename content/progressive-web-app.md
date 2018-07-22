@@ -4,6 +4,7 @@ Author: surt91
 Category: Meta
 Tags: JavaScript
 Status: published
+Lang: de
 
 Seit Anfang September ist dieses Blog eine *Progressive Web App*. Das bedeutet,
 dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone

@@ -5,6 +5,7 @@ Category: Code
 Tags: C, Game, GitHub, Snake
 Slug: snake
 Status: published
+Lang: de
 
 Und wenn ich Snake sage, meine ich das Beste, was Nokia Handys zu bieten
 haben. Jedenfalls vor 10 Jahren -- vermutlich immer noch. Aber weil ich

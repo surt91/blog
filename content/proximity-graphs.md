@@ -5,6 +5,7 @@ Category: Code
 Tags: C, Video
 Slug: proximity-graphs
 Status: draft
+Lang: de
 
 Ich beschäftige mich in letzter Zeit unter anderem mit speziellen Graph Ensemblen. Und weil es so schön hypnotisierend ist auf riesige Punktwolken zu gucken und dieser Blog bisher auch immer [Leckerbissen]({filename}/seltsamer-attraktor.md) [für]({filename}/conways-game-of-life.md) [Punkteliebhaber]({filename}/dreikorperproblem.md) geboten hat, gibt es hier zwei Videos.
 

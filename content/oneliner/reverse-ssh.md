@@ -4,6 +4,7 @@ Author: surt91
 Category: Snip
 Slug: reverse-ssh
 Status: published
+Lang: de
 
 Führe auf dem Computer, der per SSH erreichbar sein soll folgendes aus
 

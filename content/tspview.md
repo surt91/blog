@@ -5,6 +5,7 @@ Category: Code
 Tags: C++, Python, GitHub, Code, Video, Bild
 Slug: tspview
 Status: published
+Lang: de
 
 Das Problem des Handlungsreisenden ist es, die kürzeste Rundtour zu planen,
 sodass man alle Städte besucht. Es ist eines der berühmtesten

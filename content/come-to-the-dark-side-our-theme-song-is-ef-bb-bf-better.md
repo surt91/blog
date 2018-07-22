@@ -5,6 +5,7 @@ Category: Tech
 Tags: Video, Tech, GitHub
 Slug: come-to-the-dark-side-our-theme-song-is-better
 Status: published
+Lang: de
 
 Der Imperiale Marsch, gespielt auf einem Telefonlautsprecher von einem
 AVR ATMEGA8.

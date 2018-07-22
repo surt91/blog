@@ -4,6 +4,7 @@ Author: surt91
 Category: Snip
 Slug: ssh
 Status: published
+Lang: de
 
 Um das Passwort des ssh-rsa-Schlüssels zu ändern.
 

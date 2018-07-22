@@ -6,6 +6,7 @@ Tags: Bild
 Slug: regenbogen
 LargeFeaturedImage: img/regenbogen.jpg
 Status: published
+Lang: de
 
 Man sollte alles nach Wellenlänge sortieren!
 
