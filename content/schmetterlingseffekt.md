@@ -16,7 +16,7 @@ dass dieses Skript doch recht lange braucht.
 Für dieses Problem gibt es zwei Lösungen: Entweder wird man zum Guru und
 wendet irgendeine okkulte Matlab-Magie an, um das Programm schneller
 laufen zu lassen, oder man schreibt das Programm in einer schönen
-Sprache neu. In C zum Beispiel. 
+Sprache neu. In C zum Beispiel.
 
 ![Lorenzattraktor]({filename}/img/lorenzattraktor.png)
 
@@ -35,15 +35,15 @@ Warum ich den Titel
 "[Schmetterlingseffekt](http://de.wikipedia.org/wiki/Schmetterlingseffekt#Wissenschaftlicher_Hintergrund)"
 gewählt habe? Naja, das Bild hier sieht ein wenig nach einem
 Schmetterling aus. Und tatsächlich wurde der Schmetterlingseffekt nach diesem
-Differentialgleichungssystem benannt -- und nicht nach der Geschichte aus 
+Differentialgleichungssystem benannt -- und nicht nach der Geschichte aus
 *Jurassic Park*.
 
 > Er bewegt in Peking die Flügel, und
-> im Central Park gibt's Regen statt Sonne. 
+> im Central Park gibt's Regen statt Sonne.
 >
 > -- <cite>Dr. Ian Malcolm</cite> (1993)
 
-Wie genau der [Lorenzattraktor mit Chaos zusammenhängt, habe ich in diesem 
+Wie genau der [Lorenzattraktor mit Chaos zusammenhängt, habe ich in diesem
 Post dargestellt]({filename}/seltsamer-attraktor.md).
 
 Der Quellcode ist als [Gist auf GitHub](https://gist.github.com/surt91/54cdc0bcd86bae19c22b4856889ea519).

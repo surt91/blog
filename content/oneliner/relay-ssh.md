@@ -6,7 +6,8 @@ Slug: relay-ssh
 Status: published
 Lang: de
 
-Um sich per Server `relay` mit `target` zu verbinden.
+Um sich per Server `relay` mit `target` zu verbinden. Nützlich wenn `target`
+hinter einer Firewall versteck, aber von `relay` erreichbar ist.
 
 ```bash
 ssh -J user1@relay user2@target

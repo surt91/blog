@@ -5,7 +5,7 @@ Slug: optipng
 Status: published
 Lang: de
 
-Optimiere .png Bilder. Kleinere Größe, kein Qualitätsverlust.
+Optimiere `.png` Bilder. Kleinere Größe, kein Qualitätsverlust.
 
 ```bash
 optipng -o7 *.png

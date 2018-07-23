@@ -13,8 +13,8 @@ Lang: de
 </video>
 
 Das ist ein Doppelpendel. Ein Doppelpendel ist neben dem Dreikörperproblem und
-dem Lorenz-Attraktor das Paradebeispiel für analytisch unlösbare Bewegungsgleichungen 
-und chaotisches Verhalten. Aus diesem Grund sollte ein Doppelpendel auf keinem 
+dem Lorenz-Attraktor das Paradebeispiel für analytisch unlösbare Bewegungsgleichungen
+und chaotisches Verhalten. Aus diesem Grund sollte ein Doppelpendel auf keinem
 Schreibtisch fehlen und bietet sich als grandiose Geschenkidee für Physiker an.
 
 Dass es analytisch unlösbar ist, lässt sich mit einem nicht rigorosen Argument
@@ -37,7 +37,7 @@ in diskreten Schritten $\tau$ vergehen zu lassen. Nach jedem Schritt wird der
 Zustand so geändert, als ob sich während des Zeitschrittes nichts geändert
 hätte und die "Kräfte" werden entsprechend der Bewegungsgleichungen neu berechnet.
 
-Im einfachsten Fall, dem Euler Verfahren, sähe das für ein einfaches 
+Im einfachsten Fall, dem Euler Verfahren, sähe das für ein einfaches
 Fadenpendel nach $k$ Zeitschritten so aus
 \begin{align*}
     \ddot\vartheta_{k+1} &= - mgl \sin(\vartheta_k)\\
@@ -54,7 +54,7 @@ funktionieren, wie [Velocity-Verlet](https://en.wikipedia.org/wiki/Verlet_integr
 der oft für Molekulardynamiksimulationen eingesetzt wird.
 
 Damit man $\ddot{\theta_1}$ und $\ddot{\theta_2}$ müssen die obigen Gleichungen,
-die sich relativ simpel, wennauch mühsam, per Lagrange-Formalismus herleiten 
+die sich relativ simpel, wennauch mühsam, per Lagrange-Formalismus herleiten
 lassen, sodass es zunächst noch nach den Winkelbeschleunigungen aufgelöst werden.
 
 \begin{align*}
@@ -92,4 +92,3 @@ Zeichenprimitiven animiert wird.
 Auch wenn der Code nicht sehr aufgeräumt ist und Startwerte im Quellcode
 angepasst werden müssen, sind die Quellen auf GitHub:
 [github.com/surt91/DGLshow](https://github.com/surt91/DGLshow).
-

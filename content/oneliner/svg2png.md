@@ -11,7 +11,7 @@ Konvertiere `.svg` in `.png` mit weißem Hintergrund.
 inkscape -z -b \"#fff\" -e img.png -h 1080 img.svg
 ```
 
-Oder einen ganzen Orner.
+Oder einen ganzen Ordner.
 
 ```bash
 for i in *.svg

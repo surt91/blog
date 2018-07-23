@@ -17,4 +17,3 @@ Your browser does not support the video tag.
 </video>
 
 Der Code für den Microcontroller ist als [Gist auf GitHub](https://gist.github.com/surt91/91e65a50b5a0d3a59f5eacb967bea039).
-

@@ -6,27 +6,28 @@ Slug: reverse-ssh
 Status: published
 Lang: de
 
-Führe auf dem Computer, der per SSH erreichbar sein soll folgendes aus
+Führe auf dem Computer `target`, der hinter einer Firewall steht und dennoch
+per SSH erreichbar sein soll folgendes aus
 
 ```bash
-ssh -f -N -R 0.0.0.0:19999:localhost:22 user@example.com
+ssh -f -N -R 0.0.0.0:19999:localhost:22 user@server
 ```
 
-Auf dem Server (hier `example.com`) muss noch die `/etc/ssh/sshd_config`
-angepasst werden:
+`server` muss erreichbar sein und in `/etc/ssh/sshd_config`
+folgende Option aktiviert haben
 
 ```
 GatewayPorts yes
 ```
 
-Jetzt kann man von beliebigen Clients auf den Computer zugreifen per
+Jetzt kann man von beliebigen Clients auf den Computer `target` zugreifen per
 
 ```bash
-ssh -p 19999 user@example.com
+ssh -p 19999 user@server
 ```
 
-So kann man beispielsweise auch sshfs nutzen.
+So kann man beispielsweise auch `sshfs` nutzen.
 
 ```bash
-sshfs -p 19999 user@example.com:folder ~/sshfs
+sshfs -p 19999 user@server:folder ~/sshfs
 ```

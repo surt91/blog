@@ -28,7 +28,7 @@ ffmpeg -an -f image2 -pattern_type glob -i "img*.png" -vcodec libx264 \
     -pix_fmt yuv420p -profile:v baseline -level 3 video.mp4
 ```
 
-Einbettung erfolgt mit.
+Einbettung erfolgt mit:
 
 ```html
 <video>

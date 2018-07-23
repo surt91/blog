@@ -45,6 +45,6 @@ präsentiere ich ein schnell terminierendes
 Sortierprogramm, das zwar nicht immer eine sortierte Liste findet, aber
 zumindest eine Näherung! Es ist also
 [Bogosort](http://de.wikipedia.org/wiki/Bogosort) in mehr als nur einer
-Hinsicht überlegen! 
+Hinsicht überlegen!
 
 Wer braucht da noch $\mathcal{O}(N \log(N))$ Sortier-Algorithmen?!

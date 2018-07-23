@@ -8,7 +8,7 @@ Status: published
 Lang: de
 
 Zuvor habe ich bereits den [Schmetterlingseffekt]({filename}/schmetterlingseffekt.md)
-erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes 
+erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes
 Video von der Projektion in die y-z-Ebene von 13
 Teilchen, die den Attraktor durchlaufen.
 
@@ -31,7 +31,7 @@ Lorenz war Meteorologe und sein Differentialgleichungssystem
 \end{align}
 das dieses chaotische Verhalten zeigt, sollte die Atmosphäre modellieren.
 
-Jetzt kann man verstehen, was es mit dem Schmetterling aus *Jurassic Park* 
+Jetzt kann man verstehen, was es mit dem Schmetterling aus *Jurassic Park*
 auf sich hat.
 
 > Er bewegt in Peking die Flügel, und
@@ -45,4 +45,3 @@ grundlegend anderen Weg eingeschlagen, als ohne diesen Flügelschlag.
 
 Dennoch sieht das Video irgendwie geordnet aus. Fast schon vorhersagbar.
 [Seltsam.](http://de.wikipedia.org/wiki/Chaosforschung#Der_seltsame_Attraktor)
-

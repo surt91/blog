@@ -18,8 +18,8 @@ In einfachen Worten: Die Spins des Ising-Modells richten sich so aus
 wie ihre Nachbarn und die Temperatur bringt sie wieder durcheinander.
 
 Aber es wäre natürlich langweilig das Modell so zu benutzen, wie alle
-anderen auch. Deshalb stelle ich hier eine Anwendung aus 
-[Pattern Recgonition and Machine Learning](http://scholar.google.de/scholar?q=bishop+pattern+recognition+and+machine+learning&hl=de) 
+anderen auch. Deshalb stelle ich hier eine Anwendung aus
+[Pattern Recgonition and Machine Learning](http://scholar.google.de/scholar?q=bishop+pattern+recognition+and+machine+learning&hl=de)
 vor, die nichts mehr mit Magneten zu tun hat: Rauschunterdrückung in Bildern.
 
 Andererseits bin ich Physiker und darf deshalb nichts machen, was direkt
@@ -29,11 +29,11 @@ kann.
 
 Die Idee ist, das jeder Spin einem Pixel $x_i$ entspricht. Dann koppelt man
 die Spins des Ising-Modells $x_i$ an die Pixel $y_i$ des verrauschten Bildes
-über einen zusätzlichen Energie-Term 
+über einen zusätzlichen Energie-Term
 $$\mathcal{H} = - \beta \sum_{\left< i,j \right>} x_i x_j - \eta \sum_i x_i y_i.$$
 Dabei bedeutet $\left< i,j \right>$, dass man über alle Nachbarn von $i$ summiert.
 
-Von diesem Modell kann man dann per [Simulated Annealing]({filename}/simulatedsort.md) 
+Von diesem Modell kann man dann per [Simulated Annealing]({filename}/simulatedsort.md)
 den Grundzustand suchen oder man macht es sich einfach equilibriert bei $T=0$.
 
 ![Ising-Modell]({filename}/img/standaloneIsing.svg){width="100%"}
@@ -62,4 +62,3 @@ lokal von seinen Nachbarn und zufällig durch die Temperatur beeinflusst
 wird.
 
 Der Code ist als [Gist auf Github](https://gist.github.com/surt91/7789753).
-

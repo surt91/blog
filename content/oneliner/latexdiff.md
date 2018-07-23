@@ -6,8 +6,8 @@ Slug: latexdiff
 Status: published
 Lang: de
 
-Um die unterschiede zwischen zwei Latex Dateien zu ermitteln, die beispielsweise
-aus git kommen.
+Um die Unterschiede zwischen zwei Latex Dateien zu ermitteln, die beispielsweise
+aus Git kommen.
 
 ```bash
 latexdiff old.tex new.tex > diff.tex

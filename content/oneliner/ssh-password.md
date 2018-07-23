@@ -1,8 +1,8 @@
-Title: ssh
+Title: ssh-password
 Date: 2010-12-11 18:26
 Author: surt91
 Category: Snip
-Slug: ssh
+Slug: ssh-password
 Status: published
 Lang: de
 
