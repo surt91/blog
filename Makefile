@@ -53,6 +53,8 @@ publish:
 	npm run sw-precache
 	mv service-worker.js output
 
+	echo "blog.schawe.me" > output/CNAME
+
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
