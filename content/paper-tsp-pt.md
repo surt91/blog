@@ -41,7 +41,7 @@ Mit den "Subtour Elimination Constraints", fällt der Phasenübergang auf den
 Punkt, wo die optimale Tour anfängt von einem Zickzack-Kurs auf große Meander zu
 wechseln. Dies wird durch die geometrische "Gewundenheit", die Tortuosität,
 \begin{align*}
-    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \brac{\frac{L_i}{S_i}-1}.
+    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
 \end{align*}
 ermittelt, die an diesem Punkt maximal wird. Hier wird die Tour in $N$
 Teilstücke mit gleichem Vorzeichen der Krümmung unterteilt und für jedes

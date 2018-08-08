@@ -39,7 +39,7 @@ Elimination Constraints" the transition coincides with the point at which
 the optimal tour changes from a zig-zag course to larger meandering arcs.
 This is measured by the tortuosity
 \begin{align*}
-    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \brac{\frac{L_i}{S_i}-1}.
+    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
 \end{align*}
 which is maximal at this point. For the tortuosity the tour is divided in $N$
 parts of same-sign-curvature. For each part the ratio of the direct end-to-end
