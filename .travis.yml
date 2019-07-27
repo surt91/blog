@@ -1,12 +1,12 @@
 language: python
 python:
-  - "3.5"
+  - "3.7"
 
 install:
   - pip install -r requirements.txt
   - npm install sw-precache-webpack-plugin
 
-dist: trusty
+dist: bionic
 
 addons:
   apt:
@@ -16,7 +16,7 @@ addons:
       - optipng
 
 script:
-  - make publish
+  - DEBUG=1 make publish
   - cp netlify.toml output
 
 deploy:
