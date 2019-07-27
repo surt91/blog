@@ -43,7 +43,8 @@ I18N_SUBSITES = {
         'SITE_DESCRIPTION': 'Things I consider pretty, practical or interesting.',
     }
 }
-JINJA_EXTENSIONS = ['jinja2.ext.i18n']
+
+JINJA_ENVIRONMENT = {"extensions": ['jinja2.ext.i18n']}
 
 READERS = {"html": None}
 STATIC_PATHS = [
