@@ -20,3 +20,10 @@ stattfinden kann, über die bspw. `sshfs` genutzt werden kann.
 ssh -L 9999:localhost:22 -J user1@relay user2@target
 sshfs user2@localhost:/path /mountpoint -C -p 9999
 ```
+
+Eine Kombination mit [reverse-ssh]({filename}/oneliner/reverse-ssh.md)
+könnte so aussehen:
+
+```bash
+ssh -L 9999:localhost:22 -J user1@relay -p 19999 user2@localhost
+```
