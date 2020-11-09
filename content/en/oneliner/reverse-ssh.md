@@ -10,7 +10,7 @@ On the computer `target` behind a firewall, in which you want to login in the
 future, do
 
 ```bash
-ssh -f -N -R 0.0.0.0:19999:localhost:22 user@example.com
+ssh -f -N -R 0.0.0.0:19999:localhost:22 user@server
 ```
 
 `server` need to be reachable and needs to have the following option
