@@ -16,7 +16,7 @@ ssh -f -N -R 0.0.0.0:19999:localhost:22 user@server
 `server` muss erreichbar sein und in `/etc/ssh/sshd_config`
 folgende Option aktiviert haben
 
-```
+```text
 GatewayPorts yes
 ```
 

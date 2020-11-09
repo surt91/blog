@@ -16,7 +16,7 @@ ssh -f -N -R 0.0.0.0:19999:localhost:22 user@server
 `server` need to be reachable and needs to have the following option
 set in `/etc/ssh/sshd_config`
 
-```
+```text
 GatewayPorts yes
 ```
 
