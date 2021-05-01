@@ -5,6 +5,7 @@ Category: Phys
 Tags: Veröffentlichung, Physik
 Slug: paper-tsp-pt
 Status: published
+LargeFeaturedImage: img/tsp_interp.svg
 Lang: de
 Doi: 10.1209/0295-5075/113/30004
 
@@ -43,7 +44,7 @@ Um zu vermeiden, dass wir die triviale Lösung $x_{ij}=0$, also "wenn wir zu Hau
 bleiben müssen wir am wenigsten Strecke zurücklegen" finden, zwingt die dritte
 Zeile unseren Handlungsreisenden seine Tour so zu planen, dass in Summe zwei
 Striche an jede Stadt gezeichnet werden -- genug, um hinein und wieder hinaus
-zu reisen. Allerdings, ist unser Handlungsreisender clever und würde versuchen unss
+zu reisen. Allerdings, ist unser Handlungsreisender clever und würde versuchen uns
 auszutricksen, indem er halbe Striche einzeichnen würde, wie
 [in einem anderen Blogeintrag visualisiert]({filename}/tspview.md). Deshalb ist die
 Bedingung in der zweiten Zeile nötig, die die Einträge in der Adjazenzmatrix auf
@@ -60,7 +61,7 @@ hinzufügt. Diese Methode iterativ Constraints hinzuzufügen wird meist als *Cut
 bezeichnet.
 
 Also haben wir einen schnellen Algorithmus für das Problem des Handlungsreisenden
-gefunden? Nein, leider nicht. Es gibt keinen bekannten Algorithmus, der dieses Problem
+gefunden? Nein, leider können wir den [Millenium Preis](https://en.wikipedia.org/wiki/Millennium_Prize_Problems#P_versus_NP) noch nicht beanspruchen. Es gibt keinen bekannten Algorithmus, der dieses Problem
 unter Erfüllung der zweiten Zeilen, also Beschränkung auf ganzzahlige Lösungen lösen kann.
 Aber sobald wir diese Bedingung fallen lassen, können wir klassische Verfahren der
 linearen Programmierung nutzen, um dieses Problem effizient zu lösen. Dies wird auch
@@ -72,7 +73,7 @@ gefunden zu haben.
 Als Ordnungsparameter des Phasenübergangs zwischen leichten und schweren Konfigurationen
 dient uns also die Wahrscheinlichkeit, dass
 mittels eines Simplex-Solvers eine ganzzahlige, und damit optimale, Lösung
-gefunden wird. Ohne die letzte Bedingung, den *Subtour Elimination Constraints*,
+gefunden wird. Ohne die Subtour Elimination Constraints,
 fällt der Phasenübergang auf den Punkt, an dem sich die optimale Lösung erstmals
 von der Reihenfolge der Städte des ursprünglichen Kreises unterscheidet.
 Mit den Subtour Elimination Constraints, fällt der Phasenübergang auf den
@@ -86,6 +87,6 @@ Teilstücke mit gleichem Vorzeichen der Krümmung unterteilt und für jedes
 Teilstück das Verhältnis von direkter Ende-zu-Ende-Distanz $S_i$ zu der
 Länge entlang der Tour $L-i$ summiert.
 
-Wir haben also kontinuierliche Phasenübergänge in der Schwierigkeit dieses
+Wir haben also kontinuierliche Phasenübergänge in der Schwierigkeit dieses Problems
 mittels linearer Programmierung detektiert und sie mit strukturellen Änderungen
 des Verhaltens in Verbindung gebracht.
