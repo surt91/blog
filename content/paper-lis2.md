@@ -4,7 +4,7 @@ Author: surt91
 Category: Phys
 Tags: Physik, Bild
 Slug: paper-lis2
-Status: draft
+Status: published
 Lang: de
 Doi: 10.1103/PhysRevE.101.062109
 
