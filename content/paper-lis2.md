@@ -8,8 +8,6 @@ Status: published
 Lang: de
 Doi: 10.1103/PhysRevE.101.062109
 
-# Number of longest increasing subsequences
-
 Meine liebsten Probleme sind solche, die einfach scheinen aber sehr tief sind. Natürlich gehört
 das [Problem des Handlungsreisenden]({filename}/paper-tsp-pt.md) dazu: Es ist einfach zu verstehen,
 dass der Müllmann bei jeder Mülltonne vorbei muss und dabei möglichst wenig Strecke fahren will.
