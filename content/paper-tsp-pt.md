@@ -15,7 +15,7 @@ sind, zum zufälligen euklidischen TSP in der Ebene interpoliert.
 
 ![Einfach und schwierig zu lösende TSP Konfigurationen]({filename}/img/tsp_interp.svg)
 
-Danach werden mittels linearer Programmierung einige
+Danach werden mittels [linearer Programmierung](https://de.wikipedia.org/wiki/Lineare_Optimierung) einige
 Phasenübergänge festgestellt, ab welchen Werten von $\sigma$ das Problem
 schwierig zu lösen wird. Zu zwei dieser Übergänge werden strukturelle
 Eigenschaften der optimalen Lösung gefunden, die sich an dieser Stelle
@@ -37,13 +37,14 @@ Im Detail haben wir die klassische Formulierung von Dantzig genutzt:
 \end{align*}
 
 Hier ist $c_{ij}$ die Distanzmatrix zwischen allen Paaren von Städten aus $V$ und $x_{ij}$
-die gesuchte Adjazenzmatrix. Die erste Zeile minimiert also die Strecke der Tour.
+die gesuchte Adjazenzmatrix, also $x_{ij} = 1$, wenn $i$ und $j$ aufeinanderfolgende Stationen
+der Tour sind und $x_{ij} = 0$ sonst. Die erste Zeile minimiert also die Strecke der Tour.
 Um zu vermeiden, dass wir die triviale Lösung $x_{ij}=0$, also "wenn wir zu Hause
 bleiben müssen wir am wenigsten Strecke zurücklegen" finden, zwingt die dritte
 Zeile unseren Handlungsreisenden seine Tour so zu planen, dass in Summe zwei
 Striche an jede Stadt gezeichnet werden -- genug, um hinein und wieder hinaus
-zu reisen. Allerdings, ist unser Handlungsreisender clever und würde versuchen uns
-auszutricken, indem er halbe Striche einzeichnen würde, wie
+zu reisen. Allerdings, ist unser Handlungsreisender clever und würde versuchen unss
+auszutricksen, indem er halbe Striche einzeichnen würde, wie
 [in einem anderen Blogeintrag visualisiert]({filename}/tspview.md). Deshalb ist die
 Bedingung in der zweiten Zeile nötig, die die Einträge in der Adjazenzmatrix auf
 ganze Zahlen beschränkt. Dann bleibt nur noch das Problem, dass mehrere Routen,
@@ -62,7 +63,8 @@ Also haben wir einen schnellen Algorithmus für das Problem des Handlungsreisend
 gefunden? Nein, leider nicht. Es gibt keinen bekannten Algorithmus, der dieses Problem
 unter Erfüllung der zweiten Zeilen, also Beschränkung auf ganzzahlige Lösungen lösen kann.
 Aber sobald wir diese Bedingung fallen lassen, können wir klassische Verfahren der
-linearen Programmierung nutzen, um dieses Problem effizient zu lösen. Die Länge der
+linearen Programmierung nutzen, um dieses Problem effizient zu lösen. Dies wird auch
+[Relaxation](https://en.wikipedia.org/wiki/Linear_programming_relaxation) genannt. Die Länge der
 Strecke ist immer eine untere Schranke für die tatsächliche Lösung. Und wenn unsere
 Lösung per Zufall ganzzahlig ist, können wir uns sicher sein, die Optimale Lösung
 gefunden zu haben.
@@ -70,12 +72,12 @@ gefunden zu haben.
 Als Ordnungsparameter des Phasenübergangs zwischen leichten und schweren Konfigurationen
 dient uns also die Wahrscheinlichkeit, dass
 mittels eines Simplex-Solvers eine ganzzahlige, und damit optimale, Lösung
-gefunden wird. Ohne die letzte Bedingung, den "Subtour Elimination Constraints",
+gefunden wird. Ohne die letzte Bedingung, den *Subtour Elimination Constraints*,
 fällt der Phasenübergang auf den Punkt, an dem sich die optimale Lösung erstmals
 von der Reihenfolge der Städte des ursprünglichen Kreises unterscheidet.
-Mit den "Subtour Elimination Constraints", fällt der Phasenübergang auf den
+Mit den Subtour Elimination Constraints, fällt der Phasenübergang auf den
 Punkt, wo die optimale Tour anfängt von einem Zickzack-Kurs auf große Meander zu
-wechseln. Dies wird durch die geometrische "Gewundenheit", die Tortuosität,
+wechseln. Dies wird durch die geometrische Gewundenheit, die *Tortuosität*,
 \begin{align*}
     \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
 \end{align*}
