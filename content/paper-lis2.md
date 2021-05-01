@@ -28,7 +28,7 @@ Eindruck heutzutage als Übung für dynamische Programmierung in Universitäten 
 wie viele Bewerber vor einem Whiteboard ins Schwitzen geraten sind bei dem Versuch es aus dem Stehgreif zu
 lösen.
 
-![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik]({filename}/img/patience.gif)
+![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik]({filename}/img/romik.jpg)
 
 Auf der anderen Seite ist es aber offenbar tief genug, dass man ganze Bücher darüber schreiben kann.
 Es zeigen sich überraschende Querverbindungen zu scheinbar unabhängigen Problemen.
