@@ -56,14 +56,37 @@ oberstes Element größer ist als die aktuelle Karte und ansonsten machen wir ei
 davon auf. Jedes mal wenn wir eine Karte ablegen, lassen wir sie auf alle Karten, die aktuell auf dem
 Vorgängerstapel liegen und kleiner sind, zeigen -- dies sind die Karten die in einer aufsteigenden
 längsten Teilfolge direkt vor ihr auftauchen können.
-Am Ende haben wir $L$ Stapel, wobei $L$ die Länge der LIS ist, und wir können vom Stapel ganz rechts starten
-und den Pfeilen folgen, um eine LIS zusammenzubauen.
 
-Im nächsten Schritt notieren wir uns bei allen Karten des rechtesten Stapels wie viele aufsteigende Teilfolgen
+![Animation von Patience Sort](patience.gif)
+
+Am Ende haben wir $L$ Stapel, wobei $L$ die Länge der LIS ist, und wir können vom Stapel ganz rechts starten
+und den Pfeilen folgen, um eine LIS zusammenzubauen. Wenn wir nur an der
+[Länge interessiert wären]({filename}/paper-lis.md), müssten wir uns über den Inhalt der Stapel keine Gedanken machen und der Algorithmus ließe sich sehr kompakt darstellen:
+
+```rust
+fn lis_len<T: Ord>(seq: &[T]) -> usize {
+    let mut stacks = Vec::new();
+    for i in seq {
+        let pos = stacks.binary_search(&i)
+            .err()
+            .expect("Encountered non-unique element in sequence!");
+        if pos == stacks.len() {
+            stacks.push(i);
+        } else {
+            stacks[pos] = i;
+        }
+    }
+    stacks.len()
+}
+```
+
+Aber wir wollen mehr, deshalb notieren wir uns im nächsten Schritt bei allen Karten des
+rechtesten Stapels wie viele aufsteigende Teilfolgen
 der Länge $x=1$ mit ihnen starten, was trivialerweise je eine ist. Dann notieren wir bei allen Karten des
 Stapels links davon wie viele aufsteigenden Teilfolgen der Länge 2 mit ihnen anfangen. Das können wir berechnen,
-indem wir den Pfeilen rückwärts folgen und die Annotationen jeweils aufaddieren. Nachdem wir den linkesten Stapel
-beschriftet haben, können wir alle Annotationen aufaddieren, um die gesamte Anzahl LIS zu erhalten: hier 7.
+indem wir den Pfeilen rückwärts folgen und die Annotationen jeweils aufaddieren. Nachdem wir das für
+alle Stapel wiederholt habe und den linkesten Stapel beschriftet haben, können wir alle Annotationen des
+linkesten Stapels aufaddieren, um die gesamte Anzahl LIS zu erhalten: hier $7$.
 
 ![Beispiel der Datenstruktur zum Zählen der unterschiedlichen LIS]({filename}/img/lis_backpointer.svg)
 
