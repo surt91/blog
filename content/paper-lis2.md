@@ -27,7 +27,7 @@ Eindruck heutzutage als Übung für dynamische Programmierung in Universitäten 
 wie viele Bewerber vor einem Whiteboard ins Schwitzen geraten sind bei dem Versuch es aus dem Stehgreif zu
 lösen.
 
-TODO: Foto von Buch auf Wiese
+![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik]({filename}/img/patience.gif)
 
 Auf der anderen Seite ist es aber offenbar tief genug, dass man ganze Bücher darüber schreiben kann.
 Und es gibt überraschende Querverbindungen zu scheinbar unabhängigen Problemen.
@@ -57,7 +57,7 @@ davon auf. Jedes mal wenn wir eine Karte ablegen, lassen wir sie auf alle Karten
 Vorgängerstapel liegen und kleiner sind, zeigen -- dies sind die Karten die in einer aufsteigenden
 längsten Teilfolge direkt vor ihr auftauchen können.
 
-![Animation von Patience Sort](patience.gif)
+![Animation von Patience Sort]({filename}/img/patience.gif)
 
 Am Ende haben wir $L$ Stapel, wobei $L$ die Länge der LIS ist, und wir können vom Stapel ganz rechts starten
 und den Pfeilen folgen, um eine LIS zusammenzubauen. Wenn wir nur an der
