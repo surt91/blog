@@ -23,7 +23,7 @@ Bilder enthält, habe ich ein Pelican-Plugin geschrieben, das
 Das sieht dann etwa so aus:
 
 <video controls width="800" height="460">
-<source src="{filename}/vid/image_preview.mp4" type="video/mp4">
+<source src="/vid/image_preview.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 

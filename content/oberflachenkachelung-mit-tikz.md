@@ -19,7 +19,7 @@ Glücklicherweise gibt es eine Lösung. Weil man alle seine Aufzeichnungen
 sowieso in LaTeX setzt, benutzt
 man [TikZ](http://www.texample.net/tikz/examples/), bastelt eine
 Elementarzelle und kachelt sie über die Ebene, bis man das Gefühl hat,
-dass es genau passend für die Präsentation ist.  
+dass es genau passend für die Präsentation ist.
 Als Bonus kann man noch mit den Parametern spielen, um einen möglichst
 überzeugenden pseudo 3D-Effekt zu erzielen.
 
@@ -60,7 +60,7 @@ Als Bonus kann man noch mit den Parametern spielen, um einen möglichst
 \end{document}
 ```
 
-![Isingmodell mit Kopplung]({filename}/img/standaloneIsing.svg){width="100%"}
+![Isingmodell mit Kopplung](/img/standaloneIsing.svg){width="100%"}
 
 Und damit wäre wiedereinmal die Vorliebe dieses Blogs für [schwarz-weiße
 Bilder]({filename}/conways-game-of-life.md),

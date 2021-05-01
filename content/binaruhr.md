@@ -7,4 +7,4 @@ Slug: binar-uhr
 Status: published
 Lang: de
 
-<center><object id="Frame" style="background-color:#ddd" data="{filename}/js/uhr/uhr.html" width="180" height="115"></object></center>
+<center><object id="Frame" style="background-color:#ddd" data="/js/uhr/uhr.html" width="180" height="115"></object></center>

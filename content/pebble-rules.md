@@ -26,8 +26,8 @@ meine "Kickstarter Edition" aus der ersten Generation allerdings noch nicht.
 Da ich meine Uhr also in C programmieren muss, konnte ich allerdings den
 den alten Code aus [Wolfram's Rules]({filename}/rule-90.md) wiederbenutzen.
 
-<video controls loop autoplay poster="{filename}/img/pebble-rules.jpg" width="800" height="1000" class="fixed-size-800">
-<source src="{filename}/vid/pebble-rules.mp4" type="video/mp4">
+<video controls loop autoplay poster="/img/pebble-rules.jpg" width="800" height="1000" class="fixed-size-800">
+<source src="/vid/pebble-rules.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 

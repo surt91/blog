@@ -42,7 +42,7 @@ Wenn man jeden Punkt $c$ auf der komplexen Ebene entsprechend des Konvergenzverh
 bezüglich dieser Folge einfärbt -- schwarz wenn es konvergiert, blau für langsame
 Divergez, rot für schnelle Divergenz -- erhält man ein solches Bild:
 
-![Zoom auf das Apfelmännchen]({filename}/img/mandelbrot.png)
+![Zoom auf das Apfelmännchen](/img/mandelbrot.png)
 
 Dies ist ein Zoom auf den Rand des Apfelmännchens. Tatsächlich ist die
 Mandelbrotmenge kein Fraktal im eigentlichen Sinne, da seine fraktale Dimension
@@ -116,13 +116,13 @@ Nahe verwandt sind die Julia-Mengen. Hier benutzt man die gleiche Funktion $f_c$
 allerdings färbt man jeden Punkt $z$ entsprechend seines Konvergenzverhaltens
 bei einem festen Parameter $c$.
 
-![Ein Julia-Fraktal]({filename}/img/julia.png)
+![Ein Julia-Fraktal](/img/julia.png)
 
 Tatsächlich ist jede beliebige Funktion $f$ erlaubt und nicht nur die oben erwähnte
 quadratische. Mit unkonventioneller Zuordnung von Farben zu Divergenzzeiten
 ergibt sich mit $f(z) = (-2.6-i) \cosh(z)$ dieses Bild:
 
-![Ein weiteres Julia-Fraktal]({filename}/img/julia2.png)
+![Ein weiteres Julia-Fraktal](/img/julia2.png)
 
 
 #### Newton-Fraktal
@@ -137,7 +137,7 @@ wir eine Farbe zuordnen und den Punkt mit dieser Farbe einfärben. Wenn wir die
 Sättigung davon abhängig machen, wie schnell die Konvergenz ist, sieht das
 Ergebnis für $f(x) = z^4 + 5^{z+i} + 15$ so aus.
 
-![Newton Fraktal für f(x) = z^4 + 5^{z+i} + 15]({filename}/img/newton.png)
+![Newton Fraktal für f(x) = z^4 + 5^{z+i} + 15](/img/newton.png)
 
 
 ### Chaos Game
@@ -195,7 +195,7 @@ for _ in 0..cpus {
 Mit dieser Methode kann man alte Bekannte wie das [Sierpinski-Dreieck]({filename}/rule-90.md)
 erzeugen.
 
-![Sierpinski-Dreieck]({filename}/img/sierpinski.png)
+![Sierpinski-Dreieck](/img/sierpinski.png)
 
 Dazu benötigt man die drei affinen Transformationen, die man alle mit gleicher
 Wahrscheinlichkeit auswählt:
@@ -299,7 +299,7 @@ f_4(z) &=\begin{pmatrix}
 
 Als Ergebnis erhält man diesen Farn.
 
-![Bernsley-Farn]({filename}/img/fern.png)
+![Bernsley-Farn](/img/fern.png)
 
 
 #### Fractal Flame
@@ -313,7 +313,7 @@ Zur Visualisierung werden die Punkte nicht direkt gezeichnet, sondern in ein
 Histogramm eingetragen, aus dem die Farbintensitäten typischerweise
 logarithmisch berechnet werden.
 
-![Fractal Flame, 'Horseshoe' Variation]({filename}/img/horseshoe.png)
+![Fractal Flame, 'Horseshoe' Variation](/img/horseshoe.png)
 
 Hier wird jedem $f_i$ ein Farbton zugeordnet. Die Farbe eines Punktes ist eine
 Mischung dieser Farben, die widerspiegelt, wie oft eine Abbildung genutzt wurde,
@@ -332,7 +332,7 @@ werden.
 
 $$f_i(z) = \frac{a_i z + b_i}{c_i z + d_i}$$
 
-![Möbius Flame]({filename}/img/mobius.png)
+![Möbius Flame](/img/mobius.png)
 
 
 #### Wie findet man "gute" Parameter?
@@ -370,7 +370,7 @@ Teilchen diffundieren, bis sie auf dem Nachbarfeld eines Seeds landen, wo sie
 dann bleiben und Teil des Seeds werden. Dieser Prozess bildet verästelte
 Strukturen aus.
 
-![Diffusionsbegrenztes Wachstum]({filename}/img/dla_core.png)
+![Diffusionsbegrenztes Wachstum](/img/dla_core.png)
 
 
 #### Random Walks
@@ -381,4 +381,4 @@ Avoiding Walk, der in meinem [rsnake]({filename}/rsnake.md) die Strategie des
 Autopiloten ist, hat eine fraktale Dimension von $\frac{7}{4}$. 100000 Schritte
 sehen so aus:
 
-![Smart Kinetic Self Avoiding Walk, 100000 Schritte]({filename}/img/sksaw.png)
+![Smart Kinetic Self Avoiding Walk, 100000 Schritte](/img/sksaw.png)

@@ -4,12 +4,13 @@ Author: surt91
 Category: Code
 Tags: C++, Physik, Video, Bild, GitHub, Formel, Chaos
 Slug: dglshow
+LargeFeaturedImage: img/doublePendulum.png
 Status: published
 Lang: de
 
-<video controls width="100%" poster="{filename}/img/doublePendulum.png">
-<source src="{filename}/vid/doppelpendel.mp4" type="video/mp4"></source>
-![Doppelpendel]({filename}/img/doublePendulum.png)
+<video controls width="100%" poster="/img/doublePendulum.png">
+<source src="/vid/doppelpendel.mp4" type="video/mp4"></source>
+![Doppelpendel](/img/doublePendulum.png)
 </video>
 
 Das ist ein Doppelpendel. Ein Doppelpendel ist neben dem Dreikörperproblem und
@@ -82,7 +83,7 @@ entschieden.
 Da man das 3-Körperproblem trivial auf ein $N$-Körperproblem erweitern kann,
 habe ich hier ein "Sonnensystem" bzw. Bohrsches "Atom"-modell simuliert.
 
-![Sonnensystem]({filename}/img/planets.png)
+![Sonnensystem](/img/planets.png)
 
 Um die obigen (bewegten) Bilder zu erzeugen und um ein bewegtes Doppelpendel
 für meinen Schreibtisch zu haben, -- wennauch nur auf einem Bildschirm -- habe

@@ -15,20 +15,20 @@ angesprochen werden. Und zwar die [von Stephen Wolfram](http://www.stephenwolfra
 -- ja der Stephen Wolfram, der
 [Mathematica](http://www.wolfram.com/mathematica/) und
 [Wolfram|Alpha](http://www.wolframalpha.com/) entwickelt hat (vermutlich
-jedoch nicht allein).  
+jedoch nicht allein).
 Zelluläre Automaten eignen sich natürlich sehr gut, pixelige Bilder zu
 erstellen, wie der
 [Conways-Game-of-Life-Post]({filename}/conways-game-of-life.md)
-beweist. Daher, lasse ich erstmal ein Bild sprechen.  
+beweist. Daher, lasse ich erstmal ein Bild sprechen.
 
-![Wolframs Rule 90]({filename}/img/wolfram090.png)
+![Wolframs Rule 90](/img/wolfram090.png)
 
 Die Idee ist, dass man mit einem eindimensionalen Zustand startet, und
 einen neuen Zustand daraus mit lokalen Regeln, die je einen rechten und
 linken Nachbarn berücksichtigen, erzeugt. Stellt man diese Zustände
 untereinander da, entstehen Strukturen, wie die, die an ein
 [Sierpinski-Dreieck](http://de.wikipedia.org/wiki/Sierpinski-Dreieck)
-erinnert.  
+erinnert.
 Die [Erklärung](http://www.wolframalpha.com/input/?i=rule+90), wie genau
 diese Regeln lauten, und wie sie definiert sind, überlasse ich
 passenderweise Wolfram|Alpha.
@@ -46,6 +46,6 @@ Wenn auch nur in einem "kleine Fingerübungen in C"-Repo.
 
 Für Liebhaber, hier noch eins im original 1982 Retro-Look.
 
-![Wolframs Rule 150]({filename}/img/wolfram150.png)
+![Wolframs Rule 150](/img/wolfram150.png)
 
 Passend zur Jahreszeit, wie ich finde.

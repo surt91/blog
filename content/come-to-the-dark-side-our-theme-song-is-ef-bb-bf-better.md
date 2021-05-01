@@ -11,8 +11,8 @@ Der Imperiale Marsch, gespielt auf einem Telefonlautsprecher von einem
 AVR ATMEGA8.
 
 <video controls="controls" height="240" type="video/webm" width="320">
-<source src="{filename}/vid/IM2.webm"></source>
-<source src="{filename}/vid/IM2.ogv"></source>
+<source src="/vid/IM2.webm"></source>
+<source src="/vid/IM2.ogv"></source>
 Your browser does not support the video tag.
 </video>
 

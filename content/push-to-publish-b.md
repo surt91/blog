@@ -11,7 +11,7 @@ Nachdem ich vor Kurzem einen [euphorischen Eintrag]({filename}/push-to-publish.m
 über mein automatisiertes Update dieses Blogs via Travis-CI und GitHub pages
 geschrieben habe, bin ich jetzt auf eine einfachere Lösung gestoßen.
 
-### Alles unter einem Dach bei Netlify [![Netlify Logo]({filename}/img/netlify.png){: .icon}](https://www.netlify.com/)
+### Alles unter einem Dach bei Netlify [![Netlify Logo](/img/netlify.png){: .icon}](https://www.netlify.com/)
 
 Es gibt einen einfachen Buildservice, der zwar nicht so flexibel ist wie
 Travis-CI, aber für dieses Blog ausreicht. Netlify baut die Seite also bei

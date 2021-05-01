@@ -20,14 +20,14 @@ Aber fast noch besser gefällt mir das Problem der *längsten aufsteigenden Teil
 *longest increasing subsequence* (LIS): Gegeben eine
 Folge von Zahlen $S_i$, welche Teilfolge ist am längsten unter der Bedingung, dass die Zahlen aufsteigen.
 
-![Eine längste aufsteigende Teilfolge ist in einer Folge markiert]({filename}/img/lis_example.svg)
+![Eine längste aufsteigende Teilfolge ist in einer Folge markiert](/img/lis_example.svg)
 
 Dieses Problem ist so einfach, dass es erstmals von Stanisław Ulam als Fingerübung beschrieben wurde und nach meinem
 Eindruck heutzutage als Übung für dynamische Programmierung in Universitäten verwendet wird. Wer weiß
 wie viele Bewerber vor einem Whiteboard ins Schwitzen geraten sind bei dem Versuch es aus dem Stehgreif zu
 lösen.
 
-![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik]({filename}/img/romik.jpg)
+![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik](/img/romik.jpg)
 
 Auf der anderen Seite ist es aber offenbar tief genug, dass man ganze Bücher darüber schreiben kann.
 Es zeigen sich überraschende Querverbindungen zu scheinbar unabhängigen Problemen.
@@ -36,7 +36,7 @@ Denn die Länge $L$ der LIS einer Permutation fluktuiert genauso wie der [Abstan
 Nun ist die Lösung dieses Problems nicht eindeutig: Es kann viele längste aufsteigende Teilfolgen
 geben. Tatsächlich wächst die Anzahl sogar exponentiell mit der Länge der ursprünglichen Sequenz.
 
-![Verschiedene längste aufsteigende Teilfolgen der gleichen Folge]({filename}/img/lis_alternatives.svg)
+![Verschiedene längste aufsteigende Teilfolgen der gleichen Folge](/img/lis_alternatives.svg)
 
 Allerdings wurde bisher nie untersucht wie viele genau. Oftmals hört man, es sei nicht praktikabel
 alle durchzuzählen, da es exponentiell viele seien. Und wenn es darum ginge alle zu enumerieren,
@@ -57,7 +57,7 @@ davon auf. Jedes mal wenn wir eine Karte ablegen, lassen wir sie auf alle Karten
 Vorgängerstapel liegen und kleiner sind, zeigen -- dies sind die Karten die in einer aufsteigenden
 längsten Teilfolge direkt vor ihr auftauchen können.
 
-![Animation von Patience Sort]({filename}/img/patience.gif)
+![Animation von Patience Sort](/img/patience.gif)
 
 Am Ende haben wir $L$ Stapel, wobei $L$ die Länge der LIS ist, und wir können vom Stapel ganz rechts starten
 und den Pfeilen folgen, um eine LIS zusammenzubauen. Wenn wir nur an der
@@ -88,7 +88,7 @@ indem wir den Pfeilen rückwärts folgen und die Annotationen jeweils aufaddiere
 alle Stapel wiederholt haben und den linkesten Stapel beschriftet haben, können wir alle Annotationen des
 linkesten Stapels aufaddieren, um die gesamte Anzahl LIS zu erhalten: hier $7$.
 
-![Beispiel der Datenstruktur zum Zählen der unterschiedlichen LIS]({filename}/img/lis_backpointer.svg)
+![Beispiel der Datenstruktur zum Zählen der unterschiedlichen LIS](/img/lis_backpointer.svg)
 
 Wie sich das ganze für längere Sequenzen aus unterschiedlichen Zufallsensembles im Detail verhält
 haben wir in einem [Artikel](https://hendrik.schawe.me/pdf/2020_liscount_PRE.pdf) veröffentlicht.

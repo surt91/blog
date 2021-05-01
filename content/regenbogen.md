@@ -10,4 +10,4 @@ Lang: de
 
 Man sollte alles nach Wellenlänge sortieren!
 
-![Stifte sortiert nach Wellenlänge]({filename}/img/regenbogen.jpg)
+![Stifte sortiert nach Wellenlänge](/img/regenbogen.jpg)

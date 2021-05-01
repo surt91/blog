@@ -30,8 +30,8 @@ entschlossen, dass die Schlange sich nur so bewegen soll, dass immer ein Pfad
 zu ihrem Schwanz existiert. Tatsächlich führt diese Strategie zu unterhaltsamen
 und nicht perfekten Spielverläufen.
 
-<video controls loop autoplay poster="{filename}/img/rsnake.png" width="400" height="400" class="fixed-size-400">
-<source src="{filename}/vid/rsnake.mp4" type="video/mp4">
+<video controls loop autoplay poster="/img/rsnake.png" width="400" height="400" class="fixed-size-400">
+<source src="/vid/rsnake.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 

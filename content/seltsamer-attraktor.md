@@ -13,9 +13,9 @@ Video von der Projektion in die y-z-Ebene von 13
 Teilchen, die den Attraktor durchlaufen.
 
 <video controls="controls" height="624" width="624">
-<source src="{filename}/vid/lorenz13yz.m4v" />
-<source src="{filename}/vid/lorenz13yz.mp4" type="video/mp4" />
-<source src="{filename}/vid/lorenz13yz.webm" type="video/webm" />
+<source src="/vid/lorenz13yz.m4v" />
+<source src="/vid/lorenz13yz.mp4" type="video/mp4" />
+<source src="/vid/lorenz13yz.webm" type="video/webm" />
 Your browser does not support the video tag.
 </video>
 

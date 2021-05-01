@@ -8,6 +8,6 @@ FeaturedImage: img/grunerPunkt.jpg
 Status: published
 Lang: de
 
-![Der Grüne Punkt]({filename}/img/grunerPunkt.jpg)
+![Der Grüne Punkt](/img/grunerPunkt.jpg)
 
 Das Yin und Yang der Moderne.

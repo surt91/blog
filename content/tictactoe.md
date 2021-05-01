@@ -7,4 +7,4 @@ Slug: tictactoe
 Status: published
 Lang: de
 
-<center><object style="background-color:#bbbbbb;border-style:dashed;border-color:#000" id="Frame" data="js/ttt/ttt.html" width="200" height="270"></object></center>
+<center><object style="background-color:#bbbbbb;border-style:dashed;border-color:#000" id="Frame" data="/js/ttt/ttt.html" width="200" height="270"></object></center>

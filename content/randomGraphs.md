@@ -47,7 +47,7 @@ diesen Graph. Die Größe der Knoten wird hier von der
 [Betweenness Centrality](https://en.wikipedia.org/wiki/Betweenness_centrality)
 bestimmt.
 
-![Graph]({filename}/img/barabasi.png)
+![Graph](/img/barabasi.png)
 
 Die `@synonym` Decorators ermöglichen die zweite Funktion des Bots, denn
 er tweetet nicht nur einmal am Tag einen zufälligen Graphen, sondern reagiert
@@ -66,6 +66,6 @@ geeignetes Format ansieht und die Bilder in ansehnliche `.png` behält.
 convert -alpha on -channel RGBA -bordercolor "rgba(0,0,0,0)" -border "1x1" input.png output.png
 ```
 
-![Graph]({filename}/img/agraphaday.png)
+![Graph](/img/agraphaday.png)
 
 Der komplette Quellcode ist auf [Github](https://github.com/surt91/AGraphADay).

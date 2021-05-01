@@ -17,14 +17,14 @@ route.
 But here, I want to talk about the problem of the *longest increasing subsequence* (LIS): For a
 given sequence of numbers, find the subsequence consisting of increasing numbers, which is longest.
 
-![A longest increasing subsequence is marked in a sequence]({filename}/img/lis_example.svg)
+![A longest increasing subsequence is marked in a sequence](/img/lis_example.svg)
 
 This problem is so simple that it was first studied almost as a placeholder by Stanisław Ulam in a
 book chapter describing the Monte Carlo method. And judging by the google results, it seems to
 be a common problem posed to university students. I am wondering how many job applicants were distressed
 when trying to solve it in front of a whiteboard.
 
-![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik]({filename}/img/romik.jpg)
+![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik](/img/romik.jpg)
 
 However, apparently one can write whole books about this problem. It turns out that there are
 surprising connections to seemingly independent problems. For example, the length $L$ of a LIS
@@ -35,7 +35,7 @@ or the [largest eigenvalues of random matrices](https://www.quantamagazine.org/b
 The solution of this problem is not unique: A Sequence can contain multiple longest increasing
 subsequences. Indeed, their number grows exponentially with the length of the original sequence.
 
-![Different longest increasing subsequences within the same sequence]({filename}/img/lis_alternatives.svg)
+![Different longest increasing subsequences within the same sequence](/img/lis_alternatives.svg)
 
 But up to now, there did not exist any results about the precise number of different LIS.
 A common sentiment is that counting all LIS was infeasible, since there are exponentially many.
@@ -54,7 +54,7 @@ the currently rightmost stack. Each time we put a card on the table, we also add
 of the stack left of the placed card which are smaller. These are the cards which could be its predecessor
 in a LIS.
 
-![Animation of Patience Sort]({filename}/img/patience.gif)
+![Animation of Patience Sort](/img/patience.gif)
 
 In the end there are $L$ stacks, where $L$ is the length of the LIS. We can start from the rightmost
 stack, select an arbitrary element and follow the pointers to build a LIS. If we were only
@@ -85,7 +85,7 @@ start with them. We can calculate this easily by following the pointers backward
 annotations of all predecessor cards. After repeating this and annotating the leftmost stack, we
 can sum all annotations of the leftmost stack to get the total number of distinct LIS: here $7$.
 
-![Example of the datastructure to count LIS]({filename}/img/lis_backpointer.svg)
+![Example of the datastructure to count LIS](/img/lis_backpointer.svg)
 
 About the behavior for longer sequences from different random ensembles we published an
 [article](https://hendrik.schawe.me/pdf/2020_liscount_PRE.pdf).

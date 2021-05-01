@@ -10,14 +10,14 @@ Seit Anfang September ist dieses Blog eine *Progressive Web App*. Das bedeutet,
 dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone
 als App hinzufügen kann.
 
-### Warum? [![Lighthouse]({filename}/img/lighthouse.png){: .icon}](https://developers.google.com/web/tools/lighthouse/)
+### Warum? [![Lighthouse](/img/lighthouse.png){: .icon}](https://developers.google.com/web/tools/lighthouse/)
 
 Nun, Chrome bietet mit *Lighthouse* Ratschläge, wie man seine Website verbessern
 kann. Einer der vier Unterpunkte heißt *Progressive Web App* und war frustrierend
 schlecht bewertet. Die folgenden Schritte habe ich also nur für Lighthouse
 gemacht und es hat sich auf jeden Fall gelohnt:
 
-![Lighthouse-Audit Ergebnisse]({filename}/img/lighthouse_audit.png)
+![Lighthouse-Audit Ergebnisse](/img/lighthouse_audit.png)
 
 ### Wie?
 

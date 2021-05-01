@@ -14,8 +14,8 @@ erwacht sie auch zum Leben, bei weniger als 2 oder mehr als 3 stirbt sie (23/3).
 Wenn man die Regeln des Automaten ändert, kann man mit 12345/3 [labyrinth]({filename}/depth-first-search-und-labyrinthe.md)artige
 Strukturen erzeugen.
 
-<video controls width="100%" poster="{filename}/img/cellular_maze.png">
-<source src="{filename}/vid/cellular_maze.mp4" type="video/mp4"></source>
+<video controls width="100%" poster="/img/cellular_maze.png">
+<source src="/vid/cellular_maze.mp4" type="video/mp4"></source>
 Your browser does not support the video tag.
 </video>
 
