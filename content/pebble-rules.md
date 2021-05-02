@@ -12,12 +12,12 @@ Im letzten Monat habe ich jemanden getroffen, auf dessen [Armbanduhr eine MCMC S
 auf einem quadratischen Gitter liefen. Ich war derartig begeistert, dass ich
 beschlossen habe auch etwas auf meiner Pebble simulieren zu lassen. Aufgrund
 der geringen Auflösung des Displays ($144 \times 168$) bieten sich "blockige"
-Visualisierugen an. Glücklicherweise habe ich schon genügend Spielereien
+Visualisierungen an. Glücklicherweise habe ich schon genügend Spielereien
 geschrieben, die sich eignen
 [[1]({filename}/labyrinthartiger-zellularer-automat.md),
-    [2](depth-first-search-und-labyrinthe.md),
-    [3](rule-90.md),
-    [4](conways-game-of-life.md)].
+    [2]({filename}/depth-first-search-und-labyrinthe.md),
+    [3]({filename}/rule-90.md),
+    [4]({filename}/conways-game-of-life.md)].
 
 Pebble wurde zwar inzwischen von Fitbit aufgekauft, aber das SDK ist noch
 verfügbar. Die neueren Exemplare lassen sich per JavaScript programmieren,
