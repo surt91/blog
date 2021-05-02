@@ -5,7 +5,7 @@ Category: Phys
 Tags: Veröffentlichung, Physik
 Slug: paper-tsp-pt
 Status: published
-LargeFeaturedImage: img/tsp_interp.svg
+LargeFeaturedImage: img/tsp_interp.png
 Lang: de
 Doi: 10.1209/0295-5075/113/30004
 

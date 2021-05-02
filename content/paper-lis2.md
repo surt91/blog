@@ -5,7 +5,7 @@ Category: Phys
 Tags: Physik, Bild
 Slug: paper-lis2
 Status: published
-LargeFeaturedImage: img/lis_alternatives.svg
+LargeFeaturedImage: img/lis_alternatives.png
 Lang: de
 Doi: 10.1103/PhysRevE.101.062109
 
