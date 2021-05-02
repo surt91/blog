@@ -7,13 +7,13 @@ Status: published
 Lang: de
 
 Um sich per Server `relay` mit `target` zu verbinden. Nützlich wenn `target`
-hinter einer Firewall versteck, aber von `relay` erreichbar ist.
+hinter einer Firewall versteckt, aber von `relay` erreichbar ist.
 
 ```bash
 ssh -J user1@relay user2@target
 ```
 
-Dies kann anderen Optionen kombiniert werden, sodass eine Portweiterleitung
+Dies kann mit anderen Optionen kombiniert werden, sodass eine Portweiterleitung
 stattfinden kann, über die bspw. `sshfs` genutzt werden kann.
 
 ```bash

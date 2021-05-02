@@ -30,7 +30,7 @@ dieses scheint es ideal geeignet. Es ist so schnell wie C, aber man muss sich
 keinerlei Gedanken um den Speicher machen und einige andere Fehlerklassen, die
 der Compiler direkt verhindert. Rayon macht Parallelisierung so einfach wie
 OpenMP -- mit dem Vorteil, dass der Compiler einen Fehler ausgibt, falls es
-eine Variable gibt, aus der parallel gelesen oder geschrieben wird.
+eine Variable gibt, aus der parallel gelesen und geschrieben wird.
 
 Als Beispiel, warum ich Rust als sehr leserlich und elegant empfinde, möchte
 ich folgendes (unvollständige) Beispiel ansehen.

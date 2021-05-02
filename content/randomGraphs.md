@@ -60,7 +60,7 @@ Twitter unterstützt leider keine Vektorgrafiken und wandelt Bilder gerne in
 stark komprimierte `.jpg`, was gerade bei diesen Graphen zu störenden
 Artefakten führt. Dagegen hilft es, wenn ich einen Rand aus transparenten
 Pixeln dem Bild hinzufüge. Das führt dazu, dass Twitter `.jpg` nicht als
-geeignetes Format ansieht und die Bilder in ansehnliche `.png` behält.
+geeignetes Format ansieht und die Bilder im verlustfreien `.png` ausliefert.
 
 ```bash
 convert -alpha on -channel RGBA -bordercolor "rgba(0,0,0,0)" -border "1x1" input.png output.png

@@ -6,8 +6,8 @@ Status: published
 Lang: de
 
 Um ein `pdf` mit vielen zu hoch aufgelösten Bildern auf eine angemessene
-Dateigröße zu bringen (durch das herunterskalieren und gegebenenfalls
-neu-kodieren der Bilder), kann einfach ghostscript genutzt werden:
+Dateigröße zu bringen (durch das Herunterskalieren und gegebenenfalls
+Neukodieren der Bilder), kann einfach ghostscript genutzt werden:
 
 ```bash
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dEmbedAllFonts=true -dSubsetFonts=true -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf

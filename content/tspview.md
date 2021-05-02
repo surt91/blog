@@ -88,7 +88,7 @@ Darüber hinaus enthält es eine optionale Abhängigkeit zu CPLEX, einem
 kommerziellen LP solver.
 
 ### boost::python
-Da das Hauptprogramm in Python geschrieben ist, aber der LP-Teil in C++
+Da das Hauptprogramm in Python geschrieben ist, aber der LP-Teil in C++,
 braucht man eine Möglichkeit der Kommunikation. Glücklicherweise gibt es
 mit [boost::python](http://www.boost.org/doc/libs/1_61_0/libs/python/doc/html/index.html)
 eine Möglichkeit C++ Klassen in Python als Python-Klassen zu benutzen.

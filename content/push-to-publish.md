@@ -22,7 +22,7 @@ Blog passt. Die Verwaltung ist denkbar einfach: Für jedes Repository ist der
 Branch `gh-pages` unter `[username].github.io/[reponame]`, hier z.B.
 [surt91.github.io/blog](https://surt91.github.io/blog), erreichbar.
 
-Will man unter einer eigenen Domain error sein, reicht es aus im DNS für die
+Will man unter einer eigenen Domain erreichbar sein, reicht es aus, im DNS für die
 Domain einen CNAME Eintrag auf `[username].github.io` anzulegen und im root des
 `gh-pages` Branches eine Datei `CNAME` mit der eigenen Domain anzulegen, hier z.B.
 
@@ -85,6 +85,7 @@ die neue Version von GitHub ausgeliefert.
 
 Die `github.io` Domains werden zwar verschlüsselt ausgeliefert, aber natürlich
 kann GitHub keine SSL Zertifikate für die eigene Domain ausstellen lassen.
+[Update: Mittlerweile kann GitHub das.]
 Man kann auch kein eigenes Zertifikat hochladen. Aber die Situation ist nicht
 so aussichtslos wie sie scheint. Cloudflare ermöglicht es, allerdings müssen
 ein paar Bedingungen erfüllt sein.
@@ -98,5 +99,5 @@ Als Bonus können wir Cloudflares [CDN](https://de.wikipedia.org/wiki/Content_De
 nutzen.
 
 Sobald sich Cloudflare um das DNS der Domain kümmert, kann über das Dashboard
-SSL aktiviert werden -- und wenn man schon dabei ist, sollte man nicht auch die
-`Always use HTTPS` und `HSTS` Option aktivieren möchte.
+SSL aktiviert werden -- und wenn man schon dabei ist, sollte man auch die
+`Always use HTTPS` und `HSTS` Optionen aktivieren.

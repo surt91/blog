@@ -50,5 +50,5 @@ Nachdem alles vorbereitet ist, ist die clientseitige Logik mit ein paar Zeilen
 und [CSS](https://github.com/surt91/purepelican/blob/master/static/sass/_images.scss)
 recht simpel.
 
-Die Idee ist, dynamisch die voll aufgelösten Bilder per javaScript zu laden und
+Die Idee ist, dynamisch die voll aufgelösten Bilder per JavaScript zu laden und
 mit dem `onLoad` Event sichtbar zu machen.

@@ -17,7 +17,7 @@ Meinte er vermutlich `make`. (Fun Fact: `make` wurde auch [1977 veröffentlicht]
 
 Mit wenigen Zeilen im `Makefile` kann man nicht nur sein $\LaTeX$ Projekt
 kompilieren, sondern auch alle plots neu zeichnen, die sich geändert haben.
-Ausgehend davon, dass zum Plotten gnuplot mit dem `epslatex` Terminal genutzt
+Für unser Beispiel gehen wir davon aus, dass zum Plotten gnuplot mit dem `epslatex` Terminal genutzt
 wird und folgende Verzeichnisstruktur des Projektes vorliegt.
 
 ```
@@ -38,7 +38,7 @@ wird und folgende Verzeichnisstruktur des Projektes vorliegt.
 +-- lit.bib
 ```
 
-könnte das folgende `Makefile` sich darum kümmern, dass die Daten für die Plots
+Dann kümmert sich das folgende `Makefile` sich darum, dass die Daten für die Plots
 heruntergeladen werden, alle Plots, TikZ und .svg parallel zu .pdf gerendert
 werden und sobald das geschehen ist, das Dokument kompiliert wird.
 
@@ -107,7 +107,7 @@ proper:
 ```
 
 Dazu baut `make` einen gerichteten azyklischen Graphen (DAG) aus den
-Abhängigkeiten auf und führt die Dinge, deren Abhängigkeiten erfüllt sind
+Abhängigkeiten auf und führt die Dinge, deren Abhängigkeiten erfüllt sind,
 parallel aus.
 
 Das grundlegende Element einer `Makefile` sind die Rules, die generell so

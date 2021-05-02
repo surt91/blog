@@ -18,7 +18,7 @@ großes Spielfeld voraus.
 
 Die grundlegende Idee ist, dass die Schlange immer wenn sie sich selbst begegnet
 prüft welcher nächste Schritt sie in einer Schlaufe fängt und welcher nach außen
-führt. Mit offenen Randbedingungen, also auf einem unendlich großem Feld lässt
+führt. Mit offenen Randbedingungen, also auf einem unendlich großen Feld lässt
 sich dass das in konstanter Zeit erledigen, wenn die Schlange an jedem Segment
 ihres Körpers die Anzahl der Rechts- und Linksdrehungen speichert. Bei
 periodischen Randbedingungen funktioniert das allerdings nicht mehr, sodass der

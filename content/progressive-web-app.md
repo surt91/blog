@@ -38,7 +38,7 @@ müssen:
     - Damit ist eine `manifest.json` gemeint. Diese Datei enthält links zu Icons,
     die als Appsymbol benutzt werden, wenn man die Seite auf Android oder Windows
     installiert. Und es legt die Farbe der Adressleiste im mobilen Chrome fest.
-    Ein nützlicher Dienst, um ein solches Manifest zu erstellen, ist auf
+    Ein nützlicher Dienst, um ein solches Manifest zu erstellen, ist
     [app-manifest.firebaseapp.com](https://app-manifest.firebaseapp.com/)
 
 ## Was jetzt?

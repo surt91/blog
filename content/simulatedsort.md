@@ -29,7 +29,7 @@ zu tauschen.
 Der Kern von Simulated Annealing ist der Metropolis Algorithmus.
 
 1. Starte bei einer hohen Temperatur $T$.
-2. Berechne Energie $\mathcal{H}(S)$ der aktuellen Konfiguration $S$ nach $(1)$.
+2. Berechne die Energie $\mathcal{H}(S)$ der aktuellen Konfiguration $S$.
 3. Erzeuge eine neue Konfiguration $R$ durch eine kleine Änderunge von $S$.
 4. Akzeptiere $R$ mit der Wahscheinlichkeit
    $$p_\mathrm{acc} = \min\left[1 ,\exp(-(\mathcal{H}(R) - \mathcal{H}(S))/T) \right],$$
@@ -38,7 +38,7 @@ Der Kern von Simulated Annealing ist der Metropolis Algorithmus.
    ansonsten wir die alte Konfiguration $S$ weiter benutzt.
 5. Reduziere die Temperatur (beispielsweise durch Multiplikation mit einer Zahl
    etwas kleiner als 1) und breche ab, wenn die Zieltemperatur erreicht ist.
-   Ansonsten beginne wieder bei 2.
+   Ansonsten beginne wieder bei Punkt 2.
 
 Genug der Theorie: In einem [Gist auf GitHub](https://gist.github.com/surt91/e399500e780e184d9ac7)
 präsentiere ich ein schnell terminierendes
