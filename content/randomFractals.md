@@ -17,7 +17,7 @@ entschieden es in Rust zu implementieren. Bei Interesse kann das
 Da Fraktale nett anzuschauen sind, ist dieser Beitrag voller hochaufgelöster
 Bilder. Damit diese Seite dennoch flüssig geladen wird -- auch bei langsamen
 Verbindungen, habe ich extra für diesen Eintrag in die
-[Technik dieses Blogs]({filename}/image-preview.md) eigegriffen.
+[Technik dieses Blogs]({filename}/image-preview.md) eingegriffen.
 Außerdem gibt es [@AFractalADay](https://twitter.com/AFractalADay) auf
 Twitter, der täglich ein zufälliges Fraktal tweetet.
 
@@ -40,7 +40,7 @@ gegen einen endlichen Wert strebt.
 
 Wenn man jeden Punkt $c$ auf der komplexen Ebene entsprechend des Konvergenzverhaltens
 bezüglich dieser Folge einfärbt -- schwarz wenn es konvergiert, blau für langsame
-Divergez, rot für schnelle Divergenz -- erhält man ein solches Bild:
+Divergenz, rot für schnelle Divergenz -- erhält man ein solches Bild:
 
 ![Zoom auf das Apfelmännchen](/img/mandelbrot.png)
 
