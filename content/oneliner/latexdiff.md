@@ -13,3 +13,10 @@ aus Git kommen.
 latexdiff old.tex new.tex > diff.tex
 pdflatex diff.tex
 ```
+
+Und wenn man sowieso schon git benutzt, reicht es einfach den Hash des Commits
+angeben, den man mit dem aktuellen Stand vergleichen will.
+
+```bash
+latexdiff-vc -r 96deadbeef filename.tex --pdf
+```

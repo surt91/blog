@@ -12,3 +12,10 @@ Visualize the differences between two Latex files.
 latexdiff old.tex new.tex > diff.tex
 pdflatex diff.tex
 ```
+
+And if one is using git anyway, there is an even simpler way to compare
+a given commit with the current state.
+
+```bash
+latexdiff-vc -r 96deadbeef filename.tex --pdf
+```
