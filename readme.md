@@ -1,22 +1,17 @@
 # This is my personal blog. [![Build Status](https://travis-ci.org/surt91/blog.svg?branch=master)](https://travis-ci.org/surt91/blog)
+
 Visit it at [blog.schawe.me](https://blog.schawe.me)
 
-## dependencies
-1. python3
+## Setup
 
-### from PyPI
+Ensure that `python3` is installed and `pip` is available. Advanced users might prefer to perform
+step 4. in a python [virtual environment](https://docs.python.org/3/tutorial/venv.html).
 
-install via `pip3 install -r requirements.txt`, possibly in a virtual environment
-
-1. pelican 3.6.3
-1. markdown
-1. typogrify
-1. beautifulsoup4
-1. bs4
-1. html5lib
-
-## build
-1. clone the repo
-2. `git submodule init; git submodule update`
-3. `make publish`
-4. upload the static files `output` to some webserver
+1. `git clone https://github.com/surt91/blog.git`
+2. `cd blog`
+3. `git submodule update --init --recursive`
+4. `pip3 install --user -r requirements.txt`
+5. `make publish`
+6. upload the static files in the `output` directory to some web server or use a cloud service
+    * [GitHub pages](https://pages.github.com/) using [TravisCI](https://travis-ci.org/) and [`.travis.yml`](.travis.yml)
+    * [Netlify](https://www.netlify.com/) using [`netlify.toml`](netlify.toml)
