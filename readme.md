@@ -4,7 +4,10 @@ Visit it at [blog.schawe.me](https://blog.schawe.me)
 ## dependencies
 1. python3
 
-### from PyPI (pip3 install ...)
+### from PyPI
+
+install via `pip3 install -r requirements.txt`, possibly in a virtual environment
+
 1. pelican 3.6.3
 1. markdown
 1. typogrify
