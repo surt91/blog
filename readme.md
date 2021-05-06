@@ -1,4 +1,4 @@
-# This is my personal blog. [![Build Status](https://travis-ci.org/surt91/blog.svg?branch=master)](https://travis-ci.org/surt91/blog)
+# This is my personal blog. [![Build Status](https://travis-ci.org/surt91/blog.svg?branch=master)](https://travis-ci.org/surt91/blog) [![Scc Count Badge](https://sloc.xyz/github/surt91/blog/)](https://github.com/surt91/blog/)
 
 Visit it at [blog.schawe.me](https://blog.schawe.me)
 
