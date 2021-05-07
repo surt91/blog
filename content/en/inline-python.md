@@ -8,7 +8,7 @@ Status: published
 Lang: en
 
 Use the right tool for the job. In my everyday life, this means writing simulations
-in Rust and visualize the results in Python. Thanks to [`inline python`](https://crates.io/crates/inline-python)
+in Rust and visualize the results in Python. Thanks to [`inline-python`](https://crates.io/crates/inline-python)
 this process works extremely well.
 
 ```Rust

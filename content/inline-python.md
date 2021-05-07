@@ -8,7 +8,7 @@ Status: published
 Lang: de
 
 Für jeden Zweck das passende Werkzeug: In meinem Alltag bedeutet das, dass ich
-Simulationen in Rust schreibe und in Python visualisiere. Dank [`inline python`](https://crates.io/crates/inline-python)
+Simulationen in Rust schreibe und in Python visualisiere. Dank [`inline-python`](https://crates.io/crates/inline-python)
 geht das sogar sehr reibungslos.
 
 ```Rust
