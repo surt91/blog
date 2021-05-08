@@ -61,7 +61,7 @@ längsten Teilfolge direkt vor ihr auftauchen können.
 
 Am Ende haben wir $L$ Stapel, wobei $L$ die Länge der LIS ist, und wir können vom Stapel ganz rechts starten
 und den Pfeilen folgen, um eine LIS zusammenzubauen. Wenn wir nur an der
-[Länge interessiert wären]({filename}/paper-lis.md), müssten wir uns über den Inhalt der Stapel keine Gedanken machen und der Algorithmus ließe sich sehr kompakt darstellen:
+[Länge interessiert wären](https://doi.org/10.1103/PhysRevE.101.062109), müssten wir uns über den Inhalt der Stapel keine Gedanken machen und der Algorithmus ließe sich sehr kompakt darstellen:
 
 ```rust
 fn lis_len<T: Ord>(seq: &[T]) -> usize {

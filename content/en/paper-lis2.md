@@ -58,7 +58,7 @@ in a LIS.
 
 In the end there are $L$ stacks, where $L$ is the length of the LIS. We can start from the rightmost
 stack, select an arbitrary element and follow the pointers to build a LIS. If we were only
-[interested in the length]({filename}/paper-lis.md), we could disregard all but the top card of every
+[interested in the length](https://doi.org/10.1103/PhysRevE.101.062109), we could disregard all but the top card of every
 stack and could simply the algorithm:
 
 ```rust
