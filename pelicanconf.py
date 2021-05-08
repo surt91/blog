@@ -30,7 +30,6 @@ PLUGINS = [
     "tipue_search",
     "neighbors",
     "sitemap",
-    "preload_thumbnail",
     "i18n_subsites",
     "doi_details",
 ]
