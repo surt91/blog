@@ -2,3 +2,7 @@
 	path = themes/purepelican
 	url = git@github.com:surt91/purepelican.git
 
+[submodule "plugins"]
+	path = plugins
+	url = https://github.com/surt91/pelican-plugins.git
+	branch = main
