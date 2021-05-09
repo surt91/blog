@@ -42,7 +42,7 @@ Wenn man jeden Punkt $c$ auf der komplexen Ebene entsprechend des Konvergenzverh
 bezüglich dieser Folge einfärbt -- schwarz wenn es konvergiert, blau für langsame
 Divergenz, rot für schnelle Divergenz -- erhält man ein solches Bild:
 
-[![Zoom auf das Apfelmännchen](/img/mandelbrot_1200.jpg)](/img/mandelbrot.png)
+[![Zoom auf das Apfelmännchen](/img/mandelbrot1200.jpg)](/img/mandelbrot.png)
 
 Dies ist ein Zoom auf den Rand des Apfelmännchens. Tatsächlich ist die
 Mandelbrotmenge kein Fraktal im eigentlichen Sinne, da seine fraktale Dimension
