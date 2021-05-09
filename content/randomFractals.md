@@ -195,7 +195,7 @@ for _ in 0..cpus {
 Mit dieser Methode kann man alte Bekannte wie das [Sierpinski-Dreieck]({filename}/rule-90.md)
 erzeugen.
 
-[![Sierpinski-Dreieck](/img/sierpinski1200.jpg)](/img/sierpinski.png)
+[![Sierpinski-Dreieck](/img/sierpinski.png)](/img/sierpinski.png)
 
 Dazu benötigt man die drei affinen Transformationen, die man alle mit gleicher
 Wahrscheinlichkeit auswählt:
