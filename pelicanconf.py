@@ -103,9 +103,9 @@ AUTHOR_FEED_RSS = None
 # Social widget
 # (linktext, link, [font awesome symbol])
 SOCIAL = (
-    ('Ich', 'https://hendrik.schawe.me', 'user'),
+    ('Ich', 'https://hendrik.schawe.me', 'fas fa-user'),
     ('GitHub', 'https://github.com/surt91'),
-    ('Email', 'mailto:hendrik.schawe+blog@gmail.com', 'envelope'),
+    ('Email', 'mailto:hendrik.schawe+blog@gmail.com', 'fas fa-envelope'),
     ('Twitter', 'https://twitter.com/surt91'),
 )
 
