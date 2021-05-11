@@ -2,7 +2,7 @@ Title: Number of longest increasing subsequences
 Date: 2020-06-02 11:11
 Author: surt91
 Category: Phys
-Tags: Physik, Bild
+Tags: Publication, Physics, Image
 Slug: paper-lis2
 Status: published
 LargeFeaturedImage: img/lis_alternatives.png
