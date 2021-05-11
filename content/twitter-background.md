@@ -63,7 +63,8 @@ def plot_background_colors(color_histogram, filename="colors.png"):
     buf = [[0 for _ in range(4 * width)] for _ in range(width)]
 
     hc2 = HilbertCurve(exponent, 2)
-    hc3 = HilbertCurve(256, 3)
+    # there are 256 = 2^8 values in each direction of the RGB cube
+    hc3 = HilbertCurve(8, 3)
 
     sorted_rgbs = sorted(data.keys(), key=lambda x: hc3.distance_from_point(x))
 
