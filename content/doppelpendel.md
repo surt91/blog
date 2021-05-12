@@ -3,7 +3,7 @@ Date: 2014-03-19 11:27
 Author: surt91
 Category: Code
 Tags: Physik, Video, Bild, Formel, Chaos
-Slug: dglshow
+Slug: double-pendulum
 LargeFeaturedImage: img/doublePendulum.png
 Status: published
 Lang: de
