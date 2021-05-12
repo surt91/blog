@@ -27,8 +27,8 @@ Im einfachsten Fall, dem Euler Verfahren, sähe das für ein einfaches
 Fadenpendel nach $k$ Zeitschritten so aus
 \begin{align*}
     \ddot\vartheta_{k+1} &= - mgl \sin(\vartheta_k)\\
-    \dot\vartheta_{k+1} &= \tau \ddot\vartheta_{k+1} + \dot\vartheta_{k}\\
-    \vartheta_{k+1} &= \tau \dot\vartheta_k + \vartheta_{k}
+    \dot\vartheta_{k+1} &= \tau \ddot\vartheta_{k} + \dot\vartheta_{k}\\
+    \vartheta_{k+1} &= \tau \dot\vartheta_{k} + \vartheta_{k}
 \end{align*}
 Unglücklicherweise hat dieses Verfahren ernsthafte Probleme mit der Energieerhaltung
 und braucht sehr kleine $\tau$ für brauchbare Ergebnisse.
