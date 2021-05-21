@@ -1,4 +1,4 @@
-Title: möchtegerngeek
+Title: Willkommen auf meinem Blog!
 Date: 2021-05-21 20:37
 Author: surt91
 Category: Meta
@@ -6,7 +6,7 @@ Slug: welcome
 Status: published
 Lang: de
 
-Willkommen auf meinem Blog! Hier veröffentliche ich unregelmäßig
+Hier veröffentliche ich unregelmäßig
 Artikel über Dinge, mit denen ich mich beschäftige, oder die ich
 so nützlich sind, dass ich sie später nachschlagen will.
 

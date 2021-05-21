@@ -1,4 +1,4 @@
-Title: möchtegerngeek
+Title: Welcome to my Blog!
 Date: 2021-05-21 20:37
 Author: surt91
 Category: Meta
@@ -6,7 +6,7 @@ Slug: welcome
 Status: published
 Lang: en
 
-Welcome to my Blog! Here I publish in irregular intervals
+Here I publish in irregular intervals
 post about things I do or want to be able to look up later.
 
 I suggest new visitors to take a look at the following highlights
