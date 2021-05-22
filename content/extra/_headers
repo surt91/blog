@@ -5,3 +5,4 @@
   Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.com; style-src 'self' https://cdnjs.com; font-src 'self' https://cdnjs.com; connect-src https://maker.ifttt.com
   Referrer-Policy: no-referrer-when-downgrade
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Permissions-Policy: geolocation=(), microphone=()
