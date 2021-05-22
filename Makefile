@@ -50,8 +50,6 @@ publish:
 	# remove as soon as fixed
 
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-	npm run sw-precache
-	mv service-worker.js output
 
 	echo "blog.schawe.me" > output/CNAME
 
