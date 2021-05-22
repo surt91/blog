@@ -54,7 +54,6 @@ READERS = {"html": None}
 STATIC_PATHS = [
     'extra/manifest.json',
     'extra/_headers',
-    'extra/custom.css',
     'extra/favicon.ico',
     'extra/icons',
     'theme/images',
@@ -67,7 +66,6 @@ STATIC_PATHS = [
 EXTRA_PATH_METADATA = {
     'extra/manifest.json': {'path': 'manifest.json'},
     'extra/_headers': {'path': '_headers'},
-    'extra/custom.css': {'path': 'custom.css'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/googlee1eadb2ddedaa639.html': {'path': 'googlee1eadb2ddedaa639.html'},
 }
