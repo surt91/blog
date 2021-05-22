@@ -44,6 +44,10 @@ I18N_SUBSITES = {
     }
 }
 
+MATH_JAX = {
+    "auto_insert": False,
+}
+
 JINJA_ENVIRONMENT = {"extensions": ['jinja2.ext.i18n']}
 
 READERS = {"html": None}
