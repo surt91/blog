@@ -12,7 +12,7 @@ about things I do or want to be able to look up later.
 I suggest new visitors to take a look at the following highlights
 instead of scrolling chronologically.
 
-* [Number of longest increasing subsequences]({filename}/en/paper-lis.md)
+* [Number of longest increasing subsequences]({filename}/en/paper-lis2.md)
    about a academic publication, of which I am co-author, and its central algorithm
 
 Unfortunately, most content is only available on the [German version of this blog](https://blog.schawe.me).
