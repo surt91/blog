@@ -6,8 +6,8 @@ Slug: welcome
 Status: published
 Lang: en
 
-Here I publish in irregular intervals
-post about things I do or want to be able to look up later.
+Here I publish posts in irregular intervals
+about things I do or want to be able to look up later.
 
 I suggest new visitors to take a look at the following highlights
 instead of scrolling chronologically.

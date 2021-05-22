@@ -8,9 +8,9 @@ Lang: de
 
 Hier veröffentliche ich unregelmäßig
 Artikel über Dinge, mit denen ich mich beschäftige, oder die ich
-so nützlich sind, dass ich sie später nachschlagen will.
+so nützlich finde, dass ich sie später nachschlagen will.
 
-Neuen Besuchern möchte eine handvoll Beiträge empfehlen, anstatt
+Neuen Besuchern möchte ich eine handvoll Beiträge empfehlen, anstatt
 chronologisch herunterzuscrollen:
 
 * [A Fractal A Day]({filename}/randomFractals.md)
