@@ -8,6 +8,4 @@ content/code/
 
 *.bak
 
-content/extra/service-worker.js
-
 node_modules
