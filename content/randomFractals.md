@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Physik, Bild, Rust, Code
 Slug: randomFractals
-LargeFeaturedImage: img/mandelbrot.png
+LargeFeaturedImage: img/mandelbrot1200.jpg
 Status: published
 Lang: de
 
