@@ -59,6 +59,7 @@ STATIC_PATHS = [
     'theme/images',
     'extra/googlee1eadb2ddedaa639.html',
     'extra/robots.txt',
+    'extra/service-worker.js',
     'img',
     'vid',
     'js',
@@ -70,6 +71,7 @@ EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/googlee1eadb2ddedaa639.html': {'path': 'googlee1eadb2ddedaa639.html'},
     'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/service-worker.js': {'path': 'service-worker.js'},
 }
 
 SITE_DESCRIPTION = 'Dinge, die ich für hübsch, praktisch oder interessant halte.'
