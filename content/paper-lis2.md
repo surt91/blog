@@ -28,7 +28,7 @@ Folge von Zahlen $S_i$, welche Teilfolge ist am längsten unter der Bedingung, d
 
 Dieses Problem ist so einfach, dass es erstmals von Stanisław Ulam als Fingerübung beschrieben wurde und nach meinem
 Eindruck heutzutage als Übung für dynamische Programmierung in Universitäten verwendet wird. Wer weiß
-wie viele Bewerber vor einem Whiteboard ins Schwitzen geraten sind bei dem Versuch es aus dem Stehgreif zu
+wie viele Bewerber vor einem Whiteboard ins Schwitzen geraten sind bei dem Versuch es aus dem Stegreif zu
 lösen.
 
 ![The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik](/img/romik.jpg)
