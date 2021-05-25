@@ -1,0 +1,75 @@
+@import 'functions';
+
+.tag {
+    font: $font-tag;
+    list-style: none;
+    display: inline-block;
+
+    background: getColor(bg-tag);
+    border-radius: 3px;
+    color: getColor(tag);
+
+    padding: 0.4em 0.2em 0.2em 0.2em;
+    margin: 0.2em;
+}
+
+.tag a {
+    color: getColor(tag);
+    text-decoration: none;
+    margin: 0.2em 0.2em;
+}
+.tag a:hover {
+    text-decoration: none;
+}
+
+.category {
+    @extend .tag;
+    background: #555;
+}
+
+.category a {
+    color: getColor(bg-main);
+}
+
+.category-code {
+    background: #5aba59;
+}
+
+.category-snip {
+    background: #8156a7;
+}
+
+.category-tech {
+    background: #4d85d1;
+}
+
+.category-meta {
+    background: #e68a00;
+}
+
+.category-phys {
+    background: #e61e0f;
+}
+
+.category-misc {
+    background: #777;
+}
+
+.language {
+    @extend .tag;
+    background: #555;
+}
+
+.language a {
+    color: getColor(bg-main);
+}
+
+.doi {
+    @extend .tag;
+    background: #fcb425;
+    margin-left: 0.5em;
+}
+
+.doi a {
+    color: getColor(bg-main);
+}

@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../woff2/firacode-light.woff2') format('woff2'),
+    url("../woff/firacode-light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../woff2/firacode-regular.woff2') format('woff2'),
+    url("../woff/firacode-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../woff2/firacode-medium.woff2') format('woff2'),
+    url("../woff/firacode-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../woff2/firacode-semibold.woff2') format('woff2'),
+    url("../woff/firacode-semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../woff2/firacode-bold.woff2') format('woff2'),
+    url("../woff/firacode-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code VF';
+  src: url('../woff2/firacode-vf.woff2') format('woff2-variations'),
+       url('../woff/firacode-vf.woff') format('woff-variations');
+  /* font-weight requires a range: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide#Using_a_variable_font_font-face_changes */
+  font-weight: 300 700;
+  font-style: normal;
+}

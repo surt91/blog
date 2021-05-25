@@ -1,0 +1,8 @@
+[build]
+  command = "make publish"
+  publish = "output"
+  branch = "master"
+
+[context.branch-deploy]
+  command = "echo"
+  publish = "."

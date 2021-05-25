@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Phys</title><link href="https://blog.schawe.me/" rel="alternate"></link><link href="https://blog.schawe.me/feeds/phys.atom.xml" rel="self"></link><id>https://blog.schawe.me/</id><updated>2020-06-02T11:11:00+02:00</updated><entry><title>Number of longest increasing subsequences</title><link href="https://blog.schawe.me/paper-lis2.html" rel="alternate"></link><published>2020-06-02T11:11:00+02:00</published><updated>2020-06-02T11:11:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2020-06-02:/paper-lis2.html</id><summary type="html">&lt;p&gt;Meine liebsten Probleme sind solche, die einfach scheinen aber sehr tief sind. Natürlich gehört
+das &lt;a href="https://blog.schawe.me/paper-tsp-pt.html"&gt;Problem des Handlungsreisenden&lt;/a&gt; dazu: Es ist einfach zu verstehen,
+dass der Müllmann bei jeder Mülltonne vorbei muss und dabei möglichst wenig Strecke fahren will.
+Gerade deshalb ist es das Paradebeispiel für &lt;span class="caps"&gt;NP&lt;/span&gt;-schwere Probleme (technisch …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Meine liebsten Probleme sind solche, die einfach scheinen aber sehr tief sind. Natürlich gehört
+das &lt;a href="https://blog.schawe.me/paper-tsp-pt.html"&gt;Problem des Handlungsreisenden&lt;/a&gt; dazu: Es ist einfach zu verstehen,
+dass der Müllmann bei jeder Mülltonne vorbei muss und dabei möglichst wenig Strecke fahren will.
+Gerade deshalb ist es das Paradebeispiel für &lt;span class="caps"&gt;NP&lt;/span&gt;-schwere Probleme (technisch gesehen ist nur seine
+Entscheidungs-Version &amp;#8220;Gibt es eine Tour, die kürzer ist als &lt;span class="math"&gt;\(X\)&lt;/span&gt;&amp;#8221; &lt;span class="caps"&gt;NP&lt;/span&gt;-schwer und nicht die typische
+Optimierungsversion: &amp;#8220;Welche ist die kürzeste&amp;nbsp;Tour&amp;#8221;).&lt;/p&gt;
+&lt;p&gt;Aber fast noch besser gefällt mir das Problem der &lt;em&gt;längsten aufsteigenden Teilfolge&lt;/em&gt;, oder auf englisch,
+&lt;em&gt;longest increasing subsequence&lt;/em&gt; (&lt;span class="caps"&gt;LIS&lt;/span&gt;): Gegeben eine
+Folge von Zahlen &lt;span class="math"&gt;\(S_i\)&lt;/span&gt;, welche Teilfolge ist am längsten unter der Bedingung, dass die Zahlen&amp;nbsp;aufsteigen.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    &lt;source srcset="/img/lis_example.dark.png" media="(prefers-color-scheme: dark)"&gt;
+    &lt;img alt="Eine längste aufsteigende Teilfolge ist in einer Folge markiert" src="/img/lis_example.png"&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Dieses Problem ist so einfach, dass es erstmals von Stanisław Ulam als Fingerübung beschrieben wurde und nach meinem
+Eindruck heutzutage als Übung für dynamische Programmierung in Universitäten verwendet wird. Wer weiß
+wie viele Bewerber vor einem Whiteboard ins Schwitzen geraten sind bei dem Versuch es aus dem Stegreif zu&amp;nbsp;lösen.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik" src="/img/romik.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Auf der anderen Seite ist es aber offenbar tief genug, dass man ganze Bücher darüber schreiben kann.
+Es zeigen sich überraschende Querverbindungen zu scheinbar unabhängigen Problemen.
+Denn die Länge &lt;span class="math"&gt;\(L\)&lt;/span&gt; der &lt;span class="caps"&gt;LIS&lt;/span&gt; einer Permutation fluktuiert genauso wie der &lt;a href="https://en.wikipedia.org/wiki/Kardar%E2%80%93Parisi%E2%80%93Zhang_equation"&gt;Abstand von der Mitte zum Rand eines Kaffeeflecks&lt;/a&gt; oder die &lt;a href="https://www.quantamagazine.org/beyond-the-bell-curve-a-new-universal-law-20141015/"&gt;größten Eigenwerte von Zufallsmatrizen&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Nun ist die Lösung dieses Problems nicht eindeutig: Es kann viele längste aufsteigende Teilfolgen
+geben. Tatsächlich wächst die Anzahl sogar exponentiell mit der Länge der ursprünglichen&amp;nbsp;Sequenz.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    &lt;source srcset="/img/lis_alternatives.dark.png" media="(prefers-color-scheme: dark)"&gt;
+    &lt;img alt="Verschiedene längste aufsteigende Teilfolgen der gleichen Folge" src="/img/lis_alternatives.png"&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Allerdings wurde bisher nie untersucht wie viele genau. Oftmals hört man, es sei nicht praktikabel
+alle durchzuzählen, da es exponentiell viele seien. Und wenn es darum ginge alle zu enumerieren,
+würde das stimmen. Aber wir wollen an dieser Stelle nur die Anzahl wissen, die wir mittels
+dynamischer Programmierung effizient bestimmen können. Die Idee ist, dass wir für jedes Element,
+das an Position &lt;span class="math"&gt;\(x\)&lt;/span&gt; in einer &lt;span class="caps"&gt;LIS&lt;/span&gt; auftauchen kann, berechnen, wie viele aufsteigende Teilfolgen
+der Länge &lt;span class="math"&gt;\(L-x\)&lt;/span&gt; mit diesem Element&amp;nbsp;beginnen.&lt;/p&gt;
+&lt;p&gt;Besonders einfach geht das, wenn wir zuerst eine Datenstruktur aufbauen, die kodiert welche
+Elemente in einer &lt;span class="caps"&gt;LIS&lt;/span&gt; aufeinander folgen können. Dazu erweitern wir
+&lt;a href="https://en.wikipedia.org/wiki/Patience_sorting"&gt;Patience Sort&lt;/a&gt;, und da dieser Algorithmus nach einem
+Kartenspiel benannt ist, werden wir es auch mit Karten visualisieren: Wir schreiben jedes Element
+unserer Sequenz auf eine Karte und legen die Karten auf einen Stapel, sodass das erste Element der Sequenz
+oben liegt. Dann nehmen wir Karten von oben ab und legen sie auf verschiedene Stapel. Die erste Karte legen
+wir auf den ersten, noch leeren Stapel. Die folgenden Karten legen wir auf den ersten Stapel, dessen
+oberstes Element größer ist als die aktuelle Karte und ansonsten machen wir einen neuen Stapel rechts
+davon auf. Jedes mal wenn wir eine Karte ablegen, lassen wir sie auf alle Karten, die aktuell auf dem
+Vorgängerstapel liegen und kleiner sind, zeigen &amp;#8212; dies sind die Karten die in einer aufsteigenden
+längsten Teilfolge direkt vor ihr auftauchen&amp;nbsp;können.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Animation von Patience Sort" src="/img/patience.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Am Ende haben wir &lt;span class="math"&gt;\(L\)&lt;/span&gt; Stapel, wobei &lt;span class="math"&gt;\(L\)&lt;/span&gt; die Länge der &lt;span class="caps"&gt;LIS&lt;/span&gt; ist, und wir können vom Stapel ganz rechts starten
+und den Pfeilen folgen, um eine &lt;span class="caps"&gt;LIS&lt;/span&gt; zusammenzubauen. Wenn wir nur an der
+&lt;a href="https://doi.org/10.1103/PhysRevE.101.062109"&gt;Länge interessiert wären&lt;/a&gt;, müssten wir uns über den Inhalt der Stapel keine Gedanken machen und der Algorithmus ließe sich sehr kompakt&amp;nbsp;darstellen:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;lis_len&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;: &lt;span class="nb"&gt;Ord&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;: &lt;span class="kp"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="kt"&gt;usize&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;Vec&lt;/span&gt;::&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;binary_search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Encountered non-unique element in sequence!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Aber wir wollen mehr, deshalb notieren wir uns im nächsten Schritt bei allen Karten des
+rechtesten Stapels wie viele aufsteigende Teilfolgen
+der Länge &lt;span class="math"&gt;\(x=1\)&lt;/span&gt; mit ihnen starten, was trivialerweise je eine ist. Dann notieren wir bei allen Karten des
+Stapels links davon wie viele aufsteigenden Teilfolgen der Länge 2 mit ihnen anfangen. Das können wir berechnen,
+indem wir den Pfeilen rückwärts folgen und die Annotationen jeweils aufaddieren. Nachdem wir dies für
+alle Stapel wiederholt haben und den linkesten Stapel beschriftet haben, können wir alle Annotationen des
+linkesten Stapels aufaddieren, um die gesamte Anzahl &lt;span class="caps"&gt;LIS&lt;/span&gt; zu erhalten: hier &lt;span class="math"&gt;\(7\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;
+    &lt;source srcset="/img/lis_backpointer.dark.png" media="(prefers-color-scheme: dark)"&gt;
+    &lt;img alt="Beispiel der Datenstruktur zum Zählen der unterschiedlichen LIS" src="/img/lis_backpointer.png"&gt;
+&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Wie sich das ganze für längere Sequenzen aus unterschiedlichen Zufallsensembles im Detail verhält
+haben wir in einem &lt;a href="https://hendrik.schawe.me/pdf/2020_liscount_PRE.pdf"&gt;Artikel&lt;/a&gt;&amp;nbsp;veröffentlicht.&lt;/p&gt;</content><category term="Veröffentlichung"></category><category term="Physik"></category><category term="Bild"></category></entry><entry><title>Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes</title><link href="https://blog.schawe.me/paper-tsp-pt.html" rel="alternate"></link><published>2018-07-31T06:28:00+02:00</published><updated>2018-07-31T06:28:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2018-07-31:/paper-tsp-pt.html</id><summary type="html">&lt;p&gt;In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (&lt;span class="caps"&gt;TSP&lt;/span&gt;)
+eingeführt, das abhängig von einem Parameter &lt;span class="math"&gt;\(\sigma\)&lt;/span&gt; von einer trivial einfach
+zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet
+sind, zum zufälligen euklidischen &lt;span class="caps"&gt;TSP&lt;/span&gt; in der Ebene&amp;nbsp;interpoliert.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Einfach und schwierig zu lösende TSP Konfigurationen" src="/img/tsp_interp.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Danach werden mittels &lt;a href="https://de.wikipedia.org/wiki/Lineare_Optimierung"&gt;linearer Programmierung&lt;/a&gt; einige
+Phasenübergänge festgestellt …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (&lt;span class="caps"&gt;TSP&lt;/span&gt;)
+eingeführt, das abhängig von einem Parameter &lt;span class="math"&gt;\(\sigma\)&lt;/span&gt; von einer trivial einfach
+zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet
+sind, zum zufälligen euklidischen &lt;span class="caps"&gt;TSP&lt;/span&gt; in der Ebene&amp;nbsp;interpoliert.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Einfach und schwierig zu lösende TSP Konfigurationen" src="/img/tsp_interp.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Danach werden mittels &lt;a href="https://de.wikipedia.org/wiki/Lineare_Optimierung"&gt;linearer Programmierung&lt;/a&gt; einige
+Phasenübergänge festgestellt, ab welchen Werten von &lt;span class="math"&gt;\(\sigma\)&lt;/span&gt; das Problem
+schwierig zu lösen wird. Zu zwei dieser Übergänge werden strukturelle
+Eigenschaften der optimalen Lösung gefunden, die sich an dieser Stelle
+ebenfalls charakteristisch ändern. Da die optimale Lösung nicht von der
+Lösungsmethode abhängt, sind diese Phasenübergänge also nicht nur von Bedeutung
+für das spezielle Lineare Programm bzw. den Algorithmus der zu dessen Lösung
+genutzt wurde, sondern fundamentale Eigenschaft dieses &lt;span class="caps"&gt;TSP&lt;/span&gt;&amp;nbsp;Ensembles.&lt;/p&gt;
+&lt;p&gt;Im Detail haben wir die klassische Formulierung von Dantzig&amp;nbsp;genutzt:
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align*}
+    \label{eq:objective}
+    &amp;amp;\text{minimize}     &amp;amp;  \sum_i \sum_{j&amp;lt;i} c_{ij} x_{ij}\\
+    \label{eq:int}
+    &amp;amp;\text{subject to}   &amp;amp;  x_{ij}                                &amp;amp;\in \{0,1\}\\ %\mathbb{Z}\\
+    \label{eq:inout}
+    &amp;amp;                    &amp;amp;  \sum_{j} x_{ij}                       &amp;amp;= 2&amp;amp;            &amp;amp; \forall i \in V \\
+    \label{eq:sec}
+    &amp;amp;                    &amp;amp;  \sum_{i \in S, j \notin S} x_{ij}     &amp;amp;\ge 2&amp;amp;          &amp;amp; \forall S \varsubsetneq V, S \ne \varnothing
+\end{align*}&lt;/div&gt;
+&lt;p&gt;Hier ist &lt;span class="math"&gt;\(c_{ij}\)&lt;/span&gt; die Distanzmatrix zwischen allen Paaren von Städten aus &lt;span class="math"&gt;\(V\)&lt;/span&gt; und &lt;span class="math"&gt;\(x_{ij}\)&lt;/span&gt;
+die gesuchte Adjazenzmatrix, also &lt;span class="math"&gt;\(x_{ij} = 1\)&lt;/span&gt;, wenn &lt;span class="math"&gt;\(i\)&lt;/span&gt; und &lt;span class="math"&gt;\(j\)&lt;/span&gt; aufeinanderfolgende Stationen
+der Tour sind und &lt;span class="math"&gt;\(x_{ij} = 0\)&lt;/span&gt; sonst. Die erste Zeile minimiert also die Strecke der Tour.
+Um zu vermeiden, dass wir die triviale Lösung &lt;span class="math"&gt;\(x_{ij}=0\)&lt;/span&gt;, also &amp;#8220;wenn wir zu Hause
+bleiben müssen wir am wenigsten Strecke zurücklegen&amp;#8221; finden, zwingt die dritte
+Zeile unseren Handlungsreisenden seine Tour so zu planen, dass in Summe zwei
+Striche an jede Stadt gezeichnet werden &amp;#8212; genug, um hinein und wieder hinaus
+zu reisen. Allerdings, ist unser Handlungsreisender clever und würde versuchen uns
+auszutricksen, indem er halbe Striche einzeichnen würde, wie
+&lt;a href="https://blog.schawe.me/tspview.html"&gt;in einem anderen Blogeintrag visualisiert&lt;/a&gt;. Deshalb ist die
+Bedingung in der zweiten Zeile nötig, die die Einträge in der Adjazenzmatrix auf
+ganze Zahlen beschränkt. Dann bleibt nur noch das Problem, dass mehrere Routen,
+die nicht verbunden sind erlaubt wären, sodass wir sie durch die letzte Zeile
+verbieten: die &lt;em&gt;Subtour Elimination Constraints&lt;/em&gt;. Der aufmerksame Leser mag
+schon erkannt haben, dass es für jede Untermenge von Städten so eine Constraint
+definiert, also exponentiell viele in der Anzahl der Städte. Die Lösung
+zu dieses Problem liegt darin, dass nur sehr wenige wirklich gebraucht werden, sodass
+man das Problem ohne diese Constraint löst, testet ob eine verletzt ist, was mittels
+der Berechnung eines &lt;a href="https://en.wikipedia.org/wiki/Minimum_cut"&gt;minimum cut&lt;/a&gt; sehr
+schnell geht und dann eine einzelne Constraint, die diese Konfiguration verbietet
+hinzufügt. Diese Methode iterativ Constraints hinzuzufügen wird meist als &lt;em&gt;Cutting Planes&lt;/em&gt;&amp;nbsp;bezeichnet.&lt;/p&gt;
+&lt;p&gt;Also haben wir einen schnellen Algorithmus für das Problem des Handlungsreisenden
+gefunden? Nein, leider können wir den &lt;a href="https://en.wikipedia.org/wiki/Millennium_Prize_Problems#P_versus_NP"&gt;Millenium Preis&lt;/a&gt; noch nicht beanspruchen. Es gibt keinen bekannten Algorithmus, der dieses Problem
+unter Erfüllung der zweiten Zeilen, also Beschränkung auf ganzzahlige Lösungen lösen kann.
+Aber sobald wir diese Bedingung fallen lassen, können wir klassische Verfahren der
+linearen Programmierung nutzen, um dieses Problem effizient zu lösen. Dies wird auch
+&lt;a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation"&gt;Relaxation&lt;/a&gt; genannt. Die Länge der
+Strecke ist immer eine untere Schranke für die tatsächliche Lösung. Und wenn unsere
+Lösung per Zufall ganzzahlig ist, können wir uns sicher sein, die Optimale Lösung
+gefunden zu&amp;nbsp;haben.&lt;/p&gt;
+&lt;p&gt;Als Ordnungsparameter des Phasenübergangs zwischen leichten und schweren Konfigurationen
+dient uns also die Wahrscheinlichkeit, dass
+mittels eines Simplex-Solvers eine ganzzahlige, und damit optimale, Lösung
+gefunden wird. Ohne die Subtour Elimination Constraints,
+fällt der Phasenübergang auf den Punkt, an dem sich die optimale Lösung erstmals
+von der Reihenfolge der Städte des ursprünglichen Kreises unterscheidet.
+Mit den Subtour Elimination Constraints, fällt der Phasenübergang auf den
+Punkt, wo die optimale Tour anfängt von einem Zickzack-Kurs auf große Meander zu
+wechseln. Dies wird durch die geometrische Gewundenheit, die &lt;em&gt;Tortuosität&lt;/em&gt;,
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align*}
+    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
+\end{align*}&lt;/div&gt;
+&lt;p&gt;
+ermittelt, die an diesem Punkt maximal wird. Hier wird die Tour in &lt;span class="math"&gt;\(N\)&lt;/span&gt;
+Teilstücke mit gleichem Vorzeichen der Krümmung unterteilt und für jedes
+Teilstück das Verhältnis von direkter Ende-zu-Ende-Distanz &lt;span class="math"&gt;\(S_i\)&lt;/span&gt; zu der
+Länge entlang der Tour &lt;span class="math"&gt;\(L-i\)&lt;/span&gt;&amp;nbsp;summiert.&lt;/p&gt;
+&lt;p&gt;Wir haben also kontinuierliche Phasenübergänge in der Schwierigkeit dieses Problems
+mittels linearer Programmierung detektiert und sie mit strukturellen Änderungen
+des Verhaltens in Verbindung&amp;nbsp;gebracht.&lt;/p&gt;</content><category term="Veröffentlichung"></category><category term="Physik"></category></entry></feed>

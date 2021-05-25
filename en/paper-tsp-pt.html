@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes  · möchte­gern­geek</title>
+    <meta name="description" content="In this Article, we introduce an ensemble of the Traveling Salesperson problem (TSP) that can be tuned with a parameter \(\sigma\) from the trivial case of cities equidistant on a circle to the random Euclidean TSP in a plane. For this ensemble we determine some phase transitions from an “easy …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="Publication, Physics, Phys, ">
+
+        <meta name="twitter:title" content="Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes "/>
+    <meta name="twitter:description" content="In this Article, we introduce an ensemble of the Traveling Salesperson problem (TSP) that can be tuned with a parameter \(\sigma\) from the trivial case of cities equidistant on a circle to the random Euclidean TSP in a plane. For this ensemble we determine some phase transitions from an “easy …"/>
+    <meta name="og:title" content="Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes "/>
+    <meta name="og:description" content="In this Article, we introduce an ensemble of the Traveling Salesperson problem (TSP) that can be tuned with a parameter \(\sigma\) from the trivial case of cities equidistant on a circle to the random Euclidean TSP in a plane. For this ensemble we determine some phase transitions from an “easy …"/>
+
+    <meta property="og:url" content="paper-tsp-pt.html"/>
+
+        <meta property="og:article:published_time" content="2018-07-31T06:28:00+02:00"/>
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:image" content="https://blog.schawe.me/en/img/tsp_interp.png">
+        <meta name="twitter:image" content="https://blog.schawe.me/en/img/tsp_interp.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/paper-tsp-pt.html" />
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/paper-tsp-pt.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/paper-tsp-pt.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/css/pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/en/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="Search">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/en/paper-tsp-pt.html"> Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting&nbsp;Planes  </a>
+            </h2>
+
+            <div class="post-meta">
+                <div>
+                    <span class="doi-details">
+                        Hendrik Schawe, Alexander K. Hartmann,
+                        EPL (Europhysics Letters) <b>113</b>, 30004 (2016)
+                    </span>
+                </div>
+
+                <time class="post-time" datetime="2018-07-31T06:28:00+02:00">07/31/2018</time>
+
+                <span class="languages-in-article">
+        <span class="language">
+            <a href="https://blog.schawe.me/en/../paper-tsp-pt.html"><i class="fa fa-globe"></i> de</a>
+        </span>
+</span>
+
+
+                <span class="category category-phys">
+                    <a href="https://blog.schawe.me/en/categories.html#phys-ref">Phys</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#physics-ref">Physics</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#publication-ref">Publication</a>
+                        </span>
+                </span>
+
+                    <span class="doi"><a href="https://dx.doi.org/10.1209/0295-5075/113/30004">doi:10.1209/0295-5075/113/30004</a></span>
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>In this Article, we introduce an ensemble of the Traveling Salesperson problem (<span class="caps">TSP</span>)
+that can be tuned with a parameter <span class="math">\(\sigma\)</span> from the trivial case of cities
+equidistant on a circle to the random Euclidean <span class="caps">TSP</span> in a&nbsp;plane.</p>
+<p><img alt="Einfach und schwierig zu lösende TSP Konfigurationen" src="/img/tsp_interp.svg"></p>
+<p>For this ensemble we determine some phase transitions from an &#8220;easy&#8221; phase to
+a &#8220;not-that-easy&#8221; phase using linear programming. For each of these transitions
+we present structural properties of the optimal solution, which change at these
+points characteristically. Since the optimal solution is independent of the
+solution method, those phase transitions are not only relevant for the specific
+linear program respectively the solver implementation used to solve them, but
+a fundamental property of this <span class="caps">TSP</span>&nbsp;ensemble.</p>
+<p>We used the classical linear program of&nbsp;Dantzig:
+</p>
+<div class="math">\begin{align}
+    \label{eq:objective}
+    &amp;\text{minimize}     &amp;  \sum_i \sum_{j&lt;i} c_{ij} x_{ij}\\
+    \label{eq:int}
+    &amp;\text{subject to}   &amp;  x_{ij}                                &amp;\in \{0,1\}\\ %\mathbb{Z}\\
+    \label{eq:inout}
+    &amp;                    &amp;  \sum_{j} x_{ij}                       &amp;= 2&amp;            &amp; \forall i \in V \\
+    \label{eq:sec}
+    &amp;                    &amp;  \sum_{i \in S, j \notin S} x_{ij}     &amp;\ge 2&amp;          &amp; \forall S \varsubsetneq V, S \ne \varnothing
+\end{align}</div>
+<p>Here <span class="math">\(c_{ij}\)</span> is the distance matrix between all pairs of cities
+of <span class="math">\(V\)</span> and <span class="math">\(x_{ij}\)</span> is the adjacency matrix, i.e., <span class="math">\(x_{ij} = 1\)</span>,
+if <span class="math">\(i\)</span> and <span class="math">\(j\)</span> are consecutive in the tour and <span class="math">\(x_{ij} = 0\)</span> otherwise.
+Therefore, the first line minimizes the length of the tour.
+To avoid that we conclude that <span class="math">\(x_{ij} = 0\)</span>, i.e., staying at home,
+is identified as the optimal tour, we introduce the third line to
+force each city to have two connections, enough to enter and leave.
+But our salesman is clever and can trick us by choosing
+<span class="math">\(x_{ij} = 0.5\)</span>. Since we can not interpret this, we introduce line 2
+to force all <span class="math">\(x_{ij}\)</span> to integers.
+Still valid are two unconnected tours, which we forbid with
+the fourth line, the <em>subtour elimination constraints</em>.
+Well, the careful reader might already see that we defined
+one constraint for each subset of the cities, which are exponentially
+many in the number of cities. But we can solve this by starting
+without this class of constraints and only adding the ones which
+are actually violated by a solution. The violated ones can luckily
+be found easily by calculating the <a href="https://en.wikipedia.org/wiki/Minimum_cut">minimum cut</a> of the proposed solution. The corresponding
+constraint can be added and the procedure is repeated until no
+subtour elimination constraint is violated&nbsp;anymore.</p>
+<p>So does that mean that we found an efficient algorithm to solve
+the traveling salesperson problem? No, unfortunately we can not
+claim the <a href="https://en.wikipedia.org/wiki/Millennium_Prize_Problems#P_versus_NP">Millenium Prize</a> yet. There is no known
+algorithm which can efficiently solve this problem under the
+integer constraint.
+But if we drop this constraint, we can use efficient algorithms
+of linear programming to solve the
+<a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation">relaxation</a>. The resulting length will always
+be a lower bound on the actual solution and if we, by chance, find
+an integer solution, we can be sure that it is actually the
+optimal&nbsp;solution.</p>
+<p>As the order parameter of the transitions from easy to hard we use the probability that a simplex
+solver yields an integer, and therefore optimal, solution. Without  the Subtour Elimination Constraints,
+the transition occurs at the point at which the optimal solution deviates
+from the order of the cities on the initial circle. With the Subtour
+Elimination Constraints the transition coincides with the point at which
+the optimal tour changes from a zig-zag course to larger meandering arcs.
+This is measured by the&nbsp;tortuosity
+</p>
+<div class="math">\begin{align*}
+    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
+\end{align*}</div>
+<p>
+which is maximal at this point. For the tortuosity the tour is divided in <span class="math">\(N\)</span>
+parts of same-sign-curvature. For each part the ratio of the direct end-to-end
+distance <span class="math">\(S_i\)</span> to the length along the arc <span class="math">\(L_i\)</span> is&nbsp;summed.</p>
+<p>So, we detected continuous phase transitions in the hardness
+of the problem with linear programming and correlated them
+with structural&nbsp;changes.</p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+                <a href="https://blog.schawe.me/en/smartphone-webcam.html">&larr;&nbsp;Newer</a>
+                <span class="separatordot">&middot;</span>
+                <a href="https://blog.schawe.me/en/relay-ssh.html">Older&nbsp;&rarr;</a>
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/fx/rythm.js"></script>
+        <script src="/theme/fx/totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>

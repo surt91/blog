@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Tech</title><link href="https://blog.schawe.me/" rel="alternate"></link><link href="https://blog.schawe.me/feeds/tech.atom.xml" rel="self"></link><id>https://blog.schawe.me/</id><updated>2011-04-05T11:22:00+02:00</updated><entry><title>Come to the dark side, our theme song is﻿ better</title><link href="https://blog.schawe.me/come-to-the-dark-side-our-theme-song-is-better.html" rel="alternate"></link><published>2011-04-05T11:22:00+02:00</published><updated>2011-04-05T11:22:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2011-04-05:/come-to-the-dark-side-our-theme-song-is-better.html</id><content type="html">&lt;p&gt;Der Imperiale Marsch, gespielt auf einem Telefonlautsprecher von einem
+&lt;span class="caps"&gt;AVR&lt;/span&gt; &lt;span class="caps"&gt;ATMEGA8&lt;/span&gt;.&lt;/p&gt;
+&lt;video controls="controls" height="240" type="video/webm" width="320"&gt;
+&lt;source src="/vid/IM2.webm"&gt;&lt;/source&gt;
+&lt;source src="/vid/IM2.ogv"&gt;&lt;/source&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;
+
+&lt;p&gt;Der Code für den Microcontroller ist als &lt;a href="https://gist.github.com/surt91/91e65a50b5a0d3a59f5eacb967bea039"&gt;Gist auf GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="Video"></category><category term="Tech"></category><category term="GitHub"></category></entry><entry><title>Binär Uhr</title><link href="https://blog.schawe.me/binar-uhr.html" rel="alternate"></link><published>2009-11-13T18:46:00+01:00</published><updated>2009-11-13T18:46:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2009-11-13:/binar-uhr.html</id><content type="html">&lt;p&gt;&lt;center&gt;&lt;object id="Frame" style="background-color:#ddd" data="/js/uhr/uhr.html" width="180" height="115"&gt;&lt;/object&gt;&lt;/center&gt;&lt;/p&gt;</content><category term="Binäruhr"></category><category term="JavaScript"></category></entry></feed>

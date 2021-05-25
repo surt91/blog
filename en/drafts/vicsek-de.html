@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vicsek  · möchte­gern­geek</title>
+    <meta name="description" content="Das Vicsek-Modell wurde 1995 vorgeschlagen, um das Schwarmverhalten von Vögeln oder Fischen zu modellieren. Die Idee ist, dass jedes Individuum seine Bewegungsrichtung an der seiner Nachbarn anpasst. Wenn jedes Individuum genügend Nachbarn hat und die Störeinflüsse nicht zu groß sind, bilden sich Schwärme. Videos von solchen Schwärmen werden auf allen …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="Physik, Bild, Rust, Code, Code, ">
+
+        <meta name="twitter:title" content="Vicsek "/>
+    <meta name="twitter:description" content="Das Vicsek-Modell wurde 1995 vorgeschlagen, um das Schwarmverhalten von Vögeln oder Fischen zu modellieren. Die Idee ist, dass jedes Individuum seine Bewegungsrichtung an der seiner Nachbarn anpasst. Wenn jedes Individuum genügend Nachbarn hat und die Störeinflüsse nicht zu groß sind, bilden sich Schwärme. Videos von solchen Schwärmen werden auf allen …"/>
+    <meta name="og:title" content="Vicsek "/>
+    <meta name="og:description" content="Das Vicsek-Modell wurde 1995 vorgeschlagen, um das Schwarmverhalten von Vögeln oder Fischen zu modellieren. Die Idee ist, dass jedes Individuum seine Bewegungsrichtung an der seiner Nachbarn anpasst. Wenn jedes Individuum genügend Nachbarn hat und die Störeinflüsse nicht zu groß sind, bilden sich Schwärme. Videos von solchen Schwärmen werden auf allen …"/>
+
+    <meta property="og:url" content="drafts/vicsek-de.html"/>
+
+        <meta property="og:article:published_time" content="2017-08-08T21:46:00+02:00"/>
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:image" content="https://blog.schawe.me/en/img/vicsek.png">
+        <meta name="twitter:image" content="https://blog.schawe.me/en/img/vicsek.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/vicsek-de.html" />
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/vicsek-de.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/drafts/vicsek-de.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/css/pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/en/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="Search">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/en/drafts/vicsek-de.html"> Vicsek  </a>
+            </h2>
+
+            <div class="post-meta">
+
+                <time class="post-time" datetime="2017-08-08T21:46:00+02:00">08.08.2017</time>
+
+                
+
+                <span class="category category-code">
+                    <a href="https://blog.schawe.me/en/categories.html#code-ref">Code</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#bild-ref">Bild</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#code-ref">Code</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#physik-ref">Physik</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#rust-ref">Rust</a>
+                        </span>
+                </span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>Das <a href="https://doi.org/10.1103/PhysRevLett.75.1226">Vicsek-Modell</a> wurde 1995
+vorgeschlagen, um das Schwarmverhalten von Vögeln oder Fischen zu modellieren.
+Die Idee ist, dass jedes Individuum seine Bewegungsrichtung an der seiner
+Nachbarn anpasst. Wenn jedes Individuum genügend Nachbarn hat und die
+Störeinflüsse nicht zu groß sind, bilden sich Schwärme. Videos von solchen
+Schwärmen werden auf allen größeren Konferenzen der Statistischen Physik
+gezeigt &#8212; und jetzt auch&nbsp;hier.</p>
+<video controls loop autoplay poster="/img/vicsek.png">
+<source src="/vid/vicsek.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p>Auf <a href="https://github.com/surt91/vicsek">GitHub</a> findet sich das Programm,
+das ich für obiges Video geschrieben habe. Es ist in Rust geschrieben und
+zeigt die Simulation per Piston auf dem&nbsp;Bildschirm.</p>
+<p>Ich habe sehr großen Gefallen an Rust gefunden &#8212; gerade für ein Projekt wie
+dieses scheint es ideal geeignet. Es ist so schnell wie C, aber man muss sich
+keinerlei Gedanken um den Speicher machen und einige andere Fehlerklassen, die
+der Compiler direkt verhindert. Rayon macht Parallelisierung so einfach wie
+OpenMP &#8212; mit dem Vorteil, dass der Compiler einen Fehler ausgibt, falls es
+eine Variable gibt, aus der parallel gelesen und geschrieben&nbsp;wird.</p>
+<p>Als Beispiel, warum ich Rust als sehr leserlich und elegant empfinde, möchte
+ich folgendes (unvollständige) Beispiel&nbsp;ansehen.</p>
+<div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">enum</span> <span class="nc">Proximity</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Neighbors</span><span class="p">(</span><span class="kt">usize</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Radius</span><span class="p">(</span><span class="kt">f64</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Vicsek</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">proximity</span>: <span class="nc">Proximity</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Vicsek</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">update</span><span class="p">(</span><span class="n">bird</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">Bird</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">proximity</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Proximity</span>::<span class="n">Neighbors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">update_direction_neighbors</span><span class="p">(</span><span class="n">bird</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">noise</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="n">Proximity</span>::<span class="n">Radius</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">update_direction_disk</span><span class="p">(</span><span class="n">bird</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">noise</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>Die Methode <code>update()</code> passt die Richtung an, in die ihr Argument im nächsten
+Zeitschritt fliegen soll. In meiner Simulation gibt es zwei Möglichkeiten:
+entweder orientiert man sich an seinen <code>n</code> nächsten Nachbarn oder an allen
+Vögeln innerhalb eines Radius von <code>r</code>. Der Datentyp <code>Proximity</code> kann eines von
+beiden beinhalten &#8212; welches vorhanden ist, kann elegant per Pattern-Matching
+ermittelt&nbsp;werden.</p>
+<p>Brauche ich länger, um Rust zu schreiben als C oder C++? Vermutlich, aber ich
+verbringe weniger Zeit mit dem Debuggen. Netto also mehr&nbsp;Spaß.</p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/fx/rythm.js"></script>
+        <script src="/theme/fx/totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>

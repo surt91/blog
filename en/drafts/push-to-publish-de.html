@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Push to Publish  · möchte­gern­geek</title>
+    <meta name="description" content="Seit Anfang August wird dieses Blog nicht mehr von einem Raspberry aus den eigenen vier Wänden ausgeliefert, sondern von GitHub pages. Da die Quellen dieses Blogs bereits auf GitHub sind, ist dies ein konsequenter Schritt. Hosting auf GitHub Pages GitHub bietet hosting von statischen Seiten an, was perfekt zu diesem …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="Hosting, Meta, ">
+
+        <meta name="twitter:title" content="Push to Publish "/>
+    <meta name="twitter:description" content="Seit Anfang August wird dieses Blog nicht mehr von einem Raspberry aus den eigenen vier Wänden ausgeliefert, sondern von GitHub pages. Da die Quellen dieses Blogs bereits auf GitHub sind, ist dies ein konsequenter Schritt. Hosting auf GitHub Pages GitHub bietet hosting von statischen Seiten an, was perfekt zu diesem …"/>
+    <meta name="og:title" content="Push to Publish "/>
+    <meta name="og:description" content="Seit Anfang August wird dieses Blog nicht mehr von einem Raspberry aus den eigenen vier Wänden ausgeliefert, sondern von GitHub pages. Da die Quellen dieses Blogs bereits auf GitHub sind, ist dies ein konsequenter Schritt. Hosting auf GitHub Pages GitHub bietet hosting von statischen Seiten an, was perfekt zu diesem …"/>
+
+    <meta property="og:url" content="drafts/push-to-publish-de.html"/>
+
+        <meta property="og:article:published_time" content="2017-08-11T17:00:00+02:00"/>
+
+        <meta property="og:image" content="https://blog.schawe.me/en/img/octocat.png">
+        <meta name="twitter:image" content="https://blog.schawe.me/en/img/octocat.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/push-to-publish-de.html" />
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/push-to-publish-de.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/drafts/push-to-publish-de.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/css/pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/en/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="Search">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/en/drafts/push-to-publish-de.html"> Push to&nbsp;Publish  </a>
+            </h2>
+
+            <div class="post-meta">
+
+                <time class="post-time" datetime="2017-08-11T17:00:00+02:00">11.08.2017</time>
+
+                
+
+                <span class="category category-meta">
+                    <a href="https://blog.schawe.me/en/categories.html#meta-ref">Meta</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#hosting-ref">Hosting</a>
+                        </span>
+                </span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>Seit Anfang August wird dieses Blog nicht mehr
+<a href="https://blog.schawe.me/en/blogumzug-de.html">von einem Raspberry aus den eigenen vier Wänden ausgeliefert</a>,
+sondern von GitHub pages. Da die Quellen dieses Blogs bereits <a href="https://github.com/surt91/blog">auf GitHub</a>
+sind, ist dies ein konsequenter&nbsp;Schritt.</p>
+<h3>Hosting auf GitHub Pages <a href="https://github.com/"><img alt="GitHub Logo" class="icon" src="/img/octocat.png"></a></h3>
+<p>GitHub bietet hosting von statischen Seiten an, was perfekt zu diesem Pelican
+Blog passt. Die Verwaltung ist denkbar einfach: Für jedes Repository ist der
+Branch <code>gh-pages</code> unter <code>[username].github.io/[reponame]</code>, hier z.B.
+<a href="https://surt91.github.io/blog">surt91.github.io/blog</a>,&nbsp;erreichbar.</p>
+<p>Will man unter einer eigenen Domain erreichbar sein, reicht es aus, im <span class="caps">DNS</span> für die
+Domain einen <span class="caps">CNAME</span> Eintrag auf <code>[username].github.io</code> anzulegen und im root des
+<code>gh-pages</code> Branches eine Datei <code>CNAME</code> mit der eigenen Domain anzulegen, hier&nbsp;z.B.</p>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> blog.schawe.me &gt; CNAME
+</pre></div>
+
+
+<p>Primär dient GitHub pages dazu Jekyll Seiten zu erstellen und auszuliefern, was
+zu Konflikten führen kann, wenn man einfach nur statische Seiten im <code>gh-pages</code>
+Branch vorhält. Dies lässt sich einfach vermeiden, indem man eine Datei
+<code>.nojekyll</code> im root&nbsp;anlegt.</p>
+<h3>Automatische Erstellung durch Travis <span class="caps">CI</span> <a href="https://travis-ci.org/"><img alt="Travis CI Logo" class="icon" src="/img/travis.png"></a></h3>
+<p>Natürlich könnte man das statische <span class="caps">HTML</span> auf einem lokalen Computer erstellen
+und per Hand in den <code>gh-pages</code> Branch pushen. Aber man kann das auch einem
+Dienst wie Travis <a href="https://de.wikipedia.org/wiki/Kontinuierliche_Integration"><span class="caps">CI</span></a>&nbsp;überlassen.</p>
+<p>Die Idee ist, dass jedes Mal wenn man die Quellen seiner Seite ändert &#8212; im
+Fall von Pelican werden die Blogeinträge in Markdown geschrieben und dann in
+<span class="caps">HTML</span> konvertiert &#8212; ein Server die Seite erstellt und das Ergebnis in den
+<code>gh-pages</code> Branch pusht. Dadurch wird ein Update der Website auf ein einfaches
+<code>git push</code> reduziert.</p>
+<p>Die Konfiguration von Travis <span class="caps">CI</span> wird durch eine denkbar einfache <span class="caps">YAML</span> Datei
+definiert.
+Eine (vereinfachte) Konfiguration für dieses Blog sieht beispielsweise so&nbsp;aus:</p>
+<div class="highlight"><pre><span></span><span class="c1"># pelican is a python program</span>
+<span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">python</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;3.5&quot;</span>
+
+<span class="c1"># install pelican and some more packages</span>
+<span class="nt">install</span><span class="p">:</span> <span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">-r</span><span class="nv"> </span><span class="s">requirements.txt&quot;</span>
+
+<span class="c1"># generate static html through pelican&#39;s makefile</span>
+<span class="nt">script</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">make publish</span>
+
+<span class="c1"># deploy to github pages</span>
+<span class="nt">deploy</span><span class="p">:</span>
+  <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pages</span>
+  <span class="nt">skip_cleanup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$GITHUB_TOKEN</span>
+  <span class="nt">local_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">output</span>
+  <span class="nt">on</span><span class="p">:</span>
+    <span class="nt">branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+</pre></div>
+
+
+<p>Falls Fehler beim Erstellen auftreten, schickt Travis eine Email und bricht die
+Veröffentlichung ab. Wenn keine Fehler auftreten, wird wenige Sekunden später
+die neue Version von GitHub&nbsp;ausgeliefert.</p>
+<h3><span class="caps">SSL</span> verschlüsselt von&nbsp;Cloudflare®</h3>
+<p>Die <code>github.io</code> Domains werden zwar verschlüsselt ausgeliefert, aber natürlich
+kann GitHub keine <span class="caps">SSL</span> Zertifikate für die eigene Domain ausstellen lassen.
+[Update: Mittlerweile kann GitHub das.]
+Man kann auch kein eigenes Zertifikat hochladen. Aber die Situation ist nicht
+so aussichtslos wie sie scheint. Cloudflare ermöglicht es, allerdings müssen
+ein paar Bedingungen erfüllt&nbsp;sein.</p>
+<p>Cloudflare&nbsp;muss</p>
+<ul>
+<li>als <span class="caps">DNS</span> Service für die gewünschte Domain genutzt werden&nbsp;und</li>
+<li>als Proxy vor der Seite benutzt&nbsp;werden.</li>
+</ul>
+<p>Als Bonus können wir Cloudflares <a href="https://de.wikipedia.org/wiki/Content_Delivery_Network"><span class="caps">CDN</span></a>&nbsp;nutzen.</p>
+<p>Sobald sich Cloudflare um das <span class="caps">DNS</span> der Domain kümmert, kann über das Dashboard
+<span class="caps">SSL</span> aktiviert werden &#8212; und wenn man schon dabei ist, sollte man auch die
+<code>Always use HTTPS</code> und <code>HSTS</code> Optionen&nbsp;aktivieren.</p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/fx/rythm.js"></script>
+        <script src="/theme/fx/totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>

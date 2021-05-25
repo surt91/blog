@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ising Modell zur Bildentrauschung  · möchte­gern­geek</title>
+    <meta name="description" content="Eines der bekanntesten Modelle der statistischen Physik ist das Ising-Modell. Es besteht aus (klassischen) Spins auf einem Gitter im Wärmebad und soll magnetische Eigenschaften von Festkörpern modellieren. Es zeigt nämlich in 2D und 3D (und 4D … ) einen Phasenübergang zweiter Ordnung von “magnetisch” zu “nicht magnetisch”, so wie ferromagnetische Materialien, die …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="Python, Physik, GitHub, Bild, Code, ">
+
+        <meta name="twitter:title" content="Ising Modell zur Bildentrauschung "/>
+    <meta name="twitter:description" content="Eines der bekanntesten Modelle der statistischen Physik ist das Ising-Modell. Es besteht aus (klassischen) Spins auf einem Gitter im Wärmebad und soll magnetische Eigenschaften von Festkörpern modellieren. Es zeigt nämlich in 2D und 3D (und 4D … ) einen Phasenübergang zweiter Ordnung von “magnetisch” zu “nicht magnetisch”, so wie ferromagnetische Materialien, die …"/>
+    <meta name="og:title" content="Ising Modell zur Bildentrauschung "/>
+    <meta name="og:description" content="Eines der bekanntesten Modelle der statistischen Physik ist das Ising-Modell. Es besteht aus (klassischen) Spins auf einem Gitter im Wärmebad und soll magnetische Eigenschaften von Festkörpern modellieren. Es zeigt nämlich in 2D und 3D (und 4D … ) einen Phasenübergang zweiter Ordnung von “magnetisch” zu “nicht magnetisch”, so wie ferromagnetische Materialien, die …"/>
+
+    <meta property="og:url" content="drafts/ising-modell-zur-bildentrauschung-de.html"/>
+
+        <meta property="og:article:published_time" content="2013-12-22T12:37:00+01:00"/>
+
+            <meta property="og:image" content="https://blog.schawe.me/img/logo.png">
+            <meta name="twitter:image" content="https://blog.schawe.me/img/logo.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/ising-modell-zur-bildentrauschung-de.html" />
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/ising-modell-zur-bildentrauschung-de.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/drafts/ising-modell-zur-bildentrauschung-de.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/css/pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/en/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="Search">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/en/drafts/ising-modell-zur-bildentrauschung-de.html"> Ising Modell zur&nbsp;Bildentrauschung  </a>
+            </h2>
+
+            <div class="post-meta">
+
+                <time class="post-time" datetime="2013-12-22T12:37:00+01:00">22.12.2013</time>
+
+                
+
+                <span class="category category-code">
+                    <a href="https://blog.schawe.me/en/categories.html#code-ref">Code</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#bild-ref">Bild</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#github-ref">GitHub</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#physik-ref">Physik</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#python-ref">Python</a>
+                        </span>
+                </span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>Eines der bekanntesten Modelle der statistischen Physik ist das <a href="http://de.wikipedia.org/wiki/Ising-Modell">Ising-Modell</a>. Es besteht aus
+(klassischen) Spins auf einem Gitter im Wärmebad und soll magnetische
+Eigenschaften von Festkörpern modellieren. Es zeigt nämlich in 2D und 3D
+(und 4D &#8230; ) einen Phasenübergang zweiter Ordnung von &#8220;magnetisch&#8221; zu
+&#8220;nicht magnetisch&#8221;, so wie ferromagnetische Materialien, die oberhalb
+der Curie Temperatur nicht mehr ferromagnetisch&nbsp;sind.</p>
+<p>In einfachen Worten: Die Spins des Ising-Modells richten sich so aus
+wie ihre Nachbarn und die Temperatur bringt sie wieder&nbsp;durcheinander.</p>
+<p>Aber es wäre natürlich langweilig das Modell so zu benutzen, wie alle
+anderen auch. Deshalb stelle ich hier eine Anwendung aus
+<a href="http://scholar.google.de/scholar?q=bishop+pattern+recognition+and+machine+learning&amp;hl=de">Pattern Recgonition and Machine Learning</a>
+vor, die nichts mehr mit Magneten zu tun hat: Rauschunterdrückung in&nbsp;Bildern.</p>
+<p>Andererseits bin ich Physiker und darf deshalb nichts machen, was direkt
+nützlich wäre, also beschränke ich mich auf schwarz-weiße Bilder, die
+man direkt auf das &#8220;spin up&#8221;-&#8220;spin down&#8221; des Ising-Modells abbilden&nbsp;kann.</p>
+<p>Die Idee ist, das jeder Spin einem Pixel <span class="math">\(x_i\)</span> entspricht. Dann koppelt man
+die Spins des Ising-Modells <span class="math">\(x_i\)</span> an die Pixel <span class="math">\(y_i\)</span> des verrauschten Bildes
+über einen zusätzlichen&nbsp;Energie-Term
+</p>
+<div class="math">$$\mathcal{H} = - \beta \sum_{\left&lt; i,j \right&gt;} x_i x_j - \eta \sum_i x_i y_i.$$</div>
+<p>
+Dabei bedeutet <span class="math">\(\left&lt; i,j \right&gt;\)</span>, dass man über alle Nachbarn von <span class="math">\(i\)</span>&nbsp;summiert.</p>
+<p>Von diesem Modell kann man dann per <a href="https://blog.schawe.me/en/simulatedsort-de.html">Simulated Annealing</a>
+den Grundzustand suchen oder man macht es sich einfach equilibriert bei <span class="math">\(T=0\)</span>.</p>
+<p><img alt="Ising-Modell" src="/img/standaloneIsing.svg" width="100%"></p>
+<p>Das Schema dazu wurde bereits in
+<a href="https://blog.schawe.me/en/oberflachenkachelung-mit-tikz-de.html">diesem Post</a>
+gezeigt. Graue Knoten entsprechen den Pixeln des verrauschten Bilds <span class="math">\(y_i\)</span> und weiße
+Knoten den Ising-Spins <span class="math">\(x_i\)</span>, die am Ende als Pixel des entrauschten Bilds
+interpretiert&nbsp;werden.</p>
+<p>Genug der Theorie. Es wird Zeit für pixelige Bilder. Leider hatte ich
+kein verrauschtes Bild, also habe ich ein beliebiges Bild gemalt und 10%
+aller Pixel&nbsp;invertiert.</p>
+<p><img alt="Vorher-Nachher Vergleich" src="/img/vorhernachher.png"></p>
+<p>Links das verrauschte Bild und rechts das entrauschte. Ja, nicht
+perfekt. Und in dem zitierten Buch wird auf der gleichen Seite noch eine
+sehr viel bessere Methode angesprochen. Aber die hatte nichts mit dem
+Ising-Modell zu tun. Und man sieht ja auch eine Verbesserung.&nbsp;Oder?</p>
+<p>Nebenbei bemerkt, kann man das Ising-Modell auch als
+<a href="https://blog.schawe.me/en/conways-game-of-life-de.html">zellulären</a> <a href="https://blog.schawe.me/en/rule-90-de.html">Automaten</a> mit
+zufälligem Element betrachten, denn jeder Spin ist eine Zelle, die nur
+lokal von seinen Nachbarn und zufällig durch die Temperatur beeinflusst&nbsp;wird.</p>
+<p>Der Code ist als <a href="https://gist.github.com/surt91/7789753">Gist auf Github</a>.</p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/fx/rythm.js"></script>
+        <script src="/theme/fx/totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>

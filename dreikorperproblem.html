@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dreikörperproblem  · möchte­gern­geek</title>
+    <meta name="description" content="Nein, ich habe keine analytische Lösung dafür gefunden. (Soweit ich mich erinnere, hat Poincaré bewiesen, dass es nicht lösbar ist.) Aber ich habe eine numerische Lösung mit dem vorher vorgestellten Runge-Kutta Löser erstellt. Und ich habe einen hübschen Film daraus gemacht. Your browser does not support the video tag. Als …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="Physik, Video, Chaos, Code, ">
+
+        <meta name="twitter:title" content="Dreikörperproblem "/>
+    <meta name="twitter:description" content="Nein, ich habe keine analytische Lösung dafür gefunden. (Soweit ich mich erinnere, hat Poincaré bewiesen, dass es nicht lösbar ist.) Aber ich habe eine numerische Lösung mit dem vorher vorgestellten Runge-Kutta Löser erstellt. Und ich habe einen hübschen Film daraus gemacht. Your browser does not support the video tag. Als …"/>
+    <meta name="og:title" content="Dreikörperproblem "/>
+    <meta name="og:description" content="Nein, ich habe keine analytische Lösung dafür gefunden. (Soweit ich mich erinnere, hat Poincaré bewiesen, dass es nicht lösbar ist.) Aber ich habe eine numerische Lösung mit dem vorher vorgestellten Runge-Kutta Löser erstellt. Und ich habe einen hübschen Film daraus gemacht. Your browser does not support the video tag. Als …"/>
+
+    <meta property="og:url" content="dreikorperproblem.html"/>
+
+        <meta property="og:article:published_time" content="2012-06-03T16:21:00+02:00"/>
+
+            <meta property="og:image" content="https://blog.schawe.me/img/logo.png">
+            <meta name="twitter:image" content="https://blog.schawe.me/img/logo.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/dreikorperproblem.html" />
+        <link rel="alternate" hreflang="en" href="https://blog.schawe.me/en/dreikorperproblem.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/dreikorperproblem.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/webassets-external/5ed2fde0bcfdebd0c56a199ae5a5a46d_pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/webassets-external/9081ea30170fcb6b76cbb6b466ce5346_grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/en/"><i class="fa fa-globe"></i> en</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/categories.html">Kategorien</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/archives.html">Archiv</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Suche" name="q" id="tipue_search_input" aria-label="Suche">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/dreikorperproblem.html"> Dreikörperproblem  </a>
+            </h2>
+
+            <div class="post-meta">
+
+                <time class="post-time" datetime="2012-06-03T16:21:00+02:00">03.06.2012</time>
+
+                
+
+                <span class="category category-code">
+                    <a href="https://blog.schawe.me/categories.html#code-ref">Code</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#chaos-ref">Chaos</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#physik-ref">Physik</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#video-ref">Video</a>
+                        </span>
+                </span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>Nein, ich habe keine analytische Lösung dafür gefunden. (Soweit ich mich
+erinnere, hat Poincaré bewiesen, dass es nicht lösbar ist.)
+Aber ich habe eine numerische Lösung mit dem vorher vorgestellten
+<a href="https://blog.schawe.me/schmetterlingseffekt.html">Runge-Kutta Löser</a>
+erstellt. Und ich habe einen hübschen Film daraus&nbsp;gemacht.</p>
+<video controls="controls" height="600" width="600">
+<source src="/vid/dreiKorper.mp4" type="video/mp4"></source>
+<source src="/vid/dreiKorper.webm" type="video/webm"></source>
+Your browser does not support the video tag.
+</video>
+
+<p>Als Standbild ist es nicht ganz so ästhetisch, wie der
+<a href="https://blog.schawe.me/schmetterlingseffekt.html">Lorenz-Attraktor</a>,
+aber animiert ist es &#8212; meiner Meinung nach &#8212; wunderbar&nbsp;anzusehen.</p>
+<p>Und hier die Startwerte: (bei einer Gravitationskonstanten von 1)
+Blau: <span class="math">\(M=5, x_0=0, y_0=0, v_x0=0, v_y0=0\)</span>
+Rot : <span class="math">\(M=1, x_0=1, y_0=0, v_x0=0, v_y0=1\)</span>
+Grün: <span class="math">\(M=1, x_0=1, y_0=1, v_x0=1,&nbsp;v_y0=0\)</span></p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+                <a href="https://blog.schawe.me/seltsamer-attraktor.html">&larr;&nbsp;Neuer</a>
+                <span class="separatordot">&middot;</span>
+                <a href="https://blog.schawe.me/schmetterlingseffekt.html">Älter&nbsp;&rarr;</a>
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/webassets-external/4d5638a8b31ec311ad198dd1c263b859_rythm.js"></script>
+        <script src="/theme/webassets-external/a8fa63bd9c8efb15ac3001f458624868_totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfect Dependencies  · möchte­gern­geek</title>
+    <meta name="description" content="Man hat ein großes C++ Projekt, ändert einen Header, führt make aus und ein seltsamer Fehler tritt im Programm auf. Das liegt natürlich daran, dass make nicht alle Quelldateien neu kompiliert hat, die den Header einbinden. Woher sollte make das auch wissen? Alle Header per Hand in der Makefile einzutragen …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="make, C++, Code, ">
+
+        <meta name="twitter:title" content="Perfect Dependencies "/>
+    <meta name="twitter:description" content="Man hat ein großes C++ Projekt, ändert einen Header, führt make aus und ein seltsamer Fehler tritt im Programm auf. Das liegt natürlich daran, dass make nicht alle Quelldateien neu kompiliert hat, die den Header einbinden. Woher sollte make das auch wissen? Alle Header per Hand in der Makefile einzutragen …"/>
+    <meta name="og:title" content="Perfect Dependencies "/>
+    <meta name="og:description" content="Man hat ein großes C++ Projekt, ändert einen Header, führt make aus und ein seltsamer Fehler tritt im Programm auf. Das liegt natürlich daran, dass make nicht alle Quelldateien neu kompiliert hat, die den Header einbinden. Woher sollte make das auch wissen? Alle Header per Hand in der Makefile einzutragen …"/>
+
+    <meta property="og:url" content="drafts/perfect-dependencies-de.html"/>
+
+        <meta property="og:article:published_time" content="2016-09-17T20:27:00+02:00"/>
+
+            <meta property="og:image" content="https://blog.schawe.me/img/logo.png">
+            <meta name="twitter:image" content="https://blog.schawe.me/img/logo.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/perfect-dependencies-de.html" />
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/drafts/perfect-dependencies-de.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/drafts/perfect-dependencies-de.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/css/pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/css/grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/en/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="Search">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/en/drafts/perfect-dependencies-de.html"> Perfect&nbsp;Dependencies  </a>
+            </h2>
+
+            <div class="post-meta">
+
+                <time class="post-time" datetime="2016-09-17T20:27:00+02:00">17.09.2016</time>
+
+                
+
+                <span class="category category-code">
+                    <a href="https://blog.schawe.me/en/categories.html#code-ref">Code</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#c-ref">C++</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/en/tags.html#make-ref">make</a>
+                        </span>
+                </span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>Man hat ein großes C++ Projekt, ändert einen Header, führt <code>make</code> aus und
+ein seltsamer Fehler tritt im Programm auf. Das liegt natürlich daran, dass
+<code>make</code> nicht alle Quelldateien neu kompiliert hat, die den Header einbinden.
+Woher sollte <code>make</code> das auch wissen? Alle Header per Hand in der <code>Makefile</code>
+einzutragen und zu pflegen, ist Wahnsinn und wird den Programmierer in denselben&nbsp;treiben.</p>
+<p><code>make</code> ist ein sehr allgemein gehaltenes Programm, wie ich in einem <a href="https://blog.schawe.me/en/make-de.html">vorherigen Eintrag</a>
+gezeigt habe. Sich um Eigenheiten von C oder C++ zu kümmern fällt also nicht
+in den Aufgabenbereich von <code>make</code>. Aber glücklicherweise gibt es ein Programm,
+dessen Hauptaufgabe es ist, sich mit den Eigenheiten von C bzw. C++ auszukennen:
+den Compiler.
+Tatsächlich bietet (zumindest <span class="caps">GCC</span>) die Option eine C oder C++ Datei zu parsen
+und alle inkludierten Header&nbsp;auszugeben.</p>
+<div class="highlight"><pre><span></span>g++ -MM myCode.cpp
+</pre></div>
+
+
+<p>Das ausnutzend, bietet die <a href="https://www.gnu.org/software/make/manual/">offizielle Dokumentation</a>
+von <code>GNU make</code> folgende Rule, um je eine &#8220;dependency&#8221; <code>Makefile</code>
+pro <code>.c</code> Datei zu erzeugen und automatisch&nbsp;einzubinden.</p>
+<div class="highlight"><pre><span></span><span class="nf">%.d</span><span class="o">:</span> %.<span class="n">c</span>
+    @set -e<span class="p">;</span> rm -f <span class="nv">$@</span><span class="p">;</span> <span class="se">\</span>
+    <span class="k">$(</span>CC<span class="k">)</span> -M <span class="k">$(</span>CPPFLAGS<span class="k">)</span> $&lt; &gt; <span class="nv">$@</span>.<span class="nv">$$$$</span><span class="p">;</span> <span class="se">\</span>
+    sed ’s,<span class="se">\(</span><span class="nv">$*</span><span class="se">\)\.</span>o<span class="o">[</span> :<span class="o">]</span>*,<span class="se">\1</span>.o <span class="nv">$@</span> : ,g’ &lt; <span class="nv">$@</span>.<span class="nv">$$$$</span> &gt; <span class="nv">$@</span><span class="p">;</span> <span class="se">\</span>
+    rm -f <span class="nv">$@</span>.<span class="nv">$$$$</span>
+
+<span class="cp">include $(sources:.c=.d)</span>
+</pre></div>
+
+
+<p>Falls man <code>.o</code> Dateien in ein <code>obj/</code> Verzeichnis speichert, muss man die
+Regex anpassen. In meinen Projekten leistet mir diese Rule gute&nbsp;Dienste.</p>
+<p>Alternativ könnte man natürlich auf ein anderes Buildsystem statt handgepflegter
+Makefiles&nbsp;umsteigen.</p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/fx/rythm.js"></script>
+        <script src="/theme/fx/totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>

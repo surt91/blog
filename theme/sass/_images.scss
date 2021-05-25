@@ -1,0 +1,55 @@
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.icon > img,
+.icon {
+    float: right;
+    height: 200px;
+    border: 0px;
+}
+
+.placeholder {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder img {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 1s linear;
+}
+
+.img-small {
+    filter: blur(50px);
+}
+
+.img-large {
+    opacity: 0;
+    position: absolute;
+}
+
+.img-large.loaded {
+    opacity: 1;
+}
+
+img.align-right {
+    float: right;
+    padding-left: 1em;
+
+    @media screen and (max-width: $break-smallest)
+    {
+        float: none;
+        max-width: 100%;
+        padding-left: 0;
+        margin-right: 0;
+    }
+}

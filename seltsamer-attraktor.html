@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seltsamer Attraktor  · möchte­gern­geek</title>
+    <meta name="description" content="Zuvor habe ich bereits den Schmetterlingseffekt erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes Video von der Projektion in die y-z-Ebene von 13 Teilchen, die den Attraktor durchlaufen. Your browser does not support the video tag. Alle Teilchen starten auf fast dem selben Punkt, aber nehmen sehr …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="C, Video, Physik, Chaos, Code, ">
+
+        <meta name="twitter:title" content="Seltsamer Attraktor "/>
+    <meta name="twitter:description" content="Zuvor habe ich bereits den Schmetterlingseffekt erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes Video von der Projektion in die y-z-Ebene von 13 Teilchen, die den Attraktor durchlaufen. Your browser does not support the video tag. Alle Teilchen starten auf fast dem selben Punkt, aber nehmen sehr …"/>
+    <meta name="og:title" content="Seltsamer Attraktor "/>
+    <meta name="og:description" content="Zuvor habe ich bereits den Schmetterlingseffekt erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes Video von der Projektion in die y-z-Ebene von 13 Teilchen, die den Attraktor durchlaufen. Your browser does not support the video tag. Alle Teilchen starten auf fast dem selben Punkt, aber nehmen sehr …"/>
+
+    <meta property="og:url" content="seltsamer-attraktor.html"/>
+
+        <meta property="og:article:published_time" content="2012-10-11T00:24:00+02:00"/>
+
+            <meta property="og:image" content="https://blog.schawe.me/img/logo.png">
+            <meta name="twitter:image" content="https://blog.schawe.me/img/logo.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/seltsamer-attraktor.html" />
+        <link rel="alternate" hreflang="en" href="https://blog.schawe.me/en/seltsamer-attraktor.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/seltsamer-attraktor.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/webassets-external/5ed2fde0bcfdebd0c56a199ae5a5a46d_pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/webassets-external/9081ea30170fcb6b76cbb6b466ce5346_grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/en/"><i class="fa fa-globe"></i> en</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/categories.html">Kategorien</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/archives.html">Archiv</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Suche" name="q" id="tipue_search_input" aria-label="Suche">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/seltsamer-attraktor.html"> Seltsamer&nbsp;Attraktor  </a>
+            </h2>
+
+            <div class="post-meta">
+
+                <time class="post-time" datetime="2012-10-11T00:24:00+02:00">11.10.2012</time>
+
+                
+
+                <span class="category category-code">
+                    <a href="https://blog.schawe.me/categories.html#code-ref">Code</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#c-ref">C</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#chaos-ref">Chaos</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#physik-ref">Physik</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#video-ref">Video</a>
+                        </span>
+                </span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>Zuvor habe ich bereits den <a href="https://blog.schawe.me/schmetterlingseffekt.html">Schmetterlingseffekt</a>
+erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes
+Video von der Projektion in die y-z-Ebene von 13
+Teilchen, die den Attraktor&nbsp;durchlaufen.</p>
+<video controls="controls" height="624" width="624">
+<source src="/vid/lorenz13yz.m4v" />
+<source src="/vid/lorenz13yz.mp4" type="video/mp4" />
+<source src="/vid/lorenz13yz.webm" type="video/webm" />
+Your browser does not support the video tag.
+</video>
+
+<p>Alle Teilchen starten auf fast dem selben Punkt, aber nehmen sehr
+verschiedene Wege. Nach kurzer Zeit kann man den einzelnen Teilchen nicht mehr
+ansehen, dass sie fast die gleichen Anfangsbedingungen&nbsp;hatten.</p>
+<p>Lorenz war Meteorologe und sein&nbsp;Differentialgleichungssystem
+</p>
+<div class="math">\begin{align}
+    \dot{X} &amp;= a(Y - X) \\
+    \dot{Y} &amp;= X(b - Z) - Y \\
+    \dot{Z} &amp;= XY - cZ, \\
+\end{align}</div>
+<p>
+das dieses chaotische Verhalten zeigt, sollte die Atmosphäre&nbsp;modellieren.</p>
+<p>Jetzt kann man verstehen, was es mit dem Schmetterling aus <em>Jurassic Park</em>
+auf sich&nbsp;hat.</p>
+<blockquote>
+<p>Er bewegt in Peking die Flügel, und
+im Central Park gibt&#8217;s Regen statt&nbsp;Sonne.</p>
+<p>&#8212; <cite>Dr. Ian Malcolm</cite> (1993)</p>
+</blockquote>
+<p>Sein Flügelschlag ändert den Zustand eines chaotischen
+Systems, dem Wetter, ein wenig und nach einiger Zeit hat das System einen
+grundlegend anderen Weg eingeschlagen, als ohne diesen&nbsp;Flügelschlag.</p>
+<p>Dennoch sieht das Video irgendwie geordnet aus. Fast schon vorhersagbar.
+<a href="http://de.wikipedia.org/wiki/Chaosforschung#Der_seltsame_Attraktor">Seltsam.</a></p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+                <a href="https://blog.schawe.me/bootstrapping.html">&larr;&nbsp;Neuer</a>
+                <span class="separatordot">&middot;</span>
+                <a href="https://blog.schawe.me/dreikorperproblem.html">Älter&nbsp;&rarr;</a>
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/webassets-external/4d5638a8b31ec311ad198dd1c263b859_rythm.js"></script>
+        <script src="/theme/webassets-external/a8fa63bd9c8efb15ac3001f458624868_totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>

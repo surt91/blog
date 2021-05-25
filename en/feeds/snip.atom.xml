@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Snip</title><link href="https://blog.schawe.me/en/" rel="alternate"></link><link href="https://blog.schawe.me/feeds/snip.atom.xml" rel="self"></link><id>https://blog.schawe.me/en/</id><updated>2021-05-10T20:19:00+02:00</updated><entry><title>Raspberry Router</title><link href="https://blog.schawe.me/en/raspberry-router.html" rel="alternate"></link><published>2021-05-10T20:19:00+02:00</published><updated>2021-05-10T20:19:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2021-05-10:/en/raspberry-router.html</id><summary type="html">&lt;p&gt;You need to connect something with an ethernet cable to the
+internet, but there is only Wifi and all you have is a Raspberry &lt;span class="caps"&gt;PI&lt;/span&gt;?&lt;/p&gt;
+&lt;p&gt;No problem, all you need to do is connecting it to the Wifi, plug the
+ethernet cable in and tell it to forward all traffic …&lt;/p&gt;</summary><content type="html">&lt;p&gt;You need to connect something with an ethernet cable to the
+internet, but there is only Wifi and all you have is a Raspberry &lt;span class="caps"&gt;PI&lt;/span&gt;?&lt;/p&gt;
+&lt;p&gt;No problem, all you need to do is connecting it to the Wifi, plug the
+ethernet cable in and tell it to forward all traffic from the one interface
+to the other, as described in the &lt;a href="https://wiki.archlinux.org/index.php/Internet_sharing"&gt;Arch Linux Wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sysctl net.ipv4.ip_forward&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+iptables -A FORWARD -i wlan0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Since our Raspberry is now a router, it should also assign &lt;span class="caps"&gt;IP&lt;/span&gt; addresses to the
+devices connected to it via &lt;span class="caps"&gt;DHCP&lt;/span&gt;, for example with &lt;a href="https://wiki.archlinux.org/title/Dnsmasq"&gt;dnsmasq&lt;/a&gt;
+and the following configuration in &lt;code&gt;/etc/dnsmasq.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#disable dns
+port=0
+
+dhcp-range=192.168.13.50,192.168.13.150,12h
+bind-interfaces
+dhcp-option=3,0.0.0.0
+dhcp-option=6,1.1.1.1,8.8.8.8
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is also a good opportunity to route all traffic through a &lt;span class="caps"&gt;VPN&lt;/span&gt;,
+by replacing the &lt;code&gt;wlan0&lt;/code&gt; interface above by the configured &lt;span class="caps"&gt;VPN&lt;/span&gt; interface
+(e.g. &lt;code&gt;tun0&lt;/code&gt; for OpenVPN or &lt;code&gt;wg0&lt;/code&gt; for&amp;nbsp;WireGuard).&lt;/p&gt;</content></entry><entry><title>compress-pdf</title><link href="https://blog.schawe.me/en/compress-pdf.html" rel="alternate"></link><published>2020-04-12T10:26:00+02:00</published><updated>2020-04-12T10:26:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2020-04-12:/en/compress-pdf.html</id><summary type="html">&lt;p&gt;To compress of a &lt;code&gt;pdf&lt;/code&gt; with many high resolution images
+to a sensible filesize (by downscaling and reencoding the images),
+one can use&amp;nbsp;ghostscript:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gs -sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite -dCompatibilityLevel&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.4 -dPDFSETTINGS&lt;span class="o"&gt;=&lt;/span&gt;/ebook -dEmbedAllFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; -dSubsetFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; -dNOPAUSE -dQUIET -dBATCH -sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;output.pdf input.pdf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The available presets are &lt;code&gt;screen&lt;/code&gt;, &lt;code&gt;ebook …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;To compress of a &lt;code&gt;pdf&lt;/code&gt; with many high resolution images
+to a sensible filesize (by downscaling and reencoding the images),
+one can use&amp;nbsp;ghostscript:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gs -sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite -dCompatibilityLevel&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.4 -dPDFSETTINGS&lt;span class="o"&gt;=&lt;/span&gt;/ebook -dEmbedAllFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; -dSubsetFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; -dNOPAUSE -dQUIET -dBATCH -sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;output.pdf input.pdf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The available presets are &lt;code&gt;screen&lt;/code&gt;, &lt;code&gt;ebook&lt;/code&gt;, &lt;code&gt;printer&lt;/code&gt;, &lt;code&gt;prepress&lt;/code&gt; and &lt;code&gt;default&lt;/code&gt;.
+More options can be listed&amp;nbsp;with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gs -sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite -o /dev/null -c &lt;span class="s2"&gt;&amp;quot;currentpagedevice { exch ==only ( ) print == } forall&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>smartphone webcam</title><link href="https://blog.schawe.me/en/smartphone-webcam.html" rel="alternate"></link><published>2020-04-04T10:59:00+02:00</published><updated>2020-04-04T10:59:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2020-04-04:/en/smartphone-webcam.html</id><summary type="html">&lt;p&gt;To use the camera of a smartphone for a video conference on a computer, first
+an app is needed, which provides the image of the camera as a &lt;code&gt;http&lt;/code&gt; stream,
+for example &lt;a href="https://play.google.com/store/apps/details?id=com.pas.webcam&amp;amp;hl=en"&gt;&lt;span class="caps"&gt;IP&lt;/span&gt; Webcam&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For Linux we can use &lt;code&gt;v4l2loopback&lt;/code&gt; and &lt;code&gt;ffmpeg&lt;/code&gt; to use the stream as a virtual
+webcam …&lt;/p&gt;</summary><content type="html">&lt;p&gt;To use the camera of a smartphone for a video conference on a computer, first
+an app is needed, which provides the image of the camera as a &lt;code&gt;http&lt;/code&gt; stream,
+for example &lt;a href="https://play.google.com/store/apps/details?id=com.pas.webcam&amp;amp;hl=en"&gt;&lt;span class="caps"&gt;IP&lt;/span&gt; Webcam&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For Linux we can use &lt;code&gt;v4l2loopback&lt;/code&gt; and &lt;code&gt;ffmpeg&lt;/code&gt; to use the stream as a virtual
+webcam (here for the case that the smartphone has the &lt;span class="caps"&gt;IP&lt;/span&gt; &lt;code&gt;192.168.1.127&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo modprobe v4l2loopback
+ffmpeg -i http://192.168.1.127:8080/video -map &lt;span class="m"&gt;0&lt;/span&gt;:v -vcodec rawvideo -vf &lt;span class="nv"&gt;format&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;yuv420p -fflags nobuffer -flags low_delay -fflags discardcorrupt -f v4l2 /dev/video2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Additionally, one can use any filter &lt;code&gt;ffmpeg&lt;/code&gt; offers, for example a &lt;code&gt;colorkey&lt;/code&gt;
+or &lt;code&gt;chromakey&lt;/code&gt;, to use any image &lt;code&gt;background.jpg&lt;/code&gt; as a virtual background.
+Here for the case that a white sheet is used as a &amp;#8220;green&amp;nbsp;screen&amp;#8221;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ffmpeg -i images/background.jpg -i http://192.168.1.127:8080/video -vcodec rawvideo -fflags nobuffer -flags low_delay -fflags discardcorrupt -filter_complex &lt;span class="s2"&gt;&amp;quot;[1:v]colorkey=0xbbbbbb:0.3:0.2[foregroud];[0:v][foregroud]overlay[composite];[composite]format=yuv420p[out]&amp;quot;&lt;/span&gt; -map &lt;span class="s2"&gt;&amp;quot;[out]:v&amp;quot;&lt;/span&gt; -f v4l2 /dev/video2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Similarly, one can use the microphone of the smartphone as audio input for the
+computer. Here using &lt;code&gt;pulseaudio&lt;/code&gt; and &lt;code&gt;gstreamer&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pactl load-module module-null-sink &lt;span class="nv"&gt;sink_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ipwebcam&amp;quot;&lt;/span&gt;
+pactl set-default-source &lt;span class="s2"&gt;&amp;quot;ipwebcam.monitor&amp;quot;&lt;/span&gt;
+gst-launch-1.0 souphttpsrc &lt;span class="nv"&gt;location&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;http://192.168.1.127:8080/audio.wav&amp;quot;&lt;/span&gt; is-live&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; ! audio/x-raw,format&lt;span class="o"&gt;=&lt;/span&gt;S16LE,layout&lt;span class="o"&gt;=&lt;/span&gt;interleaved,rate&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;44100&lt;/span&gt;,channels&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; ! queue ! pulsesink &lt;span class="nv"&gt;device&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ipwebcam&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>relay ssh</title><link href="https://blog.schawe.me/en/relay-ssh.html" rel="alternate"></link><published>2018-03-21T10:46:00+01:00</published><updated>2018-03-21T10:46:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2018-03-21:/en/relay-ssh.html</id><summary type="html">&lt;p&gt;Connect via a server &lt;code&gt;relay&lt;/code&gt; with &lt;code&gt;target&lt;/code&gt;. Useful if &lt;code&gt;target&lt;/code&gt; is behind a
+firewall, but reachable from &lt;code&gt;relay&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -J user1@relay user2@target
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This can be combined with other options. This way a port forwarding can
+be established over which, e.g., &lt;code&gt;sshfs&lt;/code&gt; can be&amp;nbsp;used.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -L &lt;span class="m"&gt;9999 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Connect via a server &lt;code&gt;relay&lt;/code&gt; with &lt;code&gt;target&lt;/code&gt;. Useful if &lt;code&gt;target&lt;/code&gt; is behind a
+firewall, but reachable from &lt;code&gt;relay&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -J user1@relay user2@target
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This can be combined with other options. This way a port forwarding can
+be established over which, e.g., &lt;code&gt;sshfs&lt;/code&gt; can be&amp;nbsp;used.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -L &lt;span class="m"&gt;9999&lt;/span&gt;:localhost:22 -J user1@relay user2@target
+sshfs user2@localhost:/path /mountpoint -C -p &lt;span class="m"&gt;9999&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A combination with &lt;a href="https://blog.schawe.me/en/reverse-ssh.html"&gt;reverse-ssh&lt;/a&gt;
+could look like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -L &lt;span class="m"&gt;9999&lt;/span&gt;:localhost:22 -J user1@relay -p &lt;span class="m"&gt;19999&lt;/span&gt; user2@localhost
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>latexdiff</title><link href="https://blog.schawe.me/en/latexdiff.html" rel="alternate"></link><published>2018-01-11T15:28:00+01:00</published><updated>2018-01-11T15:28:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2018-01-11:/en/latexdiff.html</id><content type="html">&lt;p&gt;Visualize the differences between two Latex&amp;nbsp;files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;latexdiff old.tex new.tex &amp;gt; diff.tex
+pdflatex diff.tex
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And if one is using git anyway, there is an even simpler way to compare
+a given commit with the current&amp;nbsp;state.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;latexdiff-vc -r 96deadbeef filename.tex --pdf
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>reverse ssh</title><link href="https://blog.schawe.me/en/reverse-ssh.html" rel="alternate"></link><published>2017-12-11T15:35:00+01:00</published><updated>2017-12-11T15:35:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2017-12-11:/en/reverse-ssh.html</id><summary type="html">&lt;p&gt;On the computer &lt;code&gt;target&lt;/code&gt; behind a firewall, in which you want to login in the
+future,&amp;nbsp;do&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -f -N -R &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:19999:localhost:22 user@server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;server&lt;/code&gt; need to be reachable and needs to have the following option
+set in &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;GatewayPorts yes
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now …&lt;/p&gt;</summary><content type="html">&lt;p&gt;On the computer &lt;code&gt;target&lt;/code&gt; behind a firewall, in which you want to login in the
+future,&amp;nbsp;do&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -f -N -R &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:19999:localhost:22 user@server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;server&lt;/code&gt; need to be reachable and needs to have the following option
+set in &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;GatewayPorts yes
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now any client can reach &lt;code&gt;target&lt;/code&gt; with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -p &lt;span class="m"&gt;19999&lt;/span&gt; user@server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This can also used for, e.g., &lt;code&gt;sshfs&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sshfs -p &lt;span class="m"&gt;19999&lt;/span&gt; user@server:folder ~/sshfs
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>png2gif</title><link href="https://blog.schawe.me/en/png2gif.html" rel="alternate"></link><published>2017-10-31T11:46:00+01:00</published><updated>2017-10-31T11:46:00+01:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2017-10-31:/en/png2gif.html</id><content type="html">&lt;p&gt;Convert a folder of &lt;code&gt;.png&lt;/code&gt; into an animated &lt;code&gt;.gif&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;convert -delay &lt;span class="m"&gt;30&lt;/span&gt; -loop &lt;span class="m"&gt;0&lt;/span&gt; -layers Optimize *.png out.gif
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Naturally, this works not olny for &lt;code&gt;.png&lt;/code&gt; and all other options of
+Imagemagick can be used as&amp;nbsp;well.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;convert -resize 256x256&lt;span class="se"&gt;\&amp;gt;&lt;/span&gt; -delay &lt;span class="m"&gt;30&lt;/span&gt; -loop &lt;span class="m"&gt;0&lt;/span&gt; -layers Optimize *.svg out.gif
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>png2vp9</title><link href="https://blog.schawe.me/en/png2vp9.html" rel="alternate"></link><published>2017-08-26T11:05:00+02:00</published><updated>2017-08-26T11:05:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2017-08-26:/en/png2vp9.html</id><summary type="html">&lt;p&gt;Convert a folder of &lt;code&gt;.png&lt;/code&gt; files into a weboptimized &lt;code&gt;VP9&lt;/code&gt;, which is supported
+by all &lt;a href="http://caniuse.com/webm/embed"&gt;important Browsers&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ffmpeg -f image2 -pattern_type glob -i &lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt; -c:v libvpx-vp9 -pass &lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="se"&gt;\&lt;/span&gt;
+    -b:v 1000K -threads &lt;span class="m"&gt;1&lt;/span&gt; -speed &lt;span class="m"&gt;4&lt;/span&gt; -tile-columns &lt;span class="m"&gt;0&lt;/span&gt; -frame-parallel &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+    -auto-alt-ref &lt;span class="m"&gt;1&lt;/span&gt; -lag-in-frames &lt;span class="m"&gt;25&lt;/span&gt; -g &lt;span class="m"&gt;9999&lt;/span&gt; -aq-mode &lt;span class="m"&gt;0&lt;/span&gt; -an …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Convert a folder of &lt;code&gt;.png&lt;/code&gt; files into a weboptimized &lt;code&gt;VP9&lt;/code&gt;, which is supported
+by all &lt;a href="http://caniuse.com/webm/embed"&gt;important Browsers&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ffmpeg -f image2 -pattern_type glob -i &lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt; -c:v libvpx-vp9 -pass &lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="se"&gt;\&lt;/span&gt;
+    -b:v 1000K -threads &lt;span class="m"&gt;1&lt;/span&gt; -speed &lt;span class="m"&gt;4&lt;/span&gt; -tile-columns &lt;span class="m"&gt;0&lt;/span&gt; -frame-parallel &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+    -auto-alt-ref &lt;span class="m"&gt;1&lt;/span&gt; -lag-in-frames &lt;span class="m"&gt;25&lt;/span&gt; -g &lt;span class="m"&gt;9999&lt;/span&gt; -aq-mode &lt;span class="m"&gt;0&lt;/span&gt; -an -f null -
+
+
+ffmpeg -f image2 -pattern_type glob -i &lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt; -c:v libvpx-vp9 -pass &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+    -b:v 1000K -threads &lt;span class="m"&gt;1&lt;/span&gt; -speed &lt;span class="m"&gt;0&lt;/span&gt; -tile-columns &lt;span class="m"&gt;0&lt;/span&gt; -frame-parallel &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+    -auto-alt-ref &lt;span class="m"&gt;1&lt;/span&gt; -lag-in-frames &lt;span class="m"&gt;25&lt;/span&gt; -g &lt;span class="m"&gt;9999&lt;/span&gt; -aq-mode &lt;span class="m"&gt;0&lt;/span&gt; -c:a libopus -b:a 64k &lt;span class="se"&gt;\&lt;/span&gt;
+    -f webm video.webm
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For maximum compatibility create a &lt;code&gt;MP4&lt;/code&gt; as&amp;nbsp;fallback.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ffmpeg -an -f image2 -pattern_type glob -i &lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt; -vcodec libx264 &lt;span class="se"&gt;\&lt;/span&gt;
+    -pix_fmt yuv420p -profile:v baseline -level &lt;span class="m"&gt;3&lt;/span&gt; video.mp4
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Embed&amp;nbsp;with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;video&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;source&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path/to/video.webm&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;video/webm; codecs=vp9,vorbis&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;source&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path/to/video.mp4&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;video&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>optipng</title><link href="https://blog.schawe.me/en/optipng.html" rel="alternate"></link><published>2016-10-02T12:56:00+02:00</published><updated>2016-10-02T12:56:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2016-10-02:/en/optipng.html</id><content type="html">&lt;p&gt;Optimize &lt;code&gt;.png&lt;/code&gt; images. Smaller size, no quality&amp;nbsp;loss.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;optipng -o7 *.png
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>png2mp4</title><link href="https://blog.schawe.me/en/png2mp4.html" rel="alternate"></link><published>2016-09-17T18:48:00+02:00</published><updated>2016-09-17T18:48:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2016-09-17:/en/png2mp4.html</id><content type="html">&lt;p&gt;Convert a folder with enumerated &lt;code&gt;.png&lt;/code&gt; files into a &lt;code&gt;x264&lt;/code&gt; Video
+i a &lt;code&gt;.mp4&lt;/code&gt; container with a given frame&amp;nbsp;rate.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ffmpeg -f image2 -pattern_type glob -framerate &lt;span class="m"&gt;60&lt;/span&gt; -i &lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt; -vcodec libx264 vid.mp4
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>svg2png</title><link href="https://blog.schawe.me/en/svg2png.html" rel="alternate"></link><published>2016-09-17T18:46:00+02:00</published><updated>2016-09-17T18:46:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2016-09-17:/en/svg2png.html</id><content type="html">&lt;p&gt;Convert &lt;code&gt;.svg&lt;/code&gt; into &lt;code&gt;.png&lt;/code&gt; with white&amp;nbsp;background.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;inkscape -z -b &lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;#fff\&amp;quot; -e img.png -h 1080 img.svg&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Or a complete&amp;nbsp;folder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i &lt;span class="k"&gt;in&lt;/span&gt; *.svg
+    &lt;span class="k"&gt;do&lt;/span&gt; inkscape -z -b &lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;#fff\&amp;quot; -e $(basename -s .svg $i).png -h 1080 $i&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>ssh password</title><link href="https://blog.schawe.me/en/ssh-password.html" rel="alternate"></link><published>2010-12-11T18:26:00+01:00</published><updated>2010-12-11T18:26:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2010-12-11:/en/ssh-password.html</id><content type="html">&lt;p&gt;Change the password of your &lt;span class="caps"&gt;SSH&lt;/span&gt;&amp;nbsp;keypair.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh-keygen -f id_rsa -p
+&lt;/pre&gt;&lt;/div&gt;</content></entry></feed>

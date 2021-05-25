@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>inline-python  · möchte­gern­geek</title>
+    <meta name="description" content="Für jeden Zweck das passende Werkzeug: In meinem Alltag bedeutet das, dass ich Simulationen in Rust schreibe und in Python visualisiere. Dank inline-python geht das sogar sehr reibungslos. use inline_python::python; fn main() { let x: Vec&lt;f32&gt; = (0..628).map(|i| i as f32 / 100.).collect(); let y: Vec&lt;f32 …">
+
+    <meta name="author" content="Hendrik Schawe">
+    <meta name="copyright" content="Hendrik Schawe">
+
+    <meta name="theme-color" content="#3d4f5d">
+
+    <link rel="manifest" href="/manifest.json">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add to home screen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="möchtegerngeek">
+<link rel="apple-touch-icon" href="/extra/icons/icon-152x152.png">
+
+<!-- Add to home screen for Windows-->
+<meta name="msapplication-TileImage" content="/extra/icons/icon-152x152.png">
+<meta name="msapplication-TileColor" content="#b0cadb">
+    <meta property="og:site_name" content="möchte­gern­geek">
+    <meta property="og:article:author" content="Hendrik Schawe">
+
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="Rust, Python, Code, ">
+
+        <meta name="twitter:title" content="inline-python "/>
+    <meta name="twitter:description" content="Für jeden Zweck das passende Werkzeug: In meinem Alltag bedeutet das, dass ich Simulationen in Rust schreibe und in Python visualisiere. Dank inline-python geht das sogar sehr reibungslos. use inline_python::python; fn main() { let x: Vec&lt;f32&gt; = (0..628).map(|i| i as f32 / 100.).collect(); let y: Vec&lt;f32 …"/>
+    <meta name="og:title" content="inline-python "/>
+    <meta name="og:description" content="Für jeden Zweck das passende Werkzeug: In meinem Alltag bedeutet das, dass ich Simulationen in Rust schreibe und in Python visualisiere. Dank inline-python geht das sogar sehr reibungslos. use inline_python::python; fn main() { let x: Vec&lt;f32&gt; = (0..628).map(|i| i as f32 / 100.).collect(); let y: Vec&lt;f32 …"/>
+
+    <meta property="og:url" content="inline-python.html"/>
+
+        <meta property="og:article:published_time" content="2021-05-05T20:31:00+02:00"/>
+
+            <meta property="og:image" content="https://blog.schawe.me/img/logo.png">
+            <meta name="twitter:image" content="https://blog.schawe.me/img/logo.png">
+
+
+        <link rel="alternate" hreflang="de" href="https://blog.schawe.me/inline-python.html" />
+        <link rel="alternate" hreflang="en" href="https://blog.schawe.me/en/inline-python.html" />
+        <link rel="alternate" hreflang="x-default" href="https://blog.schawe.me/inline-python.html" />
+
+
+            <link rel="stylesheet" type="text/css" href="/theme/webassets-external/5ed2fde0bcfdebd0c56a199ae5a5a46d_pure-min.css">
+            <link rel="stylesheet" type="text/css" href="/theme/webassets-external/9081ea30170fcb6b76cbb6b466ce5346_grids-responsive-min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/blog.css">
+
+        <!-- use cdn, because many clients will have it already cached -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <!-- Also preload the other fonts early -->
+        <link rel="prefetch" href="/theme/woff2/vollkorn-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="prefetch" href="/theme/woff2/firacode-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <link href="https://blog.schawe.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" />
+
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="https://blog.schawe.me">möchte&shy;gern&shy;geek</a></h1>
+
+            <nav class="nav">
+                <ul class="nav-list container">
+                        <li class="nav-item">
+                            <a class="pure-button" href="https://blog.schawe.me/en/"><i class="fa fa-globe"></i> en</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/categories.html">Kategorien</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/tags.html">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://blog.schawe.me/archives.html">Archiv</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                        <a href="https://hendrik.schawe.me" title="Ich" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-user sidebar-social-links"></i>
+                        </a>
+                        <a href="https://github.com/surt91" title="GitHub" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-github sidebar-social-links"></i>
+                        </a>
+                        <a href="mailto:hendrik.schawe+blog@gmail.com" title="Email" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fas fa-envelope sidebar-social-links"></i>
+                        </a>
+                        <a href="https://twitter.com/surt91" title="Twitter" class="sidebar-social-links" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter sidebar-social-links"></i>
+                        </a>
+            </div>
+
+            <div class="container">
+                <form class="pure-form" action="https://blog.schawe.me/search.html">
+                    <fieldset>
+                        <input type="text" class="search-query" placeholder="Suche" name="q" id="tipue_search_input" aria-label="Suche">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <article class="post">
+        <header>
+            <h2 class="post-title">
+                <a href="https://blog.schawe.me/inline-python.html"> inline-python  </a>
+            </h2>
+
+            <div class="post-meta">
+
+                <time class="post-time" datetime="2021-05-05T20:31:00+02:00">05.05.2021</time>
+
+                <span class="languages-in-article">
+        <span class="language">
+            <a href="https://blog.schawe.me/en/inline-python.html"><i class="fa fa-globe"></i> en</a>
+        </span>
+</span>
+
+
+                <span class="category category-code">
+                    <a href="https://blog.schawe.me/categories.html#code-ref">Code</a>
+                </span>
+
+                <span class="tags-in-article">
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#python-ref">Python</a>
+                        </span>
+                        <span class="tag">
+                            <a href="https://blog.schawe.me/tags.html#rust-ref">Rust</a>
+                        </span>
+                </span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p>Für jeden Zweck das passende Werkzeug: In meinem Alltag bedeutet das, dass ich
+Simulationen in Rust schreibe und in Python visualisiere. Dank <a href="https://crates.io/crates/inline-python"><code>inline-python</code></a>
+geht das sogar sehr&nbsp;reibungslos.</p>
+<div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">inline_python</span>::<span class="n">python</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">x</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">f32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">628</span><span class="p">).</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f32</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">100.</span><span class="p">).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">y</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">f32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">sin</span><span class="p">()).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">python</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span><span class="w"></span>
+<span class="w">        </span><span class="n">from</span><span class="w"> </span><span class="n">matplotlib</span><span class="w"> </span><span class="n">import</span><span class="w"> </span><span class="n">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">plt</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="o">&#39;</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="o">&#39;</span><span class="na">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>Dieses Minimalbeispiel ist natürlich nicht nützlich, aber ich habe es bereits produktiv
+genutzt, um Dynamik auf <a href="https://docs.rs/petgraph/">petgraph</a> Graphen zu
+simulieren und ihren Zustand per <a href="https://graph-tool.skewed.de/">graph-tool</a> zu&nbsp;visualisieren.</p>
+<p><picture>
+    <source
+        srcset="/img/inlinepy_graph.dark.png"
+        media="(prefers-color-scheme: dark)">
+    <img alt="Graph state visualized with graph-tool" src="/img/inlinepy_graph.png">
+</picture></p>
+        </div>
+    </article>
+
+
+    <div class="post-navigation">
+        <nav class="pagination">
+                <a href="https://blog.schawe.me/raspberry-router.html">&larr;&nbsp;Neuer</a>
+                <span class="separatordot">&middot;</span>
+                <a href="https://blog.schawe.me/paper-lis2.html">Älter&nbsp;&rarr;</a>
+            <br>
+        </nav>
+    </div>
+    </div>
+
+    <div id="last-update">
+        <time datetime="2021-05-25 14:07:41">14:07:41 25.05.2021</time>
+    </div>
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.4/es5/tex-chtml-full.min.js" integrity="sha512-gUce9u+frOXs+MB5YDwiDtc8m3z0JxTLIiGyijDKF4L/gNqTaOe0f+jzQfXOvpAGyvMhl/if2TlMyb1atrdcGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/theme/webassets-external/4d5638a8b31ec311ad198dd1c263b859_rythm.js"></script>
+        <script src="/theme/webassets-external/a8fa63bd9c8efb15ac3001f458624868_totally_serious_script.js"></script>
+    <script src="/theme/js/unregister_service_worker.js"></script>
+
+    
+
+</body>
+</html>
