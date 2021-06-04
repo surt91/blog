@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Physik, Bild, Rust, Code
 Slug: randomFractals
-LargeFeaturedImage: img/mandelbrot1200.jpg
+LargeFeaturedImage: img/mandelbrot1200.webp
 Status: published
 Lang: de
 
@@ -42,7 +42,7 @@ Wenn man jeden Punkt $c$ auf der komplexen Ebene entsprechend des Konvergenzverh
 bezüglich dieser Folge einfärbt -- schwarz wenn es konvergiert, blau für langsame
 Divergenz, rot für schnelle Divergenz -- erhält man ein solches Bild:
 
-[![Zoom auf das Apfelmännchen](/img/mandelbrot1200.jpg)](/img/mandelbrot.png)
+[![Zoom auf das Apfelmännchen](/img/mandelbrot1200.webp)](/img/mandelbrot.png)
 
 Dies ist ein Zoom auf den Rand des Apfelmännchens. Tatsächlich ist die
 Mandelbrotmenge kein Fraktal im eigentlichen Sinne, da seine fraktale Dimension
@@ -116,13 +116,13 @@ Nahe verwandt sind die Julia-Mengen. Hier benutzt man die gleiche Funktion $f_c$
 allerdings färbt man jeden Punkt $z$ entsprechend seines Konvergenzverhaltens
 bei einem festen Parameter $c$.
 
-[![Ein Julia-Fraktal](/img/julia1200.jpg)](/img/julia.png)
+[![Ein Julia-Fraktal](/img/julia1200.webp)](/img/julia.png)
 
 Tatsächlich ist jede beliebige Funktion $f$ erlaubt und nicht nur die oben erwähnte
 quadratische. Mit unkonventioneller Zuordnung von Farben zu Divergenzzeiten
 ergibt sich mit $f(z) = (-2.6-i) \cosh(z)$ dieses Bild:
 
-[![Ein weiteres Julia-Fraktal](/img/julia2_1200.jpg)](/img/julia2.png)
+[![Ein weiteres Julia-Fraktal](/img/julia2_1200.webp)](/img/julia2.png)
 
 
 #### Newton-Fraktal
@@ -137,7 +137,7 @@ wir eine Farbe zuordnen und den Punkt mit dieser Farbe einfärben. Wenn wir die
 Sättigung davon abhängig machen, wie schnell die Konvergenz ist, sieht das
 Ergebnis für $f(x) = z^4 + 5^{z+i} + 15$ so aus.
 
-[![Newton Fraktal für f(x) = z^4 + 5^{z+i} + 15](/img/newton1200.jpg)](/img/newton.png)
+[![Newton Fraktal für f(x) = z^4 + 5^{z+i} + 15](/img/newton1200.webp)](/img/newton.png)
 
 
 ### Chaos Game
@@ -313,7 +313,7 @@ Zur Visualisierung werden die Punkte nicht direkt gezeichnet, sondern in ein
 Histogramm eingetragen, aus dem die Farbintensitäten typischerweise
 logarithmisch berechnet werden.
 
-[![Fractal Flame, 'Horseshoe' Variation](/img/horseshoe1200.jpg)](/img/horseshoe.png)
+[![Fractal Flame, 'Horseshoe' Variation](/img/horseshoe1200.webp)](/img/horseshoe.png)
 
 Hier wird jedem $f_i$ ein Farbton zugeordnet. Die Farbe eines Punktes ist eine
 Mischung dieser Farben, die widerspiegelt, wie oft eine Abbildung genutzt wurde,
@@ -332,7 +332,7 @@ werden.
 
 $$f_i(z) = \frac{a_i z + b_i}{c_i z + d_i}$$
 
-[![Möbius Flame](/img/mobius1200.jpg)](/img/mobius.png)
+[![Möbius Flame](/img/mobius1200.webp)](/img/mobius.png)
 
 
 #### Wie findet man "gute" Parameter?
@@ -370,7 +370,7 @@ Teilchen diffundieren, bis sie auf dem Nachbarfeld eines Seeds landen, wo sie
 dann bleiben und Teil des Seeds werden. Dieser Prozess bildet verästelte
 Strukturen aus.
 
-[![Diffusionsbegrenztes Wachstum](/img/dla_core1200.jpg)](/img/dla_core.png)
+[![Diffusionsbegrenztes Wachstum](/img/dla_core1200.webp)](/img/dla_core.png)
 
 
 #### Random Walks
@@ -381,4 +381,4 @@ Avoiding Walk, der in meinem [rsnake]({filename}/rsnake.md) die Strategie des
 Autopiloten ist, hat eine fraktale Dimension von $\frac{7}{4}$. 100000 Schritte
 sehen so aus:
 
-[![Smart Kinetic Self Avoiding Walk, 100000 Schritte](/img/sksaw1200.jpg)](/img/sksaw.png)
+[![Smart Kinetic Self Avoiding Walk, 100000 Schritte](/img/sksaw1200.webp)](/img/sksaw.png)

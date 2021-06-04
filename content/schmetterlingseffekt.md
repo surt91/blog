@@ -4,6 +4,7 @@ Author: surt91
 Category: Code
 Tags: Physik, C, Bild, Python, GitHub, Chaos
 Slug: schmetterlingseffekt
+LargeFeaturedImage: img/lorenzattraktor1200.webp
 Status: published
 Lang: de
 
@@ -18,7 +19,7 @@ wendet irgendeine okkulte Matlab-Magie an, um das Programm schneller
 laufen zu lassen, oder man schreibt das Programm in einer schönen
 Sprache neu. In C zum Beispiel.
 
-[![Lorenzattraktor](/img/lorenzattraktor1200.jpg)](/img/lorenzattraktor.png)
+[![Lorenzattraktor](/img/lorenzattraktor1200.webp)](/img/lorenzattraktor.png)
 
 Ich habe mich für den einfachen Weg
 entschieden und wenig überraschend eine Tempoverbesserung von Faktor

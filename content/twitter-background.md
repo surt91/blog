@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Bild, Twitter, Code
 Slug: twitter-background
-LargeFeaturedImage: img/twitter_background.png
+LargeFeaturedImage: img/twitter_background1200.webp
 Status: published
 Lang: de
 
@@ -23,7 +23,7 @@ durch mein Bild zu legen und die Farben in der Reihenfolge zu zeichnen, in der
 eine 3D Hilbert-Kurve ihnen im RGB-Kubus begegnet. Wenn man dann noch die beiden
 Standardhintergrundfarben `#F5F8FA` und `#C0DEED` ignoriert, sieht das Ergebnis so aus.
 
-[![Twitter-Profil-Hintergrundfarbe](/img/twitter_background.png)](/img/twitter_background.png)
+[![Twitter-Profil-Hintergrundfarbe](/img/twitter_background1200.webp)](/img/twitter_background.png)
 
 Und dank der Python Pakete `hilbertcurve` und `pypng` ist der Code sogar ziemlich harmlos:
 
