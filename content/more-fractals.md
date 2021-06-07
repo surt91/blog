@@ -1,11 +1,11 @@
 Title: Noch mehr Fraktale
-Date: 2017-11-29 10:47
+Date: 2021-06-07 20:45
 Author: surt91
 Category: Code
-Tags: Physik, Bild, Rust, Code
+Tags: Physik, Bild, Rust, Formel
 Slug: more-fractals
 LargeFeaturedImage: img/ising1200.webp
-Status: draft
+Status: published
 Lang: de
 
 Seit meinem [ersten Eintrag]({filename}/randomFractals.md) über meinen
@@ -24,7 +24,7 @@ Um visuell ansprechende Fraktale daraus zu erzeugen, brauchen wir ein System aus
 zwei Rekursionsgleichungen, die wir als $x$- und $y$-Koordinaten betrachten können:
 
 \begin{align*}
-x_{i+1} = a_{0} + a_{1} x + a_{2} x^2 + a_{3} x y + a_{4} y + a_{5} y^2
+x_{i+1} = a_{0} + a_{1} x + a_{2} x^2 + a_{3} x y + a_{4} y + a_{5} y^2\\
 y_{i+1} = a_{6} + a_{7} x + a_{8} x^2 + a_{9} x y + a_{10} y + a_{11} y^2.
 \end{align*}
 
@@ -34,9 +34,9 @@ Verhalten mit einem seltsamen Attraktor zeigen.
 
 [![Quadratic Map](/img/quadraticMap1200.webp)](/img/quadraticMap.png)
 
-### Fraktale Attraktoren
+### Chaotische Differentialgelichungssyteme
 
-Ein echter Klassiker ist das Differenzialgleichungssystem, das die Chaostheorie
+Ein echter Klassiker ist das Differentialgleichungssystem, das die Chaostheorie
 begründet hat und nach dem der *Schmetterlingseffekt* benannt
 ist [[1]({filename}/schmetterlingseffekt.md), [2]({filename}/seltsamer-attraktor.md)].
 Für bestimmte Paramtersätze verlaufen die Bahnkurven entlang eines *seltsamen Attraktors*,
@@ -44,13 +44,25 @@ dessen fraktale Dimension $\approx 2.06$ ist. Da der vollständige Attraktor som
 einer zweidimensionalen Projektion [etwas langweilig](/img/lorenz_full_attractor.png) aussieht,
 habe ich hier nur eine kurze Zeit dargestellt.
 
-[![Lorenz-Attraktor](/img/lorenzattraktor2_1200.webp)](/img/lorenzattraktor2_.png)
+[![Lorenz-Attraktor](/img/lorenzattraktor2_1200.webp)](/img/lorenzattraktor2.png)
 
-TODO: more ODE strange attractors
+Und es gibt [eine ganze Menge]](https://en.wikipedia.org/wiki/List_of_chaotic_maps)
+weitere Differntialgleichungssysteme (und *chaotic maps*), die chaotische
+Attraktoren aufweisen. Deshalb zeige ich hier noch einen Rössler-Attraktor, der
+eine vereinfachte Version des Lorenz-Systems ist:
 
-Natürlich stellt sich direkt die Frage, wie die Bahnkurven von anderen chaotischen
-Differenzialgleichungssystemen aussehen. Nun ja, für das Doppelpendel [3]({filename}/doppelpendel.md)]
-erhalten wir kein Fraktal, aber es sieht dennoch ganz interessant aus:
+\begin{align*}
+\frac{\mathrm{d}x}{\mathrm{d}t} = -(y+z)
+\frac{\mathrm{d}y}{\mathrm{d}t} = x + ay
+\frac{\mathrm{d}z}{\mathrm{d}t} = b + xz - cz
+\end{align*}
+
+Und hier haben wir das Glück, dass auch seine Projektion sehr ansehnlich ist.
+
+[![Rössler-Attraktor](/img/rossler1200.webp)](/img/rossler.png)
+
+Ich persönlich frage mich, nun wie der Attraktor für das Doppelpendel [3]({filename}/doppelpendel.md)]
+aussieht. Es ist anscheinend kein Fraktal, aber es sieht dennoch ganz interessant aus:
 
 [![Doppelpendel](/img/doublePendulumLong1200.webp)](/img/doublePendulumLong.png)
 
