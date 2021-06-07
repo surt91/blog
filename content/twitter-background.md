@@ -8,7 +8,7 @@ LargeFeaturedImage: img/twitter_background1200.webp
 Status: published
 Lang: de
 
-Für ein Projekt habe ich Tweets von $>8'000'000$ Twitter-Usern eingesammelt.
+Für ein Projekt habe ich Tweets von >8'000'000 Twitter-Usern eingesammelt.
 Dabei fallen noch eine Reihe weiterer Daten an, wie die Profilhintergrundfarbe.
 Es wäre eine Schande diese Daten einfach verkommen zu lassen, also habe ich
 nach einer Möglichkeit gesucht diese Information ansprechend darzustellen,
