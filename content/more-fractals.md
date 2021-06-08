@@ -63,7 +63,7 @@ Und hier haben wir das Glück, dass auch seine Projektion sehr ansehnlich ist.
 
 [![Rössler-Attraktor](/img/rossler1200.webp)](/img/rossler.png)
 
-Ich persönlich frage mich, nun wie der Attraktor für das Doppelpendel [3]({filename}/doppelpendel.md)]
+Ich persönlich frage mich, nun wie der Attraktor für das [Doppelpendel]({filename}/doppelpendel.md)
 aussieht. Es ist anscheinend kein Fraktal, aber es sieht dennoch ganz interessant aus:
 
 [![Doppelpendel](/img/doublePendulumLong1200.webp)](/img/doublePendulumLong.png)
