@@ -87,12 +87,12 @@ ist oder die Entropie $S$ möglichst hoch. Bei großen Werten der
 Temperatur $T$ bekommt der Entropie-Term ein höheres Gewicht, sodass
 Zustände mit hoher Entropie, also zufälligen Spinausrichtungen,
 bevorzugt sind, bei niedrigen Temperaturen werden Konfigurationen
-mit niedriger innerer Energie bevorzugt, also solche wo alle Spins
+mit niedriger innerer Energie bevorzugt, also solche in denen alle Spins
 in die selbe Richtung zeigen. Die Temperatur, bei der sich beide
-Terme die Waage halten, ist die kritische Temperatur. Hier bilden
-sich Regionen von Spins, die in die gleiche Richtung zeigen auf allen
-Größenskalen und haben eine
-[fraktale Dimension von 187/96](https://doi.org/10.1103/PhysRevLett.62.1067),
+Terme die Waage halten, nennt man kritische Temperatur. Hier bilden
+sich Regionen von Spins, die in die gleiche Richtung zeigen, auf allen
+Größenskalen. Die fraktale Dimension dieser Regionen ist
+[187/96](https://doi.org/10.1103/PhysRevLett.62.1067),
 was solche kritische Konfigurationen interessant anzusehen macht.
 Ich empfehle auf das folgende Bild zu klicken und etwas hineinzuzoomen.
 
