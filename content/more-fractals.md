@@ -15,7 +15,7 @@ festhalten möchte. Der ganze Code ist [auf Github](https://github.com/surt91/AF
 
 ### Chaotic Maps
 
-Eine *Quadratic Map* is eine Rekursionsgleichung mit einem quadratischen
+Eine *Quadratic Map* ist eine Rekursionsgleichung mit einem quadratischen
 Term, also beispielsweise
 $$x_{i+1} = a_0 x^2 + a_1 x + a_2.$$
 Das berühmteste Mitglied dieser Familie ist die [*Logistic-Map*](https://de.wikipedia.org/wiki/Logistische_Gleichung)
