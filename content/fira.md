@@ -7,7 +7,7 @@ Slug: fira
 Lang: de
 
 Fira ist eine [humanist](https://en.wikipedia.org/wiki/Sans-serif#Classification) Sans-Serif Schriftart,
-die für FirefoxOS entwickelt wurde und wird zur Zeit für die Sans-Serif Typen, wie die Überschriften,
+die für FirefoxOS entwickelt wurde, und wird zur Zeit für die Sans-Serif Typen, wie die Überschriften,
 in diesem Blog genutzt. Aber eigentlich geht es mir hier um die Monospace Variante, die
 später mit Ligaturen (und mehr) zu [Fira Code](https://github.com/tonsky/FiraCode) erweitert wurde.
 Ich sehe bereits wie im Geist des Lesers die Frage
@@ -22,7 +22,8 @@ Ein paar Ligaturen haben sich mittlerweile zu eigenen Symbolen entwickelt, wie d
 eine Ligatur von *et* war (Latein für *und*). Aber dieses Konzept beißt sich anscheinend mit einer
 Monotype Schrift, in der jeder Buchstabe die gleiche Breite hat. Der Clou an der Sache ist, dass
 Fira Code Ligaturen für übliche Ausdrücke für mathematische Symbole in Programmiersprachen
-wie >=, != und -> hat, die wie folgt dargestellt werden: `>=, !=, ->`.
+wie >=, != und -> hat, die wie folgt dargestellt werden: `>=, !=, ->`. Nur zu, kopiert diese Symbole
+in einen Editor eurer Wahl, um zu sehen, wie sie sich wieder in ihre Bestandteile zerlegen
 
 Nur eine Spielerei? Möglicherweise. Aber ich bin begeistert davon, und verwende Fira Code in
 allen Editoren, die Ligaturen unterstützen. Der Fairness halber sollte gesagt werden, dass Fira Code nicht
@@ -46,7 +47,7 @@ verbessert werden. Typographie -- und um das klarzustellen, ich bin beileibe kei
 mich. Schriften sind exakt, mit klar definierter Funktion, aber obwohl wir sie seit Jahrtausenden
 benutzen, ist ihre Entwicklung noch lange nicht abgeschlossen. Mit jedem neuen Medium gibt es neue
 Anforderungen. Marken haben steten Bedarf an individuellen Schrifttypen als Teil ihres Brandings.
-Und für jede neue Anwendung gibt es andere Optimierungskriterien.
+Für jede neue Anwendung gibt es andere Optimierungskriterien.
 
 Und jedes Mal wenn in meinem Code `=` und `>` wieder zu `=>` verschmelzen, freue ich mich
-wieder über die Magie und Ästhetik.
+erneut über die Magie und Ästhetik.
