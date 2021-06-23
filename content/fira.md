@@ -8,11 +8,17 @@ Lang: de
 
 Fira ist eine [humanist](https://en.wikipedia.org/wiki/Sans-serif#Classification) Sans-Serif Schriftart,
 die für FirefoxOS entwickelt wurde, und wird zur Zeit für die Sans-Serif Typen, wie die Überschriften,
-in diesem Blog genutzt. Aber eigentlich geht es mir hier um die Monospace Variante, die
+in diesem Blog genutzt. Aber eigentlich geht es mir hier um Fira Mono die
+[dicktengleiche](https://de.wikipedia.org/wiki/Nichtproportionale_Schriftart) Variante, die
 später mit Ligaturen (und mehr) zu [Fira Code](https://github.com/tonsky/FiraCode) erweitert wurde.
-Ich sehe bereits wie im Geist des Lesers die Frage
-"Ligaturen in einer Monospace Type?!" auftaucht. Beziehungsweise "Was sind Ligaturen?" falls der Leser
-kein Hobby-Typographie-Nerd ist.
+Ich sehe wie in genau diesem Moment im Geist des Lesers die Frage
+"Ligaturen in einer dicktengleichen Schrift?!" auftaucht. Beziehungsweise "Ist da ein Tippfehler in dickengleich?" oder
+"Was sind Ligaturen?" falls der Leser kein Hobby-Typographie-Nerd ist.
+
+Die Dickte bezeichnet die Breite der Metall-Lettern im klassischen Buchdruck; wenn sie für alle Glyphen
+gleich ist, stehen die Buchstaben immer in perfekt ausgerichteten Spalten untereinander, was von vielen
+für das Schreiben von Code bevorzugt wird. Die meisten Schreibmaschinen haben ebenfalls solche Schrifttypen
+verwendet.
 
 ![fi](/img/fi.png){: .icon}
 Ligaturen sind Kontraktionen von mehreren Glyphen in eine Glyphe. Die typischen Ligaturen sind fi oder fl
@@ -20,7 +26,7 @@ Ligaturen sind Kontraktionen von mehreren Glyphen in eine Glyphe. Die typischen 
 der fi Ligatur in [Computer Modern](https://de.wikipedia.org/wiki/Computer_Modern) zeige).
 Ein paar Ligaturen haben sich mittlerweile zu eigenen Symbolen entwickelt, wie das Kaufmannsund &, das ursprünglich
 eine Ligatur von *et* war (Latein für *und*). Aber dieses Konzept beißt sich anscheinend mit einer
-Monotype Schrift, in der jeder Buchstabe die gleiche Breite hat. Der Clou an der Sache ist, dass
+dicktengleichen Schrift, in der jeder Buchstabe die gleiche Breite haben soll. Der Clou an der Sache ist, dass
 Fira Code Ligaturen für übliche Ausdrücke für mathematische Symbole in Programmiersprachen
 wie >=, != und -> hat, die wie folgt dargestellt werden: `>=, !=, ->`. Nur zu, kopiert diese Symbole
 in einen Editor eurer Wahl, um zu sehen, wie sie sich wieder in ihre Bestandteile zerlegen
