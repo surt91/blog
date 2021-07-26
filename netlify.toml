@@ -3,6 +3,10 @@
   publish = "output"
   branch = "master"
 
+[context.production.environment]
+  RUBY_VERSION = "2.7.0"
+  PYTHON_VERSION = "3.8"
+
 [context.branch-deploy]
   command = "echo"
   publish = "."
