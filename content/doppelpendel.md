@@ -10,7 +10,6 @@ Lang: de
 
 <video controls width="100%" poster="/img/doublePendulum.png">
 <source src="/vid/doppelpendel.mp4" type="video/mp4"></source>
-![Doppelpendel](/img/doublePendulum.png)
 </video>
 
 Das ist ein Doppelpendel. Ein Doppelpendel ist neben dem [Dreikörperproblem]({filename}/dreikorperproblem.md)
