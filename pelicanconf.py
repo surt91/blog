@@ -32,6 +32,7 @@ PLUGINS = [
     "sitemap",
     "i18n_subsites",
     "doi_details",
+    "image_dimensions",
 ]
 
 DEFAULT_LANG = "de"
