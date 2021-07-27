@@ -2,7 +2,7 @@ Title: Fira Code
 Date: 2021-06-21 19:45
 Category: Meta
 Tags: Typographie, Code, Bild
-Status: draft
+Status: published
 Slug: fira
 Lang: de
 
@@ -12,16 +12,18 @@ in diesem Blog genutzt. Aber eigentlich geht es mir hier um Fira Mono die
 [dicktengleiche](https://de.wikipedia.org/wiki/Nichtproportionale_Schriftart) Variante, die
 später mit Ligaturen (und mehr) zu [Fira Code](https://github.com/tonsky/FiraCode) erweitert wurde.
 Ich sehe wie in genau diesem Moment im Geist des Lesers die Frage
-"Ligaturen in einer dicktengleichen Schrift?!" auftaucht. Beziehungsweise "Ist da ein Tippfehler in dickengleich?" oder
+"Ligaturen in einer dicktengleichen Schrift?!" auftaucht. Beziehungsweise "Ist da ein Tippfehler in *dickengleich*?" oder
 "Was sind Ligaturen?" falls der Leser kein Hobby-Typographie-Nerd ist.
 
-Die Dickte bezeichnet die Breite der Metall-Lettern im klassischen Buchdruck; wenn sie für alle Glyphen
+Für letztere klären wir erstmal kurz die beiden Fragen:
+
+Die *Dickte* bezeichnet die Breite der Metall-Lettern im klassischen Buchdruck; wenn sie für alle Glyphen
 gleich ist, stehen die Buchstaben immer in perfekt ausgerichteten Spalten untereinander, was von vielen
 für das Schreiben von Code bevorzugt wird. Die meisten Schreibmaschinen haben ebenfalls solche Schrifttypen
 verwendet.
 
 ![fi](/img/fi.png){: .icon}
-Ligaturen sind Kontraktionen von mehreren Glyphen in eine Glyphe. Die typischen Ligaturen sind fi oder fl
+*Ligaturen* sind Kontraktionen von mehreren Glyphen in eine Glyphe. Die typischen Ligaturen sind fi oder fl
 (allerdings nicht in der Schriftart, in der diese Zeilen geschrieben sind, weshalb ich hier ein Bild
 der fi Ligatur in [Computer Modern](https://de.wikipedia.org/wiki/Computer_Modern) zeige).
 Ein paar Ligaturen haben sich mittlerweile zu eigenen Symbolen entwickelt, wie das Kaufmannsund &, das ursprünglich
@@ -56,4 +58,4 @@ Anforderungen. Marken haben steten Bedarf an individuellen Schrifttypen als Teil
 Für jede neue Anwendung gibt es andere Optimierungskriterien.
 
 Und jedes Mal wenn in meinem Code `=` und `>` wieder zu `=>` verschmelzen, freue ich mich
-erneut über die Magie und Ästhetik.
+erneut über die Magie.
