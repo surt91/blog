@@ -7,9 +7,9 @@ Slug: restfulsnake
 Status: published
 Lang: de
 
-Vor wenigen Monaten hatte ich eine Handvoll Bewerbungsgespräche und von "Programmieraufgaben",
+Vor wenigen Monaten hatte ich eine handvoll Bewerbungsgespräche. Von "Programmieraufgaben",
 die durch das Erkennen der Fibonacci-Sequenz gelöst wurden bis zu "Wie viele Grashalme
-gibt es in deiner Heimatstadt?" war alles dabei. Unter anderem auch "Wir wissen,
+gibt es in deiner Heimatstadt?" war alles dabei. Unter anderem auch "Wir glauben,
 dass du noch nie Java angefasst hast, deshalb sollst du ein Programm in Java schreiben,
 über das wir nächste Woche reden können!"
 
@@ -26,8 +26,8 @@ aber echte Nerds werden es natürlich bevorzugen per *curl* zu spielen.
 Normalerweise würde man es natürlich mittels Kubernetes und Docker auf AWS laufen lassen, aber
 stattdessen habe ich mich dafür entschieden Heroku zu nutzen, um ein
 [kleines Unternehmen](https://en.wikipedia.org/wiki/Salesforce) zu unterstützen.
-Auf [restfulsnake.herokuapp.com](https://restfulsnake.herokuapp.com/) kann man also eine Partie
-spielen. Und die Quellen liegen wie immer auf [GitHub](https://github.com/surt91/restfulsnake)
+Auf [multijsnake.herokuapp.com](https://multijsnake.herokuapp.com/) kann man also eine Partie
+spielen. Und die Quellen liegen wie immer auf [GitHub](https://github.com/surt91/multiJSnake/tree/RestfulSnake)
 
 Überraschenderweise funktioniert das tatsächlich erstaunlich gut -- solange die Latenz unter ~150 ms bleibt.
 Und dieses Design schreit geradezu nach einen Multiplayer-Modus...
