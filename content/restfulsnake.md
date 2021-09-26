@@ -31,3 +31,5 @@ spielen. Und die Quellen liegen wie immer auf [GitHub](https://github.com/surt91
 
 Überraschenderweise funktioniert das tatsächlich erstaunlich gut -- solange die Latenz unter ~150 ms bleibt.
 Und dieses Design schreit geradezu nach einen Multiplayer-Modus...
+
+**Update:** Der Multiplayer-Modus ist in [diesem Blogpost]({filename}/multijsnake.md) beschrieben.
