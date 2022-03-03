@@ -11,8 +11,8 @@ Programmiersprachen muss man üben, um sie zu lernen und um sie nicht
 wieder zu vergessen. Ich habe also meine Zeit damit vertrieben einen
 [SHA-256](http://de.wikipedia.org/wiki/Sha256) zu schreiben -- eine
 [kryptographische Hash](http://de.wikipedia.org/wiki/Kryptologische_Hashfunktion)
-Funktion. Die [Spezifikation](http://tools.ietf.org/html/rfc6234) ist
-glücklicherweise sehr sehr verständlich.  
+Funktion. Die [Spezifikation](https://datatracker.ietf.org/doc/html/rfc6234) ist
+glücklicherweise sehr sehr verständlich.
 Und auch wenn es tausende andere Implementationen gibt, die schneller
 sind, alle Grenzfälle beachten (ich befürchte, dass mein Programm
 Probleme auf Big Endian Systemen bekommt), und sogar Schaltkreise, die
