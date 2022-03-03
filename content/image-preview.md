@@ -46,8 +46,8 @@ with open("file.html") as f:
 ```
 
 Nachdem alles vorbereitet ist, ist die clientseitige Logik mit ein paar Zeilen
-[JavaScript](https://github.com/surt91/purepelican/blob/master/static/js/img.js)
-und [CSS](https://github.com/surt91/purepelican/blob/master/static/sass/_images.scss)
+[JavaScript](https://github.com/surt91/purepelican/blob/1e1371d644de4b3af733e78bebe4869bc9121681/static/js/img.js)
+und [CSS](https://github.com/surt91/purepelican/blob/1e1371d644de4b3af733e78bebe4869bc9121681/static/sass/_images.scss)
 recht simpel.
 
 Die Idee ist, dynamisch die voll aufgelösten Bilder per JavaScript zu laden und

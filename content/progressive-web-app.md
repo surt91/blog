@@ -32,7 +32,7 @@ müssen:
     *service worker* registrieren. Damit der *service worker* weiß, welche
     Dateien notwendig sind, benutze ich nach jedem erfolgreichen Build
     [sw-precache](https://github.com/GoogleChrome/sw-precache) mit einer
-    [sehr einfachen Konfiguration](https://github.com/surt91/blog/blob/master/sw-config.js).
+    [sehr einfachen Konfiguration](https://github.com/surt91/blog/blob/1d29d7bd848e31bfa4dc3f57bd140e92cbdf6de5/sw-config.js).
     Dadurch benötige ich jetzt Node, um das Blog zu erstellen `¯\_(ツ)_/¯`
 * Metadata provided for Add to Home screen
     - Damit ist eine `manifest.json` gemeint. Diese Datei enthält links zu Icons,
