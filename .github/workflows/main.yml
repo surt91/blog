@@ -28,7 +28,7 @@ jobs:
       - run: poetry install
 
       - name: build static sites
-        run: poetry run make publish
+        run: DEBUG=1 poetry run make publish
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.7.3
