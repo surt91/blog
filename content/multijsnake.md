@@ -12,29 +12,26 @@ Snake-Clonen [[1]({filename}/snake.md), [2]({filename}/pysnake.md), [3]({filenam
 eingereiht. Wie ich in meinem Artikel ["RestfulSnake"]({filename}/restfulsnake.md)
 bereits angedeutet hatte, habe ich es um eine Multiplayer Komponente erweitert.
 
-TODO: Technik, websockets, vor Veröffentlichung frontend aufhübschen
+Das grundlegende Design ist, dass der Server in festen Intervallen den nächsten Zeitschritt berechnet,
+den Spielzustand an alle Spieler schickt und auf Steuerkommandos von den Spielern lauscht. Dass der
+Server die gesamte Spiellogik verwaltet ist einerseits möglich, weil Snake einen relativ kleinen Zustand
+hat und nicht extrem empfindlich auf Latenzen reagiert. Außerdem können Spieler nicht (so einfach) schummeln,
+wenn der Spiel-Zustand auf dem Server berechnet wird.
 
-Und jetzt noch eine viel zu lange Anmerkung, weshalb ich das Projekt von
-"RestfulSnake" in "multiJSnake umbenannt habe.
+Hier sehen wir auch schon das erste Problem für die alte Kommunikation per http: Da der Server nicht von sich aus
+Nachrichten an die Clients schicken kann, müssten die Clients pollen, was zu einem ganzen Haufen an Problemen
+führen kann (Poll kurz vor dem Tick zum nächsten Zeitschritt, Last, uneinheitliche Antwortzeiten und Races bei
+schlechtem Netzwerk, ...)
+Genau für diesen Zweck sind aber [Websocket](https://de.wikipedia.org/wiki/WebSocket)-Verbindungen wie geschaffen!
+Da SpringBoot vernünftige Mechanismen mitbringt, um Websockets zu handhaben ist die Umstellung sogar
+[vergleichsweise schmerzfrei](https://github.com/surt91/multiJSnake/commit/927f3bc02c9a3e024048b7d7111969c3cc304aff).
 
-"Restful" wird heutzutage meist synonym mit "JSON API over HTTP" genutzt.
-So auch von mir in der Namensgebung von [RestfulSnake]({filename}/restfulsnake.md).
-Allerdings ist wohl ein fundamentaler Anspruch, dass außer dem Einstiegspunkt
-keine Endpoints bekannt zu sein brauchen, wie ich durch folgendes Zitat des
-Vaters von [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
-untermauern möchte:
+Das größte Problem ist nun, dass die meisten Leute "Rest" als synonym für "json über http" verstehen. Also
+muss ein neuer Name her -- leider war "multisnake" auf Heroku schon belegt, sodass ich mit "multiJSnake"
+subtil darauf hinweise, dass Java und JavaScript das fundament bilden.
 
-> A REST API should be entered with no prior knowledge beyond the initial URI [...]
->
-> -- <cite>[Roy T. Fielding](https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven)</cite> (2008)
+Ausprobiert werden kann es auf [multijsnake.herokuapp.com](https://multijsnake.herokuapp.com/) und weitere
+Spieler können durch einen Einladungslink in die eigene Session eingeladen werden. Die Quellen sind natürlich
+auf Github: [github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake/tree/v0.2.0).
 
-Stattdessen sollen alle Antworten *Hypermedia* sein, also Links zu verwandten
-Endpoints enthalten. So wie man nur die Domain meines Blogs zu kennen braucht
-und alle Artikel von dort durch links erreichen kann.
-
-Mein Ansatz hingegen koppelt Client und Server durch feste Endpoints.
-
-Außerdem bin ich für multiJSnake größtenteils von HTTP auf Websockets
-als Protokoll umgestiegen -- auch wenn Restful eigentlich nichts mit
-dem Protokoll zu tun haben sollte, wird es gefühlt fast ausschließlich
-für HTTP verwendet.
+![multiJSnake](/img/multisnake.gif)
