@@ -4,13 +4,15 @@ Author: surt91
 Category: Code
 Tags: Java, JavaScript, Game, GitHub, Snake
 Slug: multijsnake
-Status: draft
+Status: published
 Lang: de
 
 Vor Kurzem habe ich ein Server-Client Snake in meine Liste von simplen
 Snake-Clonen [[1]({filename}/snake.md), [2]({filename}/pysnake.md), [3]({filename}/msnake.md), [4]({filename}/rsnake.md), [5]({filename}/jsnake.md), [6]({filename}/restfulsnake.md)]
 eingereiht. Wie ich in meinem Artikel ["RestfulSnake"]({filename}/restfulsnake.md)
 bereits angedeutet hatte, habe ich es um eine Multiplayer Komponente erweitert.
+
+![multiJSnake](/img/multisnake.gif)
 
 Das grundlegende Design ist, dass der Server in festen Intervallen den nächsten Zeitschritt berechnet,
 den Spielzustand an alle Spieler schickt und auf Steuerkommandos von den Spielern lauscht. Dass der
@@ -33,5 +35,3 @@ subtil darauf hinweise, dass Java und JavaScript das fundament bilden.
 Ausprobiert werden kann es auf [multijsnake.herokuapp.com](https://multijsnake.herokuapp.com/) und weitere
 Spieler können durch einen Einladungslink in die eigene Session eingeladen werden. Die Quellen sind natürlich
 auf Github: [github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake/tree/v0.2.0).
-
-![multiJSnake](/img/multisnake.gif)
