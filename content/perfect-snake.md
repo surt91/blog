@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Java, JavaScript, Python, Neural Networks, Game, GitHub, Snake
 Slug: perfect-snake
-Status: draft
+Status: published
 Lang: de
 
 Ich habe auf diesem Blog schon über eine Reihe von Snake Clonen [[1]({filename}/snake.md), [2]({filename}/msnake.md), [3]({filename}/jsnake.md), [4]({filename}/restfulsnake.md), [5]({filename}/multijsnake.md)] geschrieben, die zum Teil auch Autopilot-Strategien hatten [[6]({filename}/pysnake.md), [7]({filename}/rsnake.md)].
@@ -61,7 +61,9 @@ von Snake befolgt werden.
 Eine der wichtigsten Entscheidungen ist nun wie der Input in das Modell aussieht.
 Die einfachste Variante, die sich auch gut zum Testen eignet, ist die lokale
 Information rund um den Kopf der Schlange: Drei Neuronen, die jeweils 1 oder 0 sind,
-wenn das Feld links, rechts und geradeaus vom Kopf belegt sind. Damit die Schlange
+wenn das Feld links, rechts und geradeaus vom Kopf belegt sind (und acht weitere für
+etwas mehr Weitsicht auf die Diagonalen und übernächste Felder vorne, rechts links und
+diesmal auch zurück). Damit die Schlange
 auch das Futter finden kann, fügen wir noch 4 weitere Neuronen hinzu, die per 1 oder 0
 anzeigen, ob das Futter nördlich, östlich, südlich oder westlich vom Kopf der Schlange
 ist.
@@ -71,6 +73,8 @@ die Schlange nach ein paar hundert Trainingsspielen zielstrebig auf das Futter
 steuert und sich selbst ausweicht. Allerdings reicht es noch nicht um zu verhindern,
 dass sie sich selbst in Schlaufen fängt. Da war der Autopilot von
 [rsnake]({filename}/rsnake.md) besser.
+
+![Layout des Neural Networks (Visualisierung: netron)](/img/nn_local.svg)
 
 ## Globale Informationen
 
@@ -88,6 +92,11 @@ in drei Kanäle aufteilen:
 * das Futter: nur an der Position des Futters ist eine 1, der Rest ist 0
 
 Also zeigen wir der Schlange das Feld praktisch mit drei Farbkanälen.
+
+Und damit die Schlange nicht auch noch lernen muss was rechts und links bedeutet,
+geben wir dem Actor 4 Outputs, die für Norden, Osten, Süden und Westen stehen.
+
+![Layout des Convolutional Neural Networks (Visualisierung: netron)](/img/nn_global.svg)
 
 Die Details welche Parameter ich für das Modell gewählt habe, kann auf
 [github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake)
