@@ -25,7 +25,7 @@ Nachrichten an die Clients schicken kann, müssten die Clients pollen, was zu ei
 führen kann (Poll kurz vor dem Tick zum nächsten Zeitschritt, Last, uneinheitliche Antwortzeiten und Races bei
 schlechtem Netzwerk, ...)
 Genau für diesen Zweck sind aber [Websocket](https://de.wikipedia.org/wiki/WebSocket)-Verbindungen wie geschaffen!
-Da SpringBoot vernünftige Mechanismen mitbringt, um Websockets zu handhaben ist die Umstellung sogar
+Da SpringBoot vernünftige Mechanismen mitbringt, um Websockets zu handhaben, ist die Umstellung sogar
 [vergleichsweise schmerzfrei](https://github.com/surt91/multiJSnake/commit/927f3bc02c9a3e024048b7d7111969c3cc304aff).
 
 Das größte Problem ist nun, dass die meisten Leute "Rest" als synonym für "json über http" verstehen. Also

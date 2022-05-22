@@ -105,9 +105,11 @@ geben wir dem Actor 4 Outputs, die für Norden, Osten, Süden und Westen stehen.
 
 ![Layout des Convolutional Neural Networks (Visualisierung: netron)](/img/nn_global.svg)
 
-Die Details welche Parameter ich für das Modell gewählt habe, können auf
-[github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake)
-nachgeschlagen werden. Aber es funktioniert nach einigen zehntausend
-Trainingsspielen gut genung, um regelmäßig perfekte Spiele auf einem
+Dieses Modell-Layout verdient es dann schon eher als *Deep Learning* bezeichnet zu werden.
+Weitere Modell-Parameter, können auf [github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake)
+nachgeschlagen werden.
+
+Nach einigen zehntausend Trainingsspielen funktioniert dieses Modell dann
+tatsächlich gut genug, um regelmäßig perfekte Spiele auf einem
 $10 \times 10$ Spielfeld zu erreichen. Aber da ich es nur auf  $10 \times 10$
 Feldern trainiert habe, versagt es leider auf jeder anderen Größe.
