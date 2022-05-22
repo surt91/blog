@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Java, JavaScript, Python, Neural Networks, Game, GitHub, Snake
 Slug: perfect-snake
-Status: published
+Status: draft
 Lang: de
 
 Ich habe auf diesem Blog schon über eine Reihe von Snake Clonen [[1]({filename}/snake.md), [2]({filename}/msnake.md), [3]({filename}/jsnake.md), [4]({filename}/restfulsnake.md), [5]({filename}/multijsnake.md)] geschrieben, die zum Teil auch Autopilot-Strategien hatten [[6]({filename}/pysnake.md), [7]({filename}/rsnake.md)].
@@ -32,7 +32,8 @@ auf Snake anwenden.
 
 Die grundlegende Idee von Reinforcement Learning ist relativ einsichtig: Wir belohnen
 das Modell für gute Entscheidungen, sodass es lernt mehr gute Entscheidungen zu treffen.
-In unserem Fall ist das zu maximierende Kriterium die Länge der Schlange.
+In unserem Fall werden gute Entscheidungen dadurch definiert, dass sie zu einer
+hohen Punktzahl, also Länge der Schlange am Spielende, führen.
 
 Glücklicherweise können wir auf die Literatur zurückgreifen, wie wir diese grundsätzliche
 Idee umsetzen können. Das Modell, für das ich mich entschieden habe, ist ein Actor-Critic
@@ -44,10 +45,17 @@ Der andere ist der *Critic*, der ein Output-Neuron hat, das abschätzt wie lang 
 Schlange, ausgehend von der aktuellen Situation, noch werden kann -- also wie gut die aktuelle
 Situation ist.
 
-Das Training läuft dann so ab, dass der Critic darauf trainiert wird möglichst gute
-Schätzungen abzugeben und der Actor trainiert wird zu möglichst hohen Schätzungen
-des Critic zu führen. Der gemeinsame Teil des neuronalen Netzes sollte im Idealfall also
-ein "Verständnis" für das Spiel entwickeln. Genial!
+Das Training läuft dann so ab, dass ein ganzes Spiel gespielt wird, folgend den Vorschlägen
+des Actors mit etwas rauschen, um neue Strategien zu erkunden. Sobald es beendet ist, weil
+die Schlange sich oder eine Wand gebissen hat, wird
+der Critic mit allen Zuständen des Spielverlaufs darauf trainiert, Schätzungen
+abzugeben, die möglichst gut zu der tatsächlich erreichten Länge am Spielende passen.
+Außerdem wird der Actor darauf trainiert gute Entscheidungen zu treffen, indem zu den
+Zuständen des Spielverlaufs andere Entscheidungen getroffen werden und die Bewertung
+des Critic der resultierenden Situationen als Qualität der Entscheidung genutzt wird.
+Actor und Critic helfen sich also gegenseitig besser zu werden.
+Der gemeinsame Teil des neuronalen Netzes sollte im Idealfall nach genügend gespielten
+Spielen dabei ein "Verständnis" für Snake entwickeln.  Genial!
 
 ## Technische Nebensächlichkeiten
 
@@ -74,11 +82,17 @@ der Schlange ist.
 
 Dieser Input mit ein einer vollvernetzten Schicht reicht aus, damit
 die Schlange nach ein paar hundert Trainingsspielen zielstrebig auf das Futter
-steuert und sich selbst ausweicht. Allerdings reicht es noch nicht, um zu verhindern,
+steuert und sich selbst ausweicht.
+
+![Layout des neuronalen Netzes mit lokaler Information (Visualisierung: netron)](/img/nn_local.svg)
+
+Allerdings reicht es noch nicht, um zu verhindern,
 dass sie sich selbst in Schlaufen fängt. Da war der Autopilot von
 [rsnake]({filename}/rsnake.md) besser.
 
-![Layout des Neural Networks (Visualisierung: netron)](/img/nn_local.svg)
+// TODO: make gif with the actual NN
+![Ein paar Spiele mit lokaler Information](/img/nn_local_game.gif)
+
 
 ## Globale Informationen
 
@@ -103,7 +117,7 @@ mit drei Farbkanälen.
 Und damit die Schlange nicht auch noch lernen muss was rechts und links bedeutet,
 geben wir dem Actor 4 Outputs, die für Norden, Osten, Süden und Westen stehen.
 
-![Layout des Convolutional Neural Networks (Visualisierung: netron)](/img/nn_global.svg)
+![Layout des Convolutional-Neural-Networks (Visualisierung: netron)](/img/nn_global.svg)
 
 Dieses Modell-Layout verdient es dann schon eher als *Deep Learning* bezeichnet zu werden.
 Weitere Modell-Parameter, können auf [github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake)
