@@ -22,26 +22,30 @@ Aber was steckt dahinter?
 ## Neuronale Netze
 
 Wenn man nicht clever genug ist, eine direkte Lösung für ein Problem zu finden, kann man
-versuchen ein Neuronales Netz auf die Lösung des Problems trainieren. Vor einigen Jahren
+versuchen ein neuronales Netz auf die Lösung des Problems zu trainieren. Vor einigen Jahren
 hat ein [Artikel](https://arxiv.org/abs/1312.5602), in dem ein neuronales Netz trainiert
 wurde alte Atari-Spiele zu spielen, für mediale Aufmerksamkeit gesorgt. Und die gleiche
-Idee des Reinforcement Learning werde ich hier (nicht als erster) auf Snake anwenden.
+Idee des *Reinforcement Learning* werde ich hier (nicht als erster
+[[8](https://github.com/pawel-kieliszczyk/snake-reinforcement-learning),
+[9](https://towardsdatascience.com/learning-to-play-snake-at-1-million-fps-4aae8d36d2f1)])
+auf Snake anwenden.
 
 Die grundlegende Idee von Reinforcement Learning ist relativ einsichtig: Wir belohnen
 das Modell für gute Entscheidungen, sodass es lernt mehr gute Entscheidungen zu treffen.
 In unserem Fall ist das zu maximierende Kriterium die Länge der Schlange.
 
 Glücklicherweise können wir auf die Literatur zurückgreifen, wie wir diese grundsätzliche
-Idee umsetzen können. Das Modell, für das ich mich entschieden habe ist ein Actor-Critic
+Idee umsetzen können. Das Modell, für das ich mich entschieden habe, ist ein Actor-Critic
 Ansatz. Dabei nutze ich ein neuronales Netz, das als Input den aktuellen Zustand des
 Spielfeldes bekommt -- wie genau dieser Zustand aussieht, diskutieren wir weiter unten.
-Dann geht es durch ein paar Schichten und endet in zwei "Köpfen". Einer ist der Actor,
-mit drei OutputNeuronen, die für "nach links", "nach rechts" und "geradeaus weiter" stehen,
-und der andere ist der Critic, der ein Output-Neuron hat, das abschätzt wie lang die
-Schlange, ausgehend von der aktuellen Situation, noch werden kann.
+Dann geht es durch ein paar Schichten und endet in zwei "Köpfen". Einer ist der *Actor*,
+mit drei Output-Neuronen, die für "nach links", "nach rechts" und "geradeaus weiter" stehen.
+Der andere ist der *Critic*, der ein Output-Neuron hat, das abschätzt wie lang die
+Schlange, ausgehend von der aktuellen Situation, noch werden kann -- also wie gut die aktuelle
+Situation ist.
 
 Das Training läuft dann so ab, dass der Critic darauf trainiert wird möglichst gute
-Schätzungen abzugeben und der Actors mit trainiert wird zu möglichst hohen Schätzungen
+Schätzungen abzugeben und der Actor trainiert wird zu möglichst hohen Schätzungen
 des Critic zu führen. Der gemeinsame Teil des neuronalen Netzes sollte im Idealfall also
 ein "Verständnis" für das Spiel entwickeln. Genial!
 
@@ -58,19 +62,19 @@ von Snake befolgt werden.
 
 ## Lokale Informationen
 
-Eine der wichtigsten Entscheidungen ist nun wie der Input in das Modell aussieht.
+Eine der wichtigsten Entscheidungen ist nun, wie der Input in das Modell aussieht.
 Die einfachste Variante, die sich auch gut zum Testen eignet, ist die lokale
 Information rund um den Kopf der Schlange: Drei Neuronen, die jeweils 1 oder 0 sind,
 wenn das Feld links, rechts und geradeaus vom Kopf belegt sind (und acht weitere für
-etwas mehr Weitsicht auf die Diagonalen und übernächste Felder vorne, rechts links und
+etwas mehr Weitsicht auf die Diagonalen und übernächste Felder vorne, rechts, links und
 diesmal auch zurück). Damit die Schlange
 auch das Futter finden kann, fügen wir noch 4 weitere Neuronen hinzu, die per 1 oder 0
-anzeigen, ob das Futter nördlich, östlich, südlich oder westlich vom Kopf der Schlange
-ist.
+anzeigen, ob das Futter in, rechts, links oder entgegengesetzt der Bewegungsrichtung
+der Schlange ist.
 
-Dieser Input mit ein paar vollvernetzten Schichten im Netz reichen aus, damit
+Dieser Input mit ein einer vollvernetzten Schicht reicht aus, damit
 die Schlange nach ein paar hundert Trainingsspielen zielstrebig auf das Futter
-steuert und sich selbst ausweicht. Allerdings reicht es noch nicht um zu verhindern,
+steuert und sich selbst ausweicht. Allerdings reicht es noch nicht, um zu verhindern,
 dass sie sich selbst in Schlaufen fängt. Da war der Autopilot von
 [rsnake]({filename}/rsnake.md) besser.
 
@@ -87,18 +91,21 @@ Daten an [*convolutional* neuronale Netze](https://en.wikipedia.org/wiki/Convolu
 zu nutzen. Um es unserer Schlange etwas einfacher zu machen, werden wir unser Spielfeld
 in drei Kanäle aufteilen:
 
-* der Kopf: nur an der Position des Kopfes ist eine 1, der Rest ist 0
-* der Körper: die Positionen an denen sich der Körper befindet zeigen wie viele Zeitschritte der Körper noch an dieser Position sein wird
-* das Futter: nur an der Position des Futters ist eine 1, der Rest ist 0
+1. der Kopf: nur an der Position des Kopfes ist eine 1, der Rest ist 0
+2. der Körper: die Positionen an denen sich der Körper befindet zeigen wie viele Zeitschritte der Körper noch an dieser Position sein wird
+3. das Futter: nur an der Position des Futters ist eine 1, der Rest ist 0
 
-Also zeigen wir der Schlange das Feld praktisch mit drei Farbkanälen.
+![Was ein Mensch sieht und was wir unserem neuronalen Netz zeigen](/img/nn_snake_channels.png)
+
+Dies ist auch kein unfairer Vorteil, schließlich sehen menschliche Spieler das Bild auch
+mit drei Farbkanälen.
 
 Und damit die Schlange nicht auch noch lernen muss was rechts und links bedeutet,
 geben wir dem Actor 4 Outputs, die für Norden, Osten, Süden und Westen stehen.
 
 ![Layout des Convolutional Neural Networks (Visualisierung: netron)](/img/nn_global.svg)
 
-Die Details welche Parameter ich für das Modell gewählt habe, kann auf
+Die Details welche Parameter ich für das Modell gewählt habe, können auf
 [github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake)
 nachgeschlagen werden. Aber es funktioniert nach einigen zehntausend
 Trainingsspielen gut genung, um regelmäßig perfekte Spiele auf einem
