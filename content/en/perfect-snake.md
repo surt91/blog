@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Java, JavaScript, Python, Neural Networks, Game, GitHub, Snake
 Slug: perfect-snake
-Status: draft
+Status: published
 Lang: en
 
 I like the game snake -- not so much playing it, but implementing it. The natural consequence
@@ -81,13 +81,12 @@ connect directly the two heads.
 
 ![Layout of the local neural network (Visualisierung: netron)](/img/nn_local.svg)
 
-And After a few hundred training games
+And after a few thousand training games
 the snake moves directly towards the food and avoids itself. But it is not
 yet clever enough to avoid catching itself in loops.
 Well, even the heuristic of [rsnake (German post)](https://blog.schawe.me/rsnake.html)
 was better.
 
-// TODO: make gif with the actual NN
 ![A few games with local information](/img/nn_local_game.gif)
 
 ## Global Information

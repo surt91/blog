@@ -4,7 +4,7 @@ Author: surt91
 Category: Code
 Tags: Java, JavaScript, Python, Neural Networks, Game, GitHub, Snake
 Slug: perfect-snake
-Status: draft
+Status: published
 Lang: de
 
 Ich habe auf diesem Blog schon über eine Reihe von Snake Clonen [[1]({filename}/snake.md), [2]({filename}/msnake.md), [3]({filename}/jsnake.md), [4]({filename}/restfulsnake.md), [5]({filename}/multijsnake.md)] geschrieben, die zum Teil auch Autopilot-Strategien hatten [[6]({filename}/pysnake.md), [7]({filename}/rsnake.md)].
@@ -80,19 +80,17 @@ auch das Futter finden kann, fügen wir noch 4 weitere Neuronen hinzu, die per 1
 anzeigen, ob das Futter in, rechts, links oder entgegengesetzt der Bewegungsrichtung
 der Schlange ist.
 
-Dieser Input mit ein einer vollvernetzten Schicht reicht aus, damit
-die Schlange nach ein paar hundert Trainingsspielen zielstrebig auf das Futter
-steuert und sich selbst ausweicht.
+Mit diesem Input füttern wir eine einzelne vollvernetzte Schicht, hinter der wir
+direkt die Actor und Critic Köpfe anschließen.
 
 ![Layout des neuronalen Netzes mit lokaler Information (Visualisierung: netron)](/img/nn_local.svg)
 
-Allerdings reicht es noch nicht, um zu verhindern,
+Das reicht aus, damit die Schlange nach ein paar tausend Trainingsspielen zielstrebig auf das Futter
+zusteuert und sich selbst ausweicht. Allerdings reicht es noch nicht, um zu verhindern,
 dass sie sich selbst in Schlaufen fängt. Da war der Autopilot von
 [rsnake]({filename}/rsnake.md) besser.
 
-// TODO: make gif with the actual NN
 ![Ein paar Spiele mit lokaler Information](/img/nn_local_game.gif)
-
 
 ## Globale Informationen
 
