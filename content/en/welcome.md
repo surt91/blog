@@ -14,7 +14,7 @@ instead of scrolling chronologically.
 
 * [Number of longest increasing subsequences]({filename}/en/paper-lis2.md)
    about a academic publication, of which I am co-author, and its central algorithm
-* [Perfect Snake]({filename}/perfect-snake.md) presents an implementation of the
+* [Perfect Snake]({filename}/en/perfect-snake.md) presents an implementation of the
    game snake with a neural net based autopilot.
 
 Unfortunately, most content is only available on the [German version of this blog](https://blog.schawe.me).
