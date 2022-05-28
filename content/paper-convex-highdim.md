@@ -154,4 +154,4 @@ für alle höheren Dimensionen.
 
 Eine wichtige Anwendung für 3D konvexe Hüllen ist übrigens die Delaunay-Triangulation einer planaren
 Punktmenge. Die wiederum kann für eine effiziente Berechnung des [Relative-Neighborhood-Graphs aus
-diesem Post]({filename}/relative_neighborhood_graph.md) genutzt werden.
+diesem Post]({filename}/relative-neighborhood-graph.md) genutzt werden.
