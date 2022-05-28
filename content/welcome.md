@@ -18,5 +18,5 @@ chronologisch herunterzuscrollen:
 * [Number of longest increasing subsequences]({filename}/paper-lis2.md)
    stellt eine akademische Veröffentlichung, an der ich beteiligt war,
    und ihren zentralen Algorithmus vor.
-* [rsnake]({filename}/rsnake.md) präsentiert eine meiner
-   Implementierungen des Spiels "snake".
+* [Perfect Snake]({filename}/perfect-snake.md) präsentiert eine meiner
+   Implementierungen des Spiels "snake" mitsamt einem neuronalen Netz als Autopilot.
