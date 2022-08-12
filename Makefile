@@ -53,6 +53,12 @@ publish:
 
 	echo "blog.schawe.me" > output/CNAME
 
+	# replace the quotation marks in the German files. I have no Idea how to do this properly via typogrify.
+	( \
+		cd output ; \
+		find -name "*.html" -not -path "./en/*" -exec sed -i 's/“/„/g;s/”/“/g' {} + \
+	)
+
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
