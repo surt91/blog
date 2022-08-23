@@ -16,8 +16,8 @@ Als Obi-Wan zu Luke gesagt hat
 Meinte er vermutlich `make`. (Fun Fact: `make` wurde auch [1977 veröffentlicht](https://en.wikipedia.org/wiki/Make_(software)).)
 
 Mit wenigen Zeilen im `Makefile` kann man nicht nur sein $\LaTeX$ Projekt
-kompilieren, sondern auch alle plots neu zeichnen, die sich geändert haben.
-Für unser Beispiel gehen wir davon aus, dass zum Plotten gnuplot mit dem `epslatex` Terminal genutzt
+kompilieren, sondern auch alle Plots neu zeichnen, die sich geändert haben.
+Für unser Beispiel gehen wir davon aus, dass zum Plotten Gnuplot mit dem `epslatex` Terminal genutzt
 wird und folgende Verzeichnisstruktur des Projektes vorliegt.
 
 ```
@@ -38,7 +38,7 @@ wird und folgende Verzeichnisstruktur des Projektes vorliegt.
 +-- lit.bib
 ```
 
-Dann kümmert sich das folgende `Makefile` sich darum, dass die Daten für die Plots
+Dann kümmert sich das folgende `Makefile` darum, dass die Daten für die Plots
 heruntergeladen werden, alle Plots, TikZ und .svg parallel zu .pdf gerendert
 werden und sobald das geschehen ist, das Dokument kompiliert wird.
 
