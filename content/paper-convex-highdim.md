@@ -23,8 +23,7 @@ in jeder Dimension unabhängig und normalverteilt.
 *In jeder Dimension?* Ja, genau! Wir wollen schließlich auch das Revierverhalten von
 vierdimensionalen Space Whales untersuchen.
 
-![Möbius Dick, Futurama](/img/SpaceWhale.webp)
-*Möbius Dick, Futurama (2011)*
+![Ein vierdimensionaler Weltraumwal, oder was Stable Diffusion sich darunter vorstellt](/img/SpaceWhale.webp)
 
 Spaß beiseite, in dieser Veröffentlichung geht es natürlich eher um fundamentale
 Eigenschaften von Random Walks -- einer der einfachsten und deshalb am besten
