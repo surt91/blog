@@ -2,7 +2,7 @@ Title: A Graph a Day
 Date: 2017-05-13 17:36
 Author: surt91
 Category: Code
-Tags: Physik, Bild, Python, Code
+Tags: Physik, Bild, Python, Code, GitHub, Twitter-Bot
 Slug: randomGraphs
 LargeFeaturedImage: img/agraphaday.png
 Status: published

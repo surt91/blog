@@ -2,7 +2,7 @@ Title: Labyrinthartiger Zellulärer Automat
 Date: 2016-10-14 21:38
 Author: surt91
 Category: Code
-Tags: Python, Video, NetworkX, GitHub
+Tags: Python, Video, GitHub
 Status: published
 Lang: de
 

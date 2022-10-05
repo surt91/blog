@@ -23,7 +23,7 @@ Hier ist ein günstiger DS18B20 Temperatursensor, der von einem ESP8266 ausgeles
 MCP4725 Digital-Analog-Wandler so an, dass er eine Spannung ausgibt, deren Wert in Volt ein Zehntel der gemessenen
 Temperatur ist. Diese Spannung wird dann von meinem alten Voltmeter gemessen und angezeigt. Hier ist es also gerade $24°\mathrm{C}$.
 
-![Foto meines Analog-Digital-Analog-Thermometers](/img/analogue_temperature.webp)
+[![Foto meines Analog-Digital-Analog-Thermometers](/img/analogue_temperature1200.webp)](/img/analogue_temperature.webp)
 
 Hier ist übrigens der simple Code, der beispielsweise mit der Arduino IDE auf einen ESP8266 geflasht werden kann:
 

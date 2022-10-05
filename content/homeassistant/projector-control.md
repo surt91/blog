@@ -2,7 +2,7 @@ Title: Heimkinoautomatisierung
 Date: 2022-07-30 17:30
 Author: surt91
 Category: Tech
-Tags: Home Assistant, ESPHome
+Tags: Home Assistant, ESPHome, Microcontroller
 LargeFeaturedImage: img/heimkinoautomatisierung1200.webp
 Status: published
 Lang: de

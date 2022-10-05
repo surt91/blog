@@ -2,7 +2,7 @@ Title: Relative Neighborhood Graph
 Date: 2016-10-02 15:34
 Author: surt91
 Category: Code
-Tags: Python, Video, NetworkX
+Tags: Python, Video, Formel
 Status: published
 Lang: de
 

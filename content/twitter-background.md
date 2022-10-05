@@ -2,7 +2,7 @@ Title: Twitter Profilhintergrundfarben
 Date: 2021-05-11 18:30
 Author: surt91
 Category: Code
-Tags: Bild, Twitter, Code
+Tags: Bild, Python, Twitter, Code
 Slug: twitter-background
 LargeFeaturedImage: img/twitter_background1200.webp
 Status: published

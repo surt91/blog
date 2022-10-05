@@ -1,8 +1,8 @@
-Title: Come to the dark side, our theme song is﻿ better
+Title: Come to the dark side, our theme song is better
 Date: 2011-04-05 11:22
 Author: surt91
 Category: Tech
-Tags: Video, Tech, GitHub
+Tags: C, Video, GitHub, Microcontroller
 Slug: come-to-the-dark-side-our-theme-song-is-better
 Status: published
 Lang: de

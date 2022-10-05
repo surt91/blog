@@ -2,7 +2,7 @@ Title: Noch mehr Fraktale
 Date: 2021-06-07 20:45
 Author: surt91
 Category: Code
-Tags: Physik, Bild, Rust, Formel
+Tags: Physik, Bild, Rust, Formel, Chaos, GitHub, Twitter-Bot
 Slug: more-fractals
 LargeFeaturedImage: img/ising1200.webp
 Status: published

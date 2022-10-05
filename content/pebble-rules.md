@@ -2,7 +2,7 @@ Title: Pebble Rules
 Date: 2017-12-10 15:57
 Author: surt91
 Category: Code
-Tags: Bild, C, Code, GitHub, Tech
+Tags: Bild, C, Code, GitHub
 Slug: pebble-rules
 LargeFeaturedImage: img/pebble-rules.jpg
 Status: published

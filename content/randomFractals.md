@@ -2,7 +2,7 @@ Title: A Fractal A Day
 Date: 2017-11-29 10:47
 Author: surt91
 Category: Code
-Tags: Physik, Bild, Rust, Code
+Tags: Physik, Bild, Rust, Code, Chaos, Formel, GitHub, Twitter-Bot
 Slug: randomFractals
 LargeFeaturedImage: img/mandelbrot1200.webp
 Status: published
