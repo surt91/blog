@@ -10,8 +10,10 @@ Lang: de
 Ich habe mir ein analoges Voltmeter zugelegt und möchte es als Thermometer benutzen.
 
 Da der Widerstand von Metallen mit der Temperatur steigt, kann man Temperatur relativ gut messen, indem man
-einen kalibrierten Widerstand misst. Daher kann man mit den meisten Multimetern und einer passenden Sonde
-auch die Temperatur messen.
+einen [kalibrierten Widerstand](https://de.wikipedia.org/wiki/Platin-Messwiderstand) misst.
+Daher kann man theoretisch mit einem Multimeter auch die Temperatur messen. (In der Praxis wird dies
+bei Multimetern allerdings in der Regel mithilfe eines [anderen Effektes](https://de.wikipedia.org/wiki/Thermoelement#Seebeck-Effekt)
+erledigt.)
 
 Da ich mir aber keine Gedanken darüber machen möchte, wie ich eine Schaltung aussehen müsste, um $15°\mathrm{C}$
 in $1.5 \mathrm{V}$ umzusetzen (vielleicht würde eine [Brückenschaltung](https://de.wikipedia.org/wiki/Br%C3%BCckenschaltung)
