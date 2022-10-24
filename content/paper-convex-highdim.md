@@ -56,7 +56,7 @@ zu achten, dass die drei neusten Punkte des Polygons ein negativ orientiertes Dr
 bilden, also dass sie im "Uhrzeigersinn drehen". Wenn das nicht der Fall ist,
 wird der mittlere Punkt entfernt.
 
-![Sechs Schritte von Andrew's Monotone Chain -- oder Graham Scan](/img/ch_andrew_steps.webp)
+![Sechs Schritte von Andrew's Monotone Chain -- oder Graham Scan](/img/ch_andrew_steps.webp){: class="invertable"}
 
 Dies ist übrigens die ursprüngliche Variante, der *Graham Scan*. Andrew verbesserte
 diesen Algorithmus dadurch, dass nicht im Uhrzeigersinn sortiert werden muss, sondern
@@ -64,7 +64,7 @@ man lexikographisch nach horizontaler Koordinate (bei Gleichstand entscheidet di
 vertikale Koordinate) sortiert. Dann bildet dieser Algorithmus die obere Hälfte der Hülle
 und wenn man ihn rückwärts auf die sortierten Punkte anwendet, die untere Hälfte.
 
-![Andrew's Monotone Chain](/img/ch_andrew.gif)
+![Andrew's Monotone Chain](/img/ch_andrew.gif){: class="invertable"}
 
 Die Komplexität für $n$ Punkte ist somit $\mathcal{O}(n \ln n)$ limitiert durch das Sortieren.
 
@@ -84,7 +84,7 @@ Papier weiter. Sobald wir alle $n$ Punkte ausprobiert haben, wissen wir, dass da
 an der richtigen Stelle liegt, sodass anfangen können die nächste Facette mit dem Geschenkpapier
 zu bilden indem wir von innen alle Punkte durchtesten.
 
-![Jarvis March: Gift Wrapping](/img/ch_jarvis.gif)
+![Jarvis March: Gift Wrapping](/img/ch_jarvis.gif){: class="invertable"}
 
 Interessanterweise müssen wir also für jeden der $h$ Punkte, die zur Hülle gehören $\mathcal{O}(n)$ Punkte
 prüfen, sodass die Komplexität abhängig ist vom Ergebnis: $\mathcal{O}(n h)$
@@ -109,7 +109,7 @@ dann nur $m$ Schritte des Jarvis-Teils des Algorithmus durchzuführen und wenn d
 $m$ zu erhöhen und es wieder von vorne zu beginnen. Damit dieser iterative Teil des Algorithmus nicht unsere Komplexität
 erhöht, muss $m$ schnell genug wachsen, was in der Regel durch Quadrieren des alten Werten erreicht wird.
 
-![Chan's Algorithm](/img/ch_chan.gif)
+![Chan's Algorithm](/img/ch_chan.gif){: class="invertable"}
 
 ## QuickHull
 
@@ -119,7 +119,7 @@ In zwei Dimensionen starten wir mit dem Punkt ganz links $A$ und ganz rechts $B$
 am weitesten entfernt ist von der Strecke $\overline{AB}$ und links von der Strecke ist. Diesen Schritt wiederholen wir
 rekursiv auf den Strecken $\overline{AC}$ und $\overline{CB}$ (und $\overline{BA}$ für die untere Hälfte.)
 
-![QuickHull](/img/ch_quickhull.gif)
+![QuickHull](/img/ch_quickhull.gif){: class="invertable"}
 
 ## Mehr Dimensionen
 

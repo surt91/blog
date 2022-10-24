@@ -21,7 +21,7 @@ erstellen, wie der
 [Conways-Game-of-Life-Post]({filename}/conways-game-of-life.md)
 beweist. Daher, lasse ich erstmal ein Bild sprechen.
 
-![Wolframs Rule 90](/img/wolfram090.png)
+![Wolframs Rule 90](/img/wolfram090.png){: class="invertable"}
 
 Die Idee ist, dass man mit einem eindimensionalen Zustand startet, und
 einen neuen Zustand daraus mit lokalen Regeln, die je einen rechten und

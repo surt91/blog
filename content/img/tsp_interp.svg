@@ -14,12 +14,6 @@
       circle {
          stroke-width:0;
       }
-      @media (prefers-color-scheme: dark) {
-         line, circle {
-            fill:#c0c0c0;
-            stroke:#c0c0c0;
-         }
-      }
     ]]></style>
   <g transform="translate(-1500,0)">
    <line x1='7500' x2='7499.95' y1='5000' y2='4984.66'/>

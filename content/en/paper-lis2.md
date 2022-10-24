@@ -17,10 +17,7 @@ route.
 But here, I want to talk about the problem of the *longest increasing subsequence* (LIS): For a
 given sequence of numbers, find the subsequence consisting of increasing numbers, which is longest.
 
-<picture>
-    <source srcset="/img/lis_example.dark.png" media="(prefers-color-scheme: dark)">
-    <img alt="A longest increasing subsequence is marked in a sequence" src="/img/lis_example.png">
-</picture>
+![A longest increasing subsequence is marked in a sequence](/img/lis_example.png){: class="invertable"}
 
 This problem is so simple that it was first studied almost as a placeholder by Stanisław Ulam in a
 book chapter describing the Monte Carlo method. And judging by the google results, it seems to
@@ -38,10 +35,7 @@ or the [largest eigenvalues of random matrices](https://www.quantamagazine.org/b
 The solution of this problem is not unique: A Sequence can contain multiple longest increasing
 subsequences. Indeed, their number grows exponentially with the length of the original sequence.
 
-<picture>
-    <source srcset="/img/lis_alternatives.dark.png" media="(prefers-color-scheme: dark)">
-    <img alt="Different longest increasing subsequences within the same sequence" src="/img/lis_alternatives.png">
-</picture>
+![Different longest increasing subsequences within the same sequence](/img/lis_alternatives.png]{: class="invertable"}
 
 But up to now, there did not exist any results about the precise number of different LIS.
 A common sentiment is that counting all LIS was infeasible, since there are exponentially many.
@@ -91,10 +85,7 @@ start with them. We can calculate this easily by following the pointers backward
 annotations of all predecessor cards. After repeating this and annotating the leftmost stack, we
 can sum all annotations of the leftmost stack to get the total number of distinct LIS: here $7$.
 
-<picture>
-    <source srcset="/img/lis_backpointer.dark.png" media="(prefers-color-scheme: dark)">
-    <img alt="Example of the datastructure to count LIS" src="/img/lis_backpointer.png">
-</picture>
+![Example of the datastructure to count LIS](/img/lis_backpointer.png){: class="invertable"}
 
 About the behavior for longer sequences from different random ensembles we published an
 [article](https://hendrik.schawe.me/pdf/2020_liscount_PRE.pdf).

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="export" class="canvas" width="394" height="164" style="height:164;width:394" xmlns="http://www.w3.org/2000/svg">
- <rect id="background" width="394" height="164" fill="#fff"/>
  <g id="origin" transform="translate(7.4232 7.4232) scale(1)">
   <g id="edge-paths" class="edge-paths">
    <defs>

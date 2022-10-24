@@ -32,9 +32,4 @@ This minimal example is useless of course. But I already used this
 crate productively to simulate dynamics on a [petgraph](https://docs.rs/petgraph/)
 graph and visualize its state via [graph-tool](https://graph-tool.skewed.de/).
 
-<picture>
-    <source
-        srcset="/img/inlinepy_graph.dark.png"
-        media="(prefers-color-scheme: dark)">
-    <img alt="Graph state visualized with graph-tool" src="/img/inlinepy_graph.png">
-</picture>
+![Graph state visualized with graph-tool](/img/inlinepy_graph.png){: class="invertable"}
