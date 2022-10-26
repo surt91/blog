@@ -14,7 +14,7 @@ eingeführt, das abhängig von einem Parameter $\sigma$ von einer trivial einfac
 zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet
 sind, zum zufälligen euklidischen TSP in der Ebene interpoliert.
 
-![Einfach und schwierig zu lösende TSP Konfigurationen](/img/tsp_interp.svg){: class="invertable"}
+![Einfach und schwierig zu lösende TSP Konfigurationen](/img/tsp_interp.svg){: .invertable}
 
 Danach werden mittels [linearer Programmierung](https://de.wikipedia.org/wiki/Lineare_Optimierung) einige
 Phasenübergänge festgestellt, ab welchen Werten von $\sigma$ das Problem

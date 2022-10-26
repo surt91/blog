@@ -60,7 +60,7 @@ Als Bonus kann man noch mit den Parametern spielen, um einen möglichst
 \end{document}
 ```
 
-![Isingmodell mit Kopplung](/img/standaloneIsing.svg){: class="invertable" width="100%"}
+![Isingmodell mit Kopplung](/img/standaloneIsing.svg){: .invertable width="100%"}
 
 Und damit wäre wiedereinmal die Vorliebe dieses Blogs für [schwarz-weiße
 Bilder]({filename}/conways-game-of-life.md),

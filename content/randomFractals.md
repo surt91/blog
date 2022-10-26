@@ -381,4 +381,4 @@ Avoiding Walk, der in meinem [rsnake]({filename}/rsnake.md) die Strategie des
 Autopiloten ist, hat eine fraktale Dimension von $\frac{7}{4}$. 100000 Schritte
 sehen so aus:
 
-[![Smart Kinetic Self Avoiding Walk, 100000 Schritte](/img/sksaw1200.webp)](/img/sksaw.png){: class="invertable"}
+[![Smart Kinetic Self Avoiding Walk, 100000 Schritte](/img/sksaw1200.webp)](/img/sksaw.png){: .invertable}

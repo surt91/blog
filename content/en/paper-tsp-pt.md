@@ -13,7 +13,7 @@ In this Article, we introduce an ensemble of the Traveling Salesperson problem (
 that can be tuned with a parameter $\sigma$ from the trivial case of cities
 equidistant on a circle to the random Euclidean TSP in a plane.
 
-![Einfach und schwierig zu lösende TSP Konfigurationen](/img/tsp_interp.svg){: class="invertable"}
+![Einfach und schwierig zu lösende TSP Konfigurationen](/img/tsp_interp.svg){: .invertable}
 
 For this ensemble we determine some phase transitions from an "easy" phase to
 a "not-that-easy" phase using linear programming. For each of these transitions

@@ -19,8 +19,8 @@ schreiben wollt, sollte der Quellcode nicht allzu undurchschaubar sein.
 Hier ein paar Ergebnisse mit imagemagick animiert:
 `convert -delay 20 ./*png ./out2.gif`
 
-![HWSS](/img/conway1.gif){: class="invertable"}
+![HWSS](/img/conway1.gif){: .invertable}
 
-![Pulsator](/img/conway2.gif){: class="invertable"}
+![Pulsator](/img/conway2.gif){: .invertable}
 
-![Oktagon](/img/conway3.gif){: class="invertable"}
+![Oktagon](/img/conway3.gif){: .invertable}

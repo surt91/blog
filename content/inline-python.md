@@ -33,4 +33,4 @@ genutzt, um Dynamik auf [petgraph](https://docs.rs/petgraph/) Graphen zu
 simulieren und ihren Zustand per [graph-tool](https://graph-tool.skewed.de/) zu
 visualisieren.
 
-![Graph state visualized with graph-tool](/img/inlinepy_graph.png){: class="invertable"}
+![Graph state visualized with graph-tool](/img/inlinepy_graph.png){: .invertable}

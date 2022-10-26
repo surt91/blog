@@ -83,7 +83,7 @@ der Schlange ist.
 Mit diesem Input füttern wir eine einzelne vollvernetzte Schicht, hinter der wir
 direkt die Actor und Critic Köpfe anschließen.
 
-![Layout des neuronalen Netzes mit lokaler Information (Visualisierung: netron)](/img/nn_local.svg){: class="invertable"}
+![Layout des neuronalen Netzes mit lokaler Information (Visualisierung: netron)](/img/nn_local.svg){: .invertable}
 
 Das reicht aus, damit die Schlange nach ein paar tausend Trainingsspielen zielstrebig auf das Futter
 zusteuert und sich selbst ausweicht. Allerdings reicht es noch nicht, um zu verhindern,
@@ -115,7 +115,7 @@ mit drei Farbkanälen.
 Und damit die Schlange nicht auch noch lernen muss was rechts und links bedeutet,
 geben wir dem Actor 4 Outputs, die für Norden, Osten, Süden und Westen stehen.
 
-![Layout des Convolutional-Neural-Networks (Visualisierung: netron)](/img/nn_global.svg){: class="invertable"}
+![Layout des Convolutional-Neural-Networks (Visualisierung: netron)](/img/nn_global.svg){: .invertable}
 
 Dieses Modell-Layout verdient es dann schon eher als *Deep Learning* bezeichnet zu werden.
 Weitere Modell-Parameter, können auf [github.com/surt91/multiJSnake](https://github.com/surt91/multiJSnake)
