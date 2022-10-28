@@ -46,7 +46,7 @@ von Fira Code bewusst bemerken würden, die aber zweifellos demonstriert wie dur
 Denn Fira Code passt die Position von arithmetischen Symbolen an die benachbarten Glyphen an: ein `+`
 zwischen zwei Großbuchstaben ist höher als eines zwischen zwei Kleinbuchstaben.
 
-[![A+A a+a, die Plus-Zeichen haben unterschiedliche vertikale Positionen](/img/fira_arith.png)](/img/fira_arith.png){: .invertable}
+[![A+A a+a, die Plus-Zeichen haben unterschiedliche vertikale Positionen](/img/fira_arith.png){: .invertable}](/img/fira_arith.png)
 
 Ich persönlich weiß solche Details sehr wertzuschätzen. Es ist ein Beispiel dafür,
 dass alle Aspekte unserer modernen Gesellschaft, so wenige Gedanken wir uns auch darum machen und
