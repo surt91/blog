@@ -6,7 +6,7 @@ Tags: Python, Video, Formel
 Status: published
 Lang: de
 
-<video controls loop autoplay width="100%">
+<video controls loop autoplay poster="/img/rng.png" width="100%">
 <source src="/vid/rng.mp4" type="video/mp4"></source>
 Your browser does not support the video tag.
 </video>

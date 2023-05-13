@@ -12,7 +12,7 @@ erwähnt. Um den Zusammenhang mit Chaos zu zeigen, betrachten wir folgendes
 Video von der Projektion in die y-z-Ebene von 13
 Teilchen, die den Attraktor durchlaufen.
 
-<video controls="controls" height="624" width="624">
+<video controls="controls" poster="/img/lorenz13yz.png" height="624" width="624">
 <source src="/vid/lorenz13yz.m4v" />
 <source src="/vid/lorenz13yz.mp4" type="video/mp4" />
 <source src="/vid/lorenz13yz.webm" type="video/webm" />
