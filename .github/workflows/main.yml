@@ -31,6 +31,7 @@ jobs:
         run: DEBUG=1 poetry run make publish
 
       - name: GitHub Pages action
+        if: github.ref == 'refs/heads/master' && github.actor != 'dependabot[bot]'
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
