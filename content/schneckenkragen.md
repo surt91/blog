@@ -21,7 +21,7 @@ Es gibt eine Reihe Hausmittel, die helfen sollen. Praktischerweise im
 
 Drei dieser vier Strategien haben außerdem den Nachteil, dass sie nicht nur die Wegschnecken bekämpfen,
 die für die meisten Fraßschäden verantwortlich sind, sondern alle Schnecken.
-Tatsächlich sind Schnecken mit Gehäuse keine Gefahr für die Nutzpflanzen -- im Gegenteil: laut des Wikipedia-Artikels gibt es anscheindend eher den Zusammenhang, dass eine große Weinbergschneckenpopulation mit eher kleinen Populationen der schädlichen Wegschnecke korreliert ist. Und auch nicht alle Nacktschnecken sind schädlich! Meine Lieblingsnacktschnecke, [der Tigerschnegel](https://de.wikipedia.org/wiki/Tigerschnegel) frisst nicht nur Schneckeneier, sondern sogar ausgewachsene Exemplare.
+Tatsächlich sind Schnecken mit Gehäuse keine Gefahr für die Nutzpflanzen -- im Gegenteil: laut des Wikipedia-Artikels gibt es anscheindend eher den Zusammenhang, dass eine große Weinbergschneckenpopulation mit eher kleinen Populationen der schädlichen Wegschnecke korreliert ist. Und auch nicht alle Nacktschnecken sind schädlich! Meine Lieblingsnacktschnecke, [der Tigerschnegel](https://de.wikipedia.org/wiki/Tigerschnegel), frisst nicht nur Schneckeneier, sondern sogar ausgewachsene Exemplare.
 
 ## Der Schneckenkragen
 
@@ -33,16 +33,23 @@ Einfacher an einem Bild zu zeigen, als zu beschreiben.
 
 Dort, wo die 3D-gedruckte Schnecke abgebildet ist, sollte keine Schnecke mehr hingelangen können.
 
-Die Funktionsweise ist anscheinend nicht ganz klar. Erklärungsansätze, die ich finden konnte, sind, dass der Wechsel von
-"senkrecht nach oben" zu "45° nach unten" nicht im Verhaltensrepertoire von Schnecken enthalten ist. Und dass der Kragen dazu
-führt, dass die Schnecken auf dem Weg nach oben den Geruch der Pflanzen verlieren und dann verwirrt wieder nach unten kriechen.
+Man steckt ihn einfach mit einer leicht drehenden Bewegung etwa 2 cm tief in den Boden.
 
-Beim Aufstellen ist unbedingt zu beachten, dass andere Pflanzen nicht zu dicht am Kragen stehen dürfen, da die Schnecken sie
+Dabei ist unbedingt zu beachten, dass andere Pflanzen nicht zu dicht am Kragen stehen dürfen, da die Schnecken sie
 ansonsten als Brücken nutzen können.
+
+Und natürlich sollte man sicherstellen, dass sich keine Schnecke im Inneren des Schneckenkragens befindet.
+Sie verstecken sich gerne unter Steinchen oder Ästen.
+Am besten lockert man den Boden innerhalb des Scheckenkragens daher einmal auf
+und befördert dabei zutage tretende Schnecken heraus.
 
 Auch wenn man alles beachtet, kann es sein, dass in der Erde noch Schneckeneier sind, die innerhalb des Kragens schlüpfen.
 
 Man muss also dennoch regelmäßig nachschauen. Aber zumindest in meinem Garten, ist der Unterschied zwischen geschützten und ungeschützten Pflanzen gewaltig.
+
+Die Funktionsweise ist anscheinend nicht ganz klar. Erklärungsansätze, die ich finden konnte, sind, dass der Wechsel von
+"senkrecht nach oben" zu "45° nach unten" nicht im Verhaltensrepertoire von Schnecken enthalten ist. Und dass der Kragen dazu
+führt, dass die Schnecken auf dem Weg nach oben den Geruch der Pflanzen verlieren und dann verwirrt wieder nach unten kriechen.
 
 ### Fertigung
 
