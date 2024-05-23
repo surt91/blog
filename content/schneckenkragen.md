@@ -16,7 +16,7 @@ Es gibt eine Reihe Hausmittel, die helfen sollen. Praktischerweise im
 
 * Bannkreise aus Eierschalen oder Kaffeepulver
 * Bierfallen, die alle Schnecken aus der Nachbarschaft einladen
-* Kupfer, das leider auch die zu schützenden Pflanzen vergiftet
+* Kupfer, das nicht nur für Schnecken giftig ist
 * Laufenten -- immerhin werden die Pflanzen dann nicht mehr von Schnecken gefressen
 
 Drei dieser vier Strategien haben außerdem den Nachteil, dass sie nicht nur die Wegschnecken bekämpfen,
@@ -50,6 +50,18 @@ Man muss also dennoch regelmäßig nachschauen. Aber zumindest in meinem Garten,
 Die Funktionsweise ist anscheinend nicht ganz klar. Erklärungsansätze, die ich finden konnte, sind, dass der Wechsel von
 "senkrecht nach oben" zu "45° nach unten" nicht im Verhaltensrepertoire von Schnecken enthalten ist. Und dass der Kragen dazu
 führt, dass die Schnecken auf dem Weg nach oben den Geruch der Pflanzen verlieren und dann verwirrt wieder nach unten kriechen.
+
+### Upgrade
+
+Nach meinen (leidvollen) Erfahrungen finden in besonders schneckenreichen Beeten bei feuchtem Wetter einige Schnecken dennoch in den Kragen. Das scheint daran zu liegen, dass sich Schnecken in den Knick verkriechen. Von da aus kriechen sie dann später in eine zufällige Richtung -- entweder in den Kragen hinein oder wieder herunter. Zumindest vermute ich, dass dies der Mechanismus ist.
+
+[![Schnecken im Knick des Kragens](/img/schnecken1200.webp)](/img/schnecken.jpg)
+
+Wenn die Annahme richtig ist, müssen wir also nur verhindern, dass die Schnecken es sich in dem Knick gemütlich machen. In der Einleitung hatte ich kurz erwähnt, dass Schnecken Kupfer vermeiden, denn Kupfer ist giftig für Weichtiere (sowie Einzeller und viele Wassertiere). Der Mechanismus ist anscheinend, dass Schneckenschleim leicht sauer ist und bei Kontakt leicht Kupferionen löst, die für die Schnecke giftig und unangenehm ist. Dafür muss die Schnecke ausreichend lange Kontakt mit dem Kupfer haben.
+
+Wenn man einen Streifen Kupferfolie möglichst weit oben um den Kragen klebt, verkriechen sich keine Schnecken mehr in dem Knick, weil sie dabei direkten Kontakt mit demKupfer hätten. Gleichzeitig ist das Kupfer dort unter dem "Dach" vor Regen geschützt, sodass die Exposition der Umgebung minimiert wird.
+
+[![Schneckenkragen mit Kupferring](/img/schneckenkragen_kupfer1200.webp)](/img/schneckenkragen_kupfer.jpg)
 
 ### Fertigung
 
