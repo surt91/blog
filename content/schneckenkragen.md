@@ -27,7 +27,7 @@ Tatsächlich sind Schnecken mit Gehäuse keine Gefahr für die Nutzpflanzen -- i
 
 In meinem Garten hat sich [der Schneckenkragen](https://de.wikipedia.org/wiki/Schneckenkragen) bewährt.
 Das ist ein hohler Zylinder mit Widerhaken nach außen.
-Einfacher an einem Bild zu zeigen, als zu beschreiben.
+Einfacher an einem Bild zu zeigen als zu beschreiben.
 
 [![Schneckenkragen](/img/schneckenkragen1200.webp)](/img/schneckenkragen.jpg)
 
@@ -55,17 +55,27 @@ führt, dass die Schnecken auf dem Weg nach oben den Geruch der Pflanzen verlier
 
 Nach meinen (leidvollen) Erfahrungen finden in besonders schneckenreichen Beeten bei feuchtem Wetter einige Schnecken dennoch in den Kragen. Das scheint daran zu liegen, dass sich Schnecken in den Knick verkriechen. Von da aus kriechen sie dann später in eine zufällige Richtung -- entweder in den Kragen hinein oder wieder herunter. Zumindest vermute ich, dass dies der Mechanismus ist.
 
-[![Schnecken im Knick des Kragens](/img/schnecken1200.webp)](/img/schnecken.jpg)
+[![Schnecken im Knick des Kragens](/img/schnecken1200.webp)](/img/schnecken.webp)
 
-Wenn die Annahme richtig ist, müssen wir also nur verhindern, dass die Schnecken es sich in dem Knick gemütlich machen. In der Einleitung hatte ich kurz erwähnt, dass Schnecken Kupfer vermeiden, denn Kupfer ist giftig für Weichtiere (sowie Einzeller und viele Wassertiere). Der Mechanismus ist anscheinend, dass Schneckenschleim leicht sauer ist und bei Kontakt leicht Kupferionen löst, die für die Schnecke giftig und unangenehm ist. Dafür muss die Schnecke ausreichend lange Kontakt mit dem Kupfer haben.
+Wenn die Annahme richtig ist, müssen wir also nur verhindern, dass die Schnecken es sich in dem Knick gemütlich machen. In der Einleitung hatte ich kurz erwähnt, dass Schnecken Kupfer vermeiden, denn Kupfer ist giftig für Weichtiere (sowie Einzeller und viele Wassertiere). Der Mechanismus ist anscheinend, dass Schneckenschleim leicht sauer ist und bei Kontakt leicht Kupferionen löst, die für die Schnecke giftig und unangenehm sind. Dafür muss die Schnecke allerdings ausreichend lange Kontakt mit dem Kupfer haben, sodass ein Kupferdraht, der um das Beet liegt, keine Schnecken abschreckt.
 
-Wenn man einen Streifen Kupferfolie möglichst weit oben um den Kragen klebt, verkriechen sich keine Schnecken mehr in dem Knick, weil sie dabei direkten Kontakt mit demKupfer hätten. Gleichzeitig ist das Kupfer dort unter dem "Dach" vor Regen geschützt, sodass die Exposition der Umgebung minimiert wird.
+Wir können aber das Kupfer nutzen, um die Schnecken davon abzuhalten, sich in dem Knick aufzuhalten, indem wir einen Streifen Kupferfolie möglichst weit oben um den Kragen kleben. Gleichzeitig ist das Kupfer dort unter dem "Dach" vor Regen geschützt, sodass die Exposition der Umgebung minimiert wird.
 
 [![Schneckenkragen mit Kupferring](/img/schneckenkragen_kupfer1200.webp)](/img/schneckenkragen_kupfer.jpg)
+
+### Upgrade 2
+
+Wenn dies immer noch nicht ausreicht, um die Pflanzen hinreichend zu schützen, gibt es noch die Möglichkeit den Kragen zu einem Elektrozaun zu modifizieren. Dazu klebt man zwei Streifen Kupferband um den Kragen, sodass sie sich nicht berühren und schließt sie an eine 9 V Batterie an. Um die 9 V Batterie zu halten, habe ich eine Variante des Kragens mit einer Halterung und einer Öffnung für die Kabel erstellt. Damit die Batterie nicht nass wird, sollte man die Oberseite der Öffnung mit Silikonkleber abdichten.
+
+[![Schneckenkragen mit Batteriefach](/img/schneckenkragen_batterie1200.webp)](/img/schneckenkragen_batterie.jpg)
+
+[![Schneckenkragen mit Elektrozaun](/img/schneckenkragen_elektro1200.webp)](/img/schneckenkragen_elektro.jpg)
+
+Wenn Schnecken nun hochkriechen, schließen sie den Stromkreis und bekommen einen Stromschlag. In der Regel sollten sie sich zurückziehen oder betäubt werden und herunterfallen. Falls diese Methode zu lethal für die Schnecken ist, kann noch ein Widerstand in Reihe an einen der Pole gelötet werden.
 
 ### Fertigung
 
 Die Fertigung gelingt mit einem 3D-Drucker. Ich habe hierfür ein [einfaches Modell designt](https://www.printables.com/model/876056-schneckenkragen-slug-collar).
 Leider benötigt ein hinreichend großer Schneckenkragen, der stabil genug ist, um ihn in den Boden drücken zu können,
-relativ viel Filament. Bei dem Filament sollte man darauf achten, dass es UV-beständig ist, wie PETG.
+relativ viel Filament. Bei dem Filament sollte man darauf achten, dass es UV-beständig ist, wie PETG oder ASA.
 Das sorgt dafür, dass er in der Sonne nicht spröde wird und man ihn viele Jahre nutzen kann.
