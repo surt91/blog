@@ -63,7 +63,7 @@ Wir können aber das Kupfer nutzen, um die Schnecken davon abzuhalten, sich in d
 
 [![Schneckenkragen mit Kupferring](/img/schneckenkragen_kupfer1200.webp)](/img/schneckenkragen_kupfer.jpg)
 
-### Upgrade 2
+### Upgrade 2 -- Electric Boogaloo
 
 Wenn dies immer noch nicht ausreicht, um die Pflanzen hinreichend zu schützen, gibt es noch die Möglichkeit den Kragen zu einem Elektrozaun zu modifizieren. Dazu klebt man zwei Streifen Kupferband um den Kragen, sodass sie sich nicht berühren und schließt sie an eine 9 V Batterie an. Um die 9 V Batterie zu halten, habe ich eine Variante des Kragens mit einer Halterung und einer Öffnung für die Kabel erstellt. Damit die Batterie nicht nass wird, sollte man die Oberseite der Öffnung mit Silikonkleber abdichten.
 
@@ -75,7 +75,7 @@ Wenn Schnecken nun hochkriechen, schließen sie den Stromkreis und bekommen eine
 
 ### Fertigung
 
-Die Fertigung gelingt mit einem 3D-Drucker. Ich habe hierfür ein [einfaches Modell designt](https://www.printables.com/model/876056-schneckenkragen-slug-collar).
+Die Fertigung gelingt mit einem 3D-Drucker. Ich habe hierfür ein [einfaches Modell designt](https://www.printables.com/model/909211-schneckenkragen-2-electric-boogaloo-slug-collar).
 Leider benötigt ein hinreichend großer Schneckenkragen, der stabil genug ist, um ihn in den Boden drücken zu können,
 relativ viel Filament. Bei dem Filament sollte man darauf achten, dass es UV-beständig ist, wie PETG oder ASA.
 Das sorgt dafür, dass er in der Sonne nicht spröde wird und man ihn viele Jahre nutzen kann.
