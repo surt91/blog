@@ -1,0 +1,76 @@
+@import 'functions';
+
+i.sidebar-social-links,
+svg.sidebar-social-links {
+    border-radius: 20%;
+    border: solid transparent 1px;
+    color: getColor(brand);
+    font-size: 1.6em;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    width: 30px;
+}
+
+a.sidebar-social-links:hover {
+    text-decoration: none;
+}
+i.sidebar-social-links:hover,
+svg.sidebar-social-links:hover {
+    background-color: getColor(brand);
+    color: getColor(bg-sidebar);
+}
+
+i.fa-twitter:hover, i.fa-twitter-square:hover,
+svg.fa-twitter:hover, svg.fa-twitter-square:hover {
+    background-color: #00ACED;
+}
+i.fa-facebook:hover, i.fa-facebook-square:hover,
+svg.fa-facebook:hover, svg.fa-facebook-square:hover {
+    background-color: #3B5998;
+}
+i.fa-google-plus:hover, i.fa-google-plus-square:hover,
+svg.fa-google-plus:hover, svg.fa-google-plus-square:hover {
+    background-color: #D34836;
+}
+i.fa-adn:hover,
+svg.fa-adn:hover {
+    background-color: #49484D;
+}
+i.fa-envelope:hover,
+svg.fa-envelope:hover {
+    background-color: #5E9EDA;
+}
+i.fa-github:hover, i.fa-github-square:hover, i.fa-github-alt:hover,
+svg.fa-github:hover, svg.fa-github-square:hover, svg.fa-github-alt:hover {
+    background-color: #000;
+}
+i.fa-flickr:hover,
+svg.fa-flickr:hover {
+    background-color: #FF0084;
+}
+i.fa-youtube:hover, i.fa-youtube-square:hover, i.fa-youtube-play:hover,
+svg.fa-youtube:hover, svg.fa-youtube-square:hover, svg.fa-youtube-play:hover {
+    background-color: #BC272F;
+}
+i.fa-linkedin:hover, i.fa-linkedin-square:hover,
+svg.fa-linkedin:hover, svg.fa-linkedin-square:hover {
+    background-color: #107FB9;
+}
+i.fa-gittip:hover,
+svg.fa-gittip:hover {
+    background-color: #663300;
+}
+i.fa-rss:hover, i.fa-rss-square:hover,
+svg.fa-rss:hover, svg.fa-rss-square:hover {
+    background-color: #FF6600;
+}
+i.fa-bitbucket:hover, i.fa-bitbucket-square:hover,
+svg.fa-bitbucket:hover, svg.fa-bitbucket-square:hover {
+    background-color: #205081;
+}
+i.fa-stack-exchange:hover,
+svg.fa-stack-exchange:hover {
+    background-color: #3A7BC8;
+}
