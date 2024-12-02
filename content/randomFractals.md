@@ -190,7 +190,7 @@ for _ in 0..cpus {
 }
 ```
 
-#### Sierpinski-Dreieck und Bernsley-Farn
+#### Sierpinski-Dreieck und Barnsley-Farn
 
 Mit dieser Methode kann man alte Bekannte wie das [Sierpinski-Dreieck]({filename}/rule-90.md)
 erzeugen.
@@ -244,7 +244,7 @@ f_3(\vec z) &=\begin{pmatrix}
         \end{pmatrix}
 \end{align}$$
 
-Ein anderes berühmtes Beispiel ist der Bernsley-Farn. Um ihn zu erzeugen, benutzt
+Ein anderes berühmtes Beispiel ist der Barnsley-Farn. Um ihn zu erzeugen, benutzt
 man die folgenden vier affinen Abbildungen, die man mit den Wahrscheinlichkeiten
 $$p_1 = 0.01, p_2 = 0.85, p_3 = 0.07, p_4 = 0.07$$
 verwendet:
