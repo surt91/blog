@@ -1,0 +1,40 @@
+@import 'functions';
+
+ul.list-posts {
+    padding-bottom: 0.4em;
+    padding-top: 0.2em;
+    list-style: none outside none;
+    @media (max-width: $break-small) {
+        padding-left: 1em;
+    }
+}
+
+ul.list-posts li time {
+    display: inline-block;
+    font: $font-subtitle-mono;
+    width: 7em;
+}
+
+.list-posts a {
+    text-decoration: none;
+}
+
+ul.list-posts li {
+    padding-bottom: 0.2em;
+
+    color: getColor(subtitle);
+    font: $font-subtitle;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+ul.list {
+    list-style: none outside none;
+    margin: 0 0 0 5px;
+
+    @media (max-width: $break-small) {
+        padding-left: 0em;
+    }
+}
