@@ -1,0 +1,400 @@
+$font-brand: 1.4em "Fira Code", "Fira Mono-fallback", monospace;
+$font-title: bold 2.2em "Fira Sans", "Fira Sans-fallback", sans-serif;
+$font-sectiontitle: bold 1.31em "Fira Sans", "Fira Sans-fallback", sans-serif;
+$font-subtitle: 1em "Fira Sans", "Fira Sans-fallback", sans-serif;
+$font-subtitle-mono: 1em "Fira Code", "Fira Mono-fallback", monospace;
+$font-post: 1.2em "Merriweather", "Merriweather-fallback", serif;
+$font-tag: 1em "Fira Sans", "Fira Sans-fallback", sans-serif;
+$font-quote: italic 1.1em "Merriweather", "Merriweather-fallback", serif;
+$font-superscript: 0.8em;
+$font-code: 1em "Fira Code", "Fira Mono-fallback", monospace;
+
+$border-bottom: 1px solid #888;
+$border: 1px solid rgba(0, 0, 0, 0.15);
+
+$break-small: 64em;
+$break-smallest: 35.5em;
+
+$colors: (
+    post: #333,
+    link: #3d92c9,
+    title: #333,
+    sectiontitle: #444,
+    subtitle: #6F6F6F,
+    sidebar: #fff,
+    brand: #b0cadb,
+    code: #383a42,
+    tag: #333,
+    border: #3d4f5d,
+    invisible: #51697b,
+
+    bg-sidebar: #3d4f5d,
+    bg-main: #fff,
+    bg-code: #fafafa,
+    bg-tag: #ddd,
+);
+
+$colors-dark: (
+    post: #c0c0c0,
+    link: #3d92c9,
+    title: #c0c0c0,
+    sectiontitle: #c0c0c0,
+    subtitle: #c0c0c0,
+    sidebar: #c0c0c0,
+    brand: #c0c0c0,
+    code: #abb2bf,
+    tag: #c0c0c0,
+    border: #323232,
+    invisible: #222222,
+
+    bg-sidebar: #323232,
+    bg-main: #121212,
+    bg-code: #282c34,
+    bg-tag: #3e3e3e,
+);
+
+:root {
+    @each $name, $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @each $name, $color in $colors-dark {
+            --color-#{$name}: #{$color};
+        }
+    }
+}
+
+@import 'functions';    // function definitions
+@import 'social';       // colors for social media links
+@import 'tags';         // colors and style for categories and tags
+@import 'images';       // loads images by first loading a thumbnail
+@import 'fira';         // Fira Code font
+@import 'merriweather'; // Merriweather font
+@import 'highlight';    // one light/dark syntax highlighting (from atom)
+
+@import 'lists';
+@import 'post';
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    letter-spacing: normal;
+}
+
+#layout {
+    padding: 0;
+}
+
+// always show scrollbar for consistent width
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background: getColor(bg-main);
+}
+
+h3, h2 {
+    color: getColor(title);
+    // allow arbitrary breaks, instead of destroying the layout
+    overflow-wrap: break-word;
+}
+
+h3 {
+    font-weight: 100;
+}
+
+#tipue_search_input {
+    font: $font-subtitle;
+    color: 666;
+    display: inline;
+    width: 100%;
+    max-width: 275px;
+}
+
+.lunr-search-result-item {
+    font: $font-post;
+    color: getColor(post);
+    margin-bottom: 3em;
+}
+
+.lunr-search-result-item > h4,
+.lunr-result-fail {
+    font: $font-subtitle;
+    font-size: 1.3em;
+    color: getColor(post);
+}
+
+.lunr-search-term {
+    font: $font-quote;
+    font-size: 1.3em;
+    color: getColor(post);
+}
+
+#lunr-search-result-heading {
+    font: $font-sectiontitle;
+    color: getColor(title);
+}
+
+.search-query {
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.center {
+    margin: auto;
+    display: block;
+}
+
+video {
+    width: 100%;
+    max-width: 1000px;
+    max-height: 600px;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+video.not-found-video {
+    max-width: 912px;
+    width: 100%
+}
+
+@media (prefers-color-scheme: dark) {
+    video.not-found-video {
+        filter: invert(0.925);
+    }
+}
+
+.fixed-size-400 {
+    max-width: 400px;
+    width: 100%
+}
+.fixed-size-800 {
+    max-width: 800px;
+    width: 100%
+}
+
+.header {
+    text-align: center;
+    top: auto;
+    margin: 2em auto 1em auto;
+
+    @media screen and (min-width: $break-small)
+    {
+        margin: 80% 2em 0;
+        text-align: right;
+    }
+}
+
+.sidebar {
+    background: getColor(bg-sidebar);
+    color: getColor(sidebar);
+
+    @media screen and (min-width: $break-small) {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+
+    @media print {
+        display: none;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: getColor(link);
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.title a {
+    text-decoration: none;
+}
+
+.brand-title,
+.brand-tagline {
+    margin: 0;
+}
+
+.brand-title a {
+    font: $font-brand;
+    color: getColor(brand);
+    text-decoration: none;
+}
+
+.brand-tagline {
+    font-weight: 300;
+    color: getColor(brand);
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    *display: inline;
+    margin-bottom: 0.3em;
+}
+.nav-item a {
+    background: transparent;
+    border: 2px solid getColor(brand);
+    color: getColor(brand);
+    font: $font-subtitle;
+    font-weight: 700;
+}
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 2px solid getColor(link);
+    text-decoration: none;
+}
+
+.container {
+    margin-top: 0.7em;
+}
+
+.content-subhead {
+    text-transform: uppercase;
+    color: getColor(subtitle);
+    border-bottom: $border-bottom;
+    padding: 0.4em 0;
+    font-size: 80%;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.content {
+    padding: 2em 1em 0;
+    @media (min-width: $break-small) {
+        padding: 2em 3em 0;
+        margin-left: 25%;
+        max-width: 1200px;
+    }
+}
+
+.title {
+    font: $font-title;
+    color: getColor(title);
+}
+
+.math,
+.MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#last-update {
+    color: getColor(invisible);
+    font-size: 0.7em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    @media (max-width: $break-small) {
+        display: none;
+    }
+}
+
+p code {
+    font: $font-code;
+    background: getColor(bg-code);
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+pre {
+    font: $font-code;
+    padding: 9.5px;
+    border: $border;
+    overflow: auto;
+}
+
+.post-navigation {
+    color: getColor(subtitle);
+    font: $font-subtitle;
+    border-top: $border-bottom;
+}
+
+.separatordot {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.pagination {
+    width: 90%;
+    margin: 1em auto;
+    text-align: center;
+}
+
+.tags-in-article {
+    margin-left: 0.5em;
+}
+
+.languages-in-article {
+    margin-right: 0.5em;
+}
+
+span.count {
+    font: $font-superscript;
+    vertical-align: super;
+}
+
+.sep-line {
+    border-bottom: $border-bottom;
+}
+
+.search-tag {
+    padding-bottom: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+.search-tag .tag {
+    line-height: 1.5em;
+}
+
+.link-symbol {
+    font-size: 0.7em;
+    vertical-align: super;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.error-detail {
+    color: getColor(post);
+}
+
+.cthulhu {
+    position: fixed;
+    width: 526px;
+    height: 442px;
+    top: 50%;
+    left: 50%;
+    margin-top: -221px;
+    margin-left: -263px;
+}
+
+.cthulhu-credits {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #eee;
+    box-shadow: 7px 7px 5px grey;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 80%;
+}

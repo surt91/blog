@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Meta</title><link href="https://blog.schawe.me/" rel="alternate"/><link href="https://blog.schawe.me/feeds/meta.atom.xml" rel="self"/><id>https://blog.schawe.me/</id><updated>2021-06-21T19:45:00+02:00</updated><entry><title>Fira Code</title><link href="https://blog.schawe.me/fira.html" rel="alternate"/><published>2021-06-21T19:45:00+02:00</published><updated>2021-06-21T19:45:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2021-06-21:/fira.html</id><summary type="html">&lt;p&gt;Fira ist eine &lt;a href="https://en.wikipedia.org/wiki/Sans-serif#Classification"&gt;humanist&lt;/a&gt; Sans-Serif Schriftart,
+die für FirefoxOS entwickelt wurde, und wird zur Zeit für die Sans-Serif Typen, wie die Überschriften,
+in diesem Blog genutzt. Aber eigentlich geht es mir hier um Fira Mono die
+&lt;a href="https://de.wikipedia.org/wiki/Nichtproportionale_Schriftart"&gt;dicktengleiche&lt;/a&gt; Variante, die
+später mit Ligaturen (und mehr) zu &lt;a href="https://github.com/tonsky/FiraCode"&gt;Fira Code&lt;/a&gt; erweitert wurde.
+Ich …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Fira ist eine &lt;a href="https://en.wikipedia.org/wiki/Sans-serif#Classification"&gt;humanist&lt;/a&gt; Sans-Serif Schriftart,
+die für FirefoxOS entwickelt wurde, und wird zur Zeit für die Sans-Serif Typen, wie die Überschriften,
+in diesem Blog genutzt. Aber eigentlich geht es mir hier um Fira Mono die
+&lt;a href="https://de.wikipedia.org/wiki/Nichtproportionale_Schriftart"&gt;dicktengleiche&lt;/a&gt; Variante, die
+später mit Ligaturen (und mehr) zu &lt;a href="https://github.com/tonsky/FiraCode"&gt;Fira Code&lt;/a&gt; erweitert wurde.
+Ich sehe wie in genau diesem Moment im Geist des Lesers die Frage
+&amp;#8220;Ligaturen in einer dicktengleichen Schrift?!&amp;#8221; auftaucht. Beziehungsweise &amp;#8220;Ist da ein Tippfehler in &lt;em&gt;dickengleich&lt;/em&gt;?&amp;#8221; oder
+&amp;#8220;Was sind Ligaturen?&amp;#8221; falls der Leser kein Hobby-Typographie-Nerd&amp;nbsp;ist.&lt;/p&gt;
+&lt;p&gt;Für letztere klären wir erstmal kurz die beiden&amp;nbsp;Fragen:&lt;/p&gt;
+&lt;p&gt;Die &lt;em&gt;Dickte&lt;/em&gt; bezeichnet die Breite der Metall-Lettern im klassischen Buchdruck; wenn sie für alle Glyphen
+gleich ist, stehen die Buchstaben immer in perfekt ausgerichteten Spalten untereinander, was von vielen
+für das Schreiben von Code bevorzugt wird. Die meisten Schreibmaschinen haben ebenfalls solche Schrifttypen&amp;nbsp;verwendet.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="fi" class="icon invertable" src="/img/fi.png"&gt;
+&lt;em&gt;Ligaturen&lt;/em&gt; sind Kontraktionen von mehreren Glyphen in eine Glyphe. Die typischen Ligaturen sind fi oder fl
+(allerdings nicht in der Schriftart, in der diese Zeilen geschrieben sind, weshalb ich hier ein Bild
+der fi Ligatur in &lt;a href="https://de.wikipedia.org/wiki/Computer_Modern"&gt;Computer Modern&lt;/a&gt; zeige).
+Ein paar Ligaturen haben sich mittlerweile zu eigenen Symbolen entwickelt, wie das Kaufmannsund &amp;amp;, das ursprünglich
+eine Ligatur von &lt;em&gt;et&lt;/em&gt; war (Latein für &lt;em&gt;und&lt;/em&gt;). Aber dieses Konzept beißt sich anscheinend mit einer
+dicktengleichen Schrift, in der jeder Buchstabe die gleiche Breite haben soll. Der Clou an der Sache ist, dass
+Fira Code Ligaturen für übliche Ausdrücke für mathematische Symbole in Programmiersprachen
+wie &amp;gt;=, != und -&amp;gt; hat, die wie folgt dargestellt&amp;nbsp;werden: &lt;code&gt;&amp;gt;=, !=, -&amp;gt;&lt;/code&gt;. Nur zu, kopiert diese Symbole
+in einen Editor eurer Wahl, um zu sehen, wie sie sich wieder in ihre Bestandteile&amp;nbsp;zerlegen&lt;/p&gt;
+&lt;p&gt;Nur eine Spielerei? Möglicherweise. Aber ich bin begeistert davon, und verwende Fira Code in
+allen Editoren, die Ligaturen unterstützen. Der Fairness halber sollte gesagt werden, dass Fira Code nicht
+als erstes Projekt diese Idee hatte. &lt;a href="https://github.com/i-tu/Hasklig"&gt;Hasklig&lt;/a&gt; beispielsweise hatte
+ihr erstes Release 2 Jahre vor der Veröffentlichung von Fira Code im Jahr 2014. Und mittlerweile sind
+Code-Ligaturen so ziemlich im Mainstream angekommen, seitdem
+&lt;a href="https://github.com/JetBrains/JetBrainsMono"&gt;JetBrains Mono&lt;/a&gt; im letzten Jahr von
+dem gleichnamigen &lt;span class="caps"&gt;IDE&lt;/span&gt;-Entwickler veröffentlicht&amp;nbsp;wurde.&lt;/p&gt;
+&lt;p&gt;Zum Schluss möchte ich noch auf eine Kleinigkeit aufmerksam machen, die wohl nur die wenigsten Nutzer
+von Fira Code bewusst bemerken würden, die aber zweifellos demonstriert wie durchdacht diese Schrift ist.
+Denn Fira Code passt die Position von arithmetischen Symbolen an die benachbarten Glyphen an:&amp;nbsp;ein &lt;code&gt;+&lt;/code&gt;
+zwischen zwei Großbuchstaben ist höher als eines zwischen zwei&amp;nbsp;Kleinbuchstaben.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/img/fira_arith.png"&gt;&lt;img alt="A+A a+a, die Plus-Zeichen haben unterschiedliche vertikale Positionen" class="invertable" src="/img/fira_arith.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ich persönlich weiß solche Details sehr wertzuschätzen. Es ist ein Beispiel dafür,
+dass alle Aspekte unserer modernen Gesellschaft, so wenige Gedanken wir uns auch darum machen und
+für wie trivial wir sie halten, zahllose Stunden Design und Entwicklung gekostet haben und ständig
+verbessert werden. Typographie &amp;#8212; und um das klarzustellen, ich bin beileibe kein Experte &amp;#8212; fasziniert
+mich. Schriften sind exakt, mit klar definierter Funktion, aber obwohl wir sie seit Jahrtausenden
+benutzen, ist ihre Entwicklung noch lange nicht abgeschlossen. Mit jedem neuen Medium gibt es neue
+Anforderungen. Marken haben steten Bedarf an individuellen Schrifttypen als Teil ihres Brandings.
+Für jede neue Anwendung gibt es andere&amp;nbsp;Optimierungskriterien.&lt;/p&gt;
+&lt;p&gt;Und jedes Mal wenn in meinem&amp;nbsp;Code &lt;code&gt;=&lt;/code&gt; und &lt;code&gt;&amp;gt;&lt;/code&gt; wieder&amp;nbsp;zu &lt;code&gt;=&amp;gt;&lt;/code&gt; verschmelzen, freue ich mich
+erneut über die&amp;nbsp;Magie.&lt;/p&gt;</content><category term="Meta"/><category term="Typographie"/><category term="Code"/><category term="Bild"/></entry><entry><title>Willkommen auf meinem Blog!</title><link href="https://blog.schawe.me/welcome.html" rel="alternate"/><published>2021-05-21T20:37:00+02:00</published><updated>2021-05-21T20:37:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2021-05-21:/welcome.html</id><summary type="html">&lt;p&gt;Hier veröffentliche ich unregelmäßig
+Artikel über Dinge, mit denen ich mich beschäftige, oder die ich
+so nützlich finde, dass ich sie später nachschlagen&amp;nbsp;will.&lt;/p&gt;
+&lt;p&gt;Neuen Besuchern möchte ich eine handvoll Beiträge empfehlen, anstatt
+chronologisch&amp;nbsp;herunterzuscrollen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://blog.schawe.me/randomFractals.html"&gt;A Fractal A Day&lt;/a&gt;
+   zeigt hübsche Fraktale meines Twitter Bots &lt;a href="https://twitter.com/AFractalADay"&gt;@AFractalADay&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.schawe.me/paper-lis2.html"&gt;Number of longest increasing …&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Hier veröffentliche ich unregelmäßig
+Artikel über Dinge, mit denen ich mich beschäftige, oder die ich
+so nützlich finde, dass ich sie später nachschlagen&amp;nbsp;will.&lt;/p&gt;
+&lt;p&gt;Neuen Besuchern möchte ich eine handvoll Beiträge empfehlen, anstatt
+chronologisch&amp;nbsp;herunterzuscrollen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://blog.schawe.me/randomFractals.html"&gt;A Fractal A Day&lt;/a&gt;
+   zeigt hübsche Fraktale meines Twitter Bots &lt;a href="https://twitter.com/AFractalADay"&gt;@AFractalADay&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.schawe.me/paper-lis2.html"&gt;Number of longest increasing subsequences&lt;/a&gt;
+   stellt eine akademische Veröffentlichung, an der ich beteiligt war,
+   und ihren zentralen Algorithmus&amp;nbsp;vor.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.schawe.me/perfect-snake.html"&gt;Perfect Snake&lt;/a&gt; präsentiert eine meiner
+   Implementierungen des Spiels &amp;#8220;snake&amp;#8221; mitsamt einem neuronalen Netz als&amp;nbsp;Autopilot.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Meta"/></entry><entry><title>Platzhalterbilder</title><link href="https://blog.schawe.me/image-preview.html" rel="alternate"/><published>2017-11-29T10:21:00+01:00</published><updated>2017-11-29T10:21:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2017-11-29:/image-preview.html</id><summary type="html">&lt;p&gt;Große Bilder können die Ladezeit von Webseiten dramatisch verschlechtern.
+Schlimmer als weiße Flächen ist das sprungartige Verschieben des Textes, wenn
+weiter oben gerade ein Bild fertig geladen wurde. Allerdings müssen Bilder bei
+immer weiter steigenden Pixeldichten der Anzeigegeräte auch immer
+hochaufgelöster werden und gleichzeitig über langsame 3G-Verbindungen
+geladen&amp;nbsp;werden.&lt;/p&gt;
+&lt;p&gt;Da …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Große Bilder können die Ladezeit von Webseiten dramatisch verschlechtern.
+Schlimmer als weiße Flächen ist das sprungartige Verschieben des Textes, wenn
+weiter oben gerade ein Bild fertig geladen wurde. Allerdings müssen Bilder bei
+immer weiter steigenden Pixeldichten der Anzeigegeräte auch immer
+hochaufgelöster werden und gleichzeitig über langsame 3G-Verbindungen
+geladen&amp;nbsp;werden.&lt;/p&gt;
+&lt;p&gt;Da der &lt;a href="https://blog.schawe.me/randomFractals.html"&gt;Eintrag über Fraktale&lt;/a&gt; einige recht große
+Bilder enthält, habe ich ein Pelican-Plugin geschrieben,&amp;nbsp;das&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Vorschau-.jpg erzeugt, die in der Regel kleiner als 1 kB&amp;nbsp;sind,&lt;/li&gt;
+&lt;li&gt;jedes Bild durch die data-uri des Previews ersetzt und dies verschwommen anzeigt, bis das Originalbild per JavaScript nachgeladen&amp;nbsp;ist.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Das sieht dann etwa so&amp;nbsp;aus:&lt;/p&gt;
+&lt;video controls width="800" height="460"&gt;
+&lt;source src="/vid/image_preview.mp4" type="video/mp4"&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;
+
+&lt;p&gt;Glücklicherweise ist es recht einfach mit Python html zu parsen und data-uri
+zu erzeugen, sodass mein Plugin im Wesentlichen fertig generiertes html nimmt
+und folgendes&amp;nbsp;tut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;base64&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;file.html&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;html.parser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;img&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;thumbnail&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_thumbnail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;b64&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;base64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b64encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;thumbnail&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rb&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;data_uri&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;data:image/jpeg;base64,&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;b64&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="c1"&gt;# TODO: replace img source by the data-uri&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nachdem alles vorbereitet ist, ist die clientseitige Logik mit ein paar Zeilen
+&lt;a href="https://github.com/surt91/purepelican/blob/1e1371d644de4b3af733e78bebe4869bc9121681/static/js/img.js"&gt;JavaScript&lt;/a&gt;
+und &lt;a href="https://github.com/surt91/purepelican/blob/1e1371d644de4b3af733e78bebe4869bc9121681/static/sass/_images.scss"&gt;&lt;span class="caps"&gt;CSS&lt;/span&gt;&lt;/a&gt;
+recht&amp;nbsp;simpel.&lt;/p&gt;
+&lt;p&gt;Die Idee ist, dynamisch die voll aufgelösten Bilder per JavaScript zu laden und
+mit&amp;nbsp;dem &lt;code&gt;onLoad&lt;/code&gt; Event sichtbar zu&amp;nbsp;machen.&lt;/p&gt;</content><category term="Meta"/><category term="Bild"/><category term="JavaScript"/><category term="Python"/></entry><entry><title>Progressive Web App</title><link href="https://blog.schawe.me/progressive-web-app.html" rel="alternate"/><published>2017-09-01T18:15:00+02:00</published><updated>2017-09-01T18:15:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2017-09-01:/progressive-web-app.html</id><summary type="html">&lt;p&gt;Seit Anfang September ist dieses Blog eine &lt;em&gt;Progressive Web App&lt;/em&gt;. Das bedeutet,
+dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone
+als App hinzufügen&amp;nbsp;kann.&lt;/p&gt;
+&lt;h3&gt;Warum? &lt;a href="https://developers.google.com/web/tools/lighthouse/"&gt;&lt;img alt="Lighthouse" class="icon" src="/img/lighthouse.png"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Nun, Chrome bietet mit &lt;em&gt;Lighthouse&lt;/em&gt; Ratschläge, wie man seine Website verbessern
+kann. Einer der vier Unterpunkte heißt &lt;em&gt;Progressive Web App …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Seit Anfang September ist dieses Blog eine &lt;em&gt;Progressive Web App&lt;/em&gt;. Das bedeutet,
+dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone
+als App hinzufügen&amp;nbsp;kann.&lt;/p&gt;
+&lt;h3&gt;Warum? &lt;a href="https://developers.google.com/web/tools/lighthouse/"&gt;&lt;img alt="Lighthouse" class="icon" src="/img/lighthouse.png"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Nun, Chrome bietet mit &lt;em&gt;Lighthouse&lt;/em&gt; Ratschläge, wie man seine Website verbessern
+kann. Einer der vier Unterpunkte heißt &lt;em&gt;Progressive Web App&lt;/em&gt; und war frustrierend
+schlecht bewertet. Die folgenden Schritte habe ich also nur für Lighthouse
+gemacht und es hat sich auf jeden Fall&amp;nbsp;gelohnt:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Lighthouse-Audit Ergebnisse" src="/img/lighthouse_audit.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Wie?&lt;/h3&gt;
+&lt;p&gt;Lighthouse bietet eine Checkliste, auf der neben einigen Punkten, die
+generell eine gute Idee sind, drei Punkte aufgeführt sind, die erfüllt sein&amp;nbsp;müssen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Site is served over &lt;span class="caps"&gt;HTTPS&lt;/span&gt;&lt;ul&gt;
+&lt;li&gt;Dank &lt;em&gt;Let&amp;#8217;s Encrypt&lt;/em&gt; ist das kein Problem&amp;nbsp;mehr.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The start &lt;span class="caps"&gt;URL&lt;/span&gt; (at least) loads while offline&lt;ul&gt;
+&lt;li&gt;Das ist der aufwendigste Teil. Um dies zu erreichen muss man einen
+&lt;em&gt;service worker&lt;/em&gt; registrieren. Damit der &lt;em&gt;service worker&lt;/em&gt; weiß, welche
+Dateien notwendig sind, benutze ich nach jedem erfolgreichen Build
+&lt;a href="https://github.com/GoogleChrome/sw-precache"&gt;sw-precache&lt;/a&gt; mit einer
+&lt;a href="https://github.com/surt91/blog/blob/1d29d7bd848e31bfa4dc3f57bd140e92cbdf6de5/sw-config.js"&gt;sehr einfachen Konfiguration&lt;/a&gt;.
+Dadurch benötige ich jetzt Node, um das Blog zu&amp;nbsp;erstellen &lt;code&gt;¯\_(ツ)_/¯&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Metadata provided for Add to Home screen&lt;ul&gt;
+&lt;li&gt;Damit ist&amp;nbsp;eine &lt;code&gt;manifest.json&lt;/code&gt; gemeint. Diese Datei enthält links zu Icons,
+die als Appsymbol benutzt werden, wenn man die Seite auf Android oder Windows
+installiert. Und es legt die Farbe der Adressleiste im mobilen Chrome fest.
+Ein nützlicher Dienst, um ein solches Manifest zu erstellen, ist
+&lt;a href="https://app-manifest.firebaseapp.com/"&gt;app-manifest.firebaseapp.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Was&amp;nbsp;jetzt?&lt;/h2&gt;
+&lt;p&gt;Service Worker ermöglichen Benachrichtigungen von einer Website. Ein natürlicher
+nächster Schritt wäre es also Benachrichtigungen zu versenden, wenn ein neuer
+Post online ist. Auf der anderen Seite bin ich selbst immer etwas genervt von
+Websites, die mich benachrichtigen wollen und der Lighthouse Punktestand ist
+schon optimal, also wird das wohl nicht&amp;nbsp;passieren.&lt;/p&gt;</content><category term="Meta"/><category term="JavaScript"/></entry><entry><title>Push to Publish 2</title><link href="https://blog.schawe.me/push-to-publish-b.html" rel="alternate"/><published>2017-08-27T13:36:00+02:00</published><updated>2017-08-27T13:36:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2017-08-27:/push-to-publish-b.html</id><summary type="html">&lt;p&gt;Nachdem ich vor Kurzem einen &lt;a href="https://blog.schawe.me/push-to-publish.html"&gt;euphorischen Eintrag&lt;/a&gt;
+über mein automatisiertes Update dieses Blogs via Travis-&lt;span class="caps"&gt;CI&lt;/span&gt; und GitHub pages
+geschrieben habe, bin ich jetzt auf eine einfachere Lösung&amp;nbsp;gestoßen.&lt;/p&gt;
+&lt;h3&gt;Alles unter einem Dach bei Netlify &lt;a href="https://www.netlify.com/"&gt;&lt;img alt="Netlify Logo" class="icon" src="/img/netlify.png"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Es gibt einen einfachen Buildservice, der zwar nicht so flexibel ist wie
+Travis-&lt;span class="caps"&gt;CI&lt;/span&gt;, aber …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Nachdem ich vor Kurzem einen &lt;a href="https://blog.schawe.me/push-to-publish.html"&gt;euphorischen Eintrag&lt;/a&gt;
+über mein automatisiertes Update dieses Blogs via Travis-&lt;span class="caps"&gt;CI&lt;/span&gt; und GitHub pages
+geschrieben habe, bin ich jetzt auf eine einfachere Lösung&amp;nbsp;gestoßen.&lt;/p&gt;
+&lt;h3&gt;Alles unter einem Dach bei Netlify &lt;a href="https://www.netlify.com/"&gt;&lt;img alt="Netlify Logo" class="icon" src="/img/netlify.png"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Es gibt einen einfachen Buildservice, der zwar nicht so flexibel ist wie
+Travis-&lt;span class="caps"&gt;CI&lt;/span&gt;, aber für dieses Blog ausreicht. Netlify baut die Seite also bei
+jedem Push in ein beobachtetes GitHub Repository. Nach Konfiguration des &lt;span class="caps"&gt;DNS&lt;/span&gt;
+und einem weiteren Knopfdruck ist die Seite mit einem &lt;span class="caps"&gt;SSL&lt;/span&gt; Zertifikat von
+&lt;em&gt;Let&amp;#8217;s Encrypt&lt;/em&gt; ausgestattet und erreichbar.
+Also Bonus kann man selbst &lt;span class="caps"&gt;HTTP&lt;/span&gt;-Header bestimmen über&amp;nbsp;eine &lt;code&gt;_headers&lt;/code&gt; Datei:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/*&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Strict&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Transport&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Security&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;31536000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;includeSubDomains&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Also kann man &lt;span class="caps"&gt;HTTP&lt;/span&gt;/2 Server Push ausprobieren, ohne einen Server betreiben zu&amp;nbsp;müssen.&lt;/p&gt;</content><category term="Meta"/><category term="Hosting"/></entry><entry><title>Push to Publish</title><link href="https://blog.schawe.me/push-to-publish.html" rel="alternate"/><published>2017-08-11T17:00:00+02:00</published><updated>2017-08-11T17:00:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2017-08-11:/push-to-publish.html</id><summary type="html">&lt;p&gt;Seit Anfang August wird dieses Blog nicht mehr
+&lt;a href="https://blog.schawe.me/blogumzug.html"&gt;von einem Raspberry aus den eigenen vier Wänden ausgeliefert&lt;/a&gt;,
+sondern von GitHub pages. Da die Quellen dieses Blogs bereits &lt;a href="https://github.com/surt91/blog"&gt;auf GitHub&lt;/a&gt;
+sind, ist dies ein konsequenter&amp;nbsp;Schritt.&lt;/p&gt;
+&lt;h3&gt;Hosting auf GitHub Pages &lt;a href="https://github.com/"&gt;&lt;img alt="GitHub Logo" class="icon" src="/img/octocat.png"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;GitHub bietet hosting von statischen Seiten an, was perfekt zu diesem …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Seit Anfang August wird dieses Blog nicht mehr
+&lt;a href="https://blog.schawe.me/blogumzug.html"&gt;von einem Raspberry aus den eigenen vier Wänden ausgeliefert&lt;/a&gt;,
+sondern von GitHub pages. Da die Quellen dieses Blogs bereits &lt;a href="https://github.com/surt91/blog"&gt;auf GitHub&lt;/a&gt;
+sind, ist dies ein konsequenter&amp;nbsp;Schritt.&lt;/p&gt;
+&lt;h3&gt;Hosting auf GitHub Pages &lt;a href="https://github.com/"&gt;&lt;img alt="GitHub Logo" class="icon" src="/img/octocat.png"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;GitHub bietet hosting von statischen Seiten an, was perfekt zu diesem Pelican
+Blog passt. Die Verwaltung ist denkbar einfach: Für jedes Repository ist der&amp;nbsp;Branch &lt;code&gt;gh-pages&lt;/code&gt; unter &lt;code&gt;[username].github.io/[reponame]&lt;/code&gt;, hier z.B.
+&lt;a href="https://surt91.github.io/blog"&gt;surt91.github.io/blog&lt;/a&gt;,&amp;nbsp;erreichbar.&lt;/p&gt;
+&lt;p&gt;Will man unter einer eigenen Domain erreichbar sein, reicht es aus, im &lt;span class="caps"&gt;DNS&lt;/span&gt; für die
+Domain einen &lt;span class="caps"&gt;CNAME&lt;/span&gt; Eintrag&amp;nbsp;auf &lt;code&gt;[username].github.io&lt;/code&gt; anzulegen und im root&amp;nbsp;des
+&lt;code&gt;gh-pages&lt;/code&gt; Branches eine&amp;nbsp;Datei &lt;code&gt;CNAME&lt;/code&gt; mit der eigenen Domain anzulegen, hier&amp;nbsp;z.B.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;blog.schawe.me&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;CNAME
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Primär dient GitHub pages dazu Jekyll Seiten zu erstellen und auszuliefern, was
+zu Konflikten führen kann, wenn man einfach nur statische Seiten&amp;nbsp;im &lt;code&gt;gh-pages&lt;/code&gt;
+Branch vorhält. Dies lässt sich einfach vermeiden, indem man eine&amp;nbsp;Datei
+&lt;code&gt;.nojekyll&lt;/code&gt; im root&amp;nbsp;anlegt.&lt;/p&gt;
+&lt;h3&gt;Automatische Erstellung durch Travis &lt;span class="caps"&gt;CI&lt;/span&gt; &lt;a href="https://travis-ci.org/"&gt;&lt;img alt="Travis CI Logo" class="icon" src="/img/travis.png"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Natürlich könnte man das statische &lt;span class="caps"&gt;HTML&lt;/span&gt; auf einem lokalen Computer erstellen
+und per Hand in&amp;nbsp;den &lt;code&gt;gh-pages&lt;/code&gt; Branch pushen. Aber man kann das auch einem
+Dienst wie Travis &lt;a href="https://de.wikipedia.org/wiki/Kontinuierliche_Integration"&gt;&lt;span class="caps"&gt;CI&lt;/span&gt;&lt;/a&gt;&amp;nbsp;überlassen.&lt;/p&gt;
+&lt;p&gt;Die Idee ist, dass jedes Mal wenn man die Quellen seiner Seite ändert &amp;#8212; im
+Fall von Pelican werden die Blogeinträge in Markdown geschrieben und dann in
+&lt;span class="caps"&gt;HTML&lt;/span&gt; konvertiert &amp;#8212; ein Server die Seite erstellt und das Ergebnis in&amp;nbsp;den
+&lt;code&gt;gh-pages&lt;/code&gt; Branch pusht. Dadurch wird ein Update der Website auf ein&amp;nbsp;einfaches
+&lt;code&gt;git push&lt;/code&gt; reduziert.&lt;/p&gt;
+&lt;p&gt;Die Konfiguration von Travis &lt;span class="caps"&gt;CI&lt;/span&gt; wird durch eine denkbar einfache &lt;span class="caps"&gt;YAML&lt;/span&gt; Datei
+definiert.
+Eine (vereinfachte) Konfiguration für dieses Blog sieht beispielsweise so&amp;nbsp;aus:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# pelican is a python program&lt;/span&gt;
+&lt;span class="nt"&gt;language&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;python&lt;/span&gt;
+&lt;span class="nt"&gt;python&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;3.5&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# install pelican and some more packages&lt;/span&gt;
+&lt;span class="nt"&gt;install&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;pip&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;install&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;-r&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;requirements.txt&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# generate static html through pelican&amp;#39;s makefile&lt;/span&gt;
+&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;make publish&lt;/span&gt;
+
+&lt;span class="c1"&gt;# deploy to github pages&lt;/span&gt;
+&lt;span class="nt"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;provider&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;pages&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;skip_cleanup&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;github_token&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;$GITHUB_TOKEN&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;local_dir&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;output&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Falls Fehler beim Erstellen auftreten, schickt Travis eine Email und bricht die
+Veröffentlichung ab. Wenn keine Fehler auftreten, wird wenige Sekunden später
+die neue Version von GitHub&amp;nbsp;ausgeliefert.&lt;/p&gt;
+&lt;h3&gt;&lt;span class="caps"&gt;SSL&lt;/span&gt; verschlüsselt von&amp;nbsp;Cloudflare®&lt;/h3&gt;
+&lt;p&gt;Die &lt;code&gt;github.io&lt;/code&gt; Domains werden zwar verschlüsselt ausgeliefert, aber natürlich
+kann GitHub keine &lt;span class="caps"&gt;SSL&lt;/span&gt; Zertifikate für die eigene Domain ausstellen lassen.
+[Update: Mittlerweile kann GitHub das.]
+Man kann auch kein eigenes Zertifikat hochladen. Aber die Situation ist nicht
+so aussichtslos wie sie scheint. Cloudflare ermöglicht es, allerdings müssen
+ein paar Bedingungen erfüllt&amp;nbsp;sein.&lt;/p&gt;
+&lt;p&gt;Cloudflare&amp;nbsp;muss&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;als &lt;span class="caps"&gt;DNS&lt;/span&gt; Service für die gewünschte Domain genutzt werden&amp;nbsp;und&lt;/li&gt;
+&lt;li&gt;als Proxy vor der Seite benutzt&amp;nbsp;werden.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Als Bonus können wir Cloudflares &lt;a href="https://de.wikipedia.org/wiki/Content_Delivery_Network"&gt;&lt;span class="caps"&gt;CDN&lt;/span&gt;&lt;/a&gt;&amp;nbsp;nutzen.&lt;/p&gt;
+&lt;p&gt;Sobald sich Cloudflare um das &lt;span class="caps"&gt;DNS&lt;/span&gt; der Domain kümmert, kann über das Dashboard
+&lt;span class="caps"&gt;SSL&lt;/span&gt; aktiviert werden &amp;#8212; und wenn man schon dabei ist, sollte man auch&amp;nbsp;die
+&lt;code&gt;Always use HTTPS&lt;/code&gt; und &lt;code&gt;HSTS&lt;/code&gt; Optionen&amp;nbsp;aktivieren.&lt;/p&gt;</content><category term="Meta"/><category term="Hosting"/></entry><entry><title>Blogumzug</title><link href="https://blog.schawe.me/blogumzug.html" rel="alternate"/><published>2016-09-14T21:12:00+02:00</published><updated>2016-09-14T21:12:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2016-09-14:/blogumzug.html</id><summary type="html">&lt;p&gt;Soeben habe ich mein Blog von Blogger auf einen kleinen Raspberry Pi 2 in meiner
+Wohnung verschoben. Als Engine benutze ich &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;,
+ein statischer Blog Generator in Python, der mir auf den ersten Blick sehr&amp;nbsp;gefällt.&lt;/p&gt;
+&lt;p&gt;Nicht nur, dass ich alle Einträge jetzt in &lt;a href="https://de.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt;
+schreiben kann, was es ermöglicht …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Soeben habe ich mein Blog von Blogger auf einen kleinen Raspberry Pi 2 in meiner
+Wohnung verschoben. Als Engine benutze ich &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;,
+ein statischer Blog Generator in Python, der mir auf den ersten Blick sehr&amp;nbsp;gefällt.&lt;/p&gt;
+&lt;p&gt;Nicht nur, dass ich alle Einträge jetzt in &lt;a href="https://de.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt;
+schreiben kann, was es ermöglicht das ganze Blog per &lt;a href="https://de.wikipedia.org/wiki/Git"&gt;git&lt;/a&gt;
+zu verwalten (dementsprechend gibt es den Quellcode auf &lt;a href="https://github.com/surt91/blog"&gt;GitHub&lt;/a&gt;),
+sondern es steht mit &lt;a href="http://pygments.org/"&gt;Pygments&lt;/a&gt; ein sehr
+hübsches Syntax Highlighting zur&amp;nbsp;Verfügung.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;Q_rsqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;long&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;threehalfs&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1.5F&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.5F&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;long&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;                       &lt;/span&gt;&lt;span class="c1"&gt;// evil floating point bit level hacking&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;0x5f3759df&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;               &lt;/span&gt;&lt;span class="c1"&gt;// what the fuck?&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;threehalfs&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="c1"&gt;// 1st iteration&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Außerdem Formeln in $\LaTeX$ Notation dank &lt;a href="https://www.mathjax.org/"&gt;MathJax&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;$$\mathcal H = \sum_{\left&amp;lt; i, j \right&amp;gt;} s_i&amp;nbsp;s_j$$&lt;/p&gt;
+&lt;p&gt;Ich werde diese Gelegenheit außerdem nutzen die meisten Einträge meines Blogs
+zu verwerfen und nur einige ausgewählte zu überarbeiten und hier zu&amp;nbsp;veröffentlichen.&lt;/p&gt;</content><category term="Meta"/><category term="Python"/><category term="Code"/><category term="Formel"/><category term="Hosting"/></entry></feed>

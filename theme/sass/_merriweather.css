@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Merriweather';
+    src: url('/theme/woff2/Merriweather-12ptRegular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('/theme/woff2/Merriweather-12ptItalic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('/theme/woff2/Merriweather-12ptBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('/theme/woff2/Merriweather-12ptBoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: fallback;
+}
+
+/* https://www.smashingmagazine.com/2021/05/reduce-font-loading-impact-css-descriptors/ */
+@font-face {
+    font-family: "Merriweather-fallback";
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.85px;
+    src: local("Georgia");
+}

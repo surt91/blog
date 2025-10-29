@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="export" class="canvas" width="1024" height="164" style="height:164px;width:1024px" xmlns="http://www.w3.org/2000/svg">
+ <g id="origin" transform="translate(7.4232 7.4232) scale(1)">
+  <g id="edge-paths" class="edge-paths">
+   <defs>
+    <marker id="arrowhead-vee" fill="rgb(0, 0, 0)" markerHeight="6" markerWidth="8" orient="auto" refX="9" refY="5" viewBox="0 0 10 10">
+     <path d="m0 0 10 5-10 5 4-5z" stroke-width="1px"/>
+    </marker>
+   </defs>
+   <path id="edge-input_1" class="edge-path" d="m51.928 79.326h1.6667 11.223 24.45 24.45 11.223 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-conv2d" class="edge-path" d="m224.56 79.326h1.6667 8.3333 8.3333 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-conv2d_1" class="edge-path" d="m347.58 79.326h1.6667 8.3333 8.3333 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-conv2d_2" class="edge-path" d="m470.61 79.326h1.6667 8.3333 8.3333 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-conv2d_3" class="edge-path" d="m593.64 79.326h1.6667 8.3333 8.3333 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-global_max_pooling2d" class="edge-path" d="m732.63 79.326h1.6667 8.3333 8.3333 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-dense" class="edge-path" d="m835.35 45.41 1.6667-1.3667c1.6667-1.3667 5-4.1 8.3333-5.4667 3.3333-1.3667 6.6667-1.3667 8.3333-1.3667h1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-dense" class="edge-path" d="m835.35 113.24 1.6667 1.3667c1.6667 1.3667 5 4.1 8.3333 5.4667 3.3333 1.3667 6.6667 1.3667 8.3333 1.3667h1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-dense_1" class="edge-path" d="m933 37.21h1.6667 8.3333 8.3333 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+   <path id="edge-dense_2" class="edge-path" d="m933 121.44h1.6667 8.3333 8.3333 1.6667" fill="none" marker-end='url("#arrowhead-vee")' stroke="#000" stroke-width="1px"/>
+  </g>
+  <g id="edge-labels" class="edge-labels">
+   <text id="edge-label-edge-input_1" class="edge-label" transform="translate(71.928 89.326)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="10px"><tspan x="1" dy="1em" xml:space="preserve">?×?×?×3</tspan></text>
+  </g>
+  <g id="nodes" class="nodes">
+   <g id="input-name-input_1" class="node graph-input" transform="translate(0 69.139)">
+    <g class="node-item graph-item-input" transform="translate(0)">
+     <path d="m5 0h41.928a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-41.928a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="#eee" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Input</text>
+     <title>float32[?,?,?,3]</title>
+    </g>
+    <path class="node border" d="m5 0h41.928a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-41.928a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-conv2d" class="node graph-node" transform="translate(126.61 42.116)">
+    <g class="node-item node-item-type node-item-type-layer" transform="translate(0)">
+     <path d="m5 0h87.95a5 5 0 0 1 5 5v15.375h-97.95v-15.375a5 5 0 0 1 5-5z" fill="#358" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Conv2D</text>
+     <title>conv2d</title>
+    </g>
+    <g class="node-attribute" transform="translate(0,20.375)">
+     <path d="m0 0h97.95v33.67h-97.95v-33.67z" fill="#fff" stroke-width="0px"/>
+     <text id="initializer-conv2d/kernel:0" x="6" y="13.405000686645508" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[3,3,3,64]</title><tspan font-weight="bold">kernel</tspan><tspan>〈3×3×3×64〉</tspan></text>
+     <text id="initializer-conv2d/bias:0" x="6" y="27.24000072479248" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64]</title><tspan font-weight="bold">bias</tspan><tspan>〈64〉</tspan></text>
+     <line class="node" x2="97.95" fill="none" stroke="#333" stroke-width="1px"/>
+    </g>
+    <g class="node-item node-item-type node-item-type-activation" transform="translate(0 54.045)">
+     <path d="m0 0h97.95v15.375a5 5 0 0 1-5 5h-87.95a5 5 0 0 1-5-5v-15.375z" fill="#702921" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">ReLU</text>
+    </g>
+    <line class="node" x2="97.95" y1="54.045" y2="54.045" fill="none" stroke="#333" stroke-width="1px"/>
+    <path class="node border" d="m5 0h87.95a5 5 0 0 1 5 5v64.42a5 5 0 0 1-5 5h-87.95a5 5 0 0 1-5-5v-64.42a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-conv2d_1" class="node graph-node" transform="translate(244.56 42.116)">
+    <g class="node-item node-item-type node-item-type-layer" transform="translate(0)">
+     <path d="m5 0h93.026a5 5 0 0 1 5 5v15.375h-103.03v-15.375a5 5 0 0 1 5-5z" fill="#358" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Conv2D</text>
+     <title>conv2d_1</title>
+    </g>
+    <g class="node-attribute" transform="translate(0,20.375)">
+     <path d="m0 0h103.03v33.67h-103.03v-33.67z" fill="#fff" stroke-width="0px"/>
+     <text id="initializer-conv2d_1/kernel:0" x="6" y="13.405000686645508" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[3,3,64,64]</title><tspan font-weight="bold">kernel</tspan><tspan>〈3×3×64×64〉</tspan></text>
+     <text id="initializer-conv2d_1/bias:0" x="6" y="27.24000072479248" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64]</title><tspan font-weight="bold">bias</tspan><tspan>〈64〉</tspan></text>
+     <line class="node" x2="103.03" fill="none" stroke="#333" stroke-width="1px"/>
+    </g>
+    <g class="node-item node-item-type node-item-type-activation" transform="translate(0 54.045)">
+     <path d="m0 0h103.03v15.375a5 5 0 0 1-5 5h-93.026a5 5 0 0 1-5-5v-15.375z" fill="#702921" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">ReLU</text>
+    </g>
+    <line class="node" x2="103.03" y1="54.045" y2="54.045" fill="none" stroke="#333" stroke-width="1px"/>
+    <path class="node border" d="m5 0h93.026a5 5 0 0 1 5 5v64.42a5 5 0 0 1-5 5h-93.026a5 5 0 0 1-5-5v-64.42a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-conv2d_2" class="node graph-node" transform="translate(367.58 42.116)">
+    <g class="node-item node-item-type node-item-type-layer" transform="translate(0)">
+     <path d="m5 0h93.026a5 5 0 0 1 5 5v15.375h-103.03v-15.375a5 5 0 0 1 5-5z" fill="#358" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Conv2D</text>
+     <title>conv2d_2</title>
+    </g>
+    <g class="node-attribute" transform="translate(0,20.375)">
+     <path d="m0 0h103.03v33.67h-103.03v-33.67z" fill="#fff" stroke-width="0px"/>
+     <text id="initializer-conv2d_2/kernel:0" x="6" y="13.405000686645508" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[3,3,64,64]</title><tspan font-weight="bold">kernel</tspan><tspan>〈3×3×64×64〉</tspan></text>
+     <text id="initializer-conv2d_2/bias:0" x="6" y="27.24000072479248" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64]</title><tspan font-weight="bold">bias</tspan><tspan>〈64〉</tspan></text>
+     <line class="node" x2="103.03" fill="none" stroke="#333" stroke-width="1px"/>
+    </g>
+    <g class="node-item node-item-type node-item-type-activation" transform="translate(0 54.045)">
+     <path d="m0 0h103.03v15.375a5 5 0 0 1-5 5h-93.026a5 5 0 0 1-5-5v-15.375z" fill="#702921" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">ReLU</text>
+    </g>
+    <line class="node" x2="103.03" y1="54.045" y2="54.045" fill="none" stroke="#333" stroke-width="1px"/>
+    <path class="node border" d="m5 0h93.026a5 5 0 0 1 5 5v64.42a5 5 0 0 1-5 5h-93.026a5 5 0 0 1-5-5v-64.42a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-conv2d_3" class="node graph-node" transform="translate(490.61 42.116)">
+    <g class="node-item node-item-type node-item-type-layer" transform="translate(0)">
+     <path d="m5 0h93.026a5 5 0 0 1 5 5v15.375h-103.03v-15.375a5 5 0 0 1 5-5z" fill="#358" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Conv2D</text>
+     <title>conv2d_3</title>
+    </g>
+    <g class="node-attribute" transform="translate(0,20.375)">
+     <path d="m0 0h103.03v33.67h-103.03v-33.67z" fill="#fff" stroke-width="0px"/>
+     <text id="initializer-conv2d_3/kernel:0" x="6" y="13.405000686645508" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[3,3,64,64]</title><tspan font-weight="bold">kernel</tspan><tspan>〈3×3×64×64〉</tspan></text>
+     <text id="initializer-conv2d_3/bias:0" x="6" y="27.24000072479248" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64]</title><tspan font-weight="bold">bias</tspan><tspan>〈64〉</tspan></text>
+     <line class="node" x2="103.03" fill="none" stroke="#333" stroke-width="1px"/>
+    </g>
+    <g class="node-item node-item-type node-item-type-activation" transform="translate(0 54.045)">
+     <path d="m0 0h103.03v15.375a5 5 0 0 1-5 5h-93.026a5 5 0 0 1-5-5v-15.375z" fill="#702921" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">ReLU</text>
+    </g>
+    <line class="node" x2="103.03" y1="54.045" y2="54.045" fill="none" stroke="#333" stroke-width="1px"/>
+    <path class="node border" d="m5 0h93.026a5 5 0 0 1 5 5v64.42a5 5 0 0 1-5 5h-93.026a5 5 0 0 1-5-5v-64.42a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-global_max_pooling2d" class="node graph-node" transform="translate(613.64 69.139)">
+    <g class="node-item node-item-type node-item-type-pool" transform="translate(0)">
+     <path d="m5 0h109a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-109a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="#353" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">GlobalMaxPooling2D</text>
+     <title>global_max_pooling2d</title>
+    </g>
+    <path class="node border" d="m5 0h109a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-109a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-dense" class="node graph-node" transform="translate(752.63 42.116)">
+    <g class="node-item node-item-type node-item-type-layer" transform="translate(0)">
+     <path d="m5 0h72.722a5 5 0 0 1 5 5v15.375h-82.722v-15.375a5 5 0 0 1 5-5z" fill="#358" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Dense</text>
+     <title>dense</title>
+    </g>
+    <g class="node-attribute" transform="translate(0,20.375)">
+     <path d="m0 0h82.722v33.67h-82.722v-33.67z" fill="#fff" stroke-width="0px"/>
+     <text id="initializer-dense/kernel:0" x="6" y="13.405000686645508" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64,64]</title><tspan font-weight="bold">kernel</tspan><tspan>〈64×64〉</tspan></text>
+     <text id="initializer-dense/bias:0" x="6" y="27.24000072479248" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64]</title><tspan font-weight="bold">bias</tspan><tspan>〈64〉</tspan></text>
+     <line class="node" x2="82.722" fill="none" stroke="#333" stroke-width="1px"/>
+    </g>
+    <g class="node-item node-item-type node-item-type-activation" transform="translate(0 54.045)">
+     <path d="m0 0h82.722v15.375a5 5 0 0 1-5 5h-72.722a5 5 0 0 1-5-5v-15.375z" fill="#702921" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">ReLU</text>
+    </g>
+    <line class="node" x2="82.722" y1="54.045" y2="54.045" fill="none" stroke="#333" stroke-width="1px"/>
+    <path class="node border" d="m5 0h72.722a5 5 0 0 1 5 5v64.42a5 5 0 0 1-5 5h-72.722a5 5 0 0 1-5-5v-64.42a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-dense_1" class="node graph-node" transform="translate(855.35)">
+    <g class="node-item node-item-type node-item-type-layer" transform="translate(0)">
+     <path d="m5 0h67.646a5 5 0 0 1 5 5v15.375h-77.646v-15.375a5 5 0 0 1 5-5z" fill="#358" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Dense</text>
+     <title>Actor</title>
+    </g>
+    <g class="node-attribute" transform="translate(0,20.375)">
+     <path d="m0 0h77.646v33.67h-77.646v-33.67z" fill="#fff" stroke-width="0px"/>
+     <text id="initializer-dense_1/kernel:0" x="6" y="13.405000686645508" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64,4]</title><tspan font-weight="bold">kernel</tspan><tspan>〈64×4〉</tspan></text>
+     <text id="initializer-dense_1/bias:0" x="6" y="27.24000072479248" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[4]</title><tspan font-weight="bold">bias</tspan><tspan>〈4〉</tspan></text>
+     <line class="node" x2="77.646" fill="none" stroke="#333" stroke-width="1px"/>
+    </g>
+    <g class="node-item node-item-type node-item-type-activation" transform="translate(0 54.045)">
+     <path d="m0 0h77.646v15.375a5 5 0 0 1-5 5h-67.646a5 5 0 0 1-5-5v-15.375z" fill="#702921" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Softmax</text>
+    </g>
+    <line class="node" x2="77.646" y1="54.045" y2="54.045" fill="none" stroke="#333" stroke-width="1px"/>
+    <path class="node border" d="m5 0h67.646a5 5 0 0 1 5 5v64.42a5 5 0 0 1-5 5h-67.646a5 5 0 0 1-5-5v-64.42a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g id="node-name-dense_2" class="node graph-node" transform="translate(855.35 94.42)">
+    <g class="node-item node-item-type node-item-type-layer" transform="translate(0)">
+     <path d="m5 0h67.646a5 5 0 0 1 5 5v15.375h-77.646v-15.375a5 5 0 0 1 5-5z" fill="#358" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" fill="rgb(255, 255, 255)" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Dense</text>
+     <title>Critic</title>
+    </g>
+    <g class="node-attribute" transform="translate(0,20.375)">
+     <path d="m0 0h77.646v28.67a5 5 0 0 1-5 5h-67.646a5 5 0 0 1-5-5v-28.67z" fill="#fff" stroke-width="0px"/>
+     <text id="initializer-dense_2/kernel:0" x="6" y="13.405000686645508" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[64,1]</title><tspan font-weight="bold">kernel</tspan><tspan>〈64×1〉</tspan></text>
+     <text id="initializer-dense_2/bias:0" x="6" y="27.24000072479248" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="9px" text-rendering="geometricprecision" xml:space="preserve"><title>float32[1]</title><tspan font-weight="bold">bias</tspan><tspan>〈1〉</tspan></text>
+     <line class="node" x2="77.646" fill="none" stroke="#333" stroke-width="1px"/>
+    </g>
+    <path class="node border" d="m5 0h67.646a5 5 0 0 1 5 5v44.045a5 5 0 0 1-5 5h-67.646a5 5 0 0 1-5-5v-44.045a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g class="node" transform="translate(953 27.022)">
+    <g class="node-item graph-item-output" transform="translate(0)">
+     <path d="m5 0h45.613a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-45.613a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="#eee" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Actor</text>
+    </g>
+    <path class="node border" d="m5 0h45.613a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-45.613a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+   <g class="node" transform="translate(953 111.25)">
+    <g class="node-item graph-item-output" transform="translate(0)">
+     <path d="m5 0h45.613a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-45.613a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="#eee" stroke-width="0px"/>
+     <text x="6" y="14.28499984741211" font-family='-apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "PingFang SC"' font-size="11px" text-rendering="geometricprecision">Critic</text>
+    </g>
+    <path class="node border" d="m5 0h45.613a5 5 0 0 1 5 5v10.375a5 5 0 0 1-5 5h-45.613a5 5 0 0 1-5-5v-10.375a5 5 0 0 1 5-5z" fill="none" stroke="#333" stroke-width="1px"/>
+   </g>
+  </g>
+ </g>
+</svg>

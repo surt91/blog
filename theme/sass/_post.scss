@@ -1,0 +1,86 @@
+@import 'functions';
+
+.post {
+    padding-bottom: 3em;
+}
+
+.post-title {
+    font: $font-title;
+    color: getColor(title);
+    margin-bottom: 0.2em;
+    margin-top: 0;
+    word-break: break-word;
+}
+
+.post-title a:hover {
+    border-bottom: none;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.post-meta {
+    color: getColor(subtitle);
+    font: $font-subtitle;
+    margin: 0;
+
+    border-bottom: $border-bottom;
+    padding-bottom: 5px;
+}
+
+.post-time {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.post-content {
+    font: $font-post;
+    color: getColor(post);
+    line-height: 1.6em;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    font: $font-sectiontitle;
+    color: getColor(sectiontitle);
+}
+
+.post-content blockquote::before {
+    color: getColor(subtitle);
+    content: '\f10d';
+    font: 18px "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    margin-left: -2em;
+    text-decoration: inherit;
+    position:absolute;
+}
+
+blockquote::before {
+    display: none;
+}
+
+.post-content blockquote {
+    font: $font-quote;
+    font-variant: normal;
+    line-height: 1.7em;
+    text-transform: none;
+    font-weight: 300;
+    position:relative;
+}
+
+h3.post-header {
+    color: getColor(subtitle);
+    font: $font-subtitle;
+    margin: 0;
+
+    @media (min-width: $break-small) {
+        padding-top: 0.8em;
+        padding-left: 4px;
+        position: absolute;
+
+        transform: rotate(90deg);
+        transform-origin: left top 0;
+        float: left;
+    }
+}

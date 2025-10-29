@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Convex hulls of random walks in higher dimensions: A large deviation study  · möchte­gern­geek</title>
+<meta content="Die Frage wie groß das Revier eines Tieres ist, ist in konkreten Fällen für Biologen interessant und dank GPS-Sendern kann man es heutzutage sogar empirisch untersuchen. Aus der Punktwolke der besuchten Orte kann man eine Fläche abschätzen — im einfachsten Fall indem man die konvexe Hülle um alle besuchten Orte …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Veröffentlichung, Physik, Bild, Phys, " name="keywords"/>
+<meta content="Convex hulls of random walks in higher dimensions: A large deviation study " name="twitter:title">
+<meta content="Die Frage wie groß das Revier eines Tieres ist, ist in konkreten Fällen für Biologen interessant und dank GPS-Sendern kann man es heutzutage sogar empirisch untersuchen. Aus der Punktwolke der besuchten Orte kann man eine Fläche abschätzen — im einfachsten Fall indem man die konvexe Hülle um alle besuchten Orte …" name="twitter:description">
+<meta content="Convex hulls of random walks in higher dimensions: A large deviation study " name="og:title">
+<meta content="Die Frage wie groß das Revier eines Tieres ist, ist in konkreten Fällen für Biologen interessant und dank GPS-Sendern kann man es heutzutage sogar empirisch untersuchen. Aus der Punktwolke der besuchten Orte kann man eine Fläche abschätzen — im einfachsten Fall indem man die konvexe Hülle um alle besuchten Orte …" name="og:description">
+<meta content="drafts/paper-convex-highdim-de.html" property="og:url">
+<meta content="2022-05-28T16:08:00+02:00" property="og:article:published_time">
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://blog.schawe.me/en/img/ch_hull.png" property="og:image"/>
+<meta content="https://blog.schawe.me/en/img/ch_hull.png" name="twitter:image"/>
+<link href="https://blog.schawe.me/drafts/paper-convex-highdim-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/paper-convex-highdim-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/paper-convex-highdim-de.html" hreflang="x-default" rel="alternate">
+<link href="/theme/css/pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/en/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Search" class="search-query" id="tipue_search_input" name="q" placeholder="Search" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/en/drafts/paper-convex-highdim-de.html"> Convex hulls of random walks in higher dimensions: A large deviation study  </a>
+</h2>
+<div class="post-meta">
+<div>
+<span class="doi-details">
+                        ,
+                         <b></b>,  ()
+                    </span>
+</div>
+<time class="post-time" datetime="2022-05-28T16:08:00+02:00">28.05.2022</time>
+<span class="category category-phys">
+<a href="https://blog.schawe.me/en/categories.html#phys-ref">Phys</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#bild-ref">Bild</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#physik-ref">Physik</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#veroffentlichung-ref">Veröffentlichung</a>
+</span>
+</span>
+<span class="doi"><a href="https://dx.doi.org/10.1103/PhysRevE.96.062101">doi:10.1103/PhysRevE.96.062101</a></span>
+</div>
+</header>
+<div class="post-content">
+<p>Die Frage wie groß das Revier eines Tieres ist, ist in konkreten Fällen für Biologen
+interessant und dank <span class="caps">GPS</span>-Sendern kann man es heutzutage sogar empirisch untersuchen. Aus der
+Punktwolke der besuchten Orte kann man eine Fläche abschätzen — im einfachsten Fall
+indem man die konvexe Hülle um alle besuchten Orte zeichnet.</p>
+<p>Als Physiker sind mir echte Tiere zu kompliziert, sodass ich stattdessen annehme,
+dass sie punktförmig sind und ihre Bewegung ein <em>Random Walk</em> in einer isotropen
+Umgebung ist. Also springen meine idealisierten Tiere unabhängig von ihren bisherigen
+Handlungen zu ihrem nächsten Aufenthaltsort — der Abstand vom aktuellen Punkt ist dabei
+in jeder Dimension unabhängig und normalverteilt.</p>
+<p><em>In jeder Dimension?</em> Ja, genau! Wir wollen schließlich auch das Revierverhalten von
+vierdimensionalen Space Whales untersuchen.</p>
+<p><img alt="Ein vierdimensionaler Weltraumwal, oder was Stable Diffusion sich darunter vorstellt" height="512" src="/img/SpaceWhale.webp" width="512"/></p>
+<p>Spaß beiseite, in dieser Veröffentlichung geht es natürlich eher um fundamentale
+Eigenschaften von Random Walks — einer der einfachsten und deshalb am besten
+untersuchten Markow-Prozesse. Und zwar im Hinblick auf Large Deviations,
+die extrem unwahrscheinlichen Ereignisse, die weit jenseits der Möglichkeiten
+von konventionellen Sampling-Methoden liegen. Details hierzu sind am besten
+direkt im <a href="https://academic.schawe.me/pdf/2017_convex_highdim_PRE.pdf">Artikel</a> oder mit einer
+Menge Hintergrundinformationen und ausführlicher als für ein Blog angemessen
+in dem entsprechenden Kapitel und Anhang meiner <a href="https://academic.schawe.me/pdf/dissertation.pdf">Dissertation</a>
+nachzulesen. Insbesondere ist dort auch beschrieben wie die geometrischen
+Unterprobleme effizient gelöst werden können, auf die wir im Verlauf dieses
+Blogposts stoßen werden.</p>
+<p>Das Problem eine konvexe Hülle zu finden ist einerseits einfach zu begreifen,
+schön geometrisch und sehr gut untersucht. Dadurch sind überraschend viele
+Algorithmen bekannt, die unterschiedliche Vor- und Nachteile haben.</p>
+<p>Im Folgenden möchte ich deshalb ein paar Methoden vorstellen, wie man effizient
+die konvexe Hülle einer Punktmenge bestimmen kann, und dies mit animierten gifs von
+Punkten und Strichen visualisieren. Der Code zur Erstellung der Visualisierungen
+ist übrigens in Rust geschrieben und auf <a href="https://github.com/surt91/convex_hulls">GitHub</a> zu finden.</p>
+<h2>Andrew’s Monotone Chain</h2>
+<p>In zwei Dimensionen kann man ausnutzen, dass die konvexe Hülle ein Polygon ist, das
+man durch die Reihenfolge der Eckpunkte definieren kann. Die grundlegende Idee ist
+also die Punkte im Uhrzeigersinn zu sortieren, in dieser Reihenfolge, mit dem
+Punkt ganz links startend, alle zu einem Polygon hinzuzufügen und dabei darauf
+zu achten, dass die drei neusten Punkte des Polygons ein negativ orientiertes Dreieck
+bilden, also dass sie im “Uhrzeigersinn drehen”. Wenn das nicht der Fall ist,
+wird der mittlere Punkt entfernt.</p>
+<p><img alt="Sechs Schritte von Andrew's Monotone Chain -- oder Graham Scan" class="invertable" height="1170" src="/img/ch_andrew_steps.webp" width="3440"/></p>
+<p>Dies ist übrigens die ursprüngliche Variante, der <em>Graham Scan</em>. Andrew verbesserte
+diesen Algorithmus dadurch, dass nicht im Uhrzeigersinn sortiert werden muss, sondern
+man lexikographisch nach horizontaler Koordinate (bei Gleichstand entscheidet die
+vertikale Koordinate) sortiert. Dann bildet dieser Algorithmus die obere Hälfte der Hülle
+und wenn man ihn rückwärts auf die sortierten Punkte anwendet, die untere Hälfte.</p>
+<p><img alt="Andrew's Monotone Chain" class="invertable" height="800" src="/img/ch_andrew.gif" width="800"/></p>
+<p>Die Komplexität für $n$ Punkte ist somit $\mathcal{O}(n \ln n)$ limitiert durch das Sortieren.</p>
+<h2>Jarvis March: Gift Wrapping</h2>
+<p>Ein Geschenk einzupacken ist ein relativ intuitiver Prozess: Wir bewegen das Papier
+so lange herunter, bis wir auf einen Punkt des Geschenkes treffen, wo es hängen bleibt
+Dann wickeln wir weiter, bis wir auf den nächsten Punkt stoßen. Dabei streben wir an die
+konvexe Hülle zu finden, denn sie ist das Optimum möglichst wenig Papier zu verbrauchen
+während wir die Punktwolke einhüllen, die wir verschenken wollen. Und offenbar klappt das
+auch in drei Dimensionen!</p>
+<p>In einem Computer ist es allerdings einfacher das Geschenkpapier von innen aus der Punktwolke
+heraus nach außen zu falten. Für jede Facette testen wir also jeden der $n$ Punkte in der
+Punktwolke darauf, ob er links von unserem Stück Geschenkpapier liegt. Wenn ja, falten wir das
+Papier weiter. Sobald wir alle $n$ Punkte ausprobiert haben, wissen wir, dass das Geschenkpapier
+an der richtigen Stelle liegt, sodass anfangen können die nächste Facette mit dem Geschenkpapier
+zu bilden indem wir von innen alle Punkte durchtesten.</p>
+<p><img alt="Jarvis March: Gift Wrapping" class="invertable" height="800" src="/img/ch_jarvis.gif" width="800"/></p>
+<p>Interessanterweise müssen wir also für jeden der $h$ Punkte, die zur Hülle gehören $\mathcal{O}(n)$ Punkte
+prüfen, sodass die Komplexität abhängig ist vom Ergebnis: $\mathcal{O}(n h)$</p>
+<h2>Chan’s Algorithm</h2>
+<p>Wir haben also einen $\mathcal{O}(n \ln n)$ und einen $\mathcal{O}(n h)$ Algorithmus kennen gelernt,
+aber können wir noch besser werden? Ja! $\mathcal{O}(n \ln h)$ ist die theoretische untere Komplexitätsgrenze
+für 2D konvexe Hüllen. Beispielsweise Chans Algorithmus erreicht diese Komplexität mit einem trickreichen
+zweistufigen Prozess.</p>
+<p>Zuerst teilt man die Punktwolke in zufällige Untermengen mit jeweils etwa $m$ Punkten ein. Für jede berechnet
+man die konvexe Hülle, bspw. mit Andrews Algorithmus. Dann benutzt man Jarvis March, um die Hülle zu konstruieren,
+dabei muss man allerdings nicht mehr alle Punkte durchprobieren, sondern nur noch die Tangenten, die in der Animation
+mit grünen Strichen gekennzeichnet sind. Die Tangenten kann man für jede der $k = \lceil \frac{n}{m} \rceil$ Sub-Hüllen
+effizient in $\mathcal{O}(m)$ bestimmen. Dazu benutzt man einem Algorithmus, der an eine Binärsuche erinnert.
+Zusammen hat dies also eine Komplexität von $\mathcal{O}((n+kh) \ln m)$.</p>
+<p>Aber ich hatte $\mathcal{O}(n \ln h)$ versprochen. Nun, um das zu erreichen, müssen wir einfach nur $m \approx h$ wählen.
+Aber wie kommen wir an $h$ bevor wir die Hülle berechnet haben? Der Trick ist, mit einem niedrigen $m$ zu starten,
+dann nur $m$ Schritte des Jarvis-Teils des Algorithmus durchzuführen und wenn die Hülle dann noch nicht fertig ist
+$m$ zu erhöhen und es wieder von vorne zu beginnen. Damit dieser iterative Teil des Algorithmus nicht unsere Komplexität
+erhöht, muss $m$ schnell genug wachsen, was in der Regel durch Quadrieren des alten Werten erreicht wird.</p>
+<p><img alt="Chan's Algorithm" class="invertable" height="800" src="/img/ch_chan.gif" width="800"/></p>
+<h2>QuickHull</h2>
+<p>Zuletzt möchte ich hier noch QuickHull vorstellen, weil dieser Algorithmus meiner Meinung nach einen sehr hübschen
+rekursiven <em>divide and conquer</em> Ansatz verfolgt — ein bisschen wie QuickSort.
+In zwei Dimensionen starten wir mit dem Punkt ganz links $A$ und ganz rechts $B$. Dann finden wir den Punkt $C$ der
+am weitesten entfernt ist von der Strecke $\overline{<span class="caps">AB</span>}$ und links von der Strecke ist. Diesen Schritt wiederholen wir
+rekursiv auf den Strecken $\overline{<span class="caps">AC</span>}$ und $\overline{<span class="caps">CB</span>}$ (und $\overline{<span class="caps">BA</span>}$ für die untere Hälfte.)</p>
+<p><img alt="QuickHull" class="invertable" height="800" src="/img/ch_quickhull.gif" width="800"/></p>
+<h2>Mehr Dimensionen</h2>
+<p>Aber ich hatte Space Whales versprochen, also können wir uns nicht mit 2D zufrieden geben!
+Tatsächlich müssen wir schon beim Verallgemeinern auf 3D aufpassen. Schließlich konnten
+wir für 2D die konvexe Hülle als Sequenz von Punkten repräsentieren. Für höhere Dimensionen
+müssen wir sie allerdings als Menge von Facetten repräsentieren. Glücklicherweise tauchen
+für noch höhere Dimensionen dann keine weiteren Schwierigkeiten mehr auf — abgesehen von der
+Grundsätzlichen Schwierigkeit, dass höherdimensionale Gebilde deutlich größere Oberflächen
+haben und somit die konvexe Hülle aus deutlich mehr Facetten besteht, sodass die untere Schranke
+für die Komplexität für Dimension $d$ durch $\mathcal{O}(n^{\lfloor d / 2 \rfloor})$ gegeben ist.</p>
+<p>Bevor ich hier QuickHull für $d=3$ beschreibe, möchte ich darauf hinweisen, dass es die
+<a href="http://www.qhull.org/"><code>qhull</code> Implementierung</a> gibt, die sich bspw. auch um die subtilen numerischen
+Fehler kümmert, die sich bei sehr spitzen Winkeln einschleichen können.</p>
+<p>Grundsätzlich bleibt das Vorgehen gleich: Wir starten mit einem $d$-dimensionalen Simplex, also für $d=3$
+mit einem Tetraeder, dessen Eckpunkte zur konvexen Hülle gehören. Dann führen wir für jede Facette
+den rekursiven Schritt durch: Finde den Punkt, der am weitesten <em>vor</em> der Facette (also außerhalb des Tetraeders) ist.
+Diesen Punkt nennt man <em>Eye-Point</em>. Denn es reicht jetzt im Gegensatz zum 2D Fall nicht mehr
+einfach neue Facetten aus den Rändern und dem neuen Punkt zu bilden. Stattdessen müssen wir alle
+Facetten, deren Vorderseite (also Außenseite) wir vom Eye-Point aus sehen können entfernen und
+neue Facetten mit dem Horizont und dem <em>Eye-Point</em> bilden. In der Animation unten sind der <em>Eye-Point</em>
+sowie die Facetten, die er sieht, rot dargestellt. Der Horizont ist mit schwarzen Strichen gekennzeichnet.</p>
+<p>Wird dieser Schritt rekursiv auf alle neu hinzugefügten Facetten angewendet, resultiert die
+konvexe Hülle. Und genauso, wenn auch deutlich schwieriger darstellbar, funktioniert es auch
+für alle höheren Dimensionen.</p>
+<p><img alt="QuickHull" height="1450" src="/img/ch_quickhull3d.gif" width="1450"/></p>
+<p>Eine wichtige Anwendung für 3D konvexe Hüllen ist übrigens die Delaunay-Triangulation einer planaren
+Punktmenge. Die wiederum kann für eine effiziente Berechnung des <a href="https://blog.schawe.me/en/relative-neighborhood-graph-de.html">Relative-Neighborhood-Graphs aus
+diesem Post</a> genutzt werden.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/fx/rythm.js"></script>
+<script async="" src="/theme/fx/totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>

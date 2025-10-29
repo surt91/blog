@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Progressive Web App  · möchte­gern­geek</title>
+<meta content="Seit Anfang September ist dieses Blog eine Progressive Web App. Das bedeutet, dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone als App hinzufügen kann. Warum? Nun, Chrome bietet mit Lighthouse Ratschläge, wie man seine Website verbessern kann. Einer der vier Unterpunkte heißt Progressive Web App …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="JavaScript, Meta, " name="keywords"/>
+<meta content="Progressive Web App " name="twitter:title">
+<meta content="Seit Anfang September ist dieses Blog eine Progressive Web App. Das bedeutet, dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone als App hinzufügen kann. Warum? Nun, Chrome bietet mit Lighthouse Ratschläge, wie man seine Website verbessern kann. Einer der vier Unterpunkte heißt Progressive Web App …" name="twitter:description">
+<meta content="Progressive Web App " name="og:title">
+<meta content="Seit Anfang September ist dieses Blog eine Progressive Web App. Das bedeutet, dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone als App hinzufügen kann. Warum? Nun, Chrome bietet mit Lighthouse Ratschläge, wie man seine Website verbessern kann. Einer der vier Unterpunkte heißt Progressive Web App …" name="og:description">
+<meta content="drafts/progressive-web-app-de.html" property="og:url">
+<meta content="2017-09-01T18:15:00+02:00" property="og:article:published_time">
+<meta content="https://blog.schawe.me/img/logo.png" property="og:image"/>
+<meta content="https://blog.schawe.me/img/logo.png" name="twitter:image"/>
+<link href="https://blog.schawe.me/drafts/progressive-web-app-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/progressive-web-app-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/progressive-web-app-de.html" hreflang="x-default" rel="alternate">
+<link href="/theme/css/pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/en/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Search" class="search-query" id="tipue_search_input" name="q" placeholder="Search" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/en/drafts/progressive-web-app-de.html"> Progressive Web App  </a>
+</h2>
+<div class="post-meta">
+<time class="post-time" datetime="2017-09-01T18:15:00+02:00">01.09.2017</time>
+<span class="category category-meta">
+<a href="https://blog.schawe.me/en/categories.html#meta-ref">Meta</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#javascript-ref">JavaScript</a>
+</span>
+</span>
+</div>
+</header>
+<div class="post-content">
+<p>Seit Anfang September ist dieses Blog eine <em>Progressive Web App</em>. Das bedeutet,
+dass dieses Blog nun auch offline funktioniert und man es auf dem Smartphone
+als App hinzufügen kann.</p>
+<h3>Warum? <a href="https://developers.google.com/web/tools/lighthouse/"><img alt="Lighthouse" class="icon" height="1042" src="/img/lighthouse.png" width="1850"/></a></h3>
+<p>Nun, Chrome bietet mit <em>Lighthouse</em> Ratschläge, wie man seine Website verbessern
+kann. Einer der vier Unterpunkte heißt <em>Progressive Web App</em> und war frustrierend
+schlecht bewertet. Die folgenden Schritte habe ich also nur für Lighthouse
+gemacht und es hat sich auf jeden Fall gelohnt:</p>
+<p><img alt="Lighthouse-Audit Ergebnisse" height="86" src="/img/lighthouse_audit.png" width="625"/></p>
+<h3>Wie?</h3>
+<p>Lighthouse bietet eine Checkliste, auf der neben einigen Punkten, die
+generell eine gute Idee sind, drei Punkte aufgeführt sind, die erfüllt sein müssen:</p>
+<ul>
+<li>Site is served over <span class="caps">HTTPS</span><ul>
+<li>Dank <em>Let’s Encrypt</em> ist das kein Problem mehr.</li>
+</ul>
+</li>
+<li>The start <span class="caps">URL</span> (at least) loads while offline<ul>
+<li>Das ist der aufwendigste Teil. Um dies zu erreichen muss man einen
+<em>service worker</em> registrieren. Damit der <em>service worker</em> weiß, welche
+Dateien notwendig sind, benutze ich nach jedem erfolgreichen Build
+<a href="https://github.com/GoogleChrome/sw-precache">sw-precache</a> mit einer
+<a href="https://github.com/surt91/blog/blob/1d29d7bd848e31bfa4dc3f57bd140e92cbdf6de5/sw-config.js">sehr einfachen Konfiguration</a>.
+Dadurch benötige ich jetzt Node, um das Blog zu erstellen <code>¯\_(ツ)_/¯</code></li>
+</ul>
+</li>
+<li>Metadata provided for Add to Home screen<ul>
+<li>Damit ist eine <code>manifest.json</code> gemeint. Diese Datei enthält links zu Icons,
+die als Appsymbol benutzt werden, wenn man die Seite auf Android oder Windows
+installiert. Und es legt die Farbe der Adressleiste im mobilen Chrome fest.
+Ein nützlicher Dienst, um ein solches Manifest zu erstellen, ist
+<a href="https://app-manifest.firebaseapp.com/">app-manifest.firebaseapp.com</a></li>
+</ul>
+</li>
+</ul>
+<h2>Was jetzt?</h2>
+<p>Service Worker ermöglichen Benachrichtigungen von einer Website. Ein natürlicher
+nächster Schritt wäre es also Benachrichtigungen zu versenden, wenn ein neuer
+Post online ist. Auf der anderen Seite bin ich selbst immer etwas genervt von
+Websites, die mich benachrichtigen wollen und der Lighthouse Punktestand ist
+schon optimal, also wird das wohl nicht passieren.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/fx/rythm.js"></script>
+<script async="" src="/theme/fx/totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>

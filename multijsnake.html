@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>multiJSnake  · möchte­gern­geek</title>
+<meta content="Vor Kurzem habe ich ein Server-Client Snake in meine Liste von simplen Snake-Clonen [1, 2, 3, 4, 5, 6] eingereiht. Wie ich in meinem Artikel „RestfulSnake“ bereits angedeutet hatte, habe ich es um eine Multiplayer Komponente erweitert. Das grundlegende Design ist, dass der Server in festen Intervallen den nächsten Zeitschritt …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Java, JavaScript, Game, GitHub, Snake, Code, " name="keywords"/>
+<meta content="multiJSnake " name="twitter:title">
+<meta content="Vor Kurzem habe ich ein Server-Client Snake in meine Liste von simplen Snake-Clonen [1, 2, 3, 4, 5, 6] eingereiht. Wie ich in meinem Artikel „RestfulSnake“ bereits angedeutet hatte, habe ich es um eine Multiplayer Komponente erweitert. Das grundlegende Design ist, dass der Server in festen Intervallen den nächsten Zeitschritt …" name="twitter:description">
+<meta content="multiJSnake " name="og:title">
+<meta content="Vor Kurzem habe ich ein Server-Client Snake in meine Liste von simplen Snake-Clonen [1, 2, 3, 4, 5, 6] eingereiht. Wie ich in meinem Artikel „RestfulSnake“ bereits angedeutet hatte, habe ich es um eine Multiplayer Komponente erweitert. Das grundlegende Design ist, dass der Server in festen Intervallen den nächsten Zeitschritt …" name="og:description">
+<meta content="multijsnake.html" property="og:url">
+<meta content="2021-09-26T09:27:00+02:00" property="og:article:published_time">
+<meta content="https://blog.schawe.me/img/logo.png" property="og:image"/>
+<meta content="https://blog.schawe.me/img/logo.png" name="twitter:image"/>
+<link href="https://blog.schawe.me/multijsnake.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/en/multijsnake.html" hreflang="en" rel="alternate">
+<link href="https://blog.schawe.me/multijsnake.html" hreflang="x-default" rel="alternate">
+<link href="/theme/webassets-external/6fc8b5d0286641a8981481d8734adb14_pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/webassets-external/cd1fc9b8f4fd6935866873d6d3cfad1b_grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/"><i class="fa fa-globe"></i> en</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/categories.html">Kategorien</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/archives.html">Archiv</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Suche" class="search-query" id="tipue_search_input" name="q" placeholder="Suche" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/multijsnake.html"> multiJSnake  </a>
+</h2>
+<div class="post-meta">
+<time class="post-time" datetime="2021-09-26T09:27:00+02:00">26.09.2021</time>
+<span class="category category-code">
+<a href="https://blog.schawe.me/categories.html#code-ref">Code</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#game-ref">Game</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#github-ref">GitHub</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#java-ref">Java</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#javascript-ref">JavaScript</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#snake-ref">Snake</a>
+</span>
+</span>
+</div>
+</header>
+<div class="post-content">
+<p>Vor Kurzem habe ich ein Server-Client Snake in meine Liste von simplen
+Snake-Clonen [<a href="https://blog.schawe.me/snake.html">1</a>, <a href="https://blog.schawe.me/pysnake.html">2</a>, <a href="https://blog.schawe.me/msnake.html">3</a>, <a href="https://blog.schawe.me/rsnake.html">4</a>, <a href="https://blog.schawe.me/jsnake.html">5</a>, <a href="https://blog.schawe.me/restfulsnake.html">6</a>]
+eingereiht. Wie ich in meinem Artikel <a href="https://blog.schawe.me/restfulsnake.html">„RestfulSnake“</a>
+bereits angedeutet hatte, habe ich es um eine Multiplayer Komponente erweitert.</p>
+<p><img alt="multiJSnake" height="400" src="/img/multisnake.gif" width="400"/></p>
+<p>Das grundlegende Design ist, dass der Server in festen Intervallen den nächsten Zeitschritt berechnet,
+den Spielzustand an alle Spieler schickt und auf Steuerkommandos von den Spielern lauscht. Dass der
+Server die gesamte Spiellogik verwaltet ist einerseits möglich, weil Snake einen relativ kleinen Zustand
+hat und nicht extrem empfindlich auf Latenzen reagiert. Außerdem können Spieler nicht (so einfach) schummeln,
+wenn der Spiel-Zustand auf dem Server berechnet wird.</p>
+<p>Hier sehen wir auch schon das erste Problem für die alte Kommunikation per http: Da der Server nicht von sich aus
+Nachrichten an die Clients schicken kann, müssten die Clients pollen, was zu einem ganzen Haufen an Problemen
+führen kann (Poll kurz vor dem Tick zum nächsten Zeitschritt, Last, uneinheitliche Antwortzeiten und Races bei
+schlechtem Netzwerk, …)
+Genau für diesen Zweck sind aber <a href="https://de.wikipedia.org/wiki/WebSocket">Websocket</a>-Verbindungen wie geschaffen!
+Da SpringBoot vernünftige Mechanismen mitbringt, um Websockets zu handhaben, ist die Umstellung sogar
+<a href="https://github.com/surt91/multiJSnake/commit/927f3bc02c9a3e024048b7d7111969c3cc304aff">vergleichsweise schmerzfrei</a>.</p>
+<p>Das größte Problem ist nun, dass die meisten Leute „Rest“ als synonym für „json über http“ verstehen. Also
+muss ein neuer Name her — leider war „multisnake“ auf Heroku schon belegt, sodass ich mit „multiJSnake“
+subtil darauf hinweise, dass Java und JavaScript das fundament bilden.</p>
+<p>Ausprobiert werden kann es auf <a href="https://multijsnake.herokuapp.com/">multijsnake.herokuapp.com</a> und weitere
+Spieler können durch einen Einladungslink in die eigene Session eingeladen werden. Die Quellen sind natürlich
+auf Github: <a href="https://github.com/surt91/multiJSnake/tree/v0.2.0">github.com/surt91/multiJSnake</a>.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<a href="https://blog.schawe.me/perfect-snake.html">← Neuer</a>
+<span class="separatordot">·</span>
+<a href="https://blog.schawe.me/restfulsnake.html">Älter →</a>
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/webassets-external/0cf7968c252ead5c096e55c1f7673096_rythm.js"></script>
+<script async="" src="/theme/webassets-external/a8b690a4c23c0610ea6538a9352534be_totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>

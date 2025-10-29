@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Snip</title><link href="https://blog.schawe.me/" rel="alternate"/><link href="https://blog.schawe.me/feeds/snip.atom.xml" rel="self"/><id>https://blog.schawe.me/</id><updated>2022-07-24T17:31:00+02:00</updated><entry><title>git subtree</title><link href="https://blog.schawe.me/git-subtree.html" rel="alternate"/><published>2022-07-24T17:31:00+02:00</published><updated>2022-07-24T17:31:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2022-07-24:/git-subtree.html</id><summary type="html">&lt;p&gt;Wir alle kennen die Situation: Eine neue Idee, mit der wir unser bestehendes Projekt mit dem&amp;nbsp;Namen &lt;code&gt;alt&lt;/code&gt; erweitern, sodass wir sogleich im zugehörigen Repository ein&amp;nbsp;Unterverzeichnis &lt;code&gt;neueIdee&lt;/code&gt; anlegen. Die Idee stellt sich dann als so gut heraus, dass sie auch außerhalb des&amp;nbsp;Projektes &lt;code&gt;alt&lt;/code&gt; nützlich wäre. Es wäre also …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Wir alle kennen die Situation: Eine neue Idee, mit der wir unser bestehendes Projekt mit dem&amp;nbsp;Namen &lt;code&gt;alt&lt;/code&gt; erweitern, sodass wir sogleich im zugehörigen Repository ein&amp;nbsp;Unterverzeichnis &lt;code&gt;neueIdee&lt;/code&gt; anlegen. Die Idee stellt sich dann als so gut heraus, dass sie auch außerhalb des&amp;nbsp;Projektes &lt;code&gt;alt&lt;/code&gt; nützlich wäre. Es wäre also sehr sinnvoll ein neues&amp;nbsp;Repository &lt;code&gt;neu&lt;/code&gt; anzulegen, das nur den Inhalt des&amp;nbsp;Unterverzeichnisses &lt;code&gt;neueIdee&lt;/code&gt; enthalten soll. Tatsächlich scheint dieses Problem wohl so oft vorzukommen, dass es seit 2012 ein extra git Subcommand für diesen Zweck (und etwas kompliziertere Fälle)&amp;nbsp;gibt: &lt;code&gt;git subtree&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Neues Repository aus einem&amp;nbsp;Unterverzeichnis&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;alt/
+├─ neueIdee/
+│  ├─ lib.rs
+├─ main.rs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Wir wechseln also in das&amp;nbsp;Repository &lt;code&gt;alt&lt;/code&gt; führen dort folgendes Kommando&amp;nbsp;aus:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;subtree&lt;span class="w"&gt; &lt;/span&gt;split&lt;span class="w"&gt; &lt;/span&gt;--prefix&lt;span class="o"&gt;=&lt;/span&gt;neueIdee/&lt;span class="w"&gt; &lt;/span&gt;--branch&lt;span class="o"&gt;=&lt;/span&gt;nurNeueIdeeBranch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dies erzeugt in diesem Repository zunächst einen neuen&amp;nbsp;Branch &lt;code&gt;nurNeueIdeeBranch&lt;/code&gt;, der nur den Inhalt&amp;nbsp;von &lt;code&gt;neueIdee&lt;/code&gt; hat &amp;#8212; also ein anderes Wurzelverzeichnis. Dieser Branch enthält also eine neu geschriebene History, die nur aus Commits besteht, die (auch) Einfluss auf Dateien unterhalb&amp;nbsp;von &lt;code&gt;neueIdee&lt;/code&gt; hatten.&lt;/p&gt;
+&lt;p&gt;Nun können wir unser neues&amp;nbsp;Repository &lt;code&gt;neu&lt;/code&gt; anlegen und den soeben erzeugten Branch&amp;nbsp;pullen.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;..&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;neu&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;neu
+git&lt;span class="w"&gt; &lt;/span&gt;init
+git&lt;span class="w"&gt; &lt;/span&gt;pull&lt;span class="w"&gt; &lt;/span&gt;../alt&lt;span class="w"&gt; &lt;/span&gt;nurNeueIdeeBranch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Und schon haben wir ein neues Repository, das nur den gewünschten Inhalt&amp;nbsp;hat.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;alt/
+├─ main.rs
+neu/
+├─ lib.rs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Möglicherweise wollen wir noch einen Commit im alten Repository tätigen, der&amp;nbsp;das &lt;code&gt;neueIdee&lt;/code&gt; Unterverzeichnis löscht. Möglicherweise müssen wir im neuen Repository noch Änderungen am Infrastrukturcode&amp;nbsp;vornehmen.&lt;/p&gt;
+&lt;h2&gt;Verschieben eines Unterverzeichnisses in ein bestehendes&amp;nbsp;Repository&lt;/h2&gt;
+&lt;p&gt;Womöglich fällt uns aber auch auf, dass der Code besser in ein anderes Repository statt eines Neuen passt? Vielleicht weil wir gerade dabei sind unseren Code in einem Monorepo zu sammeln? Auch kein&amp;nbsp;Problem!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;alt/
+├─ neueIdee/
+│  ├─ lib.rs
+├─ main.rs
+monorepo/
+├─ project1/
+├─ project2/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Wir haben oben  bereits&amp;nbsp;den &lt;code&gt;nurNeueIdeeBranch&lt;/code&gt; erstellt, den wir nun in das&amp;nbsp;Unterverzeichnis &lt;code&gt;guteIdee&lt;/code&gt;des&amp;nbsp;Repositorys &lt;code&gt;monorepo&lt;/code&gt; einfügen wollen. Auch hier hilft uns&amp;nbsp;wieder &lt;code&gt;git subtree&lt;/code&gt; weiter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;monorepo
+git&lt;span class="w"&gt; &lt;/span&gt;branch&lt;span class="w"&gt; &lt;/span&gt;mitGuterIdeeBranch
+git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;mitGuterIdeeBranch
+git&lt;span class="w"&gt; &lt;/span&gt;subtree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;--prefix&lt;span class="o"&gt;=&lt;/span&gt;guteIdee/&lt;span class="w"&gt; &lt;/span&gt;../alt&lt;span class="w"&gt; &lt;/span&gt;nurNeueIdeeBranch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sobald wir uns in dem neuen&amp;nbsp;Branch &lt;code&gt;mitGuterIdeeBranch&lt;/code&gt; überzeugt haben, dass alles zu unserer Zufriedenheit geklappt hat und wir möglicherweise noch Infrastrukturcode angepasst haben, können wir den Branch&amp;nbsp;nach &lt;code&gt;main&lt;/code&gt; mergen und sind&amp;nbsp;fertig.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;alt/
+├─ neueIdee/
+│  ├─ lib.rs
+├─ main.rs
+monorepo/
+├─ project1/
+├─ project2/
+├─ guteIdee/
+│  ├─ lib.rs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>Raspberry Router</title><link href="https://blog.schawe.me/raspberry-router.html" rel="alternate"/><published>2021-05-10T20:19:00+02:00</published><updated>2021-05-10T20:19:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2021-05-10:/raspberry-router.html</id><summary type="html">&lt;p&gt;Für die Fälle, in denen man nur per &lt;span class="caps"&gt;WLAN&lt;/span&gt; einen Zugang
+zum Internet und nur einen Raspberry &lt;span class="caps"&gt;PI&lt;/span&gt; dabei hat, aber dennoch
+kabelgebundenes Internet braucht, notiere ich diesen Eintrag.
+Für weitergehende Informationen ist das &lt;a href="https://wiki.archlinux.org/index.php/Internet_sharing"&gt;Arch Linux Wiki&lt;/a&gt;,
+wie immer,&amp;nbsp;empfehlenswert.&lt;/p&gt;
+&lt;p&gt;Wir müssen unseren Raspberry nur mit dem &lt;span class="caps"&gt;WLAN&lt;/span&gt; verbinden, das …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Für die Fälle, in denen man nur per &lt;span class="caps"&gt;WLAN&lt;/span&gt; einen Zugang
+zum Internet und nur einen Raspberry &lt;span class="caps"&gt;PI&lt;/span&gt; dabei hat, aber dennoch
+kabelgebundenes Internet braucht, notiere ich diesen Eintrag.
+Für weitergehende Informationen ist das &lt;a href="https://wiki.archlinux.org/index.php/Internet_sharing"&gt;Arch Linux Wiki&lt;/a&gt;,
+wie immer,&amp;nbsp;empfehlenswert.&lt;/p&gt;
+&lt;p&gt;Wir müssen unseren Raspberry nur mit dem &lt;span class="caps"&gt;WLAN&lt;/span&gt; verbinden, das Ethernetkabel
+einstecken und spezifizieren, dass der Traffic vom einen zum
+anderen weitergeleitet werden&amp;nbsp;sollen.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sysctl&lt;span class="w"&gt; &lt;/span&gt;net.ipv4.ip_forward&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+iptables&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;nat&lt;span class="w"&gt; &lt;/span&gt;-A&lt;span class="w"&gt; &lt;/span&gt;POSTROUTING&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;wlan0&lt;span class="w"&gt; &lt;/span&gt;-j&lt;span class="w"&gt; &lt;/span&gt;MASQUERADE
+iptables&lt;span class="w"&gt; &lt;/span&gt;-A&lt;span class="w"&gt; &lt;/span&gt;FORWARD&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;wlan0&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;eth0&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;state&lt;span class="w"&gt; &lt;/span&gt;--state&lt;span class="w"&gt; &lt;/span&gt;RELATED,ESTABLISHED&lt;span class="w"&gt; &lt;/span&gt;-j&lt;span class="w"&gt; &lt;/span&gt;ACCEPT
+iptables&lt;span class="w"&gt; &lt;/span&gt;-A&lt;span class="w"&gt; &lt;/span&gt;FORWARD&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;eth0&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;wlan0&lt;span class="w"&gt; &lt;/span&gt;-j&lt;span class="w"&gt; &lt;/span&gt;ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Da unser Raspberry jetzt ein Router ist, muss er natürlich auch die üblichen Aufgaben
+eines Routers übernehmen und die Geräte, die per Ethernet verbunden werden
+per &lt;span class="caps"&gt;DHCP&lt;/span&gt; mit &lt;span class="caps"&gt;IP&lt;/span&gt; Adressen versorgen, beispielsweise mittels &lt;a href="https://wiki.archlinux.org/title/Dnsmasq"&gt;dnsmasq&lt;/a&gt;
+mit folgender Konfiguration&amp;nbsp;in &lt;code&gt;/etc/dnsmasq.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;#disable dns
+port=0
+
+dhcp-range=192.168.13.50,192.168.13.150,12h
+bind-interfaces
+dhcp-option=3,0.0.0.0
+dhcp-option=6,1.1.1.1,8.8.8.8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bei der Gelegenheit kann man auch dafür sorgen, dass sämtlicher Traffic
+durch ein &lt;span class="caps"&gt;VPN&lt;/span&gt; geleitet wird, indem man&amp;nbsp;das &lt;code&gt;wlan0&lt;/code&gt; Interface oben durch
+das konfigurierte &lt;span class="caps"&gt;VPN&lt;/span&gt;-Interface austauscht (zB.&amp;nbsp;durch &lt;code&gt;tun0&lt;/code&gt; für OpenVPN&amp;nbsp;oder &lt;code&gt;wg0&lt;/code&gt; für&amp;nbsp;WireGuard).&lt;/p&gt;</content><category term="Snip"/></entry><entry><title>compress-pdf</title><link href="https://blog.schawe.me/compress-pdf.html" rel="alternate"/><published>2020-04-12T10:26:00+02:00</published><updated>2020-04-12T10:26:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2020-04-12:/compress-pdf.html</id><summary type="html">&lt;p&gt;Um&amp;nbsp;ein &lt;code&gt;pdf&lt;/code&gt; mit vielen zu hoch aufgelösten Bildern auf eine angemessene
+Dateigröße zu bringen (durch das Herunterskalieren und gegebenenfalls
+Neukodieren der Bilder), kann einfach ghostscript genutzt&amp;nbsp;werden:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;gs&lt;span class="w"&gt; &lt;/span&gt;-sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite&lt;span class="w"&gt; &lt;/span&gt;-dCompatibilityLevel&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.4&lt;span class="w"&gt; &lt;/span&gt;-dPDFSETTINGS&lt;span class="o"&gt;=&lt;/span&gt;/ebook&lt;span class="w"&gt; &lt;/span&gt;-dEmbedAllFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-dSubsetFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-dNOPAUSE&lt;span class="w"&gt; &lt;/span&gt;-dQUIET&lt;span class="w"&gt; &lt;/span&gt;-dBATCH&lt;span class="w"&gt; &lt;/span&gt;-sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;output.pdf&lt;span class="w"&gt; &lt;/span&gt;input.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Die Qualitätspresets …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Um&amp;nbsp;ein &lt;code&gt;pdf&lt;/code&gt; mit vielen zu hoch aufgelösten Bildern auf eine angemessene
+Dateigröße zu bringen (durch das Herunterskalieren und gegebenenfalls
+Neukodieren der Bilder), kann einfach ghostscript genutzt&amp;nbsp;werden:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;gs&lt;span class="w"&gt; &lt;/span&gt;-sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite&lt;span class="w"&gt; &lt;/span&gt;-dCompatibilityLevel&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.4&lt;span class="w"&gt; &lt;/span&gt;-dPDFSETTINGS&lt;span class="o"&gt;=&lt;/span&gt;/ebook&lt;span class="w"&gt; &lt;/span&gt;-dEmbedAllFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-dSubsetFonts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-dNOPAUSE&lt;span class="w"&gt; &lt;/span&gt;-dQUIET&lt;span class="w"&gt; &lt;/span&gt;-dBATCH&lt;span class="w"&gt; &lt;/span&gt;-sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;output.pdf&lt;span class="w"&gt; &lt;/span&gt;input.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Die Qualitätspresets&amp;nbsp;sind &lt;code&gt;screen&lt;/code&gt;, &lt;code&gt;ebook&lt;/code&gt;, &lt;code&gt;printer&lt;/code&gt;, &lt;code&gt;prepress&lt;/code&gt; und &lt;code&gt;default&lt;/code&gt;.
+Weitere Optionsnamen können durch folgendes Kommando ermittelt&amp;nbsp;werden:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;gs&lt;span class="w"&gt; &lt;/span&gt;-sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;/dev/null&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;currentpagedevice { exch ==only ( ) print == } forall&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>smartphone webcam</title><link href="https://blog.schawe.me/smartphone-webcam.html" rel="alternate"/><published>2020-04-04T10:59:00+02:00</published><updated>2020-04-04T10:59:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2020-04-04:/smartphone-webcam.html</id><summary type="html">&lt;p&gt;Um die Kamera eines Smartphones als Webcam für eine Videokonferenz auf dem Computer zu nutzen,
+braucht man zuerst eine App, die das Bild der Kamera&amp;nbsp;als &lt;code&gt;http&lt;/code&gt;-Stream bereit
+stellt, bspw. &lt;a href="https://play.google.com/store/apps/details?id=com.pas.webcam&amp;amp;hl=de"&gt;&lt;span class="caps"&gt;IP&lt;/span&gt; Webcam&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Für Linux existieren die&amp;nbsp;Projekte &lt;code&gt;v4l2loopback&lt;/code&gt; und &lt;code&gt;ffmpeg&lt;/code&gt; mit deren Hilfe
+der Stream als Webcam input genutzt …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Um die Kamera eines Smartphones als Webcam für eine Videokonferenz auf dem Computer zu nutzen,
+braucht man zuerst eine App, die das Bild der Kamera&amp;nbsp;als &lt;code&gt;http&lt;/code&gt;-Stream bereit
+stellt, bspw. &lt;a href="https://play.google.com/store/apps/details?id=com.pas.webcam&amp;amp;hl=de"&gt;&lt;span class="caps"&gt;IP&lt;/span&gt; Webcam&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Für Linux existieren die&amp;nbsp;Projekte &lt;code&gt;v4l2loopback&lt;/code&gt; und &lt;code&gt;ffmpeg&lt;/code&gt; mit deren Hilfe
+der Stream als Webcam input genutzt werden kann (hier für den Fall, dass das
+Smartphone die &lt;span class="caps"&gt;IP&lt;/span&gt; &lt;code&gt;192.168.1.127&lt;/code&gt; hat):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;modprobe&lt;span class="w"&gt; &lt;/span&gt;v4l2loopback
+ffmpeg&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;http://192.168.1.127:8080/video&lt;span class="w"&gt; &lt;/span&gt;-map&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;:v&lt;span class="w"&gt; &lt;/span&gt;-vcodec&lt;span class="w"&gt; &lt;/span&gt;rawvideo&lt;span class="w"&gt; &lt;/span&gt;-vf&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;format&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;yuv420p&lt;span class="w"&gt; &lt;/span&gt;-fflags&lt;span class="w"&gt; &lt;/span&gt;nobuffer&lt;span class="w"&gt; &lt;/span&gt;-flags&lt;span class="w"&gt; &lt;/span&gt;low_delay&lt;span class="w"&gt; &lt;/span&gt;-fflags&lt;span class="w"&gt; &lt;/span&gt;discardcorrupt&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;v4l2&lt;span class="w"&gt; &lt;/span&gt;/dev/video2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Natürlich kann man beliebige Filter&amp;nbsp;von &lt;code&gt;ffmpeg&lt;/code&gt; anwenden, zum Beispiel&amp;nbsp;einen
+&lt;code&gt;colorkey&lt;/code&gt; oder &lt;code&gt;chromakey&lt;/code&gt;, um ein beliebiges&amp;nbsp;Bild &lt;code&gt;background.jpg&lt;/code&gt; als
+virtuellen Hintergrund zu nutzen. Hier für den Fall, dass ein weißes Bettlaken
+als &amp;#8220;green screen&amp;#8221; genutzt&amp;nbsp;wird:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ffmpeg&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;images/background.jpg&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;http://192.168.1.127:8080/video&lt;span class="w"&gt; &lt;/span&gt;-vcodec&lt;span class="w"&gt; &lt;/span&gt;rawvideo&lt;span class="w"&gt; &lt;/span&gt;-fflags&lt;span class="w"&gt; &lt;/span&gt;nobuffer&lt;span class="w"&gt; &lt;/span&gt;-flags&lt;span class="w"&gt; &lt;/span&gt;low_delay&lt;span class="w"&gt; &lt;/span&gt;-fflags&lt;span class="w"&gt; &lt;/span&gt;discardcorrupt&lt;span class="w"&gt; &lt;/span&gt;-filter_complex&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[1:v]colorkey=0xbbbbbb:0.3:0.2[foregroud];[0:v][foregroud]overlay[composite];[composite]format=yuv420p[out]&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-map&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[out]:v&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;v4l2&lt;span class="w"&gt; &lt;/span&gt;/dev/video2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ähnlich kann auch das Smartphone-Mikrophon als Mikrophon für den Computer genutzt
+werden. Hier mithilfe&amp;nbsp;von &lt;code&gt;pulseaudio&lt;/code&gt; und &lt;code&gt;gstreamer&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pactl&lt;span class="w"&gt; &lt;/span&gt;load-module&lt;span class="w"&gt; &lt;/span&gt;module-null-sink&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;sink_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ipwebcam&amp;quot;&lt;/span&gt;
+pactl&lt;span class="w"&gt; &lt;/span&gt;set-default-source&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ipwebcam.monitor&amp;quot;&lt;/span&gt;
+gst-launch-1.0&lt;span class="w"&gt; &lt;/span&gt;souphttpsrc&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;location&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;http://192.168.1.127:8080/audio.wav&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;is-live&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;!&lt;span class="w"&gt; &lt;/span&gt;audio/x-raw,format&lt;span class="o"&gt;=&lt;/span&gt;S16LE,layout&lt;span class="o"&gt;=&lt;/span&gt;interleaved,rate&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;44100&lt;/span&gt;,channels&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;!&lt;span class="w"&gt; &lt;/span&gt;queue&lt;span class="w"&gt; &lt;/span&gt;!&lt;span class="w"&gt; &lt;/span&gt;pulsesink&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;device&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ipwebcam&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>relay ssh</title><link href="https://blog.schawe.me/relay-ssh.html" rel="alternate"/><published>2018-03-21T10:46:00+01:00</published><updated>2018-03-21T10:46:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2018-03-21:/relay-ssh.html</id><summary type="html">&lt;p&gt;Um sich per&amp;nbsp;Server &lt;code&gt;relay&lt;/code&gt; mit &lt;code&gt;target&lt;/code&gt; zu verbinden. Nützlich&amp;nbsp;wenn &lt;code&gt;target&lt;/code&gt;
+hinter einer Firewall versteckt, aber&amp;nbsp;von &lt;code&gt;relay&lt;/code&gt; erreichbar&amp;nbsp;ist.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-J&lt;span class="w"&gt; &lt;/span&gt;user1@relay&lt;span class="w"&gt; &lt;/span&gt;user2@target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dies kann mit anderen Optionen kombiniert werden, sodass eine Portweiterleitung
+stattfinden kann, über die&amp;nbsp;bspw. &lt;code&gt;sshfs&lt;/code&gt; genutzt werden&amp;nbsp;kann.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-L&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9999&lt;/span&gt;:localhost …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Um sich per&amp;nbsp;Server &lt;code&gt;relay&lt;/code&gt; mit &lt;code&gt;target&lt;/code&gt; zu verbinden. Nützlich&amp;nbsp;wenn &lt;code&gt;target&lt;/code&gt;
+hinter einer Firewall versteckt, aber&amp;nbsp;von &lt;code&gt;relay&lt;/code&gt; erreichbar&amp;nbsp;ist.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-J&lt;span class="w"&gt; &lt;/span&gt;user1@relay&lt;span class="w"&gt; &lt;/span&gt;user2@target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dies kann mit anderen Optionen kombiniert werden, sodass eine Portweiterleitung
+stattfinden kann, über die&amp;nbsp;bspw. &lt;code&gt;sshfs&lt;/code&gt; genutzt werden&amp;nbsp;kann.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-L&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9999&lt;/span&gt;:localhost:22&lt;span class="w"&gt; &lt;/span&gt;-J&lt;span class="w"&gt; &lt;/span&gt;user1@relay&lt;span class="w"&gt; &lt;/span&gt;user2@target
+sshfs&lt;span class="w"&gt; &lt;/span&gt;user2@localhost:/path&lt;span class="w"&gt; &lt;/span&gt;/mountpoint&lt;span class="w"&gt; &lt;/span&gt;-C&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9999&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Eine Kombination mit &lt;a href="https://blog.schawe.me/reverse-ssh.html"&gt;reverse-ssh&lt;/a&gt;
+könnte so&amp;nbsp;aussehen:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-L&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9999&lt;/span&gt;:localhost:22&lt;span class="w"&gt; &lt;/span&gt;-J&lt;span class="w"&gt; &lt;/span&gt;user1@relay&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;19999&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;user2@localhost
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>latexdiff</title><link href="https://blog.schawe.me/latexdiff.html" rel="alternate"/><published>2018-01-11T15:28:00+01:00</published><updated>2018-01-11T15:28:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2018-01-11:/latexdiff.html</id><summary type="html">&lt;p&gt;Um die Unterschiede zwischen zwei Latex Dateien zu ermitteln, die beispielsweise
+aus Git&amp;nbsp;kommen.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;latexdiff&lt;span class="w"&gt; &lt;/span&gt;old.tex&lt;span class="w"&gt; &lt;/span&gt;new.tex&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;diff.tex
+pdflatex&lt;span class="w"&gt; &lt;/span&gt;diff.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Und wenn man sowieso schon git benutzt, reicht es einfach den Hash des Commits
+angeben, den man mit dem aktuellen Stand vergleichen&amp;nbsp;will.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;latexdiff-vc&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;96deadbeef …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Um die Unterschiede zwischen zwei Latex Dateien zu ermitteln, die beispielsweise
+aus Git&amp;nbsp;kommen.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;latexdiff&lt;span class="w"&gt; &lt;/span&gt;old.tex&lt;span class="w"&gt; &lt;/span&gt;new.tex&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;diff.tex
+pdflatex&lt;span class="w"&gt; &lt;/span&gt;diff.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Und wenn man sowieso schon git benutzt, reicht es einfach den Hash des Commits
+angeben, den man mit dem aktuellen Stand vergleichen&amp;nbsp;will.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;latexdiff-vc&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;96deadbeef&lt;span class="w"&gt; &lt;/span&gt;filename.tex&lt;span class="w"&gt; &lt;/span&gt;--pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>reverse ssh</title><link href="https://blog.schawe.me/reverse-ssh.html" rel="alternate"/><published>2017-12-11T15:35:00+01:00</published><updated>2017-12-11T15:35:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2017-12-11:/reverse-ssh.html</id><summary type="html">&lt;p&gt;Führe auf dem&amp;nbsp;Computer &lt;code&gt;target&lt;/code&gt;, der hinter einer Firewall steht und dennoch
+per &lt;span class="caps"&gt;SSH&lt;/span&gt; erreichbar sein soll folgendes&amp;nbsp;aus&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;-N&lt;span class="w"&gt; &lt;/span&gt;-R&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:19999:localhost:22&lt;span class="w"&gt; &lt;/span&gt;user@server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;server&lt;/code&gt; muss erreichbar sein und&amp;nbsp;in &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;
+folgende Option aktiviert&amp;nbsp;haben&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;GatewayPorts yes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Jetzt kann man …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Führe auf dem&amp;nbsp;Computer &lt;code&gt;target&lt;/code&gt;, der hinter einer Firewall steht und dennoch
+per &lt;span class="caps"&gt;SSH&lt;/span&gt; erreichbar sein soll folgendes&amp;nbsp;aus&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;-N&lt;span class="w"&gt; &lt;/span&gt;-R&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:19999:localhost:22&lt;span class="w"&gt; &lt;/span&gt;user@server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;server&lt;/code&gt; muss erreichbar sein und&amp;nbsp;in &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;
+folgende Option aktiviert&amp;nbsp;haben&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;GatewayPorts yes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Jetzt kann man von beliebigen Clients auf den&amp;nbsp;Computer &lt;code&gt;target&lt;/code&gt; zugreifen&amp;nbsp;per&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;19999&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;user@server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;So kann man beispielsweise&amp;nbsp;auch &lt;code&gt;sshfs&lt;/code&gt; nutzen.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sshfs&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;19999&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;user@server:folder&lt;span class="w"&gt; &lt;/span&gt;~/sshfs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>png2gif</title><link href="https://blog.schawe.me/png2gif.html" rel="alternate"/><published>2017-10-31T11:46:00+01:00</published><updated>2017-10-31T11:46:00+01:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2017-10-31:/png2gif.html</id><content type="html">&lt;p&gt;Konvertiere einen Ordner&amp;nbsp;voller &lt;code&gt;.png&lt;/code&gt; in ein&amp;nbsp;animiertes &lt;code&gt;.gif&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;convert&lt;span class="w"&gt; &lt;/span&gt;-delay&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-loop&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-layers&lt;span class="w"&gt; &lt;/span&gt;Optimize&lt;span class="w"&gt; &lt;/span&gt;*.png&lt;span class="w"&gt; &lt;/span&gt;out.gif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Natürlich klappt das nicht nur&amp;nbsp;für &lt;code&gt;.png&lt;/code&gt; und alle anderen Optionen von
+Imagemagick lassen sich&amp;nbsp;kombinieren.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;convert&lt;span class="w"&gt; &lt;/span&gt;-resize&lt;span class="w"&gt; &lt;/span&gt;256x256&lt;span class="se"&gt;\&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-delay&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-loop&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-layers&lt;span class="w"&gt; &lt;/span&gt;Optimize&lt;span class="w"&gt; &lt;/span&gt;*.svg&lt;span class="w"&gt; &lt;/span&gt;out.gif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>png2vp9</title><link href="https://blog.schawe.me/png2vp9.html" rel="alternate"/><published>2017-08-26T11:05:00+02:00</published><updated>2017-08-26T11:05:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2017-08-26:/png2vp9.html</id><summary type="html">&lt;p&gt;Konvertiere einen Ordner&amp;nbsp;voller &lt;code&gt;.png&lt;/code&gt; in ein zur Web-Wiedergabe&amp;nbsp;geeignetes
+&lt;code&gt;VP9&lt;/code&gt;, das von allen &lt;a href="http://caniuse.com/webm/embed"&gt;wichtigen Browsern unterstützt&lt;/a&gt;&amp;nbsp;wird.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ffmpeg&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;image2&lt;span class="w"&gt; &lt;/span&gt;-pattern_type&lt;span class="w"&gt; &lt;/span&gt;glob&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-c:v&lt;span class="w"&gt; &lt;/span&gt;libvpx-vp9&lt;span class="w"&gt; &lt;/span&gt;-pass&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-b:v&lt;span class="w"&gt; &lt;/span&gt;1000K&lt;span class="w"&gt; &lt;/span&gt;-threads&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-speed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-tile-columns&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-frame-parallel&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-auto-alt-ref&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-lag-in-frames&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;25&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-g&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9999&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-aq-mode&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Konvertiere einen Ordner&amp;nbsp;voller &lt;code&gt;.png&lt;/code&gt; in ein zur Web-Wiedergabe&amp;nbsp;geeignetes
+&lt;code&gt;VP9&lt;/code&gt;, das von allen &lt;a href="http://caniuse.com/webm/embed"&gt;wichtigen Browsern unterstützt&lt;/a&gt;&amp;nbsp;wird.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ffmpeg&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;image2&lt;span class="w"&gt; &lt;/span&gt;-pattern_type&lt;span class="w"&gt; &lt;/span&gt;glob&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-c:v&lt;span class="w"&gt; &lt;/span&gt;libvpx-vp9&lt;span class="w"&gt; &lt;/span&gt;-pass&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-b:v&lt;span class="w"&gt; &lt;/span&gt;1000K&lt;span class="w"&gt; &lt;/span&gt;-threads&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-speed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-tile-columns&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-frame-parallel&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-auto-alt-ref&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-lag-in-frames&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;25&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-g&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9999&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-aq-mode&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-an&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;null&lt;span class="w"&gt; &lt;/span&gt;-
+
+
+ffmpeg&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;image2&lt;span class="w"&gt; &lt;/span&gt;-pattern_type&lt;span class="w"&gt; &lt;/span&gt;glob&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-c:v&lt;span class="w"&gt; &lt;/span&gt;libvpx-vp9&lt;span class="w"&gt; &lt;/span&gt;-pass&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-b:v&lt;span class="w"&gt; &lt;/span&gt;1000K&lt;span class="w"&gt; &lt;/span&gt;-threads&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-speed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-tile-columns&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-frame-parallel&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-auto-alt-ref&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-lag-in-frames&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;25&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-g&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9999&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-aq-mode&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-c:a&lt;span class="w"&gt; &lt;/span&gt;libopus&lt;span class="w"&gt; &lt;/span&gt;-b:a&lt;span class="w"&gt; &lt;/span&gt;64k&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;webm&lt;span class="w"&gt; &lt;/span&gt;video.webm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Für maximale Kompatibilität kann als Fallback noch&amp;nbsp;ein &lt;code&gt;MP4&lt;/code&gt; erstellt&amp;nbsp;werden.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ffmpeg&lt;span class="w"&gt; &lt;/span&gt;-an&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;image2&lt;span class="w"&gt; &lt;/span&gt;-pattern_type&lt;span class="w"&gt; &lt;/span&gt;glob&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-vcodec&lt;span class="w"&gt; &lt;/span&gt;libx264&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-pix_fmt&lt;span class="w"&gt; &lt;/span&gt;yuv420p&lt;span class="w"&gt; &lt;/span&gt;-profile:v&lt;span class="w"&gt; &lt;/span&gt;baseline&lt;span class="w"&gt; &lt;/span&gt;-level&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;video.mp4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Einbettung erfolgt&amp;nbsp;mit:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;video&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;source&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path/to/video.webm&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;video/webm; codecs=vp9,vorbis&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;source&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path/to/video.mp4&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;video&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>optipng</title><link href="https://blog.schawe.me/optipng.html" rel="alternate"/><published>2016-10-02T12:56:00+02:00</published><updated>2016-10-02T12:56:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2016-10-02:/optipng.html</id><content type="html">&lt;p&gt;Optimiere &lt;code&gt;.png&lt;/code&gt; Bilder. Kleinere Größe, kein&amp;nbsp;Qualitätsverlust.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;optipng&lt;span class="w"&gt; &lt;/span&gt;-o7&lt;span class="w"&gt; &lt;/span&gt;*.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>png2mp4</title><link href="https://blog.schawe.me/png2mp4.html" rel="alternate"/><published>2016-09-17T18:48:00+02:00</published><updated>2016-09-17T18:48:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2016-09-17:/png2mp4.html</id><content type="html">&lt;p&gt;Konvertiere einen Ordner mit passend&amp;nbsp;nummerierten &lt;code&gt;.png&lt;/code&gt;
+in&amp;nbsp;ein &lt;code&gt;x264&lt;/code&gt; Video&amp;nbsp;im &lt;code&gt;.mp4&lt;/code&gt; Format mit gegebener&amp;nbsp;Framerate.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ffmpeg&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;image2&lt;span class="w"&gt; &lt;/span&gt;-pattern_type&lt;span class="w"&gt; &lt;/span&gt;glob&lt;span class="w"&gt; &lt;/span&gt;-framerate&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img*.png&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-vcodec&lt;span class="w"&gt; &lt;/span&gt;libx264&lt;span class="w"&gt; &lt;/span&gt;vid.mp4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>svg2png</title><link href="https://blog.schawe.me/svg2png.html" rel="alternate"/><published>2016-09-17T18:46:00+02:00</published><updated>2016-09-17T18:46:00+02:00</updated><author><name>Hendrik Schawe</name></author><id>tag:blog.schawe.me,2016-09-17:/svg2png.html</id><content type="html">&lt;p&gt;Konvertiere &lt;code&gt;.svg&lt;/code&gt; in &lt;code&gt;.png&lt;/code&gt; mit weißem&amp;nbsp;Hintergrund.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;inkscape&lt;span class="w"&gt; &lt;/span&gt;-z&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;#fff\&amp;quot; -e img.png -h 1080 img.svg&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Oder einen ganzen&amp;nbsp;Ordner.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;*.svg
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;inkscape&lt;span class="w"&gt; &lt;/span&gt;-z&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;#fff\&amp;quot; -e $(basename -s .svg $i).png -h 1080 $i&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry><entry><title>ssh-password</title><link href="https://blog.schawe.me/ssh-password.html" rel="alternate"/><published>2010-12-11T18:26:00+01:00</published><updated>2010-12-11T18:26:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2010-12-11:/ssh-password.html</id><content type="html">&lt;p&gt;Um das Passwort des ssh-rsa-Schlüssels zu&amp;nbsp;ändern.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ssh-keygen&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;id_rsa&lt;span class="w"&gt; &lt;/span&gt;-p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Snip"/></entry></feed>

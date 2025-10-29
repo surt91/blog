@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>make  · möchte­gern­geek</title>
+<meta content="Als Obi-Wan zu Luke gesagt hat This is the weapon of a Jedi Knight. Not as clumsy or random as a blaster; an elegant weapon for a more civilized age. — Obi-Wan Kenobi (1977) Meinte er vermutlich make. (Fun Fact: make wurde auch 1977 veröffentlicht.) Mit wenigen Zeilen im Makefile kann …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="make, LaTeX, TikZ, Gnuplot, Code, " name="keywords"/>
+<meta content="make " name="twitter:title">
+<meta content="Als Obi-Wan zu Luke gesagt hat This is the weapon of a Jedi Knight. Not as clumsy or random as a blaster; an elegant weapon for a more civilized age. — Obi-Wan Kenobi (1977) Meinte er vermutlich make. (Fun Fact: make wurde auch 1977 veröffentlicht.) Mit wenigen Zeilen im Makefile kann …" name="twitter:description">
+<meta content="make " name="og:title">
+<meta content="Als Obi-Wan zu Luke gesagt hat This is the weapon of a Jedi Knight. Not as clumsy or random as a blaster; an elegant weapon for a more civilized age. — Obi-Wan Kenobi (1977) Meinte er vermutlich make. (Fun Fact: make wurde auch 1977 veröffentlicht.) Mit wenigen Zeilen im Makefile kann …" name="og:description">
+<meta content="drafts/make-de.html" property="og:url">
+<meta content="2016-11-02T15:41:00+01:00" property="og:article:published_time">
+<meta content="https://blog.schawe.me/img/logo.png" property="og:image"/>
+<meta content="https://blog.schawe.me/img/logo.png" name="twitter:image"/>
+<link href="https://blog.schawe.me/drafts/make-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/make-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/make-de.html" hreflang="x-default" rel="alternate">
+<link href="/theme/css/pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/en/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Search" class="search-query" id="tipue_search_input" name="q" placeholder="Search" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/en/drafts/make-de.html"> make  </a>
+</h2>
+<div class="post-meta">
+<time class="post-time" datetime="2016-11-02T15:41:00+01:00">02.11.2016</time>
+<span class="category category-code">
+<a href="https://blog.schawe.me/en/categories.html#code-ref">Code</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#gnuplot-ref">Gnuplot</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#latex-ref">LaTeX</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#make-ref">make</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#tikz-ref">TikZ</a>
+</span>
+</span>
+</div>
+</header>
+<div class="post-content">
+<p>Als Obi-Wan zu Luke gesagt hat</p>
+<blockquote>
+<p>This is the weapon of a Jedi Knight.
+Not as clumsy or random as a blaster;
+an elegant weapon for a more civilized age.</p>
+<p>— <cite>Obi-Wan Kenobi</cite> (1977)</p>
+</blockquote>
+<p>Meinte er vermutlich <code>make</code>. (Fun Fact: <code>make</code> wurde auch <a href="https://en.wikipedia.org/wiki/Make_(software)">1977 veröffentlicht</a>.)</p>
+<p>Mit wenigen Zeilen im <code>Makefile</code> kann man nicht nur sein $\LaTeX$ Projekt
+kompilieren, sondern auch alle Plots neu zeichnen, die sich geändert haben.
+Für unser Beispiel gehen wir davon aus, dass zum Plotten Gnuplot mit dem <code>epslatex</code> Terminal genutzt
+wird und folgende Verzeichnisstruktur des Projektes vorliegt.</p>
+<div class="highlight"><pre><span></span><code>.
++-- data
+|   + datafile1.dat
+|   + datafile2.dat
++-- images
+|   +-- img1.svg
+|   +-- img2.tex
++-- plots
+|   +-- style.gps
+|   +-- plot1.gp
+|   +-- plot2.gp
++-- myDocument.tex
++-- chapter1.tex
++-- chapter2.tex
++-- lit.bib
+</code></pre></div>
+<p>Dann kümmert sich das folgende <code>Makefile</code> darum, dass die Daten für die Plots
+heruntergeladen werden, alle Plots, TikZ und .svg parallel zu .pdf gerendert
+werden und sobald das geschehen ist, das Dokument kompiliert wird.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">DOCUMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>myDocument
+
+<span class="c"># get all image files from their directories</span>
+<span class="nv">PLOTS</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>plots/*.gp<span class="k">)</span>
+<span class="nv">TIKZ</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>images/*.tex<span class="k">)</span>
+<span class="nv">SVG</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>images/*.svg<span class="k">)</span>
+
+<span class="c"># we want the images to be pdf</span>
+<span class="nv">PLOTS</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>PLOTS:%.gp<span class="o">=</span>%.pdf<span class="k">)</span>
+<span class="nv">SVG</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>SVG:%.svg<span class="o">=</span>%.pdf<span class="k">)</span>
+<span class="nv">TIKZ</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>TIKZ:%.tex<span class="o">=</span>%.pdf<span class="k">)</span>
+
+<span class="nv">IMAGES</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>PLOTS<span class="k">)</span><span class="w"> </span><span class="k">$(</span>SVG<span class="k">)</span><span class="w"> </span><span class="k">$(</span>TIKZ<span class="k">)</span>
+
+<span class="c"># get all tex files</span>
+<span class="nv">TEX</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>*.tex<span class="k">)</span>
+<span class="nv">BIBFILE</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>lit.bib
+
+<span class="nf">all</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">DOKUMENT</span><span class="k">)</span>.<span class="n">pdf</span>
+
+<span class="c"># we need chapters, images and the bib file to create our document</span>
+<span class="c"># also recompile, whenever one of those changes</span>
+<span class="nf">$(DOCUMENT).pdf</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">TEX</span><span class="k">)</span> <span class="k">$(</span><span class="nv">IMAGES</span><span class="k">)</span> <span class="k">$(</span><span class="nv">BIBFILE</span><span class="k">)</span>
+<span class="nf">$(DOCUMENT).pdf</span><span class="o">:</span><span class="w"> </span>%.<span class="n">pdf</span>: %.<span class="n">tex</span>
+<span class="w">    </span>pdflatex<span class="w"> </span>-interaction<span class="o">=</span>batchmode<span class="w"> </span><span class="nv">$*</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<span class="w">    </span>biber<span class="w"> </span><span class="nv">$*</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<span class="w">    </span>pdflatex<span class="w"> </span>-interaction<span class="o">=</span>batchmode<span class="w"> </span><span class="nv">$*</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<span class="w">    </span>pdflatex<span class="w"> </span>-interaction<span class="o">=</span>batchmode<span class="w"> </span><span class="nv">$*</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+
+<span class="c"># gnuplot generates texfiles from the .gp files</span>
+<span class="c"># make sure to regenerate all tex files, if the style</span>
+<span class="c"># or the data changes</span>
+<span class="nf">%.tex</span><span class="o">:</span><span class="w"> </span>%.<span class="n">gp</span> <span class="n">plots</span>/<span class="n">style</span>.<span class="n">gps</span> <span class="p">|</span> <span class="n">data</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="k">$(</span>&lt;D<span class="k">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>gnuplot<span class="w"> </span><span class="k">$(</span>&lt;F<span class="k">)</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+<span class="c"># use this rule to convert .svg to pdf</span>
+<span class="nf">$(SVG)</span><span class="o">:</span><span class="w"> </span>%.<span class="n">pdf</span>: %.<span class="n">svg</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="k">$(</span>&lt;D<span class="k">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>inkscape<span class="w"> </span>-z<span class="w"> </span>-A<span class="w"> </span><span class="k">$(</span>*F<span class="k">)</span>.pdf<span class="w"> </span>-h<span class="w"> </span><span class="m">1080</span><span class="w"> </span><span class="k">$(</span>&lt;F<span class="k">)</span>
+
+<span class="c"># use this rule only to generate .pdf from the "image type" .tex files</span>
+<span class="nf">$(TIKZ) $(PLOTS)</span><span class="o">:</span><span class="w"> </span>%.<span class="n">pdf</span>: %.<span class="n">tex</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="k">$(</span>&lt;D<span class="k">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pdflatex<span class="w"> </span>-interaction<span class="o">=</span>batchmode<span class="w"> </span><span class="k">$(</span>&lt;F<span class="k">)</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$*</span>.<span class="o">{</span>log,aux<span class="o">}</span><span class="w"> </span><span class="nv">$*</span>-inc.eps<span class="w"> </span><span class="nv">$*</span>-inc-eps-converted-to.pdf
+
+<span class="c"># rule to extract data from its archive</span>
+<span class="nf">data</span><span class="o">:</span><span class="w"> </span>%: %.<span class="n">tar</span>.<span class="n">xz</span>
+<span class="w">    </span>tar<span class="w"> </span>-xf<span class="w"> </span>$&lt;
+
+<span class="c"># rule to download the archive with the data</span>
+<span class="nf">%.tar.xz</span><span class="o">:</span>
+<span class="w">    </span>wget<span class="w"> </span>-nv<span class="w"> </span>https://some.domain.tld/where/your/data/is/<span class="nv">$@</span>
+
+<span class="nf">clean</span><span class="o">:</span><span class="w"> </span><span class="n">proper</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>data
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>DOCUMENT<span class="k">)</span>.pdf
+
+<span class="c"># delete temporary files</span>
+<span class="nf">proper</span><span class="o">:</span>
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span>data.tar.xz
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>PLOTS<span class="k">)</span><span class="w"> </span><span class="k">$(</span>PLOTS:.pdf<span class="o">=</span>.eps<span class="k">)</span><span class="w"> </span>*-inc.eps<span class="w"> </span>*-inc-eps-converted-to.pdf<span class="w"> </span><span class="k">$(</span>PLOTS:.pdf<span class="o">=</span>.tex<span class="k">)</span><span class="w"> </span>plots/fit.log<span class="w"> </span><span class="k">$(</span>TIKZ<span class="k">)</span><span class="w"> </span><span class="k">$(</span>SVG<span class="k">)</span>
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="o">{</span><span class="k">$(</span>DOCUMENT<span class="k">)</span><span class="o">}</span>.<span class="o">{</span>log,aux,bbl,blg,toc,out,lof,lot,snm,nav,tec,glg,glo,gls,xdy,acn,acr,alg,bcf,run.xml<span class="o">}</span>
+</code></pre></div>
+<p>Dazu baut <code>make</code> einen gerichteten azyklischen Graphen (<span class="caps">DAG</span>) aus den
+Abhängigkeiten auf und führt die Dinge, deren Abhängigkeiten erfüllt sind,
+parallel aus.</p>
+<p>Das grundlegende Element einer <code>Makefile</code> sind die Rules, die generell so
+aufgebaut sind</p>
+<div class="highlight"><pre><span></span><code><span class="n">targets</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prerequisites</span>
+<span class="o">&lt;</span><span class="n">tab</span><span class="o">&gt;</span><span class="w"> </span><span class="n">recipe</span>
+</code></pre></div>
+<p>Dabei gibt die erste Zeile die Abhängigkeiten welche <code>prerequisites</code> bestehen
+müssen, um durch Ausführung des <code>recipe</code> die <code>targets</code> zu erstellen.</p>
+<p>Die Nützlichkeit von <code>make</code> wird zu großen Teilen durch automatische
+Variablen (zB. <code>$*</code>) oder Pattern Rules (<code>%.pdf</code>) hergestellt.
+Dazu verweise ich allerdings lieber auf die <a href="https://www.gnu.org/software/make/manual/">offizielle Dokumentation</a>.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/fx/rythm.js"></script>
+<script async="" src="/theme/fx/totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>

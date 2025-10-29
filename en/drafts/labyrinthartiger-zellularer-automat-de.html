@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Labyrinthartiger Zellulärer Automat  · möchte­gern­geek</title>
+<meta content="Der wohl berühmteste zelluläre Automat ist vermutlich Conway’s Game of Life. Er und nahe Verwandte sind geradezu lächerlich gut untersucht. Das LifeWiki gibt einen ganz guten Überblick. Die Regeln sind einfach: Jede Zelle hat 8 Nachbarn, wenn genau 3 Nachbarn leben, erwacht sie auch zum Leben, bei weniger als …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Python, Video, GitHub, Code, " name="keywords"/>
+<meta content="Labyrinthartiger Zellulärer Automat " name="twitter:title">
+<meta content="Der wohl berühmteste zelluläre Automat ist vermutlich Conway’s Game of Life. Er und nahe Verwandte sind geradezu lächerlich gut untersucht. Das LifeWiki gibt einen ganz guten Überblick. Die Regeln sind einfach: Jede Zelle hat 8 Nachbarn, wenn genau 3 Nachbarn leben, erwacht sie auch zum Leben, bei weniger als …" name="twitter:description">
+<meta content="Labyrinthartiger Zellulärer Automat " name="og:title">
+<meta content="Der wohl berühmteste zelluläre Automat ist vermutlich Conway’s Game of Life. Er und nahe Verwandte sind geradezu lächerlich gut untersucht. Das LifeWiki gibt einen ganz guten Überblick. Die Regeln sind einfach: Jede Zelle hat 8 Nachbarn, wenn genau 3 Nachbarn leben, erwacht sie auch zum Leben, bei weniger als …" name="og:description">
+<meta content="drafts/labyrinthartiger-zellularer-automat-de.html" property="og:url">
+<meta content="2016-10-14T21:38:00+02:00" property="og:article:published_time">
+<meta content="https://blog.schawe.me/img/logo.png" property="og:image"/>
+<meta content="https://blog.schawe.me/img/logo.png" name="twitter:image"/>
+<link href="https://blog.schawe.me/drafts/labyrinthartiger-zellularer-automat-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/labyrinthartiger-zellularer-automat-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/labyrinthartiger-zellularer-automat-de.html" hreflang="x-default" rel="alternate">
+<link href="/theme/css/pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/en/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Search" class="search-query" id="tipue_search_input" name="q" placeholder="Search" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/en/drafts/labyrinthartiger-zellularer-automat-de.html"> Labyrinthartiger Zellulärer Automat  </a>
+</h2>
+<div class="post-meta">
+<time class="post-time" datetime="2016-10-14T21:38:00+02:00">14.10.2016</time>
+<span class="category category-code">
+<a href="https://blog.schawe.me/en/categories.html#code-ref">Code</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#github-ref">GitHub</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#python-ref">Python</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#video-ref">Video</a>
+</span>
+</span>
+</div>
+</header>
+<div class="post-content">
+<p>Der wohl berühmteste zelluläre Automat ist vermutlich <a href="https://blog.schawe.me/en/conways-game-of-life-de.html">Conway’s Game of Life</a>.
+Er und nahe Verwandte sind geradezu lächerlich gut untersucht. <a href="http://www.conwaylife.com/">Das LifeWiki</a>
+gibt einen ganz guten Überblick.
+Die Regeln sind einfach: Jede Zelle hat 8 Nachbarn, wenn genau 3 Nachbarn leben,
+erwacht sie auch zum Leben, bei weniger als 2 oder mehr als 3 stirbt sie (23/3).
+Wenn man die Regeln des Automaten ändert, kann man mit 12345/3 <a href="https://blog.schawe.me/en/depth-first-search-und-labyrinthe-de.html">labyrinth</a>artige
+Strukturen erzeugen.</p>
+<video controls="" poster="/img/cellular_maze.png" width="100%">
+<source src="/vid/cellular_maze.mp4" type="video/mp4"/>
+Your browser does not support the video tag.
+</video>
+<p>Der Code ist als <a href="https://gist.github.com/surt91/610615d7204a8994ed1145be710df130">Gist auf GitHub</a> verfügbar.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/fx/rythm.js"></script>
+<script async="" src="/theme/fx/totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>

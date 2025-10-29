@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Schmetterlingseffekt  · möchte­gern­geek</title>
+<meta content="Differentialgleichungen numerisch zu lösen macht mehr Spaß, als man erwarten würde, wenn man es hört. Und sobald man den ersten Runge-Kutta-Algorithmus in einer kommerziellen Interpretersprache geschrieben hat, bemerkt man, dass dieses Skript doch recht lange braucht. Für dieses Problem gibt es zwei Lösungen: Entweder wird man zum Guru und …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Physik, C, Bild, Python, GitHub, Chaos, Code, " name="keywords"/>
+<meta content="Schmetterlingseffekt " name="twitter:title">
+<meta content="Differentialgleichungen numerisch zu lösen macht mehr Spaß, als man erwarten würde, wenn man es hört. Und sobald man den ersten Runge-Kutta-Algorithmus in einer kommerziellen Interpretersprache geschrieben hat, bemerkt man, dass dieses Skript doch recht lange braucht. Für dieses Problem gibt es zwei Lösungen: Entweder wird man zum Guru und …" name="twitter:description">
+<meta content="Schmetterlingseffekt " name="og:title">
+<meta content="Differentialgleichungen numerisch zu lösen macht mehr Spaß, als man erwarten würde, wenn man es hört. Und sobald man den ersten Runge-Kutta-Algorithmus in einer kommerziellen Interpretersprache geschrieben hat, bemerkt man, dass dieses Skript doch recht lange braucht. Für dieses Problem gibt es zwei Lösungen: Entweder wird man zum Guru und …" name="og:description">
+<meta content="drafts/schmetterlingseffekt-de.html" property="og:url">
+<meta content="2012-05-15T23:04:00+02:00" property="og:article:published_time">
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://blog.schawe.me/en/img/lorenzattraktor1200.webp" property="og:image"/>
+<meta content="https://blog.schawe.me/en/img/lorenzattraktor1200.webp" name="twitter:image"/>
+<link href="https://blog.schawe.me/drafts/schmetterlingseffekt-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/schmetterlingseffekt-de.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/drafts/schmetterlingseffekt-de.html" hreflang="x-default" rel="alternate">
+<link href="/theme/css/pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me/en">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/"><i class="fa fa-globe"></i> de</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/categories.html">Categories</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/archives.html">Archive</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/en/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Search" class="search-query" id="tipue_search_input" name="q" placeholder="Search" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/en/drafts/schmetterlingseffekt-de.html"> Schmetterlingseffekt  </a>
+</h2>
+<div class="post-meta">
+<time class="post-time" datetime="2012-05-15T23:04:00+02:00">15.05.2012</time>
+<span class="category category-code">
+<a href="https://blog.schawe.me/en/categories.html#code-ref">Code</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#bild-ref">Bild</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#c-ref">C</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#chaos-ref">Chaos</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#github-ref">GitHub</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#physik-ref">Physik</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/en/tags.html#python-ref">Python</a>
+</span>
+</span>
+</div>
+</header>
+<div class="post-content">
+<p>Differentialgleichungen numerisch zu lösen macht mehr Spaß, als man
+erwarten würde, wenn man es hört. Und sobald man den ersten
+<a href="http://de.wikipedia.org/wiki/Klassisches_Runge-Kutta-Verfahren">Runge-Kutta</a>-Algorithmus
+in einer kommerziellen Interpretersprache geschrieben hat, bemerkt man,
+dass dieses Skript doch recht lange braucht.</p>
+<p>Für dieses Problem gibt es zwei Lösungen: Entweder wird man zum Guru und
+wendet irgendeine okkulte Matlab-Magie an, um das Programm schneller
+laufen zu lassen, oder man schreibt das Programm in einer schönen
+Sprache neu. In C zum Beispiel.</p>
+<p><a href="/img/lorenzattraktor.png"><img alt="Lorenzattraktor" height="1034" src="/img/lorenzattraktor1200.webp" width="1200"/></a></p>
+<p>Ich habe mich für den einfachen Weg
+entschieden und wenig überraschend eine Tempoverbesserung von Faktor
+$\sim 140$ festgestellt. Jedenfalls für diesen
+<a href="http://de.wikipedia.org/wiki/Lorenzattraktor">Lorenzattraktor</a>.
+\begin{align}
+    \dot{X} &amp;= a(Y - X) \
+    \dot{Y} &amp;= X(b - Z) - Y \
+    \dot{Z} &amp;= <span class="caps">XY</span> - cZ \
+\end{align}
+Geplottet habe ich die Werte dann mit <a href="http://matplotlib.sourceforge.net/examples/mplot3d/lines3d_demo.html">Python und matplotlib</a>.</p>
+<p>Warum ich den Titel
+“<a href="http://de.wikipedia.org/wiki/Schmetterlingseffekt#Wissenschaftlicher_Hintergrund">Schmetterlingseffekt</a>”
+gewählt habe? Naja, das Bild hier sieht ein wenig nach einem
+Schmetterling aus. Und tatsächlich wurde der Schmetterlingseffekt nach diesem
+Differentialgleichungssystem benannt — und nicht nach der Geschichte aus
+<em>Jurassic Park</em>.</p>
+<blockquote>
+<p>Er bewegt in Peking die Flügel, und
+im Central Park gibt’s Regen statt Sonne.</p>
+<p>— <cite>Dr. Ian Malcolm</cite> (1993)</p>
+</blockquote>
+<p>Wie genau der <a href="https://blog.schawe.me/en/seltsamer-attraktor-de.html">Lorenzattraktor mit Chaos zusammenhängt, habe ich in diesem
+Post dargestellt</a>.</p>
+<p>Der Quellcode ist als <a href="https://gist.github.com/surt91/54cdc0bcd86bae19c22b4856889ea519">Gist auf GitHub</a>.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/fx/rythm.js"></script>
+<script async="" src="/theme/fx/totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>

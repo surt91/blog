@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Phys</title><link href="https://blog.schawe.me/en/" rel="alternate"/><link href="https://blog.schawe.me/feeds/phys.atom.xml" rel="self"/><id>https://blog.schawe.me/en/</id><updated>2020-06-02T11:11:00+02:00</updated><entry><title>Number of longest increasing subsequences</title><link href="https://blog.schawe.me/en/paper-lis2.html" rel="alternate"/><published>2020-06-02T11:11:00+02:00</published><updated>2020-06-02T11:11:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2020-06-02:/en/paper-lis2.html</id><summary type="html">&lt;p&gt;My favorite problems are those which seem simple but exhibit unexpected depth. A prime
+example is the &lt;a href="https://blog.schawe.me/en/paper-tsp-pt.html"&gt;Traveling Salesperson Problem&lt;/a&gt;: It is simple to understand
+that the garbage truck needs to collect every garbage container, while trying to take the shortest&amp;nbsp;route.&lt;/p&gt;
+&lt;p&gt;But here, I want to talk about the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My favorite problems are those which seem simple but exhibit unexpected depth. A prime
+example is the &lt;a href="https://blog.schawe.me/en/paper-tsp-pt.html"&gt;Traveling Salesperson Problem&lt;/a&gt;: It is simple to understand
+that the garbage truck needs to collect every garbage container, while trying to take the shortest&amp;nbsp;route.&lt;/p&gt;
+&lt;p&gt;But here, I want to talk about the problem of the &lt;em&gt;longest increasing subsequence&lt;/em&gt; (&lt;span class="caps"&gt;LIS&lt;/span&gt;): For a
+given sequence of numbers, find the subsequence consisting of increasing numbers, which is&amp;nbsp;longest.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="A longest increasing subsequence is marked in a sequence" class="invertable" src="/img/lis_example.png"&gt;&lt;/p&gt;
+&lt;p&gt;This problem is so simple that it was first studied almost as a placeholder by Stanisław Ulam in a
+book chapter describing the Monte Carlo method. And judging by the google results, it seems to
+be a common problem posed to university students. I am wondering how many job applicants were distressed
+when trying to solve it in front of a&amp;nbsp;whiteboard.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik" src="/img/romik.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;However, apparently one can write whole books about this problem. It turns out that there are
+surprising connections to seemingly independent problems. For example, the length $L$ of a &lt;span class="caps"&gt;LIS&lt;/span&gt;
+of a permutation fluctuates the same way as the
+&lt;a href="https://en.wikipedia.org/wiki/Kardar%E2%80%93Parisi%E2%80%93Zhang_equation"&gt;distance from the center to the border of a coffee stain&lt;/a&gt;
+or the &lt;a href="https://www.quantamagazine.org/beyond-the-bell-curve-a-new-universal-law-20141015/"&gt;largest eigenvalues of random matrices&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The solution of this problem is not unique: A Sequence can contain multiple longest increasing
+subsequences. Indeed, their number grows exponentially with the length of the original&amp;nbsp;sequence.&lt;/p&gt;
+&lt;p&gt;![Different longest increasing subsequences within the same sequence](/img/lis_alternatives.png]{:&amp;nbsp;.invertable}&lt;/p&gt;
+&lt;p&gt;But up to now, there did not exist any results about the precise number of different &lt;span class="caps"&gt;LIS&lt;/span&gt;.
+A common sentiment is that counting all &lt;span class="caps"&gt;LIS&lt;/span&gt; was infeasible, since there are exponentially many.
+And that would be true if we would want to enumerate them. But since we only want to now
+the number, we can use dynamic programming to determine it efficiently. The basic idea
+is that we calculate for each element that can appear at position $x$ in a &lt;span class="caps"&gt;LIS&lt;/span&gt; of how many
+increasing subsequences of length $L-x$ it is the first&amp;nbsp;element.&lt;/p&gt;
+&lt;p&gt;This becomes easy thanks to a datastructure encoding which elements can be subsequent in a &lt;span class="caps"&gt;LIS&lt;/span&gt;.
+For this we extend &lt;a href="https://en.wikipedia.org/wiki/Patience_sorting"&gt;Patience Sort&lt;/a&gt;. Since the algorithm
+is called after a game of cards, it is adequate to describe it with cards: We write each element of
+our sequence on a card and sort the deck according to the sequence such that the first element is on
+top. Then we take cards from the top of the deck. We put the topmost card on the table opening a stack.
+We put the next card on the first stack whose top card is larger than it or open a new stack right of
+the currently rightmost stack. Each time we put a card on the table, we also add pointers to all cards
+of the stack left of the placed card which are smaller. These are the cards which could be its predecessor
+in a &lt;span class="caps"&gt;LIS&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Animation of Patience Sort" src="/img/patience.gif"&gt;&lt;/p&gt;
+&lt;p&gt;In the end there are $L$ stacks, where $L$ is the length of the &lt;span class="caps"&gt;LIS&lt;/span&gt;. We can start from the rightmost
+stack, select an arbitrary element and follow the pointers to build a &lt;span class="caps"&gt;LIS&lt;/span&gt;. If we were only
+&lt;a href="https://doi.org/10.1103/PhysRevE.101.062109"&gt;interested in the length&lt;/a&gt;, we could disregard all but the top card of every
+stack and could simply the&amp;nbsp;algorithm:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;fn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;lis_len&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;Ord&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kp"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;usize&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;Vec&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;binary_search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Encountered non-unique element in sequence!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;But we want more, therefore we annotate each card of the rightmost stack with the number of increasing
+subsequences of length $x=1$ of which they are the first element, which is trivially 1 for each card.
+Then we continue with the stack left of it and annotate how many increasing subsequences of length 2
+start with them. We can calculate this easily by following the pointers backwards and add up the
+annotations of all predecessor cards. After repeating this and annotating the leftmost stack, we
+can sum all annotations of the leftmost stack to get the total number of distinct &lt;span class="caps"&gt;LIS&lt;/span&gt;: here&amp;nbsp;$7$.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Example of the datastructure to count LIS" class="invertable" src="/img/lis_backpointer.png"&gt;&lt;/p&gt;
+&lt;p&gt;About the behavior for longer sequences from different random ensembles we published an
+&lt;a href="https://hendrik.schawe.me/pdf/2020_liscount_PRE.pdf"&gt;article&lt;/a&gt;.&lt;/p&gt;</content><category term="Phys"/><category term="Publication"/><category term="Physics"/><category term="Image"/></entry><entry><title>Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes</title><link href="https://blog.schawe.me/en/paper-tsp-pt.html" rel="alternate"/><published>2018-07-31T06:28:00+02:00</published><updated>2018-07-31T06:28:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2018-07-31:/en/paper-tsp-pt.html</id><summary type="html">&lt;p&gt;In this Article, we introduce an ensemble of the Traveling Salesperson problem (&lt;span class="caps"&gt;TSP&lt;/span&gt;)
+that can be tuned with a parameter $\sigma$ from the trivial case of cities
+equidistant on a circle to the random Euclidean &lt;span class="caps"&gt;TSP&lt;/span&gt; in a&amp;nbsp;plane.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Einfach und schwierig zu lösende TSP Konfigurationen" class="invertable" src="/img/tsp_interp.svg"&gt;&lt;/p&gt;
+&lt;p&gt;For this ensemble we determine some phase transitions from an &amp;#8220;easy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In this Article, we introduce an ensemble of the Traveling Salesperson problem (&lt;span class="caps"&gt;TSP&lt;/span&gt;)
+that can be tuned with a parameter $\sigma$ from the trivial case of cities
+equidistant on a circle to the random Euclidean &lt;span class="caps"&gt;TSP&lt;/span&gt; in a&amp;nbsp;plane.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Einfach und schwierig zu lösende TSP Konfigurationen" class="invertable" src="/img/tsp_interp.svg"&gt;&lt;/p&gt;
+&lt;p&gt;For this ensemble we determine some phase transitions from an &amp;#8220;easy&amp;#8221; phase to
+a &amp;#8220;not-that-easy&amp;#8221; phase using linear programming. For each of these transitions
+we present structural properties of the optimal solution, which change at these
+points characteristically. Since the optimal solution is independent of the
+solution method, those phase transitions are not only relevant for the specific
+linear program respectively the solver implementation used to solve them, but
+a fundamental property of this &lt;span class="caps"&gt;TSP&lt;/span&gt;&amp;nbsp;ensemble.&lt;/p&gt;
+&lt;p&gt;We used the classical linear program of Dantzig:
+\begin{align}
+    \label{eq:objective}
+    &amp;amp;\text{minimize}     &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  \sum_i \sum_{j&amp;lt;i} c_{ij} x_{ij}\
+    \label{eq:int}
+    &amp;amp;\text{subject to}   &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  x_{ij}                                &amp;amp;\in {0,1}\ %\mathbb{Z}\
+    \label{eq:inout}
+    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;                    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  \sum_{j} x_{ij}                       &amp;amp;= 2&amp;amp;            &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; \forall i \in V \
+    \label{eq:sec}
+    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;                    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  \sum_{i \in S, j \notin S} x_{ij}     &amp;amp;\ge 2&amp;amp;          &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; \forall S \varsubsetneq V, S \ne \varnothing&amp;nbsp;\end{align}&lt;/p&gt;
+&lt;p&gt;Here $c_{ij}$ is the distance matrix between all pairs of cities
+of $V$ and $x_{ij}$ is the adjacency matrix, i.e., $x_{ij} = 1$,
+if $i$ and $j$ are consecutive in the tour and $x_{ij} = 0$ otherwise.
+Therefore, the first line minimizes the length of the tour.
+To avoid that we conclude that $x_{ij} = 0$, i.e., staying at home,
+is identified as the optimal tour, we introduce the third line to
+force each city to have two connections, enough to enter and leave.
+But our salesman is clever and can trick us by choosing
+$x_{ij} = 0.5$. Since we can not interpret this, we introduce line 2
+to force all $x_{ij}$ to integers.
+Still valid are two unconnected tours, which we forbid with
+the fourth line, the &lt;em&gt;subtour elimination constraints&lt;/em&gt;.
+Well, the careful reader might already see that we defined
+one constraint for each subset of the cities, which are exponentially
+many in the number of cities. But we can solve this by starting
+without this class of constraints and only adding the ones which
+are actually violated by a solution. The violated ones can luckily
+be found easily by calculating the &lt;a href="https://en.wikipedia.org/wiki/Minimum_cut"&gt;minimum cut&lt;/a&gt; of the proposed solution. The corresponding
+constraint can be added and the procedure is repeated until no
+subtour elimination constraint is violated&amp;nbsp;anymore.&lt;/p&gt;
+&lt;p&gt;So does that mean that we found an efficient algorithm to solve
+the traveling salesperson problem? No, unfortunately we can not
+claim the &lt;a href="https://en.wikipedia.org/wiki/Millennium_Prize_Problems#P_versus_NP"&gt;Millenium Prize&lt;/a&gt; yet. There is no known
+algorithm which can efficiently solve this problem under the
+integer constraint.
+But if we drop this constraint, we can use efficient algorithms
+of linear programming to solve the
+&lt;a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation"&gt;relaxation&lt;/a&gt;. The resulting length will always
+be a lower bound on the actual solution and if we, by chance, find
+an integer solution, we can be sure that it is actually the
+optimal&amp;nbsp;solution.&lt;/p&gt;
+&lt;p&gt;As the order parameter of the transitions from easy to hard we use the probability that a simplex
+solver yields an integer, and therefore optimal, solution. Without  the Subtour Elimination Constraints,
+the transition occurs at the point at which the optimal solution deviates
+from the order of the cities on the initial circle. With the Subtour
+Elimination Constraints the transition coincides with the point at which
+the optimal tour changes from a zig-zag course to larger meandering arcs.
+This is measured by the tortuosity
+\begin{align&lt;em&gt;}
+    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
+\end{align&lt;/em&gt;}
+which is maximal at this point. For the tortuosity the tour is divided in $N$
+parts of same-sign-curvature. For each part the ratio of the direct end-to-end
+distance $S_i$ to the length along the arc $L_i$ is&amp;nbsp;summed.&lt;/p&gt;
+&lt;p&gt;So, we detected continuous phase transitions in the hardness
+of the problem with linear programming and correlated them
+with structural&amp;nbsp;changes.&lt;/p&gt;</content><category term="Phys"/><category term="Publication"/><category term="Physics"/></entry></feed>

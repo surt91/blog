@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Graph a Day  · möchte­gern­geek</title>
+<meta content="Vor einiger Zeit habe ich @randomGraphs geschrieben: Ein Twitterbot, der einen Zufallsgraphen pro Tag tweetet. Die meisten Graphtypen, die er darstellen kann stammen aus der NetworkX Bibliothek oder sind reale Netzwerke. Ein paar Proximity Graphs habe ich selbst geschrieben. Die Darstellung und gegebenenfalls das Layout übernimmt Cytoscape oder graph-tool (dessen …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Physik, Bild, Python, Code, GitHub, Twitter-Bot, Code, " name="keywords"/>
+<meta content="A Graph a Day " name="twitter:title">
+<meta content="Vor einiger Zeit habe ich @randomGraphs geschrieben: Ein Twitterbot, der einen Zufallsgraphen pro Tag tweetet. Die meisten Graphtypen, die er darstellen kann stammen aus der NetworkX Bibliothek oder sind reale Netzwerke. Ein paar Proximity Graphs habe ich selbst geschrieben. Die Darstellung und gegebenenfalls das Layout übernimmt Cytoscape oder graph-tool (dessen …" name="twitter:description">
+<meta content="A Graph a Day " name="og:title">
+<meta content="Vor einiger Zeit habe ich @randomGraphs geschrieben: Ein Twitterbot, der einen Zufallsgraphen pro Tag tweetet. Die meisten Graphtypen, die er darstellen kann stammen aus der NetworkX Bibliothek oder sind reale Netzwerke. Ein paar Proximity Graphs habe ich selbst geschrieben. Die Darstellung und gegebenenfalls das Layout übernimmt Cytoscape oder graph-tool (dessen …" name="og:description">
+<meta content="randomGraphs.html" property="og:url">
+<meta content="2017-05-13T17:36:00+02:00" property="og:article:published_time">
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://blog.schawe.me/img/agraphaday.png" property="og:image"/>
+<meta content="https://blog.schawe.me/img/agraphaday.png" name="twitter:image"/>
+<link href="https://blog.schawe.me/randomGraphs.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/en/randomGraphs.html" hreflang="en" rel="alternate">
+<link href="https://blog.schawe.me/randomGraphs.html" hreflang="x-default" rel="alternate">
+<link href="/theme/webassets-external/6fc8b5d0286641a8981481d8734adb14_pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/webassets-external/cd1fc9b8f4fd6935866873d6d3cfad1b_grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/"><i class="fa fa-globe"></i> en</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/categories.html">Kategorien</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/archives.html">Archiv</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Suche" class="search-query" id="tipue_search_input" name="q" placeholder="Suche" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/randomGraphs.html"> A Graph a Day  </a>
+</h2>
+<div class="post-meta">
+<time class="post-time" datetime="2017-05-13T17:36:00+02:00">13.05.2017</time>
+<span class="category category-code">
+<a href="https://blog.schawe.me/categories.html#code-ref">Code</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#bild-ref">Bild</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#code-ref">Code</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#github-ref">GitHub</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#physik-ref">Physik</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#python-ref">Python</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#twitter-bot-ref">Twitter-Bot</a>
+</span>
+</span>
+</div>
+</header>
+<div class="post-content">
+<p>Vor einiger Zeit habe ich <a href="https://twitter.com/randomGraphs">@randomGraphs</a>
+geschrieben: Ein Twitterbot, der einen Zufallsgraphen pro Tag tweetet.</p>
+<p>Die meisten Graphtypen, die er darstellen kann stammen aus der NetworkX
+Bibliothek oder sind reale Netzwerke. Ein paar <a href="https://blog.schawe.me/drafts/proximity-graphs.html">Proximity</a>
+<a href="https://blog.schawe.me/relative-neighborhood-graph.html">Graphs</a> habe ich selbst geschrieben.
+Die Darstellung und gegebenenfalls das Layout übernimmt Cytoscape oder
+<a href="https://graph-tool.skewed.de/">graph-tool</a> (dessen Autor diesem Bot folgt).</p>
+<p>Bei diesem Projekt habe ich exzessiv Gebrauch von Pythons <code>Decorator</code> und
+<code>Introspection</code> gemacht, sodass man, um einen neuen Graphtyp einzuführen
+nur eine Methode schreiben muss, die eine Graph-Datenstruktur zurück gibt.
+Einstellungen, welche Darstellungen erlaubt sind, werden per <code>decorator</code>
+getätigt und alle Methoden werden per Introspection automatisch zum Pool
+hinzugefügt, aus dem der Zufallsgenerator zieht.</p>
+<p>Eine typische Methode sieht etwa so aus.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@synonym</span><span class="p">(</span><span class="s2">"Barabasi Albert"</span><span class="p">)</span>
+<span class="nd">@synonym</span><span class="p">(</span><span class="s2">"preferential attachment"</span><span class="p">)</span>
+<span class="nd">@style</span><span class="p">(</span><span class="n">styles_all</span><span class="p">)</span>
+<span class="nd">@layout</span><span class="p">([</span><span class="s2">"kamada-kawai"</span><span class="p">,</span> <span class="s2">"force-directed"</span><span class="p">,</span> <span class="s2">"sfdp"</span><span class="p">,</span> <span class="s2">"fruchterman_reingold"</span><span class="p">,</span> <span class="s2">"arf"</span><span class="p">,</span> <span class="s2">"radial_tree"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">generateBarabasiAlbert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">N</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">m</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">G</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">barabasi_albert_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>  <span class="c1"># gen is networkx Generator</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Barabási-Albert Graph"</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span>
+                   <span class="n">template</span><span class="o">=</span><span class="s2">"</span><span class="si">{name}</span><span class="s2">, N = </span><span class="si">{N}</span><span class="s2">, m = </span><span class="si">{m}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">G</span><span class="p">,</span> <span class="n">details</span>
+</code></pre></div>
+<p>Und liefert für $N=226, m=1$ und das <code>radial_tree</code> Layout beispielsweise
+diesen Graph. Die Größe der Knoten wird hier von der
+<a href="https://en.wikipedia.org/wiki/Betweenness_centrality">Betweenness Centrality</a> bestimmt.</p>
+<p><img alt="Graph" height="1024" src="/img/barabasi.png" width="2048"/></p>
+<p>Die <code>@synonym</code> Decorators ermöglichen die zweite Funktion des Bots, denn
+er tweetet nicht nur einmal am Tag einen zufälligen Graphen, sondern reagiert
+auch auf Mentions. Falls in der Mention der Name der Methode oder eines der per <code>@synonym</code> registrierten Worte auftaucht, antwortet er mit einem Bild des
+entsprechenden Graphen. Dank <code>fuzzywuzzy</code> ist es sogar resistent gegen Tippfehler.</p>
+<p>Twitter unterstützt leider keine Vektorgrafiken und wandelt Bilder gerne in
+stark komprimierte <code>.jpg</code>, was gerade bei diesen Graphen zu störenden
+Artefakten führt. Dagegen hilft es, wenn ich einen Rand aus transparenten
+Pixeln dem Bild hinzufüge. Das führt dazu, dass Twitter <code>.jpg</code> nicht als
+geeignetes Format ansieht und die Bilder im verlustfreien <code>.png</code> ausliefert.</p>
+<div class="highlight"><pre><span></span><code>convert<span class="w"> </span>-alpha<span class="w"> </span>on<span class="w"> </span>-channel<span class="w"> </span>RGBA<span class="w"> </span>-bordercolor<span class="w"> </span><span class="s2">"rgba(0,0,0,0)"</span><span class="w"> </span>-border<span class="w"> </span><span class="s2">"1x1"</span><span class="w"> </span>input.png<span class="w"> </span>output.png
+</code></pre></div>
+<p><img alt="Graph" height="1024" src="/img/agraphaday.png" width="2048"/></p>
+<p>Der komplette Quellcode ist auf <a href="https://github.com/surt91/AGraphADay">Github</a>.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<a href="https://blog.schawe.me/vicsek.html">← Neuer</a>
+<span class="separatordot">·</span>
+<a href="https://blog.schawe.me/make.html">Älter →</a>
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/webassets-external/0cf7968c252ead5c096e55c1f7673096_rythm.js"></script>
+<script async="" src="/theme/webassets-external/a8b690a4c23c0610ea6538a9352534be_totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>

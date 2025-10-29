@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes  · möchte­gern­geek</title>
+<meta content="In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (TSP) eingeführt, das abhängig von einem Parameter $\sigma$ von einer trivial einfach zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet sind, zum zufälligen euklidischen TSP in der Ebene interpoliert. Danach werden mittels linearer Programmierung einige Phasenübergänge festgestellt …" name="description"/>
+<meta content="Hendrik Schawe" name="author"/>
+<meta content="Hendrik Schawe" name="copyright"/>
+<meta content="#3d4f5d" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Add to home screen for Safari on iOS-->
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="möchtegerngeek" name="apple-mobile-web-app-title"/>
+<link href="/extra/icons/icon-152x152.png" rel="apple-touch-icon"/>
+<!-- Add to home screen for Windows-->
+<meta content="/extra/icons/icon-152x152.png" name="msapplication-TileImage"/>
+<meta content="#b0cadb" name="msapplication-TileColor"/>
+<meta content="möchte­gern­geek" property="og:site_name"/>
+<meta content="Hendrik Schawe" property="og:article:author"/>
+<meta content="article" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Veröffentlichung, Physik, Phys, " name="keywords"/>
+<meta content="Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes " name="twitter:title">
+<meta content="In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (TSP) eingeführt, das abhängig von einem Parameter $\sigma$ von einer trivial einfach zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet sind, zum zufälligen euklidischen TSP in der Ebene interpoliert. Danach werden mittels linearer Programmierung einige Phasenübergänge festgestellt …" name="twitter:description">
+<meta content="Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes " name="og:title">
+<meta content="In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (TSP) eingeführt, das abhängig von einem Parameter $\sigma$ von einer trivial einfach zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet sind, zum zufälligen euklidischen TSP in der Ebene interpoliert. Danach werden mittels linearer Programmierung einige Phasenübergänge festgestellt …" name="og:description">
+<meta content="paper-tsp-pt.html" property="og:url">
+<meta content="2018-07-31T06:28:00+02:00" property="og:article:published_time">
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://blog.schawe.me/img/tsp_interp.png" property="og:image"/>
+<meta content="https://blog.schawe.me/img/tsp_interp.png" name="twitter:image"/>
+<link href="https://blog.schawe.me/paper-tsp-pt.html" hreflang="de" rel="alternate">
+<link href="https://blog.schawe.me/en/paper-tsp-pt.html" hreflang="en" rel="alternate">
+<link href="https://blog.schawe.me/paper-tsp-pt.html" hreflang="x-default" rel="alternate">
+<link href="/theme/webassets-external/6fc8b5d0286641a8981481d8734adb14_pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/webassets-external/cd1fc9b8f4fd6935866873d6d3cfad1b_grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+<link href="/theme/css/blog.css" rel="stylesheet" type="text/css"/>
+<script async="" src="/theme/js/mathjax-config.js"></script>
+<script async="" crossorigin="anonymous" data-search-pseudo-elements="" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Preload the other fonts early -->
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptRegular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/FiraSans-Bold.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/Merriweather-12ptItalic.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-regular.woff2" rel="prefetch" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="/theme/woff2/firacode-bold.woff2" rel="prefetch" type="font/woff2"/>
+<link href="https://blog.schawe.me/feeds/all.atom.xml" rel="alternate" title="möchte­gern­geek - Full Atom Feed" type="application/atom+xml">
+</link></link></link></link></meta></meta></meta></meta></meta></meta></head>
+<body>
+<div class="pure-g" id="layout">
+<div class="sidebar pure-u-1 pure-u-lg-1-4">
+<div class="header">
+<h1 class="brand-title"><a href="https://blog.schawe.me">möchte­gern­geek</a></h1>
+<nav class="nav">
+<ul class="nav-list container">
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/en/"><i class="fa fa-globe"></i> en</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/categories.html">Kategorien</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/tags.html">Tags</a>
+</li>
+<li class="nav-item">
+<a class="pure-button" href="https://blog.schawe.me/archives.html">Archiv</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+<a class="sidebar-social-links" href="https://hendrik.schawe.me" rel="noopener" target="_blank" title="Ich">
+<i class="fas fa-user sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://github.com/surt91" rel="noopener" target="_blank" title="GitHub">
+<i class="fab fa-github sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="mailto:hendrik.schawe+blog@gmail.com" rel="noopener" target="_blank" title="Email">
+<i class="fas fa-envelope sidebar-social-links"></i>
+</a>
+<a class="sidebar-social-links" href="https://twitter.com/surt91" rel="noopener" target="_blank" title="Twitter">
+<i class="fab fa-twitter sidebar-social-links"></i>
+</a>
+</div>
+<div class="container">
+<form action="https://blog.schawe.me/search.html" class="pure-form">
+<fieldset>
+<input aria-label="Suche" class="search-query" id="tipue_search_input" name="q" placeholder="Suche" type="text"/>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<div class="content pure-u-1 pure-u-lg-3-4">
+<article class="post">
+<header>
+<h2 class="post-title">
+<a href="https://blog.schawe.me/paper-tsp-pt.html"> Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes  </a>
+</h2>
+<div class="post-meta">
+<div>
+<span class="doi-details">
+                        Hendrik Schawe, Alexander K. Hartmann,
+                        EPL (Europhysics Letters) <b>113</b>, 30004 (2016)
+                    </span>
+</div>
+<time class="post-time" datetime="2018-07-31T06:28:00+02:00">31.07.2018</time>
+<span class="languages-in-article">
+<span class="language">
+<a href="https://blog.schawe.me/en/paper-tsp-pt.html"><i class="fa fa-globe"></i> en</a>
+</span>
+</span>
+<span class="category category-phys">
+<a href="https://blog.schawe.me/categories.html#phys-ref">Phys</a>
+</span>
+<span class="tags-in-article">
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#physik-ref">Physik</a>
+</span>
+<span class="tag">
+<a href="https://blog.schawe.me/tags.html#veroffentlichung-ref">Veröffentlichung</a>
+</span>
+</span>
+<span class="doi"><a href="https://dx.doi.org/10.1209/0295-5075/113/30004">doi:10.1209/0295-5075/113/30004</a></span>
+</div>
+</header>
+<div class="post-content">
+<p>In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (<span class="caps">TSP</span>)
+eingeführt, das abhängig von einem Parameter $\sigma$ von einer trivial einfach
+zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet
+sind, zum zufälligen euklidischen <span class="caps">TSP</span> in der Ebene interpoliert.</p>
+<p><img alt="Einfach und schwierig zu lösende TSP Konfigurationen" class="invertable" height="1000" src="/img/tsp_interp.svg" width="3200"/></p>
+<p>Danach werden mittels <a href="https://de.wikipedia.org/wiki/Lineare_Optimierung">linearer Programmierung</a> einige
+Phasenübergänge festgestellt, ab welchen Werten von $\sigma$ das Problem
+schwierig zu lösen wird. Zu zwei dieser Übergänge werden strukturelle
+Eigenschaften der optimalen Lösung gefunden, die sich an dieser Stelle
+ebenfalls charakteristisch ändern. Da die optimale Lösung nicht von der
+Lösungsmethode abhängt, sind diese Phasenübergänge also nicht nur von Bedeutung
+für das spezielle Lineare Programm bzw. den Algorithmus der zu dessen Lösung
+genutzt wurde, sondern fundamentale Eigenschaft dieses <span class="caps">TSP</span> Ensembles.</p>
+<p>Im Detail haben wir die klassische Formulierung von Dantzig genutzt:
+\begin{align<em>}
+    \label{eq:objective}
+    &amp;\text{minimize}     <span class="amp">&amp;</span>  \sum_i \sum_{j&lt;i} c_{ij} x_{ij}\
+    \label{eq:int}
+    &amp;\text{subject to}   <span class="amp">&amp;</span>  x_{ij}                                &amp;\in {0,1}\ %\mathbb{Z}\
+    \label{eq:inout}
+    <span class="amp">&amp;</span> <span class="amp">&amp;</span>  \sum_{j} x_{ij}                       &amp;= 2&amp;            <span class="amp">&amp;</span> \forall i \in V \
+    \label{eq:sec}
+    <span class="amp">&amp;</span> <span class="amp">&amp;</span>  \sum_{i \in S, j \notin S} x_{ij}     &amp;\ge 2&amp;          <span class="amp">&amp;</span> \forall S \varsubsetneq V, S \ne \varnothing
+\end{align</em>}</p>
+<p>Hier ist $c_{ij}$ die Distanzmatrix zwischen allen Paaren von Städten aus $V$ und $x_{ij}$
+die gesuchte Adjazenzmatrix, also $x_{ij} = 1$, wenn $i$ und $j$ aufeinanderfolgende Stationen
+der Tour sind und $x_{ij} = 0$ sonst. Die erste Zeile minimiert also die Strecke der Tour.
+Um zu vermeiden, dass wir die triviale Lösung $x_{ij}=0$, also „wenn wir zu Hause
+bleiben müssen wir am wenigsten Strecke zurücklegen“ finden, zwingt die dritte
+Zeile unseren Handlungsreisenden seine Tour so zu planen, dass in Summe zwei
+Striche an jede Stadt gezeichnet werden — genug, um hinein und wieder hinaus
+zu reisen. Allerdings, ist unser Handlungsreisender clever und würde versuchen uns
+auszutricksen, indem er halbe Striche einzeichnen würde, wie
+<a href="https://blog.schawe.me/tspview.html">in einem anderen Blogeintrag visualisiert</a>. Deshalb ist die
+Bedingung in der zweiten Zeile nötig, die die Einträge in der Adjazenzmatrix auf
+ganze Zahlen beschränkt. Dann bleibt nur noch das Problem, dass mehrere Routen,
+die nicht verbunden sind erlaubt wären, sodass wir sie durch die letzte Zeile
+verbieten: die <em>Subtour Elimination Constraints</em>. Der aufmerksame Leser mag
+schon erkannt haben, dass es für jede Untermenge von Städten so eine Constraint
+definiert, also exponentiell viele in der Anzahl der Städte. Die Lösung
+zu dieses Problem liegt darin, dass nur sehr wenige wirklich gebraucht werden, sodass
+man das Problem ohne diese Constraint löst, testet ob eine verletzt ist, was mittels
+der Berechnung eines <a href="https://en.wikipedia.org/wiki/Minimum_cut">minimum cut</a> sehr
+schnell geht und dann eine einzelne Constraint, die diese Konfiguration verbietet
+hinzufügt. Diese Methode iterativ Constraints hinzuzufügen wird meist als <em>Cutting Planes</em> bezeichnet.</p>
+<p>Also haben wir einen schnellen Algorithmus für das Problem des Handlungsreisenden
+gefunden? Nein, leider können wir den <a href="https://en.wikipedia.org/wiki/Millennium_Prize_Problems#P_versus_NP">Millenium Preis</a> noch nicht beanspruchen. Es gibt keinen bekannten Algorithmus, der dieses Problem
+unter Erfüllung der zweiten Zeilen, also Beschränkung auf ganzzahlige Lösungen lösen kann.
+Aber sobald wir diese Bedingung fallen lassen, können wir klassische Verfahren der
+linearen Programmierung nutzen, um dieses Problem effizient zu lösen. Dies wird auch
+<a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation">Relaxation</a> genannt. Die Länge der
+Strecke ist immer eine untere Schranke für die tatsächliche Lösung. Und wenn unsere
+Lösung per Zufall ganzzahlig ist, können wir uns sicher sein, die Optimale Lösung
+gefunden zu haben.</p>
+<p>Als Ordnungsparameter des Phasenübergangs zwischen leichten und schweren Konfigurationen
+dient uns also die Wahrscheinlichkeit, dass
+mittels eines Simplex-Solvers eine ganzzahlige, und damit optimale, Lösung
+gefunden wird. Ohne die Subtour Elimination Constraints,
+fällt der Phasenübergang auf den Punkt, an dem sich die optimale Lösung erstmals
+von der Reihenfolge der Städte des ursprünglichen Kreises unterscheidet.
+Mit den Subtour Elimination Constraints, fällt der Phasenübergang auf den
+Punkt, wo die optimale Tour anfängt von einem Zickzack-Kurs auf große Meander zu
+wechseln. Dies wird durch die geometrische Gewundenheit, die <em>Tortuosität</em>,
+\begin{align<em>}
+    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
+\end{align</em>}
+ermittelt, die an diesem Punkt maximal wird. Hier wird die Tour in $N$
+Teilstücke mit gleichem Vorzeichen der Krümmung unterteilt und für jedes
+Teilstück das Verhältnis von direkter Ende-zu-Ende-Distanz $S_i$ zu der
+Länge entlang der Tour $L-i$ summiert.</p>
+<p>Wir haben also kontinuierliche Phasenübergänge in der Schwierigkeit dieses Problems
+mittels linearer Programmierung detektiert und sie mit strukturellen Änderungen
+des Verhaltens in Verbindung gebracht.</p>
+</div>
+</article>
+<div class="post-navigation">
+<nav class="pagination">
+<a href="https://blog.schawe.me/smartphone-webcam.html">← Neuer</a>
+<span class="separatordot">·</span>
+<a href="https://blog.schawe.me/relay-ssh.html">Älter →</a>
+<br/>
+</nav>
+</div>
+</div>
+<div id="last-update">
+<time datetime="2025-10-29 22:34:37">22:34:37 29.10.2025</time>
+</div>
+</div>
+<script async="" src="/theme/webassets-external/0cf7968c252ead5c096e55c1f7673096_rythm.js"></script>
+<script async="" src="/theme/webassets-external/a8b690a4c23c0610ea6538a9352534be_totally_serious_script.js"></script>
+<script async="" src="/theme/js/unregister_service_worker.js"></script>
+</body>
+</html>
