@@ -1,5 +1,5 @@
 [build]
-  command = "git submodule update --init --recursive --depth=1 && pip install -q poetry && poetry export --dev --without-hashes > requirements.txt && pip install -r requirements.txt && make publish"
+  command = "git submodule update --init --recursive --depth=1 && pip install uv && uv sync && uv run make publish"
   publish = "output"
   branch = "master"
 
