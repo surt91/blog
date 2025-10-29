@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: uv sync
 
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
       - name: build static sites
         run: DEBUG=1 uv run make publish
 
