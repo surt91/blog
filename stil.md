@@ -311,6 +311,9 @@ zusammenhängenden Ganzen verknüpft wird.
 
 ## 9. Checkliste: Einen Beitrag in diesem Stil schreiben
 
+0. **Vorbild laden:** passend zu Archetyp und Thema 1–3 kanonische Vorbild-Posts
+   aus §10 heraussuchen und als Vorlage danebenlegen – echte Texte treffen die
+   Stimme zuverlässiger als jede Beschreibung.
 1. **Thema wählen:** ein konkretes eigenes Artefakt, das „hübsch, praktisch oder
    interessant“ ist (Code-Projekt, Simulation, Visualisierung, nützlicher Trick).
 2. **Metadaten setzen:** `Title`, `Date`, `Author: surt91`, passende `Category`,
@@ -327,6 +330,9 @@ zusammenhängenden Ganzen verknüpft wird.
    selbstironisch benennen.
 7. **Würzen:** ein trockener Witz, eine augenzwinkernde Übertreibung, evtl. ein
    passendes Pop-Kultur-Zitat als Blockquote.
+7a. **Anti-Patterns vermeiden:** gegen §11 gegenchecken – keine Floskeln
+    („In diesem Beitrag…", „Zusammenfassend…"), kein Marketing-Sprech, keine
+    Ausrufezeichen-/Bullet-Inflation, nichts Offensichtliches übererklären.
 8. **Abschluss:** runder Schlussgedanke und – fast obligatorisch – ein Link zum
    Quellcode auf GitHub/Gist.
 9. **Medien einbauen:** Bilder mit aussagekräftigem Alt-Text (Diagramme mit
@@ -338,34 +344,139 @@ zusammenhängenden Ganzen verknüpft wird.
 
 ---
 
-## 10. Mini-Beispiel im Stil des Blogs
+## 10. Kanonische Vorbild-Posts (echte Beispiele)
+
+Das beste Werkzeug, um den Ton zu treffen, sind nicht Beschreibungen, sondern echte
+Texte. Eine Handvoll Adjektive („locker, trockener Humor") lässt sich auf hundert
+Arten umsetzen – die meisten klingen *nicht* nach diesem Blog. Wer in diesem Stil
+schreibt, sollte daher **immer ein bis drei der folgenden echten Posts als
+Vorlage mitlesen** (idealerweise den, der dem geplanten Archetyp und Thema am
+nächsten kommt). Sie liegen im `content/`-Ordner und sind die maßgeblichen
+Referenzen – ihnen ist im Zweifel mehr zu glauben als diesem Dokument.
+
+| Datei | Archetyp / Thema | Wofür als Vorbild |
+|-------|------------------|-------------------|
+| `der-grune-punkt.md` | Mini / Ästhetik | Bild + eine Pointenzeile, mehr nicht. |
+| `regenbogen.md` | Mini / Ästhetik | Pointe *vor* dem Bild („Man sollte alles nach Wellenlänge sortieren!"). |
+| `doppelpendel.md` | Standard / Physik | Ergebnis (Video) zuerst, sachlicher Aufbau, absurde Pointe, Formel, `--`-Einschub als Schluss. |
+| `inline-python.md` | Standard / Tooling | Sehr knapp: Nutzen in einem Satz, ein Code-Schnipsel, ehrliches „nicht nützlich, aber …". |
+| `jsnake.md` | Standard / Serie | Snake-Reihe: wachsende Querverweis-Liste, pointierte Meinung zur Sprache, Gist-Begründung. |
+| `make.md` | Lang / Tooling | Pop-Kultur-Einstieg (Obi-Wan), Fun-Fact-Klammer, längerer Code ausgelagert. |
+| `fira.md` | Lang / Meta | Leseransprache („im Geist des Lesers"), Fachbegriffe sauber eingeführt, nachdenklicher Schluss + Mikropointe. |
+| `perfect-snake.md` | Lang / ML, Serie | `##`-Gliederung, „wir"-Herleitung, ehrliche Grenzen am Ende, Serien-Capstone. |
+| `paper-lis2.md` | Lang / Paper | eigenes Paper allgemeinverständlich, Alltags-Analogien (Karten, Kaffeefleck), `Doi:`-Feld. |
+
+Die beiden Mini-Posts vollständig, als Beleg dafür, wie wenig genügt:
 
 ```markdown
-Title: Sortieren mit Schwerkraft
-Date: 2024-03-01 21:15
-Author: surt91
-Category: Code
-Tags: Python, GitHub, Bild
-Slug: gravity-sort
-Status: published
-Lang: de
+![Der Grüne Punkt](/img/grunerPunkt.jpg)
 
-Sortieralgorithmen gibt es wie Sand am Meer -- von elegant ($\mathcal{O}(n \log n)$)
-bis absurd. Heute geht es um die absurde Sorte: *Bead Sort*, bei dem man Zahlen als
-Stapel von Perlen auf Stäbe steckt und einfach fallen lässt. Die Schwerkraft erledigt
-den Rest.
-
-![Bead Sort in Aktion](/img/beadsort.gif){: .invertable}
-
-Das Schöne daran: Der Algorithmus ist physikalisch motiviert und damit fast schon zu
-anschaulich, um wahr zu sein. Das weniger Schöne: Auf einem normalen Computer müssen
-wir die fallenden Perlen Spalte für Spalte simulieren, und schon ist der vermeintlich
-geniale $\mathcal{O}(n)$-Trick wieder dahin.
-
-> Gravity is a harsh mistress.
->
-> -- <cite>The Tick</cite> (1994)
-
-Der Code ist als [Gist auf GitHub](https://gist.github.com/surt91) -- in wenigen
-Zeilen, versteht sich.
+Das Yin und Yang der Moderne.
 ```
+
+```markdown
+Man sollte alles nach Wellenlänge sortieren!
+
+![Stifte sortiert nach Wellenlänge](/img/regenbogen.jpg)
+```
+
+**Workflow-Tipp:** Beim Generieren eines neuen Beitrags die ausgewählten
+Vorbild-Posts zusätzlich zu dieser `stil.md` als Kontext mitgeben. Few-Shot mit
+echten Texten trifft die Stimme zuverlässiger als die Anleitung allein.
+
+---
+
+## 11. So klingt es *nicht* (Anti-Patterns)
+
+Ohne Gegengewicht fällt jeder Generator in eine generische, glatte Blog-Stimme
+zurück. Die folgenden Dinge brechen den Ton sofort und sind zu vermeiden:
+
+**Floskeln und Füllsätze:**
+- „In diesem Beitrag werde ich …", „In diesem Artikel geht es um …" – stattdessen
+  direkt mit der Sache oder dem Ergebnis einsteigen.
+- „Zusammenfassend lässt sich sagen …", „Abschließend bleibt festzuhalten …" – der
+  Blog endet mit einer Pointe oder einem Code-Link, nie mit einer Zusammenfassung.
+- „Es ist wichtig zu beachten, dass …", „Es sei darauf hingewiesen …".
+- „Lass uns eintauchen", „Ohne weitere Umschweife", „Schnall dich an".
+
+**Falscher Ton:**
+- Marketing- und Superlativ-Sprech („revolutionär", „bahnbrechend", „ein
+  Game-Changer", „mühelos"). Begeisterung wird gezeigt, indem etwas konkret schön
+  *ist* – nicht durch Etiketten.
+- Ausrufezeichen-Inflation. Ausrufe („Genial!") wirken, *weil* sie selten sind und
+  isoliert am Absatzende stehen. Mehr als ein, zwei pro Post entwerten sie.
+- Ängstliches Hedging und Disclaimer-Ketten („möglicherweise könnte man unter
+  Umständen eventuell …"). Selbstrelativierung ja, aber pointiert und in Klammern
+  („(zumindest manchmal)", „ich bin beileibe kein Experte").
+- Belehrender Ton oder Leser-Bevormundung. Der Leser wird als neugieriger
+  Gleichgesinnter angesprochen, nicht als Schüler.
+
+**Falsche Form:**
+- Bullet-Point-Listen als Ersatz für Prosa. Aufzählungen nur, wo sie inhaltlich
+  zwingend sind (z. B. die drei Eingabe-Kanäle in `perfect-snake.md`). Der
+  Normalfall ist fließender Text.
+- Überschriften in kurzen Posts. `##`-Gliederung erst ab echter Lang-Post-Länge.
+- Offensichtliches übererklären. Snake wird nie erklärt; bekannte Konzepte werden
+  vorausgesetzt, nur die *neue* Zutat wird eingeführt.
+- Den ausgelagerten Code doch komplett in den Fließtext kippen.
+
+---
+
+## 12. Vorher / Nachher
+
+Dieselbe Aussage einmal generisch und einmal in der Stimme des Blogs. Der Kontrast
+zeigt, woran der Stil hängt – Konkretheit, Pointe, Understatement.
+
+**Einstieg:**
+> ❌ „In diesem Beitrag stelle ich ein Doppelpendel vor und erkläre, warum es sich
+> chaotisch verhält."
+> ✅ „Das ist ein Doppelpendel. […] Aus diesem Grund sollte ein Doppelpendel auf
+> keinem Schreibtisch fehlen und bietet sich als grandiose Geschenkidee für
+> Physiker an." *(doppelpendel.md)*
+
+**Meinung zur Technik:**
+> ❌ „JavaScript hat in den letzten Jahren viele neue Sprachfeatures erhalten, etwa
+> den Spread-Operator."
+> ✅ „Ich habe gehört, dass JavaScript sich in den letzten Jahren stark
+> weiterentwickelt hat. Tatsächlich scheint mir diese Sprache einige interessante
+> Sprachelemente erhalten zu haben …" *(jsnake.md)*
+
+**Code-Link begründen:**
+> ❌ „Der vollständige Quellcode ist auf GitHub verfügbar."
+> ✅ „Da `jsnake` nur ein paar Zeilen in einer Datei sind und sich ein ganzes
+> GitHub Repository deshalb nicht lohnt, habe ich es in einen Gist hochgeladen."
+> *(jsnake.md)*
+
+**Grenzen ehrlich benennen:**
+> ❌ „Das Modell erzielt durchweg hervorragende Ergebnisse."
+> ✅ „… funktioniert dieses Modell dann tatsächlich gut genug, um regelmäßig
+> perfekte Spiele […] zu erreichen. Aber da ich es nur auf $10 \times 10$ Feldern
+> trainiert habe, versagt es leider auf jeder anderen Größe." *(perfect-snake.md)*
+
+**Schluss:**
+> ❌ „Zusammenfassend ist Fira Code eine durchdachte Schriftart, die ich empfehlen
+> kann."
+> ✅ „Und jedes Mal wenn in meinem Code `=` und `>` wieder zu `=>` verschmelzen,
+> freue ich mich erneut über die Magie." *(fira.md)*
+
+---
+
+## 13. Satz-Textur und Rhythmus
+
+Die Mikro-Ebene, die der reine Inhalt nicht erfasst:
+
+- **Satzlängen variieren stark.** Auf einen langen, erklärenden Satz folgt gern ein
+  kurzer, der zuschlägt. Pointen und Begeisterung stehen am *Absatzende*, oft als
+  isolierter Kurzsatz („Genial!").
+- **Klammer-Einschübe** tragen Nebenbemerkungen, Fun-Facts und Selbstrelativierung
+  („(Fun Fact: `make` wurde auch 1977 veröffentlicht.)", „(zumindest manchmal)").
+- **Der `--`-Gedankenstrich** leitet den Einschub oder die Pointe ein – sparsam, aber
+  charakteristisch („numerisch ist es kein Problem", „-- und um das klarzustellen,
+  ich bin beileibe kein Experte --").
+- **Konkret statt abstrakt.** Schwierige Ideen werden über Alltags-Analogien
+  geerdet: der Müllmann beim TSP, der Kaffeefleck-Rand, das Kartenspiel bei Patience
+  Sort. Lieber ein anschauliches Bild als eine abstrakte Definition.
+- **Erklärendes „wir" beim Herleiten** („Unser Ziel ist es …", „dazu erweitern wir
+  Patience Sort"), Ich-Perspektive bei Entscheidungen und Meinungen.
+- **Leser-Gedanken vorwegnehmen** statt frontal erklären („Ich sehe wie in genau
+  diesem Moment im Geist des Lesers die Frage … auftaucht.").

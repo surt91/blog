@@ -34,6 +34,11 @@ unklar, danach fragen).
   Leseransprache, Begeisterung für Eleganz?
 - Werden Fachbegriffe eingeführt und erklärt (mit Wikipedia-Links)?
 - Gedankenstrich `--` für Einschübe genutzt? Fachbegriffe bei Einführung *kursiv*?
+- **Keine Anti-Patterns** (§11 in `stil.md`): Floskeln („In diesem Beitrag…“,
+  „Zusammenfassend…“), Marketing-/Superlativ-Sprech, Ausrufezeichen- oder
+  Bullet-Point-Inflation, ängstliches Hedging, Übererklären von Offensichtlichem?
+- Satz-Textur stimmig (§13): Variation der Satzlänge, Pointe am Absatzende,
+  konkrete Analogien statt abstrakter Definitionen?
 
 **Struktur & Dramaturgie:**
 - Klarer Hook am Anfang? Logischer Aufbau (Hook → Einordnung → Entwicklung →

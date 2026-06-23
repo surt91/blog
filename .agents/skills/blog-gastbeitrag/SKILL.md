@@ -12,11 +12,16 @@ metadata:
 Diese Skill erstellt einen neuen, fertig formatierten Blogeintrag im Stil von
 `blog.schawe.me` (statischer Pelican-Blog, Inhalte als Markdown in `content/`).
 
-## Schritt 0 — Stil-Guide laden (Pflicht)
+## Schritt 0 — Stil-Guide & Vorbild-Posts laden (Pflicht)
 Lies **immer zuerst** `stil.md` im Repo-Root vollständig. Dort sind Sprachstil,
 Tonfall, Struktur, Metadaten, technische Bausteine und das Serien-Muster im Detail
 dokumentiert. Der Beitrag muss diesen Konventionen folgen. Dieses SKILL.md fasst nur
 das Wichtigste zusammen — bei Zweifeln gilt `stil.md`.
+
+Wähle anschließend passend zu Archetyp und Thema **1–3 kanonische Vorbild-Posts**
+aus der Tabelle in §10 von `stil.md` und lies sie aus `content/` vollständig als
+Vorlage mit. Echte Beispieltexte treffen die Stimme zuverlässiger als die reine
+Beschreibung; sie sind beim Schreiben die wichtigste Referenz.
 
 ## Schritt 1 — Thema & Rahmen klären
 Wenn der User kein Thema genannt hat, frage knapp nach:
@@ -73,6 +78,10 @@ Orientiere dich eng an `stil.md`:
   `<cite>`.
 - Längeren Code auslagern (Gist) und verlinken statt einbetten, wenn er den
   Lesefluss stört.
+- **Anti-Patterns vermeiden** (§11 in `stil.md`): keine Floskeln („In diesem
+  Beitrag…“, „Zusammenfassend…“), kein Marketing-Sprech, keine Ausrufezeichen-
+  oder Bullet-Point-Inflation, nichts Offensichtliches übererklären. Im Zweifel
+  am Ton der mitgeladenen Vorbild-Posts ausrichten (§13: Satz-Textur, Rhythmus).
 
 ## Schritt 4 — Optionale englische Fassung
 Wenn gewünscht: `content/en/<slug>.md` mit **demselben Slug**, `Lang: en`. Keine
