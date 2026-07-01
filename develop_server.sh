@@ -59,10 +59,19 @@ function shut_down(){
   fi
 }
 
+function build_theme(){
+  # mirrors the Makefile's html/publish targets so the dev server doesn't
+  # crash on an empty output/ dir and doesn't serve stale/missing CSS
+  mkdir -p $OUTPUTDIR/theme/
+  cp -r $BASEDIR/themes/purepelican/static/* $OUTPUTDIR/theme/
+  (cd $OUTPUTDIR/theme/; python -c "import sass; sass.compile(dirname=('sass', 'css'), output_style='compressed')")
+}
+
 function start_up(){
   local port=$1
   echo "Starting up Pelican and HTTP server"
   shift
+  build_theme
   $PELICAN --debug --autoreload -r $INPUTDIR -o $OUTPUTDIR -s $CONFFILE $PELICANOPTS &
   pelican_pid=$!
   echo $pelican_pid > $PELICAN_PID

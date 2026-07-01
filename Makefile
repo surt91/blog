@@ -41,6 +41,8 @@ html:
 	# remove as soon as fixed
 
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	# pelican's own theme-static copy re-adds static/sass/ to the output, drop it again so the SCSS sources aren't published
+	rm -rf output/theme/sass/
 
 publish:
 	# the following line avoids an issue of the assest and i18n_subsites plugins
@@ -50,6 +52,8 @@ publish:
 	# remove as soon as fixed
 
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	# pelican's own theme-static copy re-adds static/sass/ to the output, drop it again so the SCSS sources aren't published
+	rm -rf output/theme/sass/
 
 	echo "blog.schawe.me" > output/CNAME
 

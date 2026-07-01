@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'Hendrik Schawe'
+AUTHOR = 'surt91'
 SITENAME = 'möchte&shy;gern&shy;geek'
 # SITESUBTITLE = 'lorem ipsum dolor sit amet'
 SITEURL = 'https://blog.schawe.me'
