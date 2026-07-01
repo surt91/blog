@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Tech</title><link href="https://blog.schawe.me/" rel="alternate"/><link href="https://blog.schawe.me/feeds/tech.atom.xml" rel="self"/><id>https://blog.schawe.me/</id><updated>2022-10-03T15:18:00+02:00</updated><entry><title>Analog-Digital-Analoges Thermometer</title><link href="https://blog.schawe.me/analog-digital-analoges-thermometer.html" rel="alternate"/><published>2022-10-03T15:18:00+02:00</published><updated>2022-10-03T15:18:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2022-10-03:/analog-digital-analoges-thermometer.html</id><summary type="html">&lt;p&gt;Ich habe mir ein analoges Voltmeter zugelegt und möchte es als Thermometer&amp;nbsp;benutzen.&lt;/p&gt;
+&lt;p&gt;Da der Widerstand von Metallen mit der Temperatur steigt, kann man Temperatur relativ gut messen, indem man
+einen &lt;a href="https://de.wikipedia.org/wiki/Platin-Messwiderstand"&gt;kalibrierten Widerstand&lt;/a&gt; misst.
+Daher kann man theoretisch mit einem Multimeter auch die Temperatur messen. (In der Praxis wird dies …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ich habe mir ein analoges Voltmeter zugelegt und möchte es als Thermometer&amp;nbsp;benutzen.&lt;/p&gt;
+&lt;p&gt;Da der Widerstand von Metallen mit der Temperatur steigt, kann man Temperatur relativ gut messen, indem man
+einen &lt;a href="https://de.wikipedia.org/wiki/Platin-Messwiderstand"&gt;kalibrierten Widerstand&lt;/a&gt; misst.
+Daher kann man theoretisch mit einem Multimeter auch die Temperatur messen. (In der Praxis wird dies
+bei Multimetern allerdings in der Regel mithilfe eines &lt;a href="https://de.wikipedia.org/wiki/Thermoelement#Seebeck-Effekt"&gt;anderen Effektes&lt;/a&gt;&amp;nbsp;erledigt.)&lt;/p&gt;
+&lt;p&gt;Da ich mir aber keine Gedanken darüber machen möchte, wie ich eine Schaltung aussehen müsste, um $15°\mathrm{C}$
+in $1.5 \mathrm{V}$ umzusetzen (vielleicht würde eine &lt;a href="https://de.wikipedia.org/wiki/Br%C3%BCckenschaltung"&gt;Brückenschaltung&lt;/a&gt;
+funktionieren?), wähle ich den einfachen Weg mit einer Reihe integrierter Schaltkreise und einem&amp;nbsp;Microcontroller.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Schaltplan meines Analog-Digital-Analog-Thermometers" src="/img/analogue_temperature_circuit.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Hier ist ein günstiger &lt;span class="caps"&gt;DS18B20&lt;/span&gt; Temperatursensor, der von einem &lt;span class="caps"&gt;ESP8266&lt;/span&gt; ausgelesen wird. Dieser steuert dann einen
+&lt;span class="caps"&gt;MCP4725&lt;/span&gt; Digital-Analog-Wandler so an, dass er eine Spannung ausgibt, deren Wert in Volt ein Zehntel der gemessenen
+Temperatur ist. Diese Spannung wird dann von meinem alten Voltmeter gemessen und angezeigt. Hier ist es also gerade&amp;nbsp;$24°\mathrm{C}$.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/img/analogue_temperature.webp"&gt;&lt;img alt="Foto meines Analog-Digital-Analog-Thermometers" src="/img/analogue_temperature1200.webp"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hier ist übrigens der simple Code, der beispielsweise mit der Arduino &lt;span class="caps"&gt;IDE&lt;/span&gt; auf einen &lt;span class="caps"&gt;ESP8266&lt;/span&gt; geflasht werden&amp;nbsp;kann:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;Wire.h&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;Adafruit_MCP4725.h&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;OneWire.h&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;DallasTemperature.h&amp;gt;&lt;/span&gt;
+
+&lt;span class="cp"&gt;#define ONE_WIRE_BUS D4&lt;/span&gt;
+&lt;span class="cp"&gt;#define MCP4725In A0&lt;/span&gt;
+
+&lt;span class="n"&gt;Adafruit_MCP4725&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MCP4725&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;OneWire&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;oneWire&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ONE_WIRE_BUS&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;DallasTemperature&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;DS18B20&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;oneWire&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9600&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;DS18B20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// 0x60 is the I2C address of my MCP4725A0&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;MCP4725&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mh"&gt;0x60&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;getTemperature&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="n"&gt;DS18B20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requestTemperatures&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;DS18B20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getTempCByIndex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;85.0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;||&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;-127.0&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;setVoltage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;voltageOut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;4096&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;3.3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;MCP4725&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setVoltage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;voltageOut&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;false&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// read it for testing and maybe calibrating&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;adcInput&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;analogRead&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MCP4725In&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;voltageIn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;adcInput&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;3.3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1024.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Expected Voltage: &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Measured Voltage: &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;voltageIn&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;loop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;getTemperature&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;setVoltage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// send temperature to the serial console&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;dtostrf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;temperatureString&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperatureString&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1e3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"/><category term="C"/><category term="Code"/><category term="Bild"/><category term="Microcontroller"/></entry><entry><title>Heimkinoautomatisierung</title><link href="https://blog.schawe.me/heimkinoautomatisierung.html" rel="alternate"/><published>2022-07-30T17:30:00+02:00</published><updated>2022-07-30T17:30:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2022-07-30:/heimkinoautomatisierung.html</id><summary type="html">&lt;p&gt;Ich habe seit langem einen Beamer statt eines Fernsehers, was einige Vorteile
+mit sich bringt: ein sehr großes Bild, kein im Weg stehender Fernseher und
+die perfekte Motivation Hausautomatisierung in Angriff zu nehmen. Schließlich
+ist der Ablauf, bevor ein Film starten kann, durchaus&amp;nbsp;aufwendig:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Die Jalousien werden&amp;nbsp;geschlossen.&lt;/li&gt;
+&lt;li&gt;Die Leinwand …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;Ich habe seit langem einen Beamer statt eines Fernsehers, was einige Vorteile
+mit sich bringt: ein sehr großes Bild, kein im Weg stehender Fernseher und
+die perfekte Motivation Hausautomatisierung in Angriff zu nehmen. Schließlich
+ist der Ablauf, bevor ein Film starten kann, durchaus&amp;nbsp;aufwendig:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Die Jalousien werden&amp;nbsp;geschlossen.&lt;/li&gt;
+&lt;li&gt;Die Leinwand fährt&amp;nbsp;herunter.&lt;/li&gt;
+&lt;li&gt;Der &lt;span class="caps"&gt;AV&lt;/span&gt;-Receiver wird&amp;nbsp;angeschaltet.&lt;/li&gt;
+&lt;li&gt;Der Beamer&amp;nbsp;startet.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Tatsächlich hatte ich vor Jahren einen selbstgeschriebenen Python-Server auf
+einem Raspberry Pi aufgesetzt, der diese Steuerung übernommen hat. Aber vor kurzem
+habe ich ihn ersetzt durch die Anbindung von einem &lt;span class="caps"&gt;ESP&lt;/span&gt; 8266 mittels
+&lt;a href="https://esphome.io/"&gt;&lt;span class="caps"&gt;ESP&lt;/span&gt; Home&lt;/a&gt; an &lt;a href="https://www.home-assistant.io/"&gt;Home Assistant&lt;/a&gt;.
+In meinem Setup kommt von Infrarot (&lt;span class="caps"&gt;IR&lt;/span&gt;) Fernbedienung über 433 MHz Funk (&lt;span class="caps"&gt;RF&lt;/span&gt;) und Transistoren,
+die über Fernbedienungskontakte gelötet sind, bis zu einer seriellen &lt;span class="caps"&gt;RS232&lt;/span&gt; Schnittstelle
+alles vor. Es sollte also für jeden Leser etwas dabei&amp;nbsp;sein.&lt;/p&gt;
+&lt;h2&gt;Die&amp;nbsp;Jalousien&lt;/h2&gt;
+&lt;p&gt;Meine Jalousien wurden ursprünglich per Hand mit einem Gurt geöffnet und geschlossen.
+Der einfachste Weg solche Rollläden weniger manuell zu machen, sind nachrüstbare Gurtwickler,
+die die Muskelkraft durch einen Servomotor ersetzen. Ich habe mir einen relativ günstigen
+elektrischen Gurtwickler mit einer 433 MHz Fernbedienung gekauft. Der Plan war eigentlich
+mit einem 433 MHz Receiver die Signale aufzuzeichnen und danach mit einem Sender wieder zu&amp;nbsp;schicken.&lt;/p&gt;
+&lt;p&gt;Blöderweise hat sich (unter Verwendung von Audacity als Offline-Oszilloskop) herausgestellt,
+dass sich das Signal bei jedem Knopfdruck ändert &amp;#8212; anscheinend nutzen meine Gurtwickler
+ein Protokoll mit Schlüssel, was beispielsweise für sicherheitsrelevante Anwendungen wie
+Garagentore verwendet&amp;nbsp;wird.&lt;/p&gt;
+&lt;p&gt;Die einfache Lösung dafür ist, die Fernbedienung auseinander zu bauen und die Taster, die
+normalerweise per Hand ausgelöst werden, mit Transistoren zu überbrücken, die dann über
+&lt;span class="caps"&gt;GPIO&lt;/span&gt; Pins ausgelöst werden&amp;nbsp;können.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/img/screen_switch.webp"&gt;&lt;img alt="Das ist zwar die Fernbedienung von der Leinwand, aber das Prinzip ist das gleiche und ich habe es versäumt ein Foto von der Jalousien-Fernbedienung zu machen" src="/img/screen_switch1200.webp"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Und die Konfiguration in &lt;span class="caps"&gt;ESP&lt;/span&gt; Home ist&amp;nbsp;selbsterklärend.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;gpio&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;blinds_up_pin&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;pin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;D7&lt;/span&gt;
+
+&lt;span class="nt"&gt;button&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;output&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;blinds_up&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;Jalusinen hoch&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mdi:roller-shade&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;blinds_up_pin&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;duration&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;300ms&lt;/span&gt;
+&lt;span class="c1"&gt;# skipped blinds down&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Die&amp;nbsp;Leinwand&lt;/h2&gt;
+&lt;p&gt;Motorisierte Leinwände haben oft einen Eingang für einen 3,5 mm Klinkenstecker, den man direkt mit
+dem Beamer verbinden kann. Leider nicht die Leinwand, die ich habe. Aber halb so schlimm, denn
+sie hat eine Funkfernbedienung und ich habe ja noch die 433 MHz Hardware, die für die Jalousien
+gedacht waren. Und tatsächlich nutzt meine Leinwand ein simples Protokoll &amp;#8212; aber auf 315&amp;nbsp;Mhz.&lt;/p&gt;
+&lt;p&gt;Sobald wir also einen 315 MHz Transmitter und Receiver haben, können wir die Codes aufzeichnen und die &lt;span class="caps"&gt;ESP&lt;/span&gt; Home
+Konfiguration anpassen. Dafür definieren wir&amp;nbsp;einen &lt;code&gt;remote_transmitter&lt;/code&gt; für den passenden &lt;span class="caps"&gt;GPIO&lt;/span&gt; Pin
+und&amp;nbsp;einen &lt;code&gt;switch&lt;/code&gt;, der den Code für &amp;#8220;herunter fahren&amp;#8221; sendet, die passende Zeit wartet und dann den Code
+für &amp;#8220;stopp&amp;#8221; sendet. Eine Stolperfalle ist, dass der Code&amp;nbsp;mittels &lt;code&gt;repeat&lt;/code&gt; mehrmals gesendet werden&amp;nbsp;muss.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;remote_receiver&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;RF315_Recv&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;pin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;D5&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;inverted&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;yes&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;INPUT_PULLUP&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;dump&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;all&lt;/span&gt;
+
+&lt;span class="nt"&gt;remote_transmitter&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;RF315&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;pin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;D1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;carrier_duty_percent&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;100%&lt;/span&gt;
+
+&lt;span class="nt"&gt;switch&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;template&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;Screen&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mdi:projector-screen&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;optimistic&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;turn_on_action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;remote_transmitter.transmit_rc_switch_raw&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;transmitter_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;RF315&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;code&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;000110110111100111000100&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;protocol&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;repeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;times&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;10&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;wait_time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;0s&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;39.0s&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;remote_transmitter.transmit_rc_switch_raw&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;transmitter_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;RF315&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;code&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;000110110111100111001000&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;protocol&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;repeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;times&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;10&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;wait_time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;0s&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# turn_off_action skipped&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Der &lt;span class="caps"&gt;AV&lt;/span&gt;-Receiver&lt;/h2&gt;
+&lt;p&gt;Dies ist die erste Komponente, die nach Plan läuft: Der &lt;span class="caps"&gt;AV&lt;/span&gt;-Receiver hat eine &lt;span class="caps"&gt;IR&lt;/span&gt; Fernbedienung
+und der Hersteller veröffentlicht die Codes sogar selbst, sodass ich mir das Aufzeichnen sparen kann.
+Falls man diesen Luxus nicht that, kann man an den &lt;span class="caps"&gt;ESP&lt;/span&gt; einen &lt;span class="caps"&gt;IR&lt;/span&gt; Receiver wie einen &lt;span class="caps"&gt;TSOP&lt;/span&gt; 4838
+anschließen und mit dem &lt;a href="https://esphome.io/components/remote_receiver.html"&gt;&lt;code&gt;remote_receiver&lt;/code&gt;&lt;/a&gt;&amp;nbsp;auswerten.&lt;/p&gt;
+&lt;p&gt;Um die Signale zu senden, reicht eine Infrarotdiode, die ich über einen Transistor&amp;nbsp;schalte.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Infrarot Sender" src="/img/ir_esp.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Für &lt;span class="caps"&gt;ESP&lt;/span&gt; Home müssen wir einen&amp;nbsp;weiteren &lt;code&gt;remote_transmitter&lt;/code&gt; definieren. Damit die Codes über die &lt;span class="caps"&gt;IR&lt;/span&gt; Diode
+und nicht über den &lt;span class="caps"&gt;RF&lt;/span&gt; Sender verschickt werden, müssen wir dem Transmitter eine Id zuweisen und diese später&amp;nbsp;mit &lt;code&gt;transmitter_id&lt;/code&gt; referenzieren.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;remote_transmitter&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;IR&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;pin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;D2&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;carrier_duty_percent&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;50%&lt;/span&gt;
+
+&lt;span class="nt"&gt;button&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;template&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;av_on&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;AV on&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mdi:audio-video&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;on_press&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;remote_transmitter.transmit_pioneer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;transmitter_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;IR&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;rc_code_1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;0xA51A&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;repeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;times&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;2&lt;/span&gt;
+&lt;span class="c1"&gt;# skipped other buttons&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Der&amp;nbsp;Beamer&lt;/h2&gt;
+&lt;p&gt;Den Beamer könnte man natürlich auch per &lt;span class="caps"&gt;IR&lt;/span&gt; steuern, aber mein Modell, der BenQ W1070, hat eine &lt;span class="caps"&gt;RS232&lt;/span&gt;
+Schnittstelle, die nicht nur etwas zuverlässiger als die Infrarotschnittstelle ist, sondern es auch
+erlaubt den aktuellen Zustand auszulesen. Dazu können wir bspw. einen &lt;span class="caps"&gt;MAX3232&lt;/span&gt; an die &lt;span class="caps"&gt;UART&lt;/span&gt;
+Pins anschließen und die Beispielkonfiguration für den&amp;nbsp;custom &lt;code&gt;text_sensor&lt;/code&gt; aus der &lt;span class="caps"&gt;ESP&lt;/span&gt; Home
+Dokumentation&amp;nbsp;kopieren.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;logger&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# disable logging over uart&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;baud_rate&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;0&lt;/span&gt;
+
+&lt;span class="nt"&gt;uart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;uart_bus&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;tx_pin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;rx_pin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;3&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# choose same value set in the projector settings&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;baud_rate&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;9600&lt;/span&gt;
+
+&lt;span class="nt"&gt;text_sensor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# this needs the .h file from https://esphome.io/cookbook/uart_text_sensor.html&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;custom&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p p-Indicator"&gt;|-&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="no"&gt;auto my_custom_sensor = new UartReadLineSensor(id(uart_bus));&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="no"&gt;App.register_component(my_custom_sensor);&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="no"&gt;return {my_custom_sensor};&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;text_sensors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;uart_readline&amp;quot;&lt;/span&gt;
+
+&lt;span class="nt"&gt;switch&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;template&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Projector&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;Power&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mdi:projector&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p p-Indicator"&gt;|-&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="no"&gt;if (id(uart_readline).state == &amp;quot;*POW=ON#&amp;quot;) {&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="no"&gt;return true;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="no"&gt;} else if(id(uart_readline).state == &amp;quot;*POW=OFF#&amp;quot;) {&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="no"&gt;return false;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="no"&gt;} else {&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="no"&gt;return {};&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="no"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;turn_on_action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;uart.write&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;\r*pow=on#\r&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;turn_off_action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;uart.write&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;\r*pow=off#\r&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Fazit&lt;/h2&gt;
+&lt;p&gt;Da dies doch eine ganze Menge Komponenten sind, die ich per Jumper-Kabel an den &lt;span class="caps"&gt;ESP&lt;/span&gt;
+geschlossen habe, ist noch ein Gehäuse nötig. Dazu nutze ich die beste Alternative zu
+einem 3D-Drucker:&amp;nbsp;Lego!&lt;/p&gt;
+&lt;p&gt;&lt;a href="/img/heimkinoautomatisierung.webp"&gt;&lt;img alt="Alle Komponenten mittels Lego an der Beamerhalterung befestigt" src="/img/heimkinoautomatisierung1200.webp"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Die Aufhängung des Beamers bietet dabei den optimalen Ort für eine provisorische
+Befestigung, die nahe am &lt;span class="caps"&gt;RS232&lt;/span&gt;-Eingang des Beamers ist und einen guten Blick
+auf den &lt;span class="caps"&gt;IR&lt;/span&gt;-Empfänger des &lt;span class="caps"&gt;AV&lt;/span&gt;-Receivers&amp;nbsp;hat.&lt;/p&gt;
+&lt;p&gt;Die gesamte &lt;span class="caps"&gt;EPS&lt;/span&gt;-Home-Konfigurationsdatei steht auch als
+&lt;a href="https://gist.github.com/surt91/dde1e7986cda0177a7b790930edb7230"&gt;GitHub Gist&lt;/a&gt;&amp;nbsp;bereit.&lt;/p&gt;
+&lt;p&gt;Das ganze Setup wird abgerundet von einem selbstgebauten Schalter (mit Cherry Blue Switches),
+um den Kinomodus zu starten und zu beenden, sowie Home-Assistant-Automatisierungen,
+die das Licht kontrollieren: Licht aus wenn der Film startet, Licht gedimmt, wenn er&amp;nbsp;pausiert.&lt;/p&gt;</content><category term="Tech"/><category term="Home Assistant"/><category term="ESPHome"/><category term="Microcontroller"/></entry><entry><title>Come to the dark side, our theme song is better</title><link href="https://blog.schawe.me/come-to-the-dark-side-our-theme-song-is-better.html" rel="alternate"/><published>2011-04-05T11:22:00+02:00</published><updated>2011-04-05T11:22:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2011-04-05:/come-to-the-dark-side-our-theme-song-is-better.html</id><content type="html">&lt;p&gt;Der Imperiale Marsch, gespielt auf einem Telefonlautsprecher von einem
+&lt;span class="caps"&gt;AVR&lt;/span&gt; &lt;span class="caps"&gt;ATMEGA8&lt;/span&gt;.&lt;/p&gt;
+&lt;video controls="controls" height="240" type="video/webm" width="320"&gt;
+&lt;source src="/vid/IM2.webm"&gt;&lt;/source&gt;
+&lt;source src="/vid/IM2.ogv"&gt;&lt;/source&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;
+
+&lt;p&gt;Der Code für den Microcontroller ist als &lt;a href="https://gist.github.com/surt91/91e65a50b5a0d3a59f5eacb967bea039"&gt;Gist auf GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="Tech"/><category term="C"/><category term="Video"/><category term="GitHub"/><category term="Microcontroller"/></entry><entry><title>Binär Uhr</title><link href="https://blog.schawe.me/binar-uhr.html" rel="alternate"/><published>2009-11-13T18:46:00+01:00</published><updated>2009-11-13T18:46:00+01:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2009-11-13:/binar-uhr.html</id><content type="html">&lt;center&gt;&lt;object id="Frame" style="background-color:#ddd" data="/js/uhr/uhr.html" width="180" height="115"&gt;&lt;/object&gt;&lt;/center&gt;</content><category term="Tech"/><category term="JavaScript"/></entry></feed>
