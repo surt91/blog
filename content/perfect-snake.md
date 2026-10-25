@@ -63,7 +63,7 @@ Meine Implementierung benutzt die Python Bibliotheken Keras und Tensorflow zum T
 und [multiJSnake]({filename}/multijsnake.md) als *Environment*. Wir steuern also einen
 Java-Prozess, um unser neuronales Netz in Python zu trainieren.
 Diese Entscheidung ist etwas unorthodox, aber bot Potential für einen Blogpost auf dem
-[Blog meines Arbeitgebers](https://blog.codecentric.de/2021/11/java-klassen-python/).
+[Blog meines Arbeitgebers](https://web.archive.org/web/20220522192616/https://blog.codecentric.de/2021/11/java-klassen-python/).
 
 Wir können das Environment getrost als Black-Box betrachten, die dafür sorgt, dass die Regeln
 von Snake befolgt werden.

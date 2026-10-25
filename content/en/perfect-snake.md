@@ -60,7 +60,7 @@ My Implementation uses the Python libraries Keras and Tensorflow for training an
 the *environment*. It is a strange decision to implement the environment in Java.
 The reason is that it already existed and the combination offered the opportunity
 to write a post on the
-[blog of my employer](https://blog.codecentric.de/en/2021/11/java-classes-python/).
+[blog of my employer](https://web.archive.org/web/20220522205832/https://blog.codecentric.de/en/2021/11/java-classes-python/).
 
 For this post, we will just treat the environment as a black box, which enforces the
 rules of Snake.
