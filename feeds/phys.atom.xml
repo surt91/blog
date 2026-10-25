@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>möchte­gern­geek - Phys</title><link href="https://blog.schawe.me/" rel="alternate"/><link href="https://blog.schawe.me/feeds/phys.atom.xml" rel="self"/><id>https://blog.schawe.me/</id><updated>2022-05-28T16:08:00+02:00</updated><entry><title>Convex hulls of random walks in higher dimensions: A large deviation study</title><link href="https://blog.schawe.me/paper-convex-highdim.html" rel="alternate"/><published>2022-05-28T16:08:00+02:00</published><updated>2022-05-28T16:08:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2022-05-28:/paper-convex-highdim.html</id><summary type="html">&lt;p&gt;Die Frage wie groß das Revier eines Tieres ist, ist in konkreten Fällen für Biologen
+interessant und dank &lt;span class="caps"&gt;GPS&lt;/span&gt;-Sendern kann man es heutzutage sogar empirisch untersuchen. Aus der
+Punktwolke der besuchten Orte kann man eine Fläche abschätzen &amp;#8212; im einfachsten Fall
+indem man die konvexe Hülle um alle besuchten Orte …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Die Frage wie groß das Revier eines Tieres ist, ist in konkreten Fällen für Biologen
+interessant und dank &lt;span class="caps"&gt;GPS&lt;/span&gt;-Sendern kann man es heutzutage sogar empirisch untersuchen. Aus der
+Punktwolke der besuchten Orte kann man eine Fläche abschätzen &amp;#8212; im einfachsten Fall
+indem man die konvexe Hülle um alle besuchten Orte&amp;nbsp;zeichnet.&lt;/p&gt;
+&lt;p&gt;Als Physiker sind mir echte Tiere zu kompliziert, sodass ich stattdessen annehme,
+dass sie punktförmig sind und ihre Bewegung ein &lt;em&gt;Random Walk&lt;/em&gt; in einer isotropen
+Umgebung ist. Also springen meine idealisierten Tiere unabhängig von ihren bisherigen
+Handlungen zu ihrem nächsten Aufenthaltsort &amp;#8212; der Abstand vom aktuellen Punkt ist dabei
+in jeder Dimension unabhängig und&amp;nbsp;normalverteilt.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;In jeder Dimension?&lt;/em&gt; Ja, genau! Wir wollen schließlich auch das Revierverhalten von
+vierdimensionalen Space Whales&amp;nbsp;untersuchen.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Ein vierdimensionaler Weltraumwal, oder was Stable Diffusion sich darunter vorstellt" src="/img/SpaceWhale.webp"&gt;&lt;/p&gt;
+&lt;p&gt;Spaß beiseite, in dieser Veröffentlichung geht es natürlich eher um fundamentale
+Eigenschaften von Random Walks &amp;#8212; einer der einfachsten und deshalb am besten
+untersuchten Markow-Prozesse. Und zwar im Hinblick auf Large Deviations,
+die extrem unwahrscheinlichen Ereignisse, die weit jenseits der Möglichkeiten
+von konventionellen Sampling-Methoden liegen. Details hierzu sind am besten
+direkt im &lt;a href="https://academic.schawe.me/pdf/2017_convex_highdim_PRE.pdf"&gt;Artikel&lt;/a&gt; oder mit einer
+Menge Hintergrundinformationen und ausführlicher als für ein Blog angemessen
+in dem entsprechenden Kapitel und Anhang meiner &lt;a href="https://academic.schawe.me/pdf/dissertation.pdf"&gt;Dissertation&lt;/a&gt;
+nachzulesen. Insbesondere ist dort auch beschrieben wie die geometrischen
+Unterprobleme effizient gelöst werden können, auf die wir im Verlauf dieses
+Blogposts stoßen&amp;nbsp;werden.&lt;/p&gt;
+&lt;p&gt;Das Problem eine konvexe Hülle zu finden ist einerseits einfach zu begreifen,
+schön geometrisch und sehr gut untersucht. Dadurch sind überraschend viele
+Algorithmen bekannt, die unterschiedliche Vor- und Nachteile&amp;nbsp;haben.&lt;/p&gt;
+&lt;p&gt;Im Folgenden möchte ich deshalb ein paar Methoden vorstellen, wie man effizient
+die konvexe Hülle einer Punktmenge bestimmen kann, und dies mit animierten gifs von
+Punkten und Strichen visualisieren. Der Code zur Erstellung der Visualisierungen
+ist übrigens in Rust geschrieben und auf &lt;a href="https://github.com/surt91/convex_hulls"&gt;GitHub&lt;/a&gt; zu&amp;nbsp;finden.&lt;/p&gt;
+&lt;h2&gt;Andrew&amp;#8217;s Monotone&amp;nbsp;Chain&lt;/h2&gt;
+&lt;p&gt;In zwei Dimensionen kann man ausnutzen, dass die konvexe Hülle ein Polygon ist, das
+man durch die Reihenfolge der Eckpunkte definieren kann. Die grundlegende Idee ist
+also die Punkte im Uhrzeigersinn zu sortieren, in dieser Reihenfolge, mit dem
+Punkt ganz links startend, alle zu einem Polygon hinzuzufügen und dabei darauf
+zu achten, dass die drei neusten Punkte des Polygons ein negativ orientiertes Dreieck
+bilden, also dass sie im &amp;#8220;Uhrzeigersinn drehen&amp;#8221;. Wenn das nicht der Fall ist,
+wird der mittlere Punkt&amp;nbsp;entfernt.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sechs Schritte von Andrew's Monotone Chain -- oder Graham Scan" class="invertable" src="/img/ch_andrew_steps.webp"&gt;&lt;/p&gt;
+&lt;p&gt;Dies ist übrigens die ursprüngliche Variante, der &lt;em&gt;Graham Scan&lt;/em&gt;. Andrew verbesserte
+diesen Algorithmus dadurch, dass nicht im Uhrzeigersinn sortiert werden muss, sondern
+man lexikographisch nach horizontaler Koordinate (bei Gleichstand entscheidet die
+vertikale Koordinate) sortiert. Dann bildet dieser Algorithmus die obere Hälfte der Hülle
+und wenn man ihn rückwärts auf die sortierten Punkte anwendet, die untere&amp;nbsp;Hälfte.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Andrew's Monotone Chain" class="invertable" src="/img/ch_andrew.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Die Komplexität für $n$ Punkte ist somit $\mathcal{O}(n \ln n)$ limitiert durch das&amp;nbsp;Sortieren.&lt;/p&gt;
+&lt;h2&gt;Jarvis March: Gift&amp;nbsp;Wrapping&lt;/h2&gt;
+&lt;p&gt;Ein Geschenk einzupacken ist ein relativ intuitiver Prozess: Wir bewegen das Papier
+so lange herunter, bis wir auf einen Punkt des Geschenkes treffen, wo es hängen bleibt
+Dann wickeln wir weiter, bis wir auf den nächsten Punkt stoßen. Dabei streben wir an die
+konvexe Hülle zu finden, denn sie ist das Optimum möglichst wenig Papier zu verbrauchen
+während wir die Punktwolke einhüllen, die wir verschenken wollen. Und offenbar klappt das
+auch in drei&amp;nbsp;Dimensionen!&lt;/p&gt;
+&lt;p&gt;In einem Computer ist es allerdings einfacher das Geschenkpapier von innen aus der Punktwolke
+heraus nach außen zu falten. Für jede Facette testen wir also jeden der $n$ Punkte in der
+Punktwolke darauf, ob er links von unserem Stück Geschenkpapier liegt. Wenn ja, falten wir das
+Papier weiter. Sobald wir alle $n$ Punkte ausprobiert haben, wissen wir, dass das Geschenkpapier
+an der richtigen Stelle liegt, sodass anfangen können die nächste Facette mit dem Geschenkpapier
+zu bilden indem wir von innen alle Punkte&amp;nbsp;durchtesten.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Jarvis March: Gift Wrapping" class="invertable" src="/img/ch_jarvis.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Interessanterweise müssen wir also für jeden der $h$ Punkte, die zur Hülle gehören $\mathcal{O}(n)$ Punkte
+prüfen, sodass die Komplexität abhängig ist vom Ergebnis: $\mathcal{O}(n&amp;nbsp;h)$&lt;/p&gt;
+&lt;h2&gt;Chan&amp;#8217;s&amp;nbsp;Algorithm&lt;/h2&gt;
+&lt;p&gt;Wir haben also einen $\mathcal{O}(n \ln n)$ und einen $\mathcal{O}(n h)$ Algorithmus kennen gelernt,
+aber können wir noch besser werden? Ja! $\mathcal{O}(n \ln h)$ ist die theoretische untere Komplexitätsgrenze
+für 2D konvexe Hüllen. Beispielsweise Chans Algorithmus erreicht diese Komplexität mit einem trickreichen
+zweistufigen&amp;nbsp;Prozess.&lt;/p&gt;
+&lt;p&gt;Zuerst teilt man die Punktwolke in zufällige Untermengen mit jeweils etwa $m$ Punkten ein. Für jede berechnet
+man die konvexe Hülle, bspw. mit Andrews Algorithmus. Dann benutzt man Jarvis March, um die Hülle zu konstruieren,
+dabei muss man allerdings nicht mehr alle Punkte durchprobieren, sondern nur noch die Tangenten, die in der Animation
+mit grünen Strichen gekennzeichnet sind. Die Tangenten kann man für jede der $k = \lceil \frac{n}{m} \rceil$ Sub-Hüllen
+effizient in $\mathcal{O}(m)$ bestimmen. Dazu benutzt man einem Algorithmus, der an eine Binärsuche erinnert.
+Zusammen hat dies also eine Komplexität von $\mathcal{O}((n+kh) \ln&amp;nbsp;m)$.&lt;/p&gt;
+&lt;p&gt;Aber ich hatte $\mathcal{O}(n \ln h)$ versprochen. Nun, um das zu erreichen, müssen wir einfach nur $m \approx h$ wählen.
+Aber wie kommen wir an $h$ bevor wir die Hülle berechnet haben? Der Trick ist, mit einem niedrigen $m$ zu starten,
+dann nur $m$ Schritte des Jarvis-Teils des Algorithmus durchzuführen und wenn die Hülle dann noch nicht fertig ist
+$m$ zu erhöhen und es wieder von vorne zu beginnen. Damit dieser iterative Teil des Algorithmus nicht unsere Komplexität
+erhöht, muss $m$ schnell genug wachsen, was in der Regel durch Quadrieren des alten Werten erreicht&amp;nbsp;wird.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Chan's Algorithm" class="invertable" src="/img/ch_chan.gif"&gt;&lt;/p&gt;
+&lt;h2&gt;QuickHull&lt;/h2&gt;
+&lt;p&gt;Zuletzt möchte ich hier noch QuickHull vorstellen, weil dieser Algorithmus meiner Meinung nach einen sehr hübschen
+rekursiven &lt;em&gt;divide and conquer&lt;/em&gt; Ansatz verfolgt &amp;#8212; ein bisschen wie QuickSort.
+In zwei Dimensionen starten wir mit dem Punkt ganz links $A$ und ganz rechts $B$. Dann finden wir den Punkt $C$ der
+am weitesten entfernt ist von der Strecke $\overline{&lt;span class="caps"&gt;AB&lt;/span&gt;}$ und links von der Strecke ist. Diesen Schritt wiederholen wir
+rekursiv auf den Strecken $\overline{&lt;span class="caps"&gt;AC&lt;/span&gt;}$ und $\overline{&lt;span class="caps"&gt;CB&lt;/span&gt;}$ (und $\overline{&lt;span class="caps"&gt;BA&lt;/span&gt;}$ für die untere&amp;nbsp;Hälfte.)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="QuickHull" class="invertable" src="/img/ch_quickhull.gif"&gt;&lt;/p&gt;
+&lt;h2&gt;Mehr&amp;nbsp;Dimensionen&lt;/h2&gt;
+&lt;p&gt;Aber ich hatte Space Whales versprochen, also können wir uns nicht mit 2D zufrieden geben!
+Tatsächlich müssen wir schon beim Verallgemeinern auf 3D aufpassen. Schließlich konnten
+wir für 2D die konvexe Hülle als Sequenz von Punkten repräsentieren. Für höhere Dimensionen
+müssen wir sie allerdings als Menge von Facetten repräsentieren. Glücklicherweise tauchen
+für noch höhere Dimensionen dann keine weiteren Schwierigkeiten mehr auf &amp;#8212; abgesehen von der
+Grundsätzlichen Schwierigkeit, dass höherdimensionale Gebilde deutlich größere Oberflächen
+haben und somit die konvexe Hülle aus deutlich mehr Facetten besteht, sodass die untere Schranke
+für die Komplexität für Dimension $d$ durch $\mathcal{O}(n^{\lfloor d / 2 \rfloor})$ gegeben&amp;nbsp;ist.&lt;/p&gt;
+&lt;p&gt;Bevor ich hier QuickHull für $d=3$ beschreibe, möchte ich darauf hinweisen, dass es die
+&lt;a href="http://www.qhull.org/"&gt;&lt;code&gt;qhull&lt;/code&gt; Implementierung&lt;/a&gt; gibt, die sich bspw. auch um die subtilen numerischen
+Fehler kümmert, die sich bei sehr spitzen Winkeln einschleichen&amp;nbsp;können.&lt;/p&gt;
+&lt;p&gt;Grundsätzlich bleibt das Vorgehen gleich: Wir starten mit einem $d$-dimensionalen Simplex, also für $d=3$
+mit einem Tetraeder, dessen Eckpunkte zur konvexen Hülle gehören. Dann führen wir für jede Facette
+den rekursiven Schritt durch: Finde den Punkt, der am weitesten &lt;em&gt;vor&lt;/em&gt; der Facette (also außerhalb des Tetraeders) ist.
+Diesen Punkt nennt man &lt;em&gt;Eye-Point&lt;/em&gt;. Denn es reicht jetzt im Gegensatz zum 2D Fall nicht mehr
+einfach neue Facetten aus den Rändern und dem neuen Punkt zu bilden. Stattdessen müssen wir alle
+Facetten, deren Vorderseite (also Außenseite) wir vom Eye-Point aus sehen können entfernen und
+neue Facetten mit dem Horizont und dem &lt;em&gt;Eye-Point&lt;/em&gt; bilden. In der Animation unten sind der &lt;em&gt;Eye-Point&lt;/em&gt;
+sowie die Facetten, die er sieht, rot dargestellt. Der Horizont ist mit schwarzen Strichen&amp;nbsp;gekennzeichnet.&lt;/p&gt;
+&lt;p&gt;Wird dieser Schritt rekursiv auf alle neu hinzugefügten Facetten angewendet, resultiert die
+konvexe Hülle. Und genauso, wenn auch deutlich schwieriger darstellbar, funktioniert es auch
+für alle höheren&amp;nbsp;Dimensionen.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="QuickHull" src="/img/ch_quickhull3d.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Eine wichtige Anwendung für 3D konvexe Hüllen ist übrigens die Delaunay-Triangulation einer planaren
+Punktmenge. Die wiederum kann für eine effiziente Berechnung des &lt;a href="https://blog.schawe.me/relative-neighborhood-graph.html"&gt;Relative-Neighborhood-Graphs aus
+diesem Post&lt;/a&gt; genutzt&amp;nbsp;werden.&lt;/p&gt;</content><category term="Phys"/><category term="Veröffentlichung"/><category term="Physik"/><category term="Bild"/></entry><entry><title>Number of longest increasing subsequences</title><link href="https://blog.schawe.me/paper-lis2.html" rel="alternate"/><published>2020-06-02T11:11:00+02:00</published><updated>2020-06-02T11:11:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2020-06-02:/paper-lis2.html</id><summary type="html">&lt;p&gt;Meine liebsten Probleme sind solche, die einfach scheinen aber sehr tief sind. Natürlich gehört
+das &lt;a href="https://blog.schawe.me/paper-tsp-pt.html"&gt;Problem des Handlungsreisenden&lt;/a&gt; dazu: Es ist einfach zu verstehen,
+dass der Müllmann bei jeder Mülltonne vorbei muss und dabei möglichst wenig Strecke fahren will.
+Gerade deshalb ist es das Paradebeispiel für &lt;span class="caps"&gt;NP&lt;/span&gt;-schwere Probleme (technisch …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Meine liebsten Probleme sind solche, die einfach scheinen aber sehr tief sind. Natürlich gehört
+das &lt;a href="https://blog.schawe.me/paper-tsp-pt.html"&gt;Problem des Handlungsreisenden&lt;/a&gt; dazu: Es ist einfach zu verstehen,
+dass der Müllmann bei jeder Mülltonne vorbei muss und dabei möglichst wenig Strecke fahren will.
+Gerade deshalb ist es das Paradebeispiel für &lt;span class="caps"&gt;NP&lt;/span&gt;-schwere Probleme (technisch gesehen ist nur seine
+Entscheidungs-Version &amp;#8220;Gibt es eine Tour, die kürzer ist als $X$&amp;#8221; &lt;span class="caps"&gt;NP&lt;/span&gt;-schwer und nicht die typische
+Optimierungsversion: &amp;#8220;Welche ist die kürzeste&amp;nbsp;Tour&amp;#8221;).&lt;/p&gt;
+&lt;p&gt;Aber fast noch besser gefällt mir das Problem der &lt;em&gt;längsten aufsteigenden Teilfolge&lt;/em&gt;, oder auf englisch,
+&lt;em&gt;longest increasing subsequence&lt;/em&gt; (&lt;span class="caps"&gt;LIS&lt;/span&gt;): Gegeben eine
+Folge von Zahlen $S_i$, welche Teilfolge ist am längsten unter der Bedingung, dass die Zahlen&amp;nbsp;aufsteigen.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Eine längste aufsteigende Teilfolge ist in einer Folge markiert" class="invertable" src="img/lis_example.png"&gt;&lt;/p&gt;
+&lt;p&gt;Dieses Problem ist so einfach, dass es erstmals von Stanisław Ulam als Fingerübung beschrieben wurde und nach meinem
+Eindruck heutzutage als Übung für dynamische Programmierung in Universitäten verwendet wird. Wer weiß
+wie viele Bewerber vor einem Whiteboard ins Schwitzen geraten sind bei dem Versuch es aus dem Stegreif zu&amp;nbsp;lösen.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The Surprising Mathematics of Longest Increasing Subsequences -- Dan Romik" src="/img/romik.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Auf der anderen Seite ist es aber offenbar tief genug, dass man ganze Bücher darüber schreiben kann.
+Es zeigen sich überraschende Querverbindungen zu scheinbar unabhängigen Problemen.
+Denn die Länge $L$ der &lt;span class="caps"&gt;LIS&lt;/span&gt; einer Permutation fluktuiert genauso wie der &lt;a href="https://en.wikipedia.org/wiki/Kardar%E2%80%93Parisi%E2%80%93Zhang_equation"&gt;Abstand von der Mitte zum Rand eines Kaffeeflecks&lt;/a&gt; oder die &lt;a href="https://www.quantamagazine.org/beyond-the-bell-curve-a-new-universal-law-20141015/"&gt;größten Eigenwerte von Zufallsmatrizen&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Nun ist die Lösung dieses Problems nicht eindeutig: Es kann viele längste aufsteigende Teilfolgen
+geben. Tatsächlich wächst die Anzahl sogar exponentiell mit der Länge der ursprünglichen&amp;nbsp;Sequenz.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Verschiedene längste aufsteigende Teilfolgen der gleichen Folge" class="invertable" src="/img/lis_alternatives.png"&gt;&lt;/p&gt;
+&lt;p&gt;Allerdings wurde bisher nie untersucht wie viele genau. Oftmals hört man, es sei nicht praktikabel
+alle durchzuzählen, da es exponentiell viele seien. Und wenn es darum ginge alle zu enumerieren,
+würde das stimmen. Aber wir wollen an dieser Stelle nur die Anzahl wissen, die wir mittels
+dynamischer Programmierung effizient bestimmen können. Die Idee ist, dass wir für jedes Element,
+das an Position $x$ in einer &lt;span class="caps"&gt;LIS&lt;/span&gt; auftauchen kann, berechnen, wie viele aufsteigende Teilfolgen
+der Länge $L-x$ mit diesem Element&amp;nbsp;beginnen.&lt;/p&gt;
+&lt;p&gt;Besonders einfach geht das, wenn wir zuerst eine Datenstruktur aufbauen, die kodiert welche
+Elemente in einer &lt;span class="caps"&gt;LIS&lt;/span&gt; aufeinander folgen können. Dazu erweitern wir
+&lt;a href="https://en.wikipedia.org/wiki/Patience_sorting"&gt;Patience Sort&lt;/a&gt;, und da dieser Algorithmus nach einem
+Kartenspiel benannt ist, werden wir es auch mit Karten visualisieren: Wir schreiben jedes Element
+unserer Sequenz auf eine Karte und legen die Karten auf einen Stapel, sodass das erste Element der Sequenz
+oben liegt. Dann nehmen wir Karten von oben ab und legen sie auf verschiedene Stapel. Die erste Karte legen
+wir auf den ersten, noch leeren Stapel. Die folgenden Karten legen wir auf den ersten Stapel, dessen
+oberstes Element größer ist als die aktuelle Karte und ansonsten machen wir einen neuen Stapel rechts
+davon auf. Jedes mal wenn wir eine Karte ablegen, lassen wir sie auf alle Karten, die aktuell auf dem
+Vorgängerstapel liegen und kleiner sind, zeigen &amp;#8212; dies sind die Karten die in einer aufsteigenden
+längsten Teilfolge direkt vor ihr auftauchen&amp;nbsp;können.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Animation von Patience Sort" class="invertable" src="/img/patience.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Am Ende haben wir $L$ Stapel, wobei $L$ die Länge der &lt;span class="caps"&gt;LIS&lt;/span&gt; ist, und wir können vom Stapel ganz rechts starten
+und den Pfeilen folgen, um eine &lt;span class="caps"&gt;LIS&lt;/span&gt; zusammenzubauen. Wenn wir nur an der
+&lt;a href="https://doi.org/10.1103/PhysRevE.101.062109"&gt;Länge interessiert wären&lt;/a&gt;, müssten wir uns über den Inhalt der Stapel keine Gedanken machen und der Algorithmus ließe sich sehr kompakt&amp;nbsp;darstellen:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;fn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;lis_len&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;Ord&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kp"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;usize&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;Vec&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;binary_search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Encountered non-unique element in sequence!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;stacks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Aber wir wollen mehr, deshalb notieren wir uns im nächsten Schritt bei allen Karten des
+rechtesten Stapels wie viele aufsteigende Teilfolgen
+der Länge $x=1$ mit ihnen starten, was trivialerweise je eine ist. Dann notieren wir bei allen Karten des
+Stapels links davon wie viele aufsteigenden Teilfolgen der Länge 2 mit ihnen anfangen. Das können wir berechnen,
+indem wir den Pfeilen rückwärts folgen und die Annotationen jeweils aufaddieren. Nachdem wir dies für
+alle Stapel wiederholt haben und den linkesten Stapel beschriftet haben, können wir alle Annotationen des
+linkesten Stapels aufaddieren, um die gesamte Anzahl &lt;span class="caps"&gt;LIS&lt;/span&gt; zu erhalten: hier&amp;nbsp;$7$.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Beispiel der Datenstruktur zum Zählen der unterschiedlichen LIS" class="invertable" src="/img/lis_backpointer.png"&gt;&lt;/p&gt;
+&lt;p&gt;Wie sich das ganze für längere Sequenzen aus unterschiedlichen Zufallsensembles im Detail verhält
+haben wir in einem &lt;a href="https://hendrik.schawe.me/pdf/2020_liscount_PRE.pdf"&gt;Artikel&lt;/a&gt;&amp;nbsp;veröffentlicht.&lt;/p&gt;</content><category term="Phys"/><category term="Veröffentlichung"/><category term="Physik"/><category term="Bild"/></entry><entry><title>Phase Transitions of Traveling Salesperson Problems solved with Linear Programming and Cutting Planes</title><link href="https://blog.schawe.me/paper-tsp-pt.html" rel="alternate"/><published>2018-07-31T06:28:00+02:00</published><updated>2018-07-31T06:28:00+02:00</updated><author><name>surt91</name></author><id>tag:blog.schawe.me,2018-07-31:/paper-tsp-pt.html</id><summary type="html">&lt;p&gt;In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (&lt;span class="caps"&gt;TSP&lt;/span&gt;)
+eingeführt, das abhängig von einem Parameter $\sigma$ von einer trivial einfach
+zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet
+sind, zum zufälligen euklidischen &lt;span class="caps"&gt;TSP&lt;/span&gt; in der Ebene&amp;nbsp;interpoliert.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Einfach und schwierig zu lösende TSP Konfigurationen" class="invertable" src="/img/tsp_interp.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Danach werden mittels &lt;a href="https://de.wikipedia.org/wiki/Lineare_Optimierung"&gt;linearer Programmierung&lt;/a&gt; einige
+Phasenübergänge festgestellt …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In diesem Artikel wird ein Ensemble von Problemen des Handlungsreisenden (&lt;span class="caps"&gt;TSP&lt;/span&gt;)
+eingeführt, das abhängig von einem Parameter $\sigma$ von einer trivial einfach
+zu lösenden Konfiguration, nämlich Städte, die äquidistant auf einem Kreis angeordnet
+sind, zum zufälligen euklidischen &lt;span class="caps"&gt;TSP&lt;/span&gt; in der Ebene&amp;nbsp;interpoliert.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Einfach und schwierig zu lösende TSP Konfigurationen" class="invertable" src="/img/tsp_interp.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Danach werden mittels &lt;a href="https://de.wikipedia.org/wiki/Lineare_Optimierung"&gt;linearer Programmierung&lt;/a&gt; einige
+Phasenübergänge festgestellt, ab welchen Werten von $\sigma$ das Problem
+schwierig zu lösen wird. Zu zwei dieser Übergänge werden strukturelle
+Eigenschaften der optimalen Lösung gefunden, die sich an dieser Stelle
+ebenfalls charakteristisch ändern. Da die optimale Lösung nicht von der
+Lösungsmethode abhängt, sind diese Phasenübergänge also nicht nur von Bedeutung
+für das spezielle Lineare Programm bzw. den Algorithmus der zu dessen Lösung
+genutzt wurde, sondern fundamentale Eigenschaft dieses &lt;span class="caps"&gt;TSP&lt;/span&gt;&amp;nbsp;Ensembles.&lt;/p&gt;
+&lt;p&gt;Im Detail haben wir die klassische Formulierung von Dantzig genutzt:
+\begin{align&lt;em&gt;}
+    \label{eq:objective}
+    &amp;amp;\text{minimize}     &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  \sum_i \sum_{j&amp;lt;i} c_{ij} x_{ij}\
+    \label{eq:int}
+    &amp;amp;\text{subject to}   &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  x_{ij}                                &amp;amp;\in {0,1}\ %\mathbb{Z}\
+    \label{eq:inout}
+    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;                    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  \sum_{j} x_{ij}                       &amp;amp;= 2&amp;amp;            &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; \forall i \in V \
+    \label{eq:sec}
+    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;                    &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;  \sum_{i \in S, j \notin S} x_{ij}     &amp;amp;\ge 2&amp;amp;          &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; \forall S \varsubsetneq V, S \ne \varnothing
+\end{align&lt;/em&gt;}&lt;/p&gt;
+&lt;p&gt;Hier ist $c_{ij}$ die Distanzmatrix zwischen allen Paaren von Städten aus $V$ und $x_{ij}$
+die gesuchte Adjazenzmatrix, also $x_{ij} = 1$, wenn $i$ und $j$ aufeinanderfolgende Stationen
+der Tour sind und $x_{ij} = 0$ sonst. Die erste Zeile minimiert also die Strecke der Tour.
+Um zu vermeiden, dass wir die triviale Lösung $x_{ij}=0$, also &amp;#8220;wenn wir zu Hause
+bleiben müssen wir am wenigsten Strecke zurücklegen&amp;#8221; finden, zwingt die dritte
+Zeile unseren Handlungsreisenden seine Tour so zu planen, dass in Summe zwei
+Striche an jede Stadt gezeichnet werden &amp;#8212; genug, um hinein und wieder hinaus
+zu reisen. Allerdings, ist unser Handlungsreisender clever und würde versuchen uns
+auszutricksen, indem er halbe Striche einzeichnen würde, wie
+&lt;a href="https://blog.schawe.me/tspview.html"&gt;in einem anderen Blogeintrag visualisiert&lt;/a&gt;. Deshalb ist die
+Bedingung in der zweiten Zeile nötig, die die Einträge in der Adjazenzmatrix auf
+ganze Zahlen beschränkt. Dann bleibt nur noch das Problem, dass mehrere Routen,
+die nicht verbunden sind erlaubt wären, sodass wir sie durch die letzte Zeile
+verbieten: die &lt;em&gt;Subtour Elimination Constraints&lt;/em&gt;. Der aufmerksame Leser mag
+schon erkannt haben, dass es für jede Untermenge von Städten so eine Constraint
+definiert, also exponentiell viele in der Anzahl der Städte. Die Lösung
+zu dieses Problem liegt darin, dass nur sehr wenige wirklich gebraucht werden, sodass
+man das Problem ohne diese Constraint löst, testet ob eine verletzt ist, was mittels
+der Berechnung eines &lt;a href="https://en.wikipedia.org/wiki/Minimum_cut"&gt;minimum cut&lt;/a&gt; sehr
+schnell geht und dann eine einzelne Constraint, die diese Konfiguration verbietet
+hinzufügt. Diese Methode iterativ Constraints hinzuzufügen wird meist als &lt;em&gt;Cutting Planes&lt;/em&gt;&amp;nbsp;bezeichnet.&lt;/p&gt;
+&lt;p&gt;Also haben wir einen schnellen Algorithmus für das Problem des Handlungsreisenden
+gefunden? Nein, leider können wir den &lt;a href="https://en.wikipedia.org/wiki/Millennium_Prize_Problems#P_versus_NP"&gt;Millenium Preis&lt;/a&gt; noch nicht beanspruchen. Es gibt keinen bekannten Algorithmus, der dieses Problem
+unter Erfüllung der zweiten Zeilen, also Beschränkung auf ganzzahlige Lösungen lösen kann.
+Aber sobald wir diese Bedingung fallen lassen, können wir klassische Verfahren der
+linearen Programmierung nutzen, um dieses Problem effizient zu lösen. Dies wird auch
+&lt;a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation"&gt;Relaxation&lt;/a&gt; genannt. Die Länge der
+Strecke ist immer eine untere Schranke für die tatsächliche Lösung. Und wenn unsere
+Lösung per Zufall ganzzahlig ist, können wir uns sicher sein, die Optimale Lösung
+gefunden zu&amp;nbsp;haben.&lt;/p&gt;
+&lt;p&gt;Als Ordnungsparameter des Phasenübergangs zwischen leichten und schweren Konfigurationen
+dient uns also die Wahrscheinlichkeit, dass
+mittels eines Simplex-Solvers eine ganzzahlige, und damit optimale, Lösung
+gefunden wird. Ohne die Subtour Elimination Constraints,
+fällt der Phasenübergang auf den Punkt, an dem sich die optimale Lösung erstmals
+von der Reihenfolge der Städte des ursprünglichen Kreises unterscheidet.
+Mit den Subtour Elimination Constraints, fällt der Phasenübergang auf den
+Punkt, wo die optimale Tour anfängt von einem Zickzack-Kurs auf große Meander zu
+wechseln. Dies wird durch die geometrische Gewundenheit, die &lt;em&gt;Tortuosität&lt;/em&gt;,
+\begin{align&lt;em&gt;}
+    \tau = \frac{n-1}{L} \sum_{i=1}^{n} \left( \frac{L_i}{S_i}-1 \right).
+\end{align&lt;/em&gt;}
+ermittelt, die an diesem Punkt maximal wird. Hier wird die Tour in $N$
+Teilstücke mit gleichem Vorzeichen der Krümmung unterteilt und für jedes
+Teilstück das Verhältnis von direkter Ende-zu-Ende-Distanz $S_i$ zu der
+Länge entlang der Tour $L-i$&amp;nbsp;summiert.&lt;/p&gt;
+&lt;p&gt;Wir haben also kontinuierliche Phasenübergänge in der Schwierigkeit dieses Problems
+mittels linearer Programmierung detektiert und sie mit strukturellen Änderungen
+des Verhaltens in Verbindung&amp;nbsp;gebracht.&lt;/p&gt;</content><category term="Phys"/><category term="Veröffentlichung"/><category term="Physik"/></entry></feed>

@@ -1,0 +1,95 @@
+﻿@charset "utf8";
+#ttt{
+	height: 180px;
+	width: 180px;
+	border: solid 2px;
+	position: absolute;
+	top:5px;
+	left:5px;
+}
+#xWins{
+	text-align: right;
+}
+#oWins{
+	text-align: left;
+}
+#remis{
+	text-align: center;
+}
+*.wins{
+	position: absolute;
+	width: 160px;
+	top: 240px;
+	left: 0px;
+	font-size: 24px;
+	cursor: crosshair;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+*.debug{
+	position: absolute;
+	width: 180px;
+	top: 50px;
+	left: 5px;
+	text-align: center;
+	font-size: 30px;
+	cursor: pointer;
+	text-align: center;
+	z-index:-1;
+}
+*.result{
+	position: absolute;
+	width: 180px;
+	top: 210px;
+	left: 5px;
+	text-align: center;
+	font-size: 24px;
+	cursor: pointer;
+}
+*.feld{
+	position: absolute;
+	border: solid 1px;
+	height: 58px;
+	width: 58px;
+	text-align: center;
+	// vertical-align: middle;
+	font-size: 40px;
+	cursor: pointer;
+}
+
+#z11{
+	top:0px;
+	left:0px;
+}
+#z21{
+	top:0px;
+	left:60px;
+}
+#z31{
+	top:0px;
+	left:120px;
+}
+#z12{
+	top:60px;
+	left:0px;
+}
+#z22{
+	top:60px;
+	left:60px;
+}
+#z32{
+	top:60px;
+	left:120px;
+}
+#z13{
+	top:120px;
+	left:0px;
+}
+#z23{
+	top:120px;
+	left:60px;
+}
+#z33{
+	top:120px;
+	left:120px;
+}
